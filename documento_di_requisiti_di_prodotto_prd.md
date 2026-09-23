@@ -7,6 +7,48 @@
 
 ---
 
+## ⚡ CHANGE MANAGEMENT
+
+> **⚠️ IMPORTANTE**: Questo PRD è il documento "master". Se lo modifichi, **aggiorna automaticamente** anche questi file in `/docs`:
+
+```
+SE CAMBI IL PRD → AGGIORNA:
+├─ Nuova User Story (US-XXX) o Acceptance Criteria cambiate?
+│  └─ Aggiorna: docs/TIMELINE.md (ripiano timeline, aggiungi settimana se necessario)
+│
+├─ Nuovo modello o cambio dati?
+│  └─ Aggiorna: docs/SCHEMA_DATABASE.md (tabelle, indici, relazioni)
+│
+├─ Nuovo feature che richiede API?
+│  └─ Aggiorna: docs/API_ENDPOINTS.md (aggiungi endpoint)
+│
+├─ Cambio architettura o tech stack?
+│  └─ Aggiorna: docs/ARCHITETTURA.md
+│
+└─ Nuovo rischio identificato?
+   └─ Aggiorna: docs/RISCHI.md (aggiungi risk, mitigation, monitoring)
+```
+
+**Procedura per Change**:
+1. Modifica questo PRD
+2. Aggiorna i file in `/docs` di conseguenza
+3. Commit con messaggio: `update: [description] (PRD v2.1)`
+4. Notifica il team che PRD è cambiato
+
+**Esempio**:
+```
+PRD Cambia: Aggiungere notifiche push per sostenitori (nuova feature)
+  ↓
+1. Aggiungi US-502 nel PRD
+2. Aggiorna SCHEMA_DATABASE.md (tabella notifications)
+3. Aggiorna API_ENDPOINTS.md (POST /notifications)
+4. Aggiorna TIMELINE.md (sposta deliverable, ripiano schedule)
+5. Aggiorna RISCHI.md (nuovo rischio: WebSocket scalability)
+6. Commit: "update: Add push notifications feature (PRD v2.1)"
+```
+
+---
+
 ## 1. Visione del Prodotto e Obiettivi
 
 ### 1.1 Inquadramento e Problema
