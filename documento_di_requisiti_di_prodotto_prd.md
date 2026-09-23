@@ -9,43 +9,79 @@
 
 ## ⚡ CHANGE MANAGEMENT
 
-> **⚠️ IMPORTANTE**: Questo PRD è il documento "master". Se lo modifichi, **aggiorna automaticamente** anche questi file in `/docs`:
+> **⚠️ IMPORTANTE**: Questo PRD è il documento "master" di business requirements. 
+> **QUANDO CAMBIA IL PRD, CAMBIA ANCHE IL PIANO DI SVILUPPO.**
+> Se lo modifichi, **aggiorna automaticamente** anche questi file in `/docs`:
 
 ```
-SE CAMBI IL PRD → AGGIORNA:
-├─ Nuova User Story (US-XXX) o Acceptance Criteria cambiate?
-│  └─ Aggiorna: docs/TIMELINE.md (ripiano timeline, aggiungi settimana se necessario)
+SE CAMBI IL PRD → AGGIORNA (CASCATA):
+├─ Nuova User Story (US-XXX) o AC cambiate?
+│  ├─ docs/TIMELINE.md (ripiano timeline, aggiungi settimane?)
+│  ├─ docs/SCHEMA_DATABASE.md (nuove tabelle?)
+│  ├─ docs/API_ENDPOINTS.md (nuovi endpoint?)
+│  └─ docs/RISCHI.md (nuovo rischio?)
+│
+├─ Cambio priorità o scope feature?
+│  └─ docs/TIMELINE.md (riordina sprint, sposta deadline)
 │
 ├─ Nuovo modello o cambio dati?
-│  └─ Aggiorna: docs/SCHEMA_DATABASE.md (tabelle, indici, relazioni)
-│
-├─ Nuovo feature che richiede API?
-│  └─ Aggiorna: docs/API_ENDPOINTS.md (aggiungi endpoint)
+│  ├─ docs/SCHEMA_DATABASE.md (tabelle, indici, relazioni)
+│  └─ docs/API_ENDPOINTS.md (impatto API)
 │
 ├─ Cambio architettura o tech stack?
-│  └─ Aggiorna: docs/ARCHITETTURA.md
+│  ├─ docs/ARCHITETTURA.md (patterns, layers, deployment)
+│  └─ docs/DEPLOYMENT.md (se infra impattata)
 │
 └─ Nuovo rischio identificato?
-   └─ Aggiorna: docs/RISCHI.md (aggiungi risk, mitigation, monitoring)
+   └─ docs/RISCHI.md (risk matrix, monitoring)
 ```
 
 **Procedura per Change**:
-1. Modifica questo PRD
-2. Aggiorna i file in `/docs` di conseguenza
-3. Commit con messaggio: `update: [description] (PRD v2.1)`
-4. Notifica il team che PRD è cambiato
+1. Modifica questo PRD (versione → incrementa)
+2. Aggiorna i file in `/docs` di conseguenza (tutti impattati)
+3. Commit con messaggio: `update: [description] (PRD v2.X)`
+4. Notifica il team → **TIMELINE E PIANO CAMBIANO**
 
-**Esempio**:
+**Esempio: Aggiungere Notifiche Push**:
 ```
-PRD Cambia: Aggiungere notifiche push per sostenitori (nuova feature)
-  ↓
-1. Aggiungi US-502 nel PRD
-2. Aggiorna SCHEMA_DATABASE.md (tabella notifications)
-3. Aggiorna API_ENDPOINTS.md (POST /notifications)
-4. Aggiorna TIMELINE.md (sposta deliverable, ripiano schedule)
-5. Aggiorna RISCHI.md (nuovo rischio: WebSocket scalability)
-6. Commit: "update: Add push notifications feature (PRD v2.1)"
+PRD: Aggiungi US-502 "Notifiche push sostenitori"
+  ↓ PIANO CAMBIA:
+1. docs/TIMELINE.md 
+   - Aggiungi 1-2 settimane per feature
+   - Sposta altre feature di conseguenza
+   
+2. docs/SCHEMA_DATABASE.md
+   - Crea tabella: notifications, notification_subscriptions
+   - Indice: idx_notifications_user, idx_notifications_created_at
+   
+3. docs/API_ENDPOINTS.md
+   - POST /notifications/subscribe
+   - GET /notifications
+   - DELETE /notifications/:id
+   
+4. docs/ARCHITETTURA.md
+   - Descrivi: WebSocket o Redis Pub/Sub?
+   - Service Worker per PWA push?
+   
+5. docs/RISCHI.md
+   - Risk: WebSocket scalability
+   - Risk: Browser push support across devices
+   - Mitigation: Graceful degradation
+   
+6. Commit:
+   git commit -m "update: Add push notifications feature (PRD v2.1)
+   
+   - Added US-502 to PRD
+   - Replanned timeline (add 1.5 weeks)
+   - Added notification schema
+   - Added 3 new API endpoints
+   - Identified 2 new risks + mitigations"
 ```
+
+**⚡ RICORDA**: 
+- PRD = cosa fare (COSA)
+- docs/ = come farlo (COME + QUANDO)
+- Se COSA cambia, automaticamente COME e QUANDO cambiano
 
 ---
 
