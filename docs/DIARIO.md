@@ -56,3 +56,25 @@ Il dettaglio di ogni decisione è nel PRD (`docs/PRD.md`), capitolo 5.7.
 - Blocco 4, poi passaggio rapido su fase 2 e futuro.
 - Dal 1° ottobre: seconda parte del PRD (scelte tecnologiche, architettura, API, dati, sicurezza).
 - Consegna del PRD ripulito: venerdì 9 ottobre 2026.
+
+## 24/09/2026 (sera) – Repository pulita e PRD v1.0
+
+**Fatto**
+- Repository ripulita: rimossi PRD vecchi, piano di sviluppo e documenti tecnici superati; restano README, `.gitignore`, `docs/PRD.md`, `docs/DIARIO.md`, `docs/bot/TECHNICAL-INTEGRATION.md`. Repository privata.
+- Regole del documento: un solo documento (cosa, come, quando nel PRD); il codice segue il PRD; versioni solo quando cambiano le decisioni (1.x per sessione, 2.0 alla consegna, 3.0 alla validazione).
+- Nome del prodotto: "Gestionale Effatà – Piattaforma Sostenitori e Automazione Contabile".
+- **PRD v1.0** (tag `prd-v1.0`): prima versione condivisa con il docente, capitolo 1 in forma definitiva.
+
+**Decisioni**
+- Flusso rovesciato: prima la registrazione, poi l'adozione o la donazione.
+- Simpatizzante (chi si registra) → sostenitore (dopo la prima donazione); spazio informativo in fase 2, con collegamenti al sito.
+- Donante e avente diritto alla detrazione; causale standard con "erogazione liberale" e codice fiscale.
+- Quietanza caricata dal sostenitore → lettera di ringraziamento; conferma all'import trimestrale dell'estratto conto.
+- Canali: solo UniCredit e campagne esterne (GoFundMe) imputate alla raccolta fondi.
+- VERIF!CO resta il riferimento per contabilità, ricevute e newsletter (invio tramite relay Brevo); le anagrafiche complete vanno dal gestionale a VERIF!CO.
+- Sanatoria dei dati pregressi in fase 2. OCR degli estratti conto non previsto (CSV/Excel).
+
+**Prossimi passi**
+- Invitare il docente sulla repository e inviare l'email con il link.
+- Capitolo 2 (Stakeholder) in forma definitiva, poi i capitoli successivi uno alla volta.
+- Blocco 4: copia anonimizzata di `ListaMovimenti.xlsx`; risposte all'Appendice B.
