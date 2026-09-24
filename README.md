@@ -26,7 +26,7 @@ Il PRD è il documento di riferimento. Ogni modifica:
 2. aggiorna il diario;
 3. viene registrata con un commit nel formato `update: descrizione (PRD vX.Y)`.
 
-Dopo la validazione del PRD verranno scritti i documenti tecnici derivati (architettura, schema del database, API, timeline, deployment, rischi), sempre coerenti con il PRD.
+Il PRD è l'unico documento di progetto: contiene il cosa, il come e il quando, secondo il template del docente. Dopo la validazione, il dettaglio tecnico vivrà nel codice (specifica OpenAPI, migrazioni del database, configurazioni di deployment, milestone e issue di GitHub), senza copie parallele in Markdown.
 
 ## Privacy
 

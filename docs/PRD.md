@@ -19,7 +19,7 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | Autori | Andrea Pavan |
 | Cliente reale | Effatà Italia ODV |
 | Contesto | Progetto ITS – 2° anno. Progetto personale che segue la metodologia della traccia “ScuolaChill”. |
-| Versione | 3.8 |
+| Versione | 3.9 |
 | Data | ____ / ____ / ________ |
 | Stato | ☐ Bozza   ☐ In revisione   ☐ Validato |
 
@@ -38,6 +38,7 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | 3.6 |   | Andrea Pavan | Testo 1.1 (business e tecnico); blocco 1 della fase 1: vista d’insieme, imputazione, checklist di rendicontazione, listino, Cassa sostegno Effatà, causale standard, carrello con bonifico; rendicontazione in fase 1, pagamento con carta in fase 2; perimetro marcato “in approfondimento”. |
 | 3.7 |   | Andrea Pavan | Bot esistente (cap. 3.2), due sistemi indipendenti e contratto di integrazione (cap. 10.1, 11.5), dipendenze, dati verso servizi esterni (13.4), orientamento di deploy (16), nuovi rischi (19); date corrette al 24/09/2026. |
 | 3.8 |   | Andrea Pavan | Blocchi 2 e 3 della fase 1: visibilità per sostenitore (FR-VIS-01), registrazione e collegamento ai dati storici (FR-REG-01/02/03), ricevute (FR-RIC-01), password e dati critici (FR-SEC-01/02); nuova dipendenza VERIF!CO; domande per l’associazione. |
+| 3.9 |   | Andrea Pavan | Gestione delle modifiche riscritta: un solo documento (cosa, come, quando nel PRD, come da template); dopo la validazione il dettaglio tecnico vive nel codice (OpenAPI, migrazioni, configurazioni). Rimossi i riferimenti ai file separati in docs/. |
 |   |   |   |   |
 |   |   |   |   |
 
@@ -49,7 +50,19 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 
 *Origine: sezione aggiuntiva della nostra bozza – non richiesta dal template, la teniamo*
 
+> **✔ Regola aggiornata il 24/09/2026**
+>
+> **Un solo documento.** Con lo schema del template il PRD contiene già il **cosa** (prima parte), il **come** (seconda parte: architettura, API, dati, sicurezza, deployment) e il **quando** (terza parte: milestone). Non esistono file separati per architettura, schema del database, API o timeline: sarebbero copie destinate a divergere.
+>
+> **Ogni modifica al PRD:** 1) aggiornare il PRD e aggiungere una riga allo storico delle versioni, con il motivo; 2) aggiornare `docs/DIARIO.md`; 3) commit nel formato `update: descrizione (PRD vX.Y)`.
+>
+> **Dopo la validazione, il “come” di dettaglio vive nel codice**, generato o verificato automaticamente: la specifica OpenAPI/Swagger per le API, le migrazioni per lo schema del database, i file di configurazione e gli script per il deployment, le milestone e le issue di GitHub per i tempi.
+>
+> **Se codice e PRD divergono**, si decide quale dei due ha ragione: o si corregge il codice, o si aggiorna il PRD con una nuova versione. Un PRD che dice una cosa mentre il codice ne fa un’altra è peggio di nessun PRD (template del docente).
+
 > **📄 Dalla tua bozza v2.0**
+>
+> **Versione originale (v2.0) – superata dalla regola qui sopra, conservata come riferimento.**
 >
 > Il PRD è il documento “master” dei requisiti (il COSA). I file in `/docs` descrivono il COME e il QUANDO: TIMELINE.md, SCHEMA_DATABASE.md, API_ENDPOINTS.md, ARCHITETTURA.md, DEPLOYMENT.md, RISCHI.md.
 >
@@ -60,11 +73,6 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 > Esempio: aggiungere le notifiche push (nuova US) → +1–2 settimane in TIMELINE, tabelle `notifications` e `notification_subscriptions`, endpoint `POST /notifications/subscribe`, `GET /notifications`, `DELETE /notifications/:id`, scelta WebSocket o Redis Pub/Sub, nuovi rischi su scalabilità e supporto browser.
 >
 > Ricorda: PRD = cosa fare; docs/ = come e quando. Se il COSA cambia, cambiano anche COME e QUANDO.
-
-> **⚠ Nota di revisione**
->
-> - Si integra bene con lo storico delle versioni del template: ogni riga dello storico corrisponde a un commit `update: … (PRD vX.Y)`.
-> - Nella consegna finale riducila a mezza pagina: il prof valuta le decisioni sul prodotto, non la procedura.
 
 # Come usare questo documento
 
