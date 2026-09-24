@@ -4,13 +4,13 @@
 
 Piattaforma per Adottanti e Automazione Contabile
 
-*Versione 3 – struttura allineata al PRD Template del docente*
+*Versione 3.10 – struttura allineata al PRD Template del docente*
 
 Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi e valutazione
 
 # Informazioni sul documento
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
 | Campo | Valore |
 | --- | --- |
@@ -19,7 +19,7 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | Autori | Andrea Pavan |
 | Cliente reale | Effatà Italia ODV |
 | Contesto | Progetto ITS – 2° anno. Progetto personale che segue la metodologia della traccia “ScuolaChill”. |
-| Versione | 3.9 |
+| Versione | 3.10 |
 | Data | ____ / ____ / ________ |
 | Stato | ☐ Bozza   ☐ In revisione   ☐ Validato |
 
@@ -39,6 +39,7 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | 3.7 |   | Andrea Pavan | Bot esistente (cap. 3.2), due sistemi indipendenti e contratto di integrazione (cap. 10.1, 11.5), dipendenze, dati verso servizi esterni (13.4), orientamento di deploy (16), nuovi rischi (19); date corrette al 24/09/2026. |
 | 3.8 |   | Andrea Pavan | Blocchi 2 e 3 della fase 1: visibilità per sostenitore (FR-VIS-01), registrazione e collegamento ai dati storici (FR-REG-01/02/03), ricevute (FR-RIC-01), password e dati critici (FR-SEC-01/02); nuova dipendenza VERIF!CO; domande per l’associazione. |
 | 3.9 |   | Andrea Pavan | Gestione delle modifiche riscritta: un solo documento (cosa, come, quando nel PRD, come da template); dopo la validazione il dettaglio tecnico vive nel codice (OpenAPI, migrazioni, configurazioni). Rimossi i riferimenti ai file separati in docs/. |
+| 3.10 |   | Andrea Pavan | Linguaggio reso neutro per la condivisione: “docente” al posto di “prof”, capitolo 20 riformulato come domande di autovalutazione; numero di versione esplicito in copertina. |
 |   |   |   |   |
 |   |   |   |   |
 
@@ -82,11 +83,11 @@ Questa versione segue **lo schema del PRD Template del docente**: tre parti (il 
 
 ### Doppi titoli
 
-Quando il nostro titolo è diverso da quello del template, il titolo del template è riportato **tra parentesi**. Esempio: “Scelte tecnologiche con alternative considerate (Scelte tecnologiche)”. Sotto ogni titolo una riga grigia indica l’origine della sezione: nostra bozza, template del prof, o unione delle due.
+Quando il nostro titolo è diverso da quello del template, il titolo del template è riportato **tra parentesi**. Esempio: “Scelte tecnologiche con alternative considerate (Scelte tecnologiche)”. Sotto ogni titolo una riga grigia indica l’origine della sezione: nostra bozza, template del docente, o unione delle due.
 
 ### Legenda dei riquadri
 
-> **🧭 Guida – cosa chiede il professore**
+> **🧭 Guida – cosa chiede la traccia**
 >
 > - Requisiti della traccia e consigli 💡 del template, con le domande guida.
 
@@ -104,7 +105,7 @@ Quando il nostro titolo è diverso da quello del template, il titolo del templat
 
 > **✍ Da compilare – domanda del template, adattata a Effatà**
 >
-> Le domande e gli esempi in corsivo del template del prof, riscritti per Effatà. Sono le parti da sostituire con il tuo testo.
+> Le domande e gli esempi in corsivo del template del docente, riscritti per Effatà. Sono le parti da sostituire con il tuo testo.
 
 Come dice il template: i riquadri di consiglio vanno **cancellati prima della consegna**, e il testo definitivo sostituisce spazi vuoti e appunti.
 
@@ -133,7 +134,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 | Milestone | 17. Roadmap e MVP | Unione |
 | Piano di valutazione | 18. Piano di valutazione | Template |
 | — (non presente) | 19. Rischi | Nostra |
-| — (non presente) | 20. Preparazione alla validazione | Nostra |
+| — (non presente) | 20. Domande di verifica (autovalutazione) | Nostra |
 | Acceptance Criteria di questa PRD | 21. Acceptance Criteria di questa PRD | Template |
 | — (non presente) | Appendici A, B e Allegato finale (brain dump iniziale) | Nostra |
 
@@ -172,7 +173,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 | 17 | Roadmap e MVP (Milestone) | DA RIVEDERE | ☐ |
 | 18 | Piano di valutazione | MANCANTE | ☐ |
 | 19 | Rischi | MANCANTE | ☐ |
-| 20 | Preparazione alla validazione | MANCANTE | ☐ |
+| 20 | Domande di verifica (autovalutazione) | MANCANTE | ☐ |
 | 21 | Acceptance Criteria di questa PRD | DA VERIFICARE A FINE LAVORO | ☐ |
 
 **Indice**
@@ -194,7 +195,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 
 **Stato:** **DA ARRICCHIRE**
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
 ## 1.1 Inquadramento e problema (Perché esiste il Gestionale Effatà)
 
@@ -237,7 +238,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 
 ## 1.3 Cosa è incluso e cosa non è incluso
 
-*Origine: template del prof – sezione nuova, non presente nella nostra bozza*
+*Origine: template del docente – sezione nuova, non presente nella nostra bozza*
 
 > **🧭 Dal template**
 >
@@ -296,7 +297,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 
 **Stato:** **MANCANTE**
 
-*Origine: template del prof – sezione nuova, non presente nella nostra bozza*
+*Origine: template del docente – sezione nuova, non presente nella nostra bozza*
 
 > **🧭 Dal template**
 >
@@ -321,7 +322,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 
 **Stato:** **PARZIALE**
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
 ## 3.1 I numeri dell’associazione (La scuola che avete immaginato)
 
@@ -449,11 +450,11 @@ Tabella nel formato del template (la colonna **Dispositivo principale** è nuova
 
 **Stato:** **MANCANTE**
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
 ## 4.1 Il Gestionale Effatà in poche righe
 
-*Origine: template del prof – sezione nuova, non presente nella nostra bozza*
+*Origine: template del docente – sezione nuova, non presente nella nostra bozza*
 
 > **✍ Da compilare – domanda del template, adattata a Effatà**
 >
@@ -547,9 +548,9 @@ Tabella nel formato del template (la colonna **Dispositivo principale** è nuova
 
 **Stato:** **DA RIVEDERE**
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
-> **🧭 Guida – cosa chiede il professore**
+> **🧭 Guida – cosa chiede la traccia**
 >
 > - Formula: **Come** [utente] **voglio** [azione] **così da** [beneficio]. AC nel formato **Dato che / Quando / Allora**.
 > - La traccia dà 3 storie per ruolo con 2–3 AC ciascuna, e almeno un AC per storia riguarda ciò che **viene negato**.
@@ -688,7 +689,7 @@ Le storie della traccia ScuolaChill non si applicano al tuo dominio: al loro pos
 
 ## 5.7 Decisioni aperte (Le decisioni lasciate aperte dalla traccia)
 
-*Origine: template del prof – sezione nuova, non presente nella nostra bozza*
+*Origine: template del docente – sezione nuova, non presente nella nostra bozza*
 
 > **🧭 Dal template**
 >
@@ -874,7 +875,7 @@ Le storie della traccia ScuolaChill non si applicano al tuo dominio: al loro pos
 
 **Stato:** **MANCANTE**
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
 > **🧭 Dal template**
 >
@@ -909,7 +910,7 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 
 ## 6.2 Requisiti impliciti
 
-*Origine: template del prof – sezione nuova, non presente nella nostra bozza*
+*Origine: template del docente – sezione nuova, non presente nella nostra bozza*
 
 > **🧭 Dal template, adattato**
 >
@@ -927,7 +928,7 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 
 **Stato:** **MANCANTE**
 
-*Origine: template del prof – sezione nuova, non presente nella nostra bozza*
+*Origine: template del docente – sezione nuova, non presente nella nostra bozza*
 
 > **🧭 Dal template**
 >
@@ -985,7 +986,7 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 
 **Stato:** **MANCANTE**
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
 > **🧭 Guida**
 >
@@ -1039,7 +1040,7 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 
 **Stato:** **DA RIVEDERE**
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
 > **📄 Dalla tua bozza v2.0**
 >
@@ -1075,9 +1076,9 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 
 **Stato:** **DA RIVEDERE**
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
-> **🧭 Guida – cosa chiede il professore**
+> **🧭 Guida – cosa chiede la traccia**
 >
 > - Architettura complessiva e **suddivisione in componenti**, con un diagramma.
 > - **Livelli** riferiti al tuo gestionale; **dipendenze** fra livelli; come la struttura riduce l’**accoppiamento** e rende il sistema **testabile**.
@@ -1147,9 +1148,9 @@ GESTIONALE (proprietario dei dati)        BOT (proprietario dei contenuti social
 
 **Stato:** **MANCANTE**
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
-> **🧭 Guida – cosa chiede il professore**
+> **🧭 Guida – cosa chiede la traccia**
 >
 > - **Risorse** REST e route; GET, POST, PUT, PATCH, DELETE; **CRUD completo** sulle entità principali.
 > - **Codici di stato** e **formato uniforme** degli errori; **validazione** e **paginazione**.
@@ -1183,7 +1184,7 @@ GESTIONALE (proprietario dei dati)        BOT (proprietario dei contenuti social
 
 ## 11.2 Il contratto delle API principali
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
 | Verbo | Route | Chi può chiamarla | Payload di esempio | Risposte previste |
 | --- | --- | --- | --- | --- |
@@ -1258,9 +1259,9 @@ TUTTO IL RESTO RESTA NEL BOT
 
 **Stato:** **DA RIVEDERE**
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
-> **🧭 Guida – cosa chiede il professore**
+> **🧭 Guida – cosa chiede la traccia**
 >
 > - Modello relazionale con **entità, relazioni, cardinalità** e diagramma ER; accesso ai dati e **query parametrizzate**; **identificatori**; differenza fra **DB, dominio e API**; **normalizzazione** e letture aggregate.
 
@@ -1359,9 +1360,9 @@ TUTTO IL RESTO RESTA NEL BOT
 
 **Stato:** **DA RIVEDERE**
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
-> **🧭 Guida – cosa chiede il professore**
+> **🧭 Guida – cosa chiede la traccia**
 >
 > - **HTTPS**; **autenticazione** (token, contenuto, profilo); **ruoli** e dove viene applicato il controllo (mai solo nel frontend); almeno una **API esterna** e il suo fallimento; **configurazioni e segreti**.
 
@@ -1446,7 +1447,7 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 
 *Origine: sezione aggiuntiva della nostra bozza – non richiesta dal template, la teniamo*
 
-> **⚠ Punto delicato – il prof lo chiederà**
+> **⚠ Punto delicato – da presidiare**
 >
 > - Base giuridica e consenso per le foto dei bambini: chi lo raccoglie e come viene registrato?
 > - Cosa inviate esattamente all’AI? Potete mascherare IBAN e altri dati? Il provider conserva i dati? In quale paese?
@@ -1474,9 +1475,9 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 
 **Stato:** **MANCANTE**
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
-> **🧭 Guida – cosa chiede il professore**
+> **🧭 Guida – cosa chiede la traccia**
 >
 > - **Organizzazione del codice**, **design pattern**, **testabilità**, **Development/Production**. (Deployment e migrazioni sono al cap. 16, come nel template.)
 
@@ -1541,7 +1542,7 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 
 **Stato:** **MANCANTE**
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
 | Componente | Servizio | Taglia (CPU, RAM, storage) | Istanze | Costo mensile stimato |
 | --- | --- | --- | --- | --- |
@@ -1554,7 +1555,7 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 | Dominio e certificato |   |   |   |   |
 | **Totale** |   |   |   |   |
 
-> **🧭 Domanda che ti farà quasi certamente il prof**
+> **🧭 Domanda da chiarire**
 >
 > - Chi paga questi costi? Il budget di un’ODV è un vincolo reale (VIN-01) e un ottimo criterio per le scelte del cap. 9.
 
@@ -1578,7 +1579,7 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 
 **Stato:** **DA RIVEDERE**
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
 > **✍ Da compilare – domanda del template, adattata a Effatà**
 >
@@ -1608,7 +1609,7 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 
 **Stato:** **DA RIVEDERE**
 
-*Origine: unione fra la nostra bozza e il template del prof*
+*Origine: unione fra la nostra bozza e il template del docente*
 
 > **📄 Dalla tua bozza v2.0**
 >
@@ -1649,7 +1650,7 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 
 **Stato:** **MANCANTE**
 
-*Origine: template del prof – sezione nuova, non presente nella nostra bozza*
+*Origine: template del docente – sezione nuova, non presente nella nostra bozza*
 
 > **🧭 Dal template**
 >
@@ -1688,13 +1689,13 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 | Poca esperienza con React all’inizio dello sviluppo | Media | Medio | Partire dalle schermate più semplici; struttura del frontend semplice; appoggio al corso parallelo; fase 1 limitata al perimetro minimo |
 |   |   |   |   |
 
-# 20. Preparazione alla validazione
+# 20. Domande di verifica (autovalutazione)
 
 **Stato:** **MANCANTE**
 
 *Origine: sezione aggiuntiva della nostra bozza – non richiesta dal template, la teniamo*
 
-Il prof validerà il PRD con domande “come farebbe un cliente”. Se non sai rispondere, la sezione collegata non è pronta.
+Domande che un cliente o un valutatore potrebbe porre sul PRD. Se una risposta manca, la sezione collegata non è ancora pronta.
 
 1. Perché un progetto diverso da quello proposto, e come copre gli stessi requisiti (tre ruoli, CRUD, autorizzazioni, dashboard aggregata)?
 
@@ -1736,7 +1737,7 @@ Il prof validerà il PRD con domande “come farebbe un cliente”. Se non sai r
 
 > *(spazio per appunti)*
 
-11. Quale parte è stata progettata con l’AI e quale da te? (Ricorda la nota del prof su Patrick.)
+11. Quale parte è stata progettata con il supporto dell’AI e quale in autonomia, e come sono state verificate le proposte dell’AI?
 
 > *(spazio per appunti)*
 
@@ -1744,7 +1745,7 @@ Il prof validerà il PRD con domande “come farebbe un cliente”. Se non sai r
 
 **Stato:** **DA VERIFICARE A FINE LAVORO**
 
-*Origine: template del prof – sezione nuova, non presente nella nostra bozza*
+*Origine: template del docente – sezione nuova, non presente nella nostra bozza*
 
 Checklist finale del template, da spuntare prima della consegna.
 
