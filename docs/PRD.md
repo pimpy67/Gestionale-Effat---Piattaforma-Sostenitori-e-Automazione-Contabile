@@ -2,9 +2,9 @@
 
 **PRD del Gestionale Effatà**
 
-Piattaforma per Adottanti e Automazione Contabile
+Piattaforma Sostenitori e Automazione Contabile
 
-*Versione 3.10 – struttura allineata al PRD Template del docente*
+*Versione 1.0 – versione di lavoro, struttura allineata al PRD Template del docente*
 
 Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi e valutazione
 
@@ -14,12 +14,12 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 
 | Campo | Valore |
 | --- | --- |
-| Prodotto | Gestionale Effatà – Piattaforma per Adottanti e Automazione Contabile |
+| Prodotto | Gestionale Effatà – Piattaforma Sostenitori e Automazione Contabile |
 | Team | ______________ (progetto individuale) |
 | Autori | Andrea Pavan |
 | Cliente reale | Effatà Italia ODV |
 | Contesto | Progetto ITS – 2° anno. Progetto personale che segue la metodologia della traccia “ScuolaChill”. |
-| Versione | 3.10 |
+| Versione | 1.0 |
 | Data | ____ / ____ / ________ |
 | Stato | ☐ Bozza   ☐ In revisione   ☐ Validato |
 
@@ -27,19 +27,9 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 
 | Versione | Data | Autore | Cosa è cambiato e perché |
 | --- | --- | --- | --- |
-| 2.0 |   | Andrea Pavan | Bozza iniziale: visione, archetipi, 4 user story, flusso dati, modello dati, stack, roadmap, change management. |
-| 2.1 |   | Andrea Pavan | Versione guidata: sezioni mancanti rispetto alla traccia, note di revisione, spazi di lavoro. |
-| 3.0 |   | Andrea Pavan | Riorganizzazione secondo il PRD Template del docente (tre parti), aggiunta delle sezioni nuove del template, doppi titoli. |
-| 3.1 |   | Andrea Pavan | Domande ed esempi del template riscritti per Effatà in ogni sezione (riquadri gialli). |
-| 3.2 |   | Andrea Pavan | Allegato finale “Brain dump iniziale” con intuizione di partenza e bozza del flusso dei dati; appendici riordinate. |
-| 3.3 |   | Andrea Pavan | Brain dump iniziale inserito (BD.3), riordinato per temi (BD.4), punti da approfondire (BD.5); schede sostenitore, beneficiario e intervento (5.8); fonti in Appendice A. |
-| 3.4 |   | Andrea Pavan | Prime decisioni: numeri dell’associazione, AS-IS, ruoli e permessi, adozioni e riaffido, interventi con più finanziatori, scadenza e archiviazione degli accessi, scheda famiglia, lingua e file di traduzione. |
-| 3.5 |   | Andrea Pavan | Perimetro confermato in tre fasi (cap. 1.3, 17); orientamento tecnologico Ionic + React (PWA) e NestJS (cap. 9); milestone collegate al template; rischio React aggiunto. |
-| 3.6 |   | Andrea Pavan | Testo 1.1 (business e tecnico); blocco 1 della fase 1: vista d’insieme, imputazione, checklist di rendicontazione, listino, Cassa sostegno Effatà, causale standard, carrello con bonifico; rendicontazione in fase 1, pagamento con carta in fase 2; perimetro marcato “in approfondimento”. |
-| 3.7 |   | Andrea Pavan | Bot esistente (cap. 3.2), due sistemi indipendenti e contratto di integrazione (cap. 10.1, 11.5), dipendenze, dati verso servizi esterni (13.4), orientamento di deploy (16), nuovi rischi (19); date corrette al 24/09/2026. |
-| 3.8 |   | Andrea Pavan | Blocchi 2 e 3 della fase 1: visibilità per sostenitore (FR-VIS-01), registrazione e collegamento ai dati storici (FR-REG-01/02/03), ricevute (FR-RIC-01), password e dati critici (FR-SEC-01/02); nuova dipendenza VERIF!CO; domande per l’associazione. |
-| 3.9 |   | Andrea Pavan | Gestione delle modifiche riscritta: un solo documento (cosa, come, quando nel PRD, come da template); dopo la validazione il dettaglio tecnico vive nel codice (OpenAPI, migrazioni, configurazioni). Rimossi i riferimenti ai file separati in docs/. |
-| 3.10 |   | Andrea Pavan | Linguaggio reso neutro per la condivisione: “docente” al posto di “prof”, capitolo 20 riformulato come domande di autovalutazione; numero di versione esplicito in copertina. |
+| 0.x | 23–24/09/2026 | Andrea Pavan | Bozze di lavoro (numerate internamente da 2.0 a 3.11 nella cronologia di git): bozza iniziale; struttura sul PRD Template del docente; brain dump; prime decisioni su numeri, ruoli, adozioni, interventi, accessi; perimetro in tre fasi; blocchi 1–3 della fase 1; bot esistente e contratto di integrazione; nome del prodotto. |
+| 1.0 | 24/09/2026 | Andrea Pavan | Prima versione condivisa con il docente. Capitolo 1 in forma definitiva; flusso rovesciato (prima la registrazione, poi la donazione); simpatizzanti; donante e avente diritto alla detrazione; quietanza e ringraziamenti; canali di entrata; rapporto con VERIF!CO; sanatoria dei dati pregressi in fase 2; OCR non previsto. Gli altri capitoli sono ancora in versione di lavoro. |
+|   |   |   |   |
 |   |   |   |   |
 |   |   |   |   |
 
@@ -55,25 +45,13 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 >
 > **Un solo documento.** Con lo schema del template il PRD contiene già il **cosa** (prima parte), il **come** (seconda parte: architettura, API, dati, sicurezza, deployment) e il **quando** (terza parte: milestone). Non esistono file separati per architettura, schema del database, API o timeline: sarebbero copie destinate a divergere.
 >
-> **Ogni modifica al PRD:** 1) aggiornare il PRD e aggiungere una riga allo storico delle versioni, con il motivo; 2) aggiornare `docs/DIARIO.md`; 3) commit nel formato `update: descrizione (PRD vX.Y)`.
+> **Numerazione delle versioni.** La versione cambia solo quando cambiano le decisioni, non a ogni ritocco. **Versione intermedia (1.1, 1.2…):** una per sessione di lavoro che aggiunge o cambia requisiti, perimetro o scelte, con una riga nello storico e il motivo. **Versione principale (2.0, 3.0…):** alle tappe, cioè la consegna del 9 ottobre (2.0) e la versione validata dal docente. **Correzioni minori** (refusi, formattazione, riformulazioni): nessun cambio di versione, solo un commit `docs: descrizione`.
+>
+> **Ogni nuova versione:** 1) aggiornare il PRD e lo storico; 2) aggiornare `docs/DIARIO.md`; 3) commit `update: descrizione (PRD vX.Y)` e tag git `prd-vX.Y`.
 >
 > **Dopo la validazione, il “come” di dettaglio vive nel codice**, generato o verificato automaticamente: la specifica OpenAPI/Swagger per le API, le migrazioni per lo schema del database, i file di configurazione e gli script per il deployment, le milestone e le issue di GitHub per i tempi.
 >
-> **Se codice e PRD divergono**, si decide quale dei due ha ragione: o si corregge il codice, o si aggiorna il PRD con una nuova versione. Un PRD che dice una cosa mentre il codice ne fa un’altra è peggio di nessun PRD (template del docente).
-
-> **📄 Dalla tua bozza v2.0**
->
-> **Versione originale (v2.0) – superata dalla regola qui sopra, conservata come riferimento.**
->
-> Il PRD è il documento “master” dei requisiti (il COSA). I file in `/docs` descrivono il COME e il QUANDO: TIMELINE.md, SCHEMA_DATABASE.md, API_ENDPOINTS.md, ARCHITETTURA.md, DEPLOYMENT.md, RISCHI.md.
->
-> Se cambia il PRD → aggiorna in cascata: nuove user story o AC → TIMELINE, SCHEMA_DATABASE, API_ENDPOINTS, RISCHI; cambio priorità → TIMELINE; cambio dati → SCHEMA_DATABASE e API_ENDPOINTS; cambio architettura o stack → ARCHITETTURA e DEPLOYMENT; nuovo rischio → RISCHI.
->
-> Procedura: 1) modifica il PRD e incrementa la versione; 2) aggiorna i file in `/docs` impattati; 3) commit `update: [descrizione] (PRD v2.X)`; 4) notifica → timeline e piano cambiano.
->
-> Esempio: aggiungere le notifiche push (nuova US) → +1–2 settimane in TIMELINE, tabelle `notifications` e `notification_subscriptions`, endpoint `POST /notifications/subscribe`, `GET /notifications`, `DELETE /notifications/:id`, scelta WebSocket o Redis Pub/Sub, nuovi rischi su scalabilità e supporto browser.
->
-> Ricorda: PRD = cosa fare; docs/ = come e quando. Se il COSA cambia, cambiano anche COME e QUANDO.
+> **Il codice segue il PRD.** Ogni comportamento del sistema deve corrispondere a quanto scritto nel PRD. Se durante lo sviluppo emerge che un requisito va cambiato (un vincolo tecnico, una richiesta dell’associazione, un errore di analisi), **prima si aggiorna il PRD** con una nuova versione e il motivo, **poi si modifica il codice**. Se invece il codice fa qualcosa di diverso dal PRD senza che ci sia stata una decisione, è un difetto del codice e va corretto. Un PRD che dice una cosa mentre il codice ne fa un’altra è peggio di nessun PRD (template del docente).
 
 # Come usare questo documento
 
@@ -115,7 +93,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 | --- | --- | --- |
 | Informazioni sul documento + Storico versioni | Informazioni sul documento | Unione |
 | — (non presente) | Gestione delle modifiche | Nostra |
-| Scopo e perimetro | 1. Visione del prodotto e obiettivi | Unione |
+| Scopo e perimetro | 1. Scopo e perimetro | Definitivo |
 | Stakeholder | 2. Stakeholder | Template |
 | Destinatari e contesto d’uso | 3. Contesto, assunzioni e archetipi | Unione |
 | Panoramica e casi d’uso | 4. Panoramica e casi d’uso | Unione |
@@ -154,7 +132,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 
 | Cap. | Sezione | Stato iniziale | Fatto |
 | --- | --- | --- | --- |
-| 1 | Visione del prodotto e obiettivi (Scopo e perimetro) | DA ARRICCHIRE | ☐ |
+| 1 | Scopo e perimetro | DEFINITIVO (v1.0) | ☑ |
 | 2 | Stakeholder | MANCANTE | ☐ |
 | 3 | Contesto, assunzioni e archetipi | PARZIALE | ☐ |
 | 4 | Panoramica e casi d’uso | MANCANTE | ☐ |
@@ -191,107 +169,49 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 > - Nella prima parte scrivi **cosa** fa il sistema, nella seconda **come** lo costruirai. Tienile separate.
 > - Fra gli Acceptance Criteria del template c’è: “La prima parte non contiene scelte tecniche”.
 
-# 1. Visione del prodotto e obiettivi (Scopo e perimetro)
+# 1. Scopo e perimetro
 
-**Stato:** **DA ARRICCHIRE**
+## 1.1 Perché esiste il Gestionale Effatà
 
-*Origine: unione fra la nostra bozza e il template del docente*
+**Dal lato business.** Oggi Effatà Italia gestisce con strumenti separati e molto lavoro manuale il rapporto con i propri sostenitori: gli estratti conto vengono inseriti riga per riga in VERIF!CO, i dati dei sostenitori sono spesso incompleti, molti bonifici arrivano senza una registrazione a monte e le foto dall’Uganda passano a mano da WhatsApp al bot. Per questo è difficile collegare ogni donazione al suo beneficiario e dimostrare a chi dona che l’aiuto è arrivato. Il Gestionale Effatà serve agli amministratori e ai volontari, ai 700–800 sostenitori e ai soci, e indirettamente ai circa 1.200 bambini e alle loro famiglie in Uganda: meno lavoro manuale, dati completi e trasparenza verso chi dona. L’obiettivo di fondo è rovesciare il flusso di oggi: prima la persona si registra, con i suoi dati, i consensi e le informazioni per la detrazione, poi parte l’adozione o la donazione, già corretta e tracciabile fin dal primo bonifico.
 
-## 1.1 Inquadramento e problema (Perché esiste il Gestionale Effatà)
+**Dal lato tecnico.** Il sistema accompagna la persona dalla registrazione in poi: raccolta dei dati e del consenso privacy, spazio riservato con lo storico delle proprie donazioni e dei beneficiari, carrello delle donazioni. Riunisce in un unico punto di accesso, per i sostenitori e per l’associazione, informazioni oggi sparse fra il bot e il gestionale contabile, e le smista verso chi deve riceverle. I dati verso VERIF!CO passano con caricamenti massivi invece dell’inserimento a mano, e i dati storici vengono completati. La comunicazione diretta con i beneficiari e il pagamento con carta sono previsti in fasi successive.
 
-> **📄 Dalla tua bozza v2.0**
->
-> L’associazione Effatà Italia ODV gestisce progetti di solidarietà e adozioni a distanza in Uganda. Attualmente la gestione dei dati dei sostenitori, l’invio degli aggiornamenti (foto, certificati, pagelle dei bambini) e la rendicontazione contabile (preparazione dati per il bilancio su Verifico.it) richiedono un intenso lavoro manuale di data-entry e gestione file.
+## 1.2 Cosa è incluso
 
-> **🧭 Dal template – due punti di vista, due o tre frasi ciascuno**
->
-> - **Dal lato business**: quale problema risolve, e per chi.
-> - **Dal lato tecnico**: cosa copre il sistema, in grandi linee (non con quali tecnologie).
+**Fase 1 – prima versione in cloud e primo collaudo**
 
-> **✍ Da compilare – domanda del template, adattata a Effatà**
->
-> **Dal lato business.** Quale problema risolve il Gestionale Effatà, e per chi? (Tesoriere, operatori sul campo, sostenitori.) Due o tre frasi.
+- **Gestione dell’associazione:** dashboard per amministratori e volontari, con ruoli, permessi configurabili e vista d’insieme dei numeri principali.
+- **Anagrafiche:** simpatizzanti, sostenitori, famiglie e bambini; adozioni a distanza con riaffido e storico.
+- **Interventi e rendicontazione:** listino dei tipi di intervento (casette, animali, materassi, operazioni…), imputazione delle entrate, checklist delle prove di realizzazione.
+- **Area riservata:** registrazione con consenso privacy (chi si registra è simpatizzante, diventa sostenitore con la prima donazione); dati del donante e dell’avente diritto alla detrazione; causale standard; carrello solidale con pagamento tramite bonifico; caricamento della quietanza; storico delle donazioni e dei beneficiari sostenuti; riepilogo annuale.
+- **Comunicazioni automatiche:** conferma del carrello e lettera di ringraziamento al caricamento della quietanza.
+- **Contabilità:** importazione dell’estratto conto UniCredit e dei versamenti delle campagne esterne, conferma delle donazioni e preparazione del file di caricamento per VERIF!CO.
 
-> **✔ Testo di Andrea – 24/09/2026 (da rileggere)**
->
-> **Dal lato business.** Oggi Effatà Italia gestisce con strumenti separati e molto lavoro manuale il rapporto con i propri sostenitori: gli estratti conto vengono inseriti riga per riga in VERIF!CO, i dati dei sostenitori sono spesso incompleti, molti bonifici arrivano senza una registrazione a monte e le foto dall’Uganda passano a mano da WhatsApp al bot. Per questo è difficile collegare ogni donazione al suo beneficiario e dimostrare a chi dona che l’aiuto è arrivato. Il Gestionale Effatà serve agli amministratori e ai volontari, ai 700–800 sostenitori e ai soci, e indirettamente ai circa 1.200 bambini e alle loro famiglie in Uganda: meno lavoro manuale, dati completi e trasparenza verso chi dona.
+**Fase 2 – entro la fine dell’anno scolastico**
 
-> **✍ Da compilare – domanda del template, adattata a Effatà**
->
-> **Dal lato tecnico.** Cosa copre il sistema, in grandi linee? (Anagrafiche, adozioni, foto dal campo, donazioni, ricevute, esportazione contabile.) Due o tre frasi, senza nominare tecnologie.
+- Integrazione del bot social esistente con il gestionale.
+- Pagamento con carta.
+- Area soci.
+- Scadenza degli accessi inattivi, con avvisi via email.
+- Avviso al sostenitore quando un suo intervento è rendicontato.
+- Sanatoria dei dati pregressi: importazione iniziale, inviti personali ai sostenitori storici, ritorno delle anagrafiche complete verso VERIF!CO.
+- Invito a registrarsi per i donatori delle campagne esterne.
+- Spazio informativo: collegamenti ai contenuti pubblicati sul sito dell’associazione (newsletter, informative, volantini, eventi, 5×1000).
 
-> **✔ Testo di Andrea – 24/09/2026 (da rileggere)**
->
-> **Dal lato tecnico.** Il sistema accompagna il sostenitore dall’iscrizione in poi: raccolta dei dati e del consenso privacy, spazio riservato con lo storico delle proprie donazioni e dei beneficiari, carrello delle donazioni. Riunisce in un unico punto di accesso, per i sostenitori e per l’associazione, informazioni oggi sparse fra il bot e il gestionale contabile, e le smista verso chi deve riceverle. I dati verso VERIF!CO passano con caricamenti massivi invece dell’inserimento a mano, e i dati storici vengono completati. La comunicazione diretta con i beneficiari e il pagamento con carta sono previsti in fasi successive.
+## 1.3 Cosa non è incluso
 
-## 1.2 Soluzione
+- **Contabilità ufficiale e ricevute fiscali:** restano in VERIF!CO. Il gestionale prepara i dati, ma non produce documenti fiscali.
+- **Newsletter:** creazione e invio restano in VERIF!CO.
+- **Pubblicazione sui social:** resta al bot esistente, che il gestionale integra senza sostituirlo.
+- **Pubblicazione di contenuti informativi:** resta sul sito dell’associazione; il gestionale vi rimanda con collegamenti.
+- **Spese effettive dei progetti:** la spesa di un intervento coincide con il costo dichiarato nel listino; non si registrano fatture di spesa.
+- **Lettura automatica (OCR) degli estratti conto in PDF:** non prevista, perché la banca fornisce gli estratti conto in formato CSV/Excel, leggibili in modo esatto.
+- **Chat** fra sostenitori, famiglie e associazione, e integrazione del **gruppo WhatsApp**.
+- **App sugli store** (Apple, Google): il sistema è una web app installabile dal browser.
+- **Accesso diretto dall’Uganda** per Silvia e i volontari locali, e interfaccia in **inglese**.
 
-> **📄 Dalla tua bozza v2.0**
->
-> Un sistema integrato e modulare composto da: 1) Telegram Bot per operatori in Italia/Uganda (caricamento media e lettura estratti conto tramite AI); 2) Backend API Node.js/Express con elaborazione media, AI Vision e validazione; 3) Database relazionale normalizzato (MySQL/PostgreSQL/SQLite); 4) Portal Sostenitori Angular/Ionic web/PWA; 5) Esportazione e bridge contabile verso Verifico.it.
-
-> **⚠ Nota di revisione**
->
-> - **Conflitto con il template**: qui compaiono scelte tecniche (Node.js, Express, Angular, Ionic, MySQL). Nella stesura definitiva descrivi i componenti in termini funzionali (“un’area web per i sostenitori”, “un bot di messaggistica per gli operatori”) e sposta le tecnologie nel cap. 9. Il testo originale resta qui come riferimento.
-> - Il componente 1 dice che il **bot legge gli estratti conto**, ma in US-201 è il **tesoriere** a caricarli: decidi il canale e rendi coerenti le due parti.
-> - Manca il **pannello di amministrazione web**: da dove si creano sostenitori, bambini e adozioni?
-
-## 1.3 Cosa è incluso e cosa non è incluso
-
-*Origine: template del docente – sezione nuova, non presente nella nostra bozza*
-
-> **🧭 Dal template**
->
-> - La lista di cosa **non** è incluso è la più preziosa del documento. Ogni riga qui ti evita una settimana di discussioni più avanti.
-
-> **✍ Da compilare – domanda del template, adattata a Effatà**
->
-> **Cosa è incluso**
->
-> • Esempio: gestione di sostenitori, bambini e adozioni da parte dell’Amministratore
->
-> • Esempio: caricamento di foto e notizie dei bambini da parte degli operatori sul campo
->
-> • …
-
-> *(spazio per appunti)*
-
-> **✔ Perimetro in tre fasi – confermato nella struttura il 24/09/2026, in approfondimento blocco per blocco**
->
-> **Fase 1 – primo collaudo (incluso):** Dashboard di gestione con ruoli, permessi, impostazioni e vista d’insieme; schede di famiglie, bambini e interventi con adozioni e riaffido; listino dei costi, imputazione delle entrate e rendicontazione completa con checklist di prove; registrazione del sostenitore con consenso privacy e area riservata base con causale standard e carrello con checkout tramite bonifico; importazione del CSV della banca ed esportazione per VERIF!CO. Copre tutti i requisiti obbligatori della traccia (ruoli con controllo nel backend, CRUD, paginazione, dashboard aggregata, API esterna, HTTPS, OpenAPI/Postman, Dev/Prod, deploy pubblico).
->
-> **Fase 2 – entro fine anno (incluso):** Bot integrato con il gestionale; pagamento con carta (es. Stripe, PayPal, Satispay); area soci; scadenza degli accessi con avvisi email; avviso al sostenitore a rendicontazione completata; recupero dei sostenitori storici.
->
-> **Futuro (non incluso):** Chat con beneficiari e associazione; integrazione del gruppo WhatsApp; app nativa sugli store; accesso diretto dall’Uganda; interfaccia in inglese; OCR sui PDF degli estratti conto.
-
-> **✔ Dettagli già decisi sul non incluso**
->
-> • Caricamento diretto dei dati dall’Uganda da parte di Silvia o di volontari ugandesi (problemi tecnici di accesso a Telegram): obiettivo futuro, che l’architettura non deve impedire.
->
-> • Interfaccia in inglese: prevista insieme all’accesso dall’Uganda.
-
-> **✍ Da compilare – domanda del template, adattata a Effatà**
->
-> **Cosa non è incluso**
->
-> • Esempio: il Gestionale Effatà non sostituisce la contabilità ufficiale, che resta in VERIF!CO, né l’invio delle newsletter, che resta su Brevo
->
-> • Esempio: non sostituisce Verifico.it per la contabilità, prepara solo i dati
->
-> • …
-
-> *(spazio per appunti)*
-
-## 1.4 Obiettivi misurabili
-
-*Origine: sezione aggiuntiva della nostra bozza – non richiesta dal template, la teniamo*
-
-> **🧭 Guida**
->
-> - Scrivi 3–4 obiettivi misurabili (es. “ridurre da X a Y ore al mese la preparazione dei dati per Verifico”).
-> - Questi obiettivi diventano le metriche del **Piano di valutazione** (cap. 18).
-
-> *(spazio per appunti)*
+*Gli obiettivi misurabili del progetto sono nel capitolo 18, Piano di valutazione.*
 
 # 2. Stakeholder
 
@@ -333,7 +253,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 
 > **⚠ Da verificare**
 >
-> - Dalle nostre chat sulla newsletter Brevo risultano circa **600 destinatari**: quanti sono sostenitori con adozione attiva, quanti donatori occasionali, quanti solo iscritti alla newsletter?
+> - Il numero di iscritti alla newsletter va verificato in VERIF!CO, da cui oggi si crea e si invia la newsletter.
 
 > **✍ Da compilare – domanda del template, adattata a Effatà**
 >
@@ -345,7 +265,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 | --- | --- | --- |
 | Sostenitori con adozione a distanza attiva | 700–800 | Dato dell’associazione (settembre 2026) |
 | Donatori occasionali (senza adozione) |   |   |
-| Iscritti newsletter totali | ~600 (da verificare) | Lista Brevo |
+| Iscritti alla newsletter | Da verificare in VERIF!CO | La newsletter si invia da VERIF!CO |
 | Bambini adottati in Uganda | ~1.200 | Dato dell’associazione (settembre 2026) |
 | Relazione bambino – sostenitore | Un bambino: 1 sostenitore attivo. Un sostenitore: 1..N bambini (media 1,5–1,7) | Deciso (FR-ADO-01) |
 | Tutti i bambini hanno un sostenitore? |   | Da chiedere |
@@ -378,6 +298,10 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 > **Sicurezza:** dal 24/09/2026 le API `/api/*` richiedono un token (prima erano esposte senza autenticazione); la dashboard è protetta con Basic Auth; i webhook Meta sono verificati con firma.
 >
 > Documentazione tecnica di riferimento: `docs/bot/TECHNICAL-INTEGRATION.md`, verificata sul codice.
+
+> **✔ Il flusso di domani (TO-BE) – deciso il 24/09/2026**
+>
+> Oggi si parte dall’adozione e si recuperano i dati dopo. Domani si parte dai dati: 1) registrazione nell’area riservata come simpatizzante; 2) modulo dati, con donante e avente diritto alla detrazione; 3) consensi privacy; 4) accordo per l’adozione o scelta dal carrello; 5) bonifico con la causale standard già corretta; 6) caricamento della quietanza e abbinamento → lettera di ringraziamento; 7) rendicontazione con foto e documenti; 8) conferma della donazione all’importazione trimestrale dell’estratto conto e invio a VERIF!CO.
 
 > **✔ Emerso dal brain dump**
 >
@@ -766,6 +690,26 @@ Le storie della traccia ScuolaChill non si applicano al tuo dominio: al loro pos
 > **FR-SEC-01 · Password e accesso.** Password di almeno 12 caratteri, rifiutata se presente negli elenchi di password violate; salvata solo con un algoritmo di hashing dedicato (bcrypt o Argon2); blocco temporaneo dopo tentativi errati; recupero con link a scadenza e monouso; verifica in due passaggi obbligatoria per amministratori e volontari, facoltativa per sostenitori e soci.
 >
 > **FR-SEC-02 · Modifica dei dati critici.** Cambio email: conferma sulla nuova e avviso alla vecchia. Cambio IBAN o codice fiscale: avviso al sostenitore e conferma dell’amministratore prima che diventi effettivo. Gli altri dati si modificano liberamente.
+>
+> **FR-REG-04 · Simpatizzanti e sostenitori.** Chi si registra è simpatizzante; diventa sostenitore automaticamente con la prima donazione abbinata o la prima adozione. Il ruolo di socio si aggiunge in modo indipendente.
+>
+> **FR-FIS-01 · Donante e avente diritto alla detrazione.** Nel modulo dati si indica l’avente diritto alla detrazione (nome, cognome, codice fiscale) se diverso dall’intestatario del conto, e l’eventuale opposizione all’invio dei dati all’Agenzia delle Entrate. La causale standard (FR-SOS-01) contiene quanto richiesto: dicitura “erogazione liberale”, codice fiscale dell’avente diritto, nome e cognome se non intestatario, codice dell’adozione o dell’intervento (es. `EROGAZIONE LIBERALE – CF … – ADOZIONE UG-102`). Vincolo: la causale deve restare entro 140 caratteri.
+>
+> **FR-DON-01 · Quietanza caricata dal sostenitore.** Dopo il bonifico il sostenitore carica nell’area riservata la quietanza della banca, con importo e data: la donazione passa allo stato “dichiarata”. La quietanza è un dato sensibile (FR-RUO-02).
+>
+> **FR-RING-01 · Ringraziamenti automatici.** Alla conferma del carrello parte subito un’email con IBAN e causale standard. La lettera di ringraziamento parte quando ci sono la quietanza e l’abbinamento (bambino–sostenitore o intervento–sostenitore). I testi sono modelli modificabili dall’amministratore; il bot non invia più ringraziamenti; in caso di errore di invio il sistema ritenta e lo segnala nella dashboard.
+>
+> **FR-DON-02 · Conferma e anomalie.** All’importazione trimestrale dell’estratto conto le donazioni dichiarate vengono ritrovate e passano a “confermate”; solo quelle confermate vanno a VERIF!CO. Una donazione dichiarata non ritrovata viene segnalata come anomalia.
+>
+> **FR-CAN-01 · Canali di entrata.** Le donazioni arrivano dal conto UniCredit (bonifici singoli) e da campagne esterne come GoFundMe (versamenti cumulativi). I versamenti delle campagne si imputano alla raccolta fondi corrispondente (ID_RACCOLTAFONDI di VERIF!CO) e possono finanziare interventi, senza creare sostenitori individuali.
+>
+> **FR-CAN-02 · Invito ai donatori delle campagne** (fase 2). Tramite i messaggi della piattaforma l’associazione invita i donatori a registrarsi; i consensi si raccolgono alla registrazione.
+>
+> **FR-VER-01 · Dati fra gestionale e VERIF!CO.** VERIF!CO resta il riferimento per contabilità, bilancio, ricevute e newsletter. Le anagrafiche raccolte e completate nel gestionale vengono importate anche in VERIF!CO (direzione gestionale → VERIF!CO); le correzioni fatte direttamente in VERIF!CO vanno riportate anche nel gestionale. Collegamento tramite l’ID dell’anagrafica VERIF!CO.
+>
+> **FR-STO-01/02/03 · Sanatoria dei dati pregressi** (fase 2). Importazione iniziale dalle fonti esistenti (esportazioni di VERIF!CO, bozze del bot, contatti del gruppo WhatsApp) con unione dei duplicati e indicatore dei dati mancanti; inviti personali monouso via email o WhatsApp per completare dati e consensi; ritorno delle anagrafiche complete verso VERIF!CO (file di importazione o elenco delle modifiche).
+>
+> **FR-INF-01 · Spazio informativo** (fase 2). L’area riservata raccoglie i collegamenti ai contenuti pubblicati sul sito dell’associazione (newsletter, informative, volantini, eventi, 5×1000) e mostra i contenuti personali; il gestionale non duplica il sistema di pubblicazione del sito.
 
 **✎ Appunti / risposte**
 
@@ -803,6 +747,9 @@ Le storie della traccia ScuolaChill non si applicano al tuo dominio: al loro pos
 | IBAN da cui dona (uno o più) | Abbinamento automatico dei bonifici; campo IBAN_MITTENTE di VERIF!CO | Sostenitore o tesoriere |   | Dato bancario: A, T, S |
 | ID anagrafica in VERIF!CO | Collegamento fra i due gestionali | Tesoriere |   |   |
 | **Consensi** |   |   |   |   |
+| Stato (simpatizzante / sostenitore) | Diventa sostenitore con la prima donazione (FR-REG-04) | Sistema |   |   |
+| Avente diritto alla detrazione (nome, cognome, CF), se diverso | Detrazione fiscale; causale standard (FR-FIS-01) | Sostenitore |   | Dato fiscale: A, S |
+| Opposizione all’invio dei dati all’Agenzia delle Entrate | Scelta del donante (FR-FIS-01) | Sostenitore |   |   |
 | Consenso privacy (data, versione informativa) | Obbligo GDPR, prova del consenso | Sostenitore |   |   |
 | Consenso a comunicazioni / newsletter | Separato dal consenso privacy | Sostenitore |   |   |
 | Consenso a comparire nei post social | Il bot chiede il nome del padrino per i post | Sostenitore |   |   |
@@ -965,7 +912,7 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 | DIP-02 | Formato ufficiale di importazione Verifico.it |   |   |
 | DIP-03 | Token del bot Telegram |   |   |
 | DIP-04 | Account e chiave del provider AI |   |   |
-| DIP-05 | Account servizio email (Brevo, già in uso) | es. prima del collaudo | es. Andrea Pavan |
+| DIP-05 | Account Brevo (già usato come relay SMTP da VERIF!CO): chiave dedicata per le email del gestionale; verificare i limiti del piano | Prima del collaudo | Andrea Pavan |
 | DIP-06 | Server / dominio per il deploy |   |   |
 | DIP-07 | Consenso dell’associazione a usare dati e foto reali nel collaudo |   |   |
 | DIP-08 | Bot social esistente, con le API di integrazione protette da token (fase 2) | Fase 2 | Andrea Pavan |
@@ -1618,7 +1565,7 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 > **⚠ Nota di revisione**
 >
 > - Otto settimane per bot, AI, PWA, pannello admin ed export sono molte per una persona sola: definisci un **MVP**.
-> - L’OCR con AI è il modulo più **rischioso**: valuta di spostarlo in fondo o renderlo opzionale, con l’inserimento manuale come alternativa.
+> - L’OCR sugli estratti conto non è più previsto: la banca fornisce file CSV/Excel (cap. 1.3).
 > - Autenticazione, ruoli e paginazione conviene averli pronti fin dalle prime settimane.
 
 > **🧭 Dal template**
@@ -1642,9 +1589,9 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 
 | Priorità | Funzionalità (US) | Motivazione |
 | --- | --- | --- |
-| Fase 1 – primo collaudo | Dashboard di gestione con ruoli, permessi, impostazioni e vista d’insieme; schede di famiglie, bambini e interventi con adozioni e riaffido; listino dei costi, imputazione delle entrate e rendicontazione completa con checklist di prove; registrazione del sostenitore con consenso privacy e area riservata base con causale standard e carrello con checkout tramite bonifico; importazione del CSV della banca ed esportazione per VERIF!CO | Copre tutti i requisiti obbligatori della traccia; risolve i problemi più urgenti (dati incompleti dei sostenitori, inserimento manuale in VERIF!CO) |
-| Fase 2 – entro fine anno | Bot integrato con il gestionale; pagamento con carta (es. Stripe, PayPal, Satispay); area soci; scadenza degli accessi con avvisi email; avviso al sostenitore a rendicontazione completata; recupero dei sostenitori storici | Si appoggia sui dati e sui ruoli della fase 1 |
-| Futuro – non incluso | Chat con beneficiari e associazione; integrazione del gruppo WhatsApp; app nativa sugli store; accesso diretto dall’Uganda; interfaccia in inglese; OCR sui PDF degli estratti conto | Vincoli tecnici e di costo; vedi cap. 1.3 |
+| Fase 1 – primo collaudo | Dashboard con ruoli, permessi e vista d’insieme; simpatizzanti, sostenitori, famiglie, bambini, adozioni e riaffido; listino, interventi e rendicontazione; area riservata con causale standard, carrello con bonifico, quietanza e ringraziamenti; importazione dell’estratto conto e delle campagne esterne, esportazione per VERIF!CO | Copre tutti i requisiti obbligatori della traccia; risolve i problemi più urgenti (flusso rovesciato, inserimento manuale in VERIF!CO) |
+| Fase 2 – entro fine anno | Bot integrato; pagamento con carta; area soci; scadenza degli accessi con avvisi; avviso di rendicontazione; sanatoria dei dati pregressi; inviti ai donatori delle campagne; spazio informativo con collegamenti al sito | Si appoggia sui dati e sui ruoli della fase 1 |
+| Futuro – non incluso | Chat; gruppo WhatsApp; app sugli store; accesso dall’Uganda; interfaccia in inglese | Vincoli tecnici e di costo; vedi cap. 1.3 |
 
 # 18. Piano di valutazione
 
@@ -1655,7 +1602,7 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 > **🧭 Dal template**
 >
 > - Come capirai che il sistema funziona e che la soluzione ha un impatto positivo?
-> - Collega le metriche agli **obiettivi misurabili** del cap. 1.4. Le righe sono proposte da confermare.
+> - Qui stanno anche gli **obiettivi misurabili** del progetto: 3–4 obiettivi con il valore di oggi e il traguardo (es. ore al mese per preparare i dati per VERIF!CO; percentuale di sostenitori con dati completi; donazioni dichiarate non ritrovate). Le righe sono proposte da confermare.
 
 > **✍ Da compilare – domanda del template, adattata a Effatà**
 >
@@ -1798,6 +1745,9 @@ Tutto ciò che non puoi decidere da solo va chiesto al cliente reale. Annota ris
 | I progetti sono già censiti in VERIF!CO (ID_PROGETTO)? |   |   |
 | Come vengono raccolti oggi i consensi per le foto dei bambini? |   |   |
 | Quanti soci? Quota annuale e scadenza? |   |   |
+| Il modulo “Associati” di VERIF!CO è già usato per soci e quote associative? (impatto sull’area soci) |   |   |
+| In VERIF!CO quale SMTP è attivo e predefinito per la newsletter: Gmail o Brevo? Limiti del piano Brevo? |   |   |
+| L’export UniCredit contiene l’IBAN dell’ordinante e la causale completa? Fino a quanto indietro si può esportare? |   |   |
 | Per gli inviti ai sostenitori storici: contatti più affidabili via email o via WhatsApp? |   |   |
 | VERIF!CO (assistenza): si possono esportare in blocco i PDF delle ricevute, e con quale nome dei file? Esiste un’API? |   |   |
 |   |   |   |
