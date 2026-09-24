@@ -19,7 +19,7 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | Autori | Andrea Pavan |
 | Cliente reale | Effatà Italia ODV |
 | Contesto | Progetto ITS – 2° anno. Progetto personale che segue la metodologia della traccia “ScuolaChill”. |
-| Versione | 3.4 |
+| Versione | 3.8 |
 | Data | ____ / ____ / ________ |
 | Stato | ☐ Bozza   ☐ In revisione   ☐ Validato |
 
@@ -34,6 +34,10 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | 3.2 |   | Andrea Pavan | Allegato finale “Brain dump iniziale” con intuizione di partenza e bozza del flusso dei dati; appendici riordinate. |
 | 3.3 |   | Andrea Pavan | Brain dump iniziale inserito (BD.3), riordinato per temi (BD.4), punti da approfondire (BD.5); schede sostenitore, beneficiario e intervento (5.8); fonti in Appendice A. |
 | 3.4 |   | Andrea Pavan | Prime decisioni: numeri dell’associazione, AS-IS, ruoli e permessi, adozioni e riaffido, interventi con più finanziatori, scadenza e archiviazione degli accessi, scheda famiglia, lingua e file di traduzione. |
+| 3.5 |   | Andrea Pavan | Perimetro confermato in tre fasi (cap. 1.3, 17); orientamento tecnologico Ionic + React (PWA) e NestJS (cap. 9); milestone collegate al template; rischio React aggiunto. |
+| 3.6 |   | Andrea Pavan | Testo 1.1 (business e tecnico); blocco 1 della fase 1: vista d’insieme, imputazione, checklist di rendicontazione, listino, Cassa sostegno Effatà, causale standard, carrello con bonifico; rendicontazione in fase 1, pagamento con carta in fase 2; perimetro marcato “in approfondimento”. |
+| 3.7 |   | Andrea Pavan | Bot esistente (cap. 3.2), due sistemi indipendenti e contratto di integrazione (cap. 10.1, 11.5), dipendenze, dati verso servizi esterni (13.4), orientamento di deploy (16), nuovi rischi (19); date corrette al 24/09/2026. |
+| 3.8 |   | Andrea Pavan | Blocchi 2 e 3 della fase 1: visibilità per sostenitore (FR-VIS-01), registrazione e collegamento ai dati storici (FR-REG-01/02/03), ricevute (FR-RIC-01), password e dati critici (FR-SEC-01/02); nuova dipendenza VERIF!CO; domande per l’associazione. |
 |   |   |   |   |
 |   |   |   |   |
 
@@ -199,13 +203,17 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 >
 > **Dal lato business.** Quale problema risolve il Gestionale Effatà, e per chi? (Tesoriere, operatori sul campo, sostenitori.) Due o tre frasi.
 
-> *(spazio per appunti)*
+> **✔ Testo di Andrea – 24/09/2026 (da rileggere)**
+>
+> **Dal lato business.** Oggi Effatà Italia gestisce con strumenti separati e molto lavoro manuale il rapporto con i propri sostenitori: gli estratti conto vengono inseriti riga per riga in VERIF!CO, i dati dei sostenitori sono spesso incompleti, molti bonifici arrivano senza una registrazione a monte e le foto dall’Uganda passano a mano da WhatsApp al bot. Per questo è difficile collegare ogni donazione al suo beneficiario e dimostrare a chi dona che l’aiuto è arrivato. Il Gestionale Effatà serve agli amministratori e ai volontari, ai 700–800 sostenitori e ai soci, e indirettamente ai circa 1.200 bambini e alle loro famiglie in Uganda: meno lavoro manuale, dati completi e trasparenza verso chi dona.
 
 > **✍ Da compilare – domanda del template, adattata a Effatà**
 >
 > **Dal lato tecnico.** Cosa copre il sistema, in grandi linee? (Anagrafiche, adozioni, foto dal campo, donazioni, ricevute, esportazione contabile.) Due o tre frasi, senza nominare tecnologie.
 
-> *(spazio per appunti)*
+> **✔ Testo di Andrea – 24/09/2026 (da rileggere)**
+>
+> **Dal lato tecnico.** Il sistema accompagna il sostenitore dall’iscrizione in poi: raccolta dei dati e del consenso privacy, spazio riservato con lo storico delle proprie donazioni e dei beneficiari, carrello delle donazioni. Riunisce in un unico punto di accesso, per i sostenitori e per l’associazione, informazioni oggi sparse fra il bot e il gestionale contabile, e le smista verso chi deve riceverle. I dati verso VERIF!CO passano con caricamenti massivi invece dell’inserimento a mano, e i dati storici vengono completati. La comunicazione diretta con i beneficiari e il pagamento con carta sono previsti in fasi successive.
 
 ## 1.2 Soluzione
 
@@ -239,7 +247,15 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 
 > *(spazio per appunti)*
 
-> **✔ Deciso il 23/09/2026 – già fuori perimetro**
+> **✔ Perimetro in tre fasi – confermato nella struttura il 24/09/2026, in approfondimento blocco per blocco**
+>
+> **Fase 1 – primo collaudo (incluso):** Dashboard di gestione con ruoli, permessi, impostazioni e vista d’insieme; schede di famiglie, bambini e interventi con adozioni e riaffido; listino dei costi, imputazione delle entrate e rendicontazione completa con checklist di prove; registrazione del sostenitore con consenso privacy e area riservata base con causale standard e carrello con checkout tramite bonifico; importazione del CSV della banca ed esportazione per VERIF!CO. Copre tutti i requisiti obbligatori della traccia (ruoli con controllo nel backend, CRUD, paginazione, dashboard aggregata, API esterna, HTTPS, OpenAPI/Postman, Dev/Prod, deploy pubblico).
+>
+> **Fase 2 – entro fine anno (incluso):** Bot integrato con il gestionale; pagamento con carta (es. Stripe, PayPal, Satispay); area soci; scadenza degli accessi con avvisi email; avviso al sostenitore a rendicontazione completata; recupero dei sostenitori storici.
+>
+> **Futuro (non incluso):** Chat con beneficiari e associazione; integrazione del gruppo WhatsApp; app nativa sugli store; accesso diretto dall’Uganda; interfaccia in inglese; OCR sui PDF degli estratti conto.
+
+> **✔ Dettagli già decisi sul non incluso**
 >
 > • Caricamento diretto dei dati dall’Uganda da parte di Silvia o di volontari ugandesi (problemi tecnici di accesso a Telegram): obiettivo futuro, che l’architettura non deve impedire.
 >
@@ -249,7 +265,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 >
 > **Cosa non è incluso**
 >
-> • Esempio: il Gestionale Effatà non gestisce i pagamenti online né l’invio delle newsletter, che resta su Brevo
+> • Esempio: il Gestionale Effatà non sostituisce la contabilità ufficiale, che resta in VERIF!CO, né l’invio delle newsletter, che resta su Brevo
 >
 > • Esempio: non sostituisce Verifico.it per la contabilità, prepara solo i dati
 >
@@ -342,6 +358,18 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 
 *Origine: sezione aggiuntiva della nostra bozza – non richiesta dal template, la teniamo*
 
+> **✔ Sistema esistente: il bot social di Effatà (bot.effataitalia.it)**
+>
+> Sviluppato da Andrea e in produzione. **Funzioni:** riceve foto e testi da Telegram, genera con l’AI i testi per Facebook, Instagram, LinkedIn, blog, Reel e YouTube Shorts, pubblica su Facebook e Instagram tramite le API di Meta, modera i commenti, offre una dashboard web e report mensili.
+>
+> **Tecnologie:** Node.js + Express; database SQLite e file su disco; Docker Compose su server Hostinger, con Traefik e certificati Let’s Encrypt per l’HTTPS; test automatici con Jest.
+>
+> **Dati oggi:** foto e testi in `/output/` e in `effata.db` (tabelle `drafts`, `meta_publications`, `moderation_queue`, `promotions`); i dati di bambini e sostenitori non hanno una struttura propria. SQLite non è cifrato.
+>
+> **Sicurezza:** dal 24/09/2026 le API `/api/*` richiedono un token (prima erano esposte senza autenticazione); la dashboard è protetta con Basic Auth; i webhook Meta sono verificati con firma.
+>
+> Documentazione tecnica di riferimento: `docs/bot/TECHNICAL-INTEGRATION.md`, verificata sul codice.
+
 > **✔ Emerso dal brain dump**
 >
 > **Foto e storie:** ogni sera Silvia, in Uganda, invia via **WhatsApp** le foto della giornata (nuove adozioni, consegne di materassi, animali, casette). Non usa Telegram per motivi tecnici. La sera Andrea seleziona foto e informazioni e le passa al **bot Telegram** esistente, che genera i testi per i social e archivia i dati di bambini, riceventi e sostenitori.
@@ -369,7 +397,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 >
 > **ARC-003 Sostenitore / Donatore** – da smartphone o PC, consulta l’adozione, scarica ricevute, guarda foto. Competenze base. Uso sporadico.
 
-> **✔ Deciso il 23/09/2026 – ruoli nel sistema**
+> **✔ Deciso il 24/09/2026 – ruoli nel sistema**
 >
 > **Amministratore:** gestisce tutto, è l’unico che vede i dati sensibili, configura regole e permessi dalla dashboard di gestione.
 >
@@ -673,11 +701,12 @@ Le storie della traccia ScuolaChill non si applicano al tuo dominio: al loro pos
 - [ ] Fallimento del servizio esterno: AI non disponibile, email delle credenziali non inviata (US-201, US-304).
 - [ ] Cancellazione di un sostenitore e diritto all’oblio GDPR (US-501).
 - [ ] Lingua del bot e dell’area sostenitori.
+- [ ] Foto di gruppo: regola operativa per il caricamento (nelle foto possono comparire altri membri della famiglia; il consenso sulla scheda famiglia deve coprire tutti i minori).
 - [ ] Altre decisioni scoperte durante il lavoro.
 
 ### Decisioni già prese
 
-> **✔ Deciso il 23/09/2026**
+> **✔ Deciso il 24/09/2026**
 >
 > **FR-ADO-01 · Un bambino, un solo sostenitore attivo** (US-503). Un bambino può avere nel tempo più adozioni, ma al massimo una attiva. Per riaffidarlo l’amministratore chiude l’adozione (data di fine e motivo) e ne apre una nuova; un tentativo di aprire una seconda adozione attiva viene impedito con errore esplicito. Motivazione: quando un sostenitore interrompe, il bambino viene riaffidato; lo storico serve a rendicontazione e ricevute.
 >
@@ -698,6 +727,36 @@ Le storie della traccia ScuolaChill non si applicano al tuo dominio: al loro pos
 > **FR-RUO-02 · Dati sensibili solo all’amministratore.** Dati bancari e fiscali, dati sanitari, chat private e documenti di consenso sono accessibili solo agli amministratori; la regola non è configurabile. Motivazione: minimizzazione GDPR.
 >
 > **FR-RUO-03 · Area soci** (modulo M6). Il socio vede stato della quota, convocazioni, verbali e bilanci; chi non è socio riceve un diniego.
+>
+> **FR-DASH-01 · Vista d’insieme.** La dashboard mostra: sostenitori (attivi, archiviati, in scadenza); bambini con e senza sostenitore; donazioni del periodo; entrate non abbinate o non imputate; totale della Cassa sostegno Effatà; interventi per tipo e per stato (finanziati, realizzati, rendicontati) con i documenti mancanti. Ogni numero si apre in un elenco paginato.
+>
+> **FR-INT-02 · Imputazione delle entrate.** Ogni entrata confermata dall’estratto conto va imputata a un capitolo di progetto (adozioni, casetta, affitto, animali, operazione, sedia a rotelle…) e, dove previsto, a un intervento, che diventa una “cosa da fare”. Il capitolo può corrispondere all’ID_PROGETTO di VERIF!CO.
+>
+> **FR-INT-03 · Checklist di rendicontazione per tipo.** Ogni tipo di intervento ha un elenco di prove di realizzazione richieste, configurabile dall’amministratore: foto della consegna per materassi, scarpe e animali; iscrizione e foto per le adozioni; foto, contratto e fattura dove esistono, come per la casetta. Un intervento è “rendicontato” solo con tutte le prove caricate, che diventano visibili al donante nella sua area riservata.
+>
+> **FR-INT-04 · Costo dichiarato dell’intervento.** Ogni tipo di intervento ha un costo standard in un listino configurabile. La spesa coincide con il costo dichiarato e finanziato dal donante; non si registrano fatture di spesa. Il costo viene congelato nell’intervento al momento del finanziamento.
+>
+> **FR-INT-05 · Donazioni generiche.** Un’entrata senza destinazione specifica va nel capitolo “Cassa sostegno Effatà”, senza creare interventi.
+>
+> **FR-INT-06 · Imputazione guidata dalla causale.** La parte dell’entrata che corrisponde a interventi riconoscibili dalla causale (tipo e quantità secondo il listino) viene imputata a quegli interventi; tutto ciò che non corrisponde va in Cassa sostegno Effatà. L’AI può proporre l’imputazione leggendo la causale, ma l’amministratore conferma sempre. Esempio: 25 € con causale “materassi” → 2 materassi da 10 € + 5 € in cassa.
+>
+> **FR-SOS-01 · Causale standard.** Nell’area riservata il sostenitore trova la causale già compilata da copiare nel bonifico (es. `ADOZIONE UG-102`, `MATERASSI 2 FAM-045`).
+>
+> **FR-SOS-02 · Carrello solidale.** Il sostenitore sceglie interventi dal listino e li mette nel carrello; il checkout tramite bonifico crea un impegno e mostra IBAN e causale standard; il bonifico, quando arriva, viene abbinato all’impegno. L’adozione compare come “richiesta di adozione”, il bambino lo abbina l’amministratore. Il pagamento con carta è previsto in fase 2.
+>
+> **FR-VIS-01 · Ogni sostenitore vede solo ciò che ha donato** (US-301, FR-INT-01). Una famiglia o un beneficiario può ricevere da più sostenitori, ma ognuno vede solo le adozioni e gli interventi che ha finanziato, con foto, prove e documenti. Nelle foto possono comparire altri membri della famiglia (accettato); non vede le schede degli altri bambini, gli altri interventi, né donazioni e identità degli altri sostenitori. Negli interventi con più finanziatori vede la propria quota e lo stato, non gli altri finanziatori. Una richiesta API su dati non propri riceve 403.
+>
+> **FR-REG-01 · Registrazione libera.** Chiunque può registrarsi come sostenitore (anche dal menu di effataitalia.it) con consenso privacy (casella non preselezionata, data e versione dell’informativa salvate) e conferma dell’email; dopo la conferma l’account è attivo subito. Limite ai tentativi ripetuti contro le registrazioni automatiche.
+>
+> **FR-REG-02 · Disattivazione da parte dell’amministratore.** L’amministratore può disattivare o archiviare un account in qualsiasi momento, con le regole di FR-ACC-02.
+>
+> **FR-REG-03 · Collegamento ai dati storici.** Un nuovo account viene collegato a un sostenitore già esistente solo con una prova di identità: email verificata coincidente con quella in archivio, codice di invito monouso inviato ai contatti già noti, conferma dell’amministratore su un canale già in archivio, oppure bonifico con codice da un IBAN già noto. Mai sulla sola base di codice fiscale, nome o IBAN inseriti dall’utente. Principio: questi dati identificano una persona ma non dimostrano che sei tu.
+>
+> **FR-RIC-01 · Ricevute fiscali** (ex US-302). Le ricevute restano prodotte e inviate da VERIF!CO. Nell’area riservata: riepilogo annuale delle donazioni (non valido ai fini fiscali) e pulsante “Richiedi copia della ricevuta”, che crea una richiesta per l’amministratore. Caricamento dei PDF da valutare dopo la verifica con l’assistenza di VERIF!CO (DIP-12).
+>
+> **FR-SEC-01 · Password e accesso.** Password di almeno 12 caratteri, rifiutata se presente negli elenchi di password violate; salvata solo con un algoritmo di hashing dedicato (bcrypt o Argon2); blocco temporaneo dopo tentativi errati; recupero con link a scadenza e monouso; verifica in due passaggi obbligatoria per amministratori e volontari, facoltativa per sostenitori e soci.
+>
+> **FR-SEC-02 · Modifica dei dati critici.** Cambio email: conferma sulla nuova e avviso alla vecchia. Cambio IBAN o codice fiscale: avviso al sostenitore e conferma dell’amministratore prima che diventi effettivo. Gli altri dati si modificano liberamente.
 
 **✎ Appunti / risposte**
 
@@ -768,7 +827,7 @@ Le storie della traccia ScuolaChill non si applicano al tuo dominio: al loro pos
 
 ### Scheda famiglia
 
-> **✔ Deciso il 23/09/2026**
+> **✔ Deciso il 24/09/2026**
 >
 > Una famiglia ha uno o più bambini, ciascuno adottato dal proprio sostenitore. Gli altri interventi (animali, materassi, casette…) vanno di solito alla famiglia, ognuno con il proprio sostenitore e progetto.
 
@@ -875,6 +934,7 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 | ASS-02 | Gli estratti conto contengono i dati necessari all’abbinamento (codice fiscale?) |   |
 | ASS-03 | Gli operatori in Uganda hanno uno smartphone con Telegram |   |
 | ASS-04 | I sostenitori hanno un indirizzo email valido |   |
+| ASS-05b | Il costo dichiarato di un intervento corrisponde alla spesa effettiva (FR-INT-04) | La rendicontazione economica va rivista |
 | ASS-05 |   |   |
 
 ## 7.2 Vincoli
@@ -899,6 +959,11 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 | DIP-05 | Account servizio email (Brevo, già in uso) | es. prima del collaudo | es. Andrea Pavan |
 | DIP-06 | Server / dominio per il deploy |   |   |
 | DIP-07 | Consenso dell’associazione a usare dati e foto reali nel collaudo |   |   |
+| DIP-08 | Bot social esistente, con le API di integrazione protette da token (fase 2) | Fase 2 | Andrea Pavan |
+| DIP-09 | API di Meta (Facebook, Instagram) per la pubblicazione | Fase 2 |   |
+| DIP-10 | API di Anthropic (Claude) per i testi social e l’eventuale lettura delle causali |   |   |
+| DIP-11 | Google Perspective e OpenAI Moderation (solo nel bot, per i commenti) | — |   |
+| DIP-12 | Risposta dell’assistenza VERIF!CO: esportazione in blocco dei PDF delle ricevute? API disponibili? | Prima della fase 2 | Andrea Pavan |
 
 # Seconda parte · Il come
 
@@ -956,6 +1021,14 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 
 # 9. Scelte tecnologiche con alternative considerate (Scelte tecnologiche)
 
+> **✔ Orientamento del 24/09/2026 – da confermare dopo aver scritto i requisiti**
+>
+> **Frontend: Ionic + React, pubblicato come PWA;** Capacitor per un’eventuale app sugli store in futuro. Alternative considerate: Ionic + Angular, React Native, Flutter, due frontend separati. Motivazione: un solo codice per PC e smartphone (i sostenitori usano soprattutto lo smartphone); React è oggetto del corso parallelo dell’ITS; la PWA evita nella fase 1 i costi e i vincoli degli store (account sviluppatore, revisioni, Mac per iOS).
+>
+> **Backend: Node.js con NestJS, in TypeScript.** Alternativa considerata: Express. Motivazione: struttura a livelli e dependency injection già integrate (cap. 14.2); stesso linguaggio del frontend, con definizioni dei dati condivisibili.
+>
+> Punto da verificare: la dashboard amministratore (tabelle, filtri, paginazione) va resa bene anche su PC con i layout responsive di Ionic.
+
 **Stato:** **DA RIVEDERE**
 
 *Origine: unione fra la nostra bozza e il template del prof*
@@ -975,9 +1048,9 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 
 | Area | Scelta | Alternativa considerata | Perché avete scelto così |
 | --- | --- | --- | --- |
-| Backend |   |   |   |
+| Backend | Node.js + NestJS (TypeScript) – orientamento | Express | Vedi riquadro sopra |
 | Accesso ai dati (ORM / query builder) |   |   |   |
-| Frontend |   |   |   |
+| Frontend | Ionic + React come PWA – orientamento | Ionic + Angular; React Native; Flutter | Vedi riquadro sopra |
 | Database |   |   |   |
 | Provider cloud |   |   |   |
 | Servizi cloud (VM, container, PaaS, DB gestito) |   |   |   |
@@ -1013,6 +1086,22 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 > - La freccia Database → Verifico suggerisce che il DB parli con Verifico: è il backend che genera il file.
 > - Da ridisegnare (draw.io, Excalidraw, Mermaid) e inserire come immagine.
 
+> **✔ Aggiornato il 24/09/2026 – due sistemi indipendenti**
+>
+> **Fonte unica di verità.** Il gestionale è proprietario dei dati (interventi, bambini e famiglie, sostenitori, consensi, prove di rendicontazione). Il bot è proprietario dei contenuti social (bozze, testi generati, pubblicazioni, moderazione dei commenti, promozioni).
+>
+> I due sistemi **non condividono database né cartelle**: dialogano solo tramite API REST autenticate con token, su HTTPS (contratto al cap. 11.5). Il bot non conserva dati di bambini e sostenitori: tiene solo l’ID dell’intervento.
+
+```text
+GESTIONALE (proprietario dei dati)        BOT (proprietario dei contenuti social)
+  ├── Interventi                             ├── Bozze
+  ├── Bambini e famiglie                     ├── Testi generati
+  ├── Sostenitori                            ├── Pubblicazioni
+  └── Consensi e prove                       └── Moderazione commenti, promozioni
+          ▲                                         │
+          └──────── API REST + token (HTTPS) ───────┘
+```
+
 > **✍ Da compilare – domanda del template, adattata a Effatà**
 >
 > Inserisci qui il diagramma. Deve mostrare i componenti principali (bot, area sostenitori, pannello amministratore, backend, database, storage, servizi esterni) e come comunicano.
@@ -1021,7 +1110,7 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 
 ## 10.2 Livelli e responsabilità (I livelli)
 
-> **✔ Vincolo emerso il 23/09/2026**
+> **✔ Vincolo emerso il 24/09/2026**
 >
 > Il caricamento dei dati non dipende dal bot. Le funzioni “carica foto”, “crea scheda beneficiario”, “registra intervento” stanno nel livello applicativo e sono esposte dalle API; il bot Telegram è uno dei canali che le usa. Domani un’app o una pagina web leggera per l’Uganda userà le stesse API senza riscrivere la logica.
 
@@ -1107,6 +1196,29 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
   "page": 1, "pageSize": 20, "totalItems": 57
 }
 ```
+
+## 11.5 Contratto di integrazione con il bot (fase 2)
+
+*Origine: sezione aggiuntiva della nostra bozza – non richiesta dal template, la teniamo*
+
+```text
+IL BOT CHIEDE AL GESTIONALE (token di servizio, HTTPS)
+  GET  /api/v1/interventi?stato=da-rendicontare   → cosa c’è da documentare
+  GET  /api/v1/interventi/{id}/dati-pubblicabili   → solo i dati coperti da consenso
+  POST /api/v1/interventi/{id}/prove               → allega le foto scelte come prova
+ 
+IL BOT AVVISA IL GESTIONALE
+  POST /api/v1/webhooks/bot/pubblicazione          → {draft_id, intervento_id, piattaforma, url}
+ 
+TUTTO IL RESTO RESTA NEL BOT
+  testi generati, bozze, pubblicazioni, moderazione dei commenti, promozioni
+```
+
+> **🧭 Perché è fatto così**
+>
+> - L’endpoint dei **dati pubblicabili** è il “cancello del consenso”: il bot non riceve mai un dato che non è autorizzato a pubblicare (es. mai la località esatta; il nome del padrino solo con il suo consenso).
+> - Nel bot l’unica modifica strutturale è la colonna `intervento_id` nella tabella `drafts`.
+> - Da definire: cosa succede se il webhook di pubblicazione non arriva (ritentativi dal bot? riconciliazione periodica?).
 
 ## 11.3 Errori, validazione e paginazione
 
@@ -1270,7 +1382,7 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 
 Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un AC negativo e un test.
 
-*Le celle già compilate derivano dalle decisioni del 23/09/2026 (FR-RUO-01/02/03, FR-ACC-03). “Se abilitato” = permesso configurabile dall’amministratore.*
+*Le celle già compilate derivano dalle decisioni del 24/09/2026 (FR-RUO-01/02/03, FR-ACC-03). “Se abilitato” = permesso configurabile dall’amministratore.*
 
 | Operazione | Amministratore | Volontario | Socio | Sostenitore |
 | --- | --- | --- | --- | --- |
@@ -1313,6 +1425,16 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 | Storage media (se esterno) |   |   |   |
 
 ## 13.4 Privacy e dati di minori
+
+> **✔ Aggiornato il 24/09/2026 – dati che oggi escono verso servizi esterni (dal bot)**
+>
+> **Anthropic (Claude):** foto e testi delle storie, per generare i contenuti social.
+>
+> **Meta:** foto e testi pubblicati su Facebook e Instagram.
+>
+> **Google Perspective e OpenAI Moderation:** i commenti degli utenti dei social, per la moderazione.
+>
+> Per ciascuno vanno documentati: finalità, base giuridica, dove sono trattati i dati, se il fornitore li conserva, e il consenso quando riguardano minori.
 
 *Origine: sezione aggiuntiva della nostra bozza – non richiesta dal template, la teniamo*
 
@@ -1442,6 +1564,10 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 
 # 16. Piano di deployment
 
+> **✔ Orientamento del 24/09/2026 – da confermare nel cap. 9**
+>
+> Il gestionale può stare sullo **stesso server Hostinger** del bot, come container separato dietro lo stesso Traefik (HTTPS già automatico), con un **database proprio**, per esempio PostgreSQL, più adatto di SQLite a molti utenti contemporanei. Costi e competenze sono già noti. Da valutare: risorse del server sufficienti per entrambi, backup separati, isolamento fra i due sistemi.
+
 **Stato:** **DA RIVEDERE**
 
 *Origine: unione fra la nostra bozza e il template del prof*
@@ -1494,9 +1620,10 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 
 | Milestone | Cosa è pronto | Data prevista | Responsabile |
 | --- | --- | --- | --- |
-| PRD validato | Questo documento |   | Andrea Pavan |
-| Prima versione in cloud |   |   |   |
-| Collaudo con utenti reali |   |   |   |
+| PRD validato | Questo documento (consegna), poi presentazione e validazione | Consegna: 09/10/2026 | Andrea Pavan |
+| Prima versione in cloud | Fase 1 online e raggiungibile pubblicamente |   | Andrea Pavan |
+| Collaudo con utenti reali | Collaudo della fase 1 con amministratore, volontari e alcuni sostenitori |   | Andrea Pavan |
+| Fase 2 completata | Funzionalità della fase 2, eventuale secondo collaudo | Entro fine anno scolastico | Andrea Pavan |
 |   |   |   |   |
 |   |   |   |   |
 
@@ -1506,9 +1633,9 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 
 | Priorità | Funzionalità (US) | Motivazione |
 | --- | --- | --- |
-| MVP – indispensabile |   |   |
-| Importante |   |   |
-| Se resta tempo |   |   |
+| Fase 1 – primo collaudo | Dashboard di gestione con ruoli, permessi, impostazioni e vista d’insieme; schede di famiglie, bambini e interventi con adozioni e riaffido; listino dei costi, imputazione delle entrate e rendicontazione completa con checklist di prove; registrazione del sostenitore con consenso privacy e area riservata base con causale standard e carrello con checkout tramite bonifico; importazione del CSV della banca ed esportazione per VERIF!CO | Copre tutti i requisiti obbligatori della traccia; risolve i problemi più urgenti (dati incompleti dei sostenitori, inserimento manuale in VERIF!CO) |
+| Fase 2 – entro fine anno | Bot integrato con il gestionale; pagamento con carta (es. Stripe, PayPal, Satispay); area soci; scadenza degli accessi con avvisi email; avviso al sostenitore a rendicontazione completata; recupero dei sostenitori storici | Si appoggia sui dati e sui ruoli della fase 1 |
+| Futuro – non incluso | Chat con beneficiari e associazione; integrazione del gruppo WhatsApp; app nativa sugli store; accesso diretto dall’Uganda; interfaccia in inglese; OCR sui PDF degli estratti conto | Vincoli tecnici e di costo; vedi cap. 1.3 |
 
 # 18. Piano di valutazione
 
@@ -1547,6 +1674,10 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 | Connessione in Uganda insufficiente |   |   |   |
 | Violazione di dati di minori |   |   |   |
 | Tempi di sviluppo insufficienti |   |   |   |
+| Documentazione generata con l’AI non allineata al codice | Alta | Medio | Verifica di ogni affermazione sul codice (tabella di verifica in docs/bot/TECHNICAL-INTEGRATION.md) |
+| API del bot esposte senza autenticazione | — | Alto | Risolto il 24/09/2026: token obbligatorio sulle rotte /api/* |
+| Cambi nelle API esterne (versioni Meta, modelli AI ritirati) | Media | Medio | Accesso ai servizi esterni isolato in moduli dedicati; verifica periodica di versioni e modelli |
+| Poca esperienza con React all’inizio dello sviluppo | Media | Medio | Partire dalle schermate più semplici; struttura del frontend semplice; appoggio al corso parallelo; fase 1 limitata al perimetro minimo |
 |   |   |   |   |
 
 # 20. Preparazione alla validazione
@@ -1658,6 +1789,8 @@ Tutto ciò che non puoi decidere da solo va chiesto al cliente reale. Annota ris
 | I progetti sono già censiti in VERIF!CO (ID_PROGETTO)? |   |   |
 | Come vengono raccolti oggi i consensi per le foto dei bambini? |   |   |
 | Quanti soci? Quota annuale e scadenza? |   |   |
+| Per gli inviti ai sostenitori storici: contatti più affidabili via email o via WhatsApp? |   |   |
+| VERIF!CO (assistenza): si possono esportare in blocco i PDF delle ricevute, e con quale nome dei file? Esiste un’API? |   |   |
 |   |   |   |
 |   |   |   |
 |   |   |   |
