@@ -78,3 +78,25 @@ Il dettaglio di ogni decisione è nel PRD (`docs/PRD.md`), capitolo 5.7.
 - Invitare il docente sulla repository e inviare l'email con il link.
 - Capitolo 2 (Stakeholder) in forma definitiva, poi i capitoli successivi uno alla volta.
 - Blocco 4: copia anonimizzata di `ListaMovimenti.xlsx`; risposte all'Appendice B.
+
+## 29/09/2026 – Capitoli 2 e 3 definitivi, CLAUDE.md aggiunto (v1.1)
+
+**Fatto**
+- Capitoli 2 e 3 ripuliti e portati a forma definitiva (senza impalcature e note di revisione).
+  - Cap. 2 (Stakeholder): Presidente e amministratore (i due soci fondatori), circa 12 volontari, soci solo i fondatori con intenzione di aprire adesione a pagamento.
+  - Cap. 3 (Contesto): tabella con 2 amministratori, ~12 volontari, soci fondatori; quattro archetipi; flusso AS-IS e TO-BE in sette passi.
+- Spostamento della descrizione del bot esistente in capitolo 10.1 (architettura).
+- Aggiornamento di FR-VER-01 (VERIF!CO Maxi, solo entrate positive).
+- Aggiunta di NFR-16 (passaggio di consegne) e rischio "dipendenza da una sola persona" in cap. 19.
+- Appendice B: due risposte registrate (versione di VERIF!CO, soci e volontari) e domanda sulle commissioni delle campagne.
+- **CLAUDE.md** aggiunto alla radice: regole per Claude Code (no codice prima della validazione PRD, il codice segue il PRD, no modifiche al PRD senza conferma, regole di versioning).
+- **PRD v1.1** (tag `prd-v1.1`): capitoli 2 e 3 definitivi.
+
+**Allineamento**
+- Repository locale e remoto sincronizzati.
+- Descrizione breve per cap. 4 scritta ("in un minuto al presidente").
+
+**Prossimi passi**
+- Giovedì: cap. 4 (Panoramica e user flow).
+- Venerdì: cap. 5 (User story).
+- Consegna del PRD ripulito: venerdì 9 ottobre 2026.
