@@ -4,7 +4,7 @@
 
 Piattaforma Sostenitori e Automazione Contabile
 
-*Versione 1.0 – versione di lavoro, struttura allineata al PRD Template del docente*
+*Versione 1.1 – versione di lavoro, struttura allineata al PRD Template del docente*
 
 Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi e valutazione
 
@@ -19,7 +19,7 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | Autori | Andrea Pavan |
 | Cliente reale | Effatà Italia ODV |
 | Contesto | Progetto ITS – 2° anno. Progetto personale che segue la metodologia della traccia “ScuolaChill”. |
-| Versione | 1.0 |
+| Versione | 1.1 |
 | Data | ____ / ____ / ________ |
 | Stato | ☐ Bozza   ☐ In revisione   ☐ Validato |
 
@@ -29,7 +29,7 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | --- | --- | --- | --- |
 | 0.x | 23–24/09/2026 | Andrea Pavan | Bozze di lavoro (numerate internamente da 2.0 a 3.11 nella cronologia di git): bozza iniziale; struttura sul PRD Template del docente; brain dump; prime decisioni su numeri, ruoli, adozioni, interventi, accessi; perimetro in tre fasi; blocchi 1–3 della fase 1; bot esistente e contratto di integrazione; nome del prodotto. |
 | 1.0 | 24/09/2026 | Andrea Pavan | Prima versione condivisa con il docente. Capitolo 1 in forma definitiva; flusso rovesciato (prima la registrazione, poi la donazione); simpatizzanti; donante e avente diritto alla detrazione; quietanza e ringraziamenti; canali di entrata; rapporto con VERIF!CO; sanatoria dei dati pregressi in fase 2; OCR non previsto. Gli altri capitoli sono ancora in versione di lavoro. |
-|   |   |   |   |
+| 1.1 | 29/09/2026 | Andrea Pavan | Capitoli 2 (Stakeholder) e 3 (Destinatari e contesto d’uso) in forma definitiva; numeri di amministratori, volontari e soci; VERIF!CO Maxi (solo entrate nel file di caricamento); requisito di passaggio di consegne (NFR-16) e rischio di dipendenza da una sola persona. |
 |   |   |   |   |
 |   |   |   |   |
 
@@ -94,8 +94,8 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 | Informazioni sul documento + Storico versioni | Informazioni sul documento | Unione |
 | — (non presente) | Gestione delle modifiche | Nostra |
 | Scopo e perimetro | 1. Scopo e perimetro | Definitivo |
-| Stakeholder | 2. Stakeholder | Template |
-| Destinatari e contesto d’uso | 3. Contesto, assunzioni e archetipi | Unione |
+| Stakeholder | 2. Stakeholder | Definitivo |
+| Destinatari e contesto d’uso | 3. Destinatari e contesto d’uso | Definitivo |
 | Panoramica e casi d’uso | 4. Panoramica e casi d’uso | Unione |
 | Requisiti funzionali | 5. Requisiti funzionali | Unione |
 | Requisiti non funzionali (+ impliciti) | 6. Requisiti non funzionali | Unione |
@@ -133,8 +133,8 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 | Cap. | Sezione | Stato iniziale | Fatto |
 | --- | --- | --- | --- |
 | 1 | Scopo e perimetro | DEFINITIVO (v1.0) | ☑ |
-| 2 | Stakeholder | MANCANTE | ☐ |
-| 3 | Contesto, assunzioni e archetipi | PARZIALE | ☐ |
+| 2 | Stakeholder | DEFINITIVO (v1.1) | ☑ |
+| 3 | Destinatari e contesto d’uso | DEFINITIVO (v1.1) | ☑ |
 | 4 | Panoramica e casi d’uso | MANCANTE | ☐ |
 | 5 | Requisiti funzionali | PARZIALE (4 storie su ~16) | ☐ |
 | 6 | Requisiti non funzionali + impliciti | MANCANTE | ☐ |
@@ -215,160 +215,71 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 
 # 2. Stakeholder
 
-**Stato:** **MANCANTE**
-
-*Origine: template del docente – sezione nuova, non presente nella nostra bozza*
-
-> **🧭 Dal template**
->
-> - Gli stakeholder non sono solo gli utenti. Sono anche chi approva, chi paga, chi manterrà il sistema. Chiediti chi resterebbe deluso se il sistema non funzionasse.
-> - Nel tuo caso c’è uno stakeholder particolare: **i bambini e le loro famiglie**. Non usano il sistema, ma sono i soggetti dei dati più delicati (foto di minori).
-
-| Stakeholder | Cosa fa | Cosa gli interessa | Come lo coinvolgete |
+| Stakeholder | Cosa fa | Cosa gli interessa | Come lo coinvolgiamo |
 | --- | --- | --- | --- |
-| Presidente / consiglio direttivo |   |   |   |
-| Tesoriere / amministratore (ARC-001) |   |   |   |
-| Operatori sul campo in Uganda (ARC-002) |   |   |   |
-| Volontari in Italia |   |   |   |
-| Sostenitori / donatori (ARC-003) |   |   |   |
-| Bambini e famiglie (soggetti dei dati) |   |   |   |
-| Commercialista / chi usa Verifico |   |   |   |
-| Docente del corso | Valida il PRD |   | Presentazione e domande |
-| Collaudatori reali | Usano il sistema come utenti reali |   | Intervista, collaudo |
-| Chi manterrà il sistema dopo il progetto |   |   |   |
-| Altri? |   |   |   |
+| **Presidente e amministratore** (i due soci fondatori di Effatà Italia ODV) | Decidono le priorità, approvano il progetto e i costi, gestiscono anagrafiche e contabilità | Trasparenza verso i donatori, sostenibilità economica, meno lavoro manuale, dati corretti | Presentazione del PRD, approvazione del perimetro, verifica dei formati VERIF!CO, collaudo della fase 1 |
+| **Volontari in Italia** (circa 12) | Caricano dati e foto secondo i permessi ricevuti; oggi pubblicano le storie con il bot | Strumenti semplici e compiti chiari | Configurazione dei permessi, collaudo |
+| **Silvia, referente in Uganda** | Ogni sera invia foto e notizie via WhatsApp; è il primo contatto di molti sostenitori | Continuare a usare WhatsApp; meno richieste di dati mancanti | Consultata sul nuovo flusso (prima la registrazione); in futuro accesso diretto |
+| **Sostenitori** (700–800) **e simpatizzanti** | Donano, adottano, seguono i beneficiari | Vedere dove va la propria donazione, detrazione fiscale, riservatezza | Intervista per i requisiti impliciti; collaudo con alcuni sostenitori reali |
+| **Soci** | Oggi solo i soci fondatori previsti dallo statuto; l'associazione intende aprire l'adesione, con quota associativa, a chi vorrà partecipare | Quote, assemblee, documenti | Area soci in fase 2 |
+| **Bambini e famiglie in Uganda** (circa 1.200 bambini) | Ricevono adozioni e interventi; non usano il sistema | Tutela della privacy e uso corretto di foto e dati | Consensi raccolti dal genitore o tutore tramite la referente; minimizzazione dei dati |
+| **Donatori delle campagne esterne** | Donano tramite piattaforme come GoFundMe | Semplicità e fiducia | Invito alla registrazione (fase 2) |
+| **Commercialista** | Usa VERIF!CO per contabilità e bilancio | Dati corretti e conformi (detrazioni, commissioni) | Verifica del formato di importazione e delle regole fiscali |
+| **Docente del corso** | Valida il PRD | Rispetto della traccia e del metodo, scelte motivate | Presentazione e domande; repository condivisa |
+| **Collaudatori reali** | Usano il sistema durante il collaudo | Facilità d'uso | Collaudo della fase 1 |
+| **Chi manterrà il sistema** | Andrea Pavan, come volontario; con la possibilità di affidarlo ad altri sviluppatori | Codice comprensibile, documentazione aggiornata, costi contenuti | README, documentazione nel codice (OpenAPI, test), account di servizio intestati all'associazione |
 
-# 3. Contesto, assunzioni e archetipi (Destinatari e contesto d’uso)
+VERIF!CO, UniCredit, Brevo e Hostinger non sono stakeholder ma **fornitori**: compaiono fra le dipendenze del capitolo 7.
 
-**Stato:** **PARZIALE**
+# 3. Destinatari e contesto d'uso
 
-*Origine: unione fra la nostra bozza e il template del docente*
+## 3.1 L'associazione
 
-## 3.1 I numeri dell’associazione (La scuola che avete immaginato)
+Effatà Italia Charity Organisation ODV è un'organizzazione di volontariato con sede in Italia che sostiene bambini e famiglie in condizioni di estrema povertà in Uganda: adozioni a distanza, costruzione di casette, affitto di terreni, animali da cortile, materassi, scarpe, sedie a rotelle, operazioni chirurgiche. È guidata dai due soci fondatori (presidente e amministratore), con l'aiuto di circa dodici volontari in Italia; in Uganda l'attività è seguita da una referente locale, Silvia. La contabilità, le anagrafiche e la newsletter sono gestite con VERIF!CO; la comunicazione con i sostenitori passa oggi da un gruppo WhatsApp; le storie dei beneficiari vengono pubblicate sui social tramite un bot sviluppato internamente.
 
-> **🧭 Guida**
->
-> - Il template chiede di descrivere la scuola immaginata. Tu hai un vantaggio: l’associazione è reale, quindi puoi usare **numeri veri**. Ogni numero con la sua **fonte**.
-> - Dal template: questi dati tornano nella stima del carico, quindi scegli numeri che poi userai davvero.
-
-> **⚠ Da verificare**
->
-> - Il numero di iscritti alla newsletter va verificato in VERIF!CO, da cui oggi si crea e si invia la newsletter.
-
-> **✍ Da compilare – domanda del template, adattata a Effatà**
->
-> Descrivi l’associazione per cui progetti. Che tipo di ente è (ODV, iscritta al RUNTS?), dove opera (sede in Italia, progetti in Uganda), come si organizza il lavoro (chi fa cosa, quando, con quali strumenti). Questi dati tornano nella stima del carico, quindi scegli numeri che poi userai davvero.
-
-> *(spazio per appunti)*
-
-| Grandezza | Valore | Fonte / motivazione |
+| | Valore | Fonte |
 | --- | --- | --- |
-| Sostenitori con adozione a distanza attiva | 700–800 | Dato dell’associazione (settembre 2026) |
-| Donatori occasionali (senza adozione) |   |   |
-| Iscritti alla newsletter | Da verificare in VERIF!CO | La newsletter si invia da VERIF!CO |
-| Bambini adottati in Uganda | ~1.200 | Dato dell’associazione (settembre 2026) |
-| Relazione bambino – sostenitore | Un bambino: 1 sostenitore attivo. Un sostenitore: 1..N bambini (media 1,5–1,7) | Deciso (FR-ADO-01) |
-| Tutti i bambini hanno un sostenitore? |   | Da chiedere |
-| Famiglie seguite (una famiglia ha 1..N bambini) |   | Da chiedere |
-| Interventi non di adozione all’anno (casette, animali, materassi, operazioni…) |   | Da chiedere |
-| Amministratori / tesorieri |   |   |
-| Volontari in Italia |   |   |
-| Operatori sul campo in Uganda | Silvia (referente); oggi invia il materiale via WhatsApp | Brain dump |
-| Donazioni ricevute al mese (media / picco, es. dicembre) |   |   |
-| Foto e documenti caricati al mese |   |   |
-| Estratti conto elaborati al mese (quante pagine?) |   |   |
-| Newsletter inviate all’anno |   |   |
-| Età media stimata dei sostenitori |   |   |
-| Anni di storico da importare |   |   |
-| Orari d’uso (Orario scolastico) – e differenza di fuso con l’Uganda | es. tesoriere la sera 20–22; operatori 8–17 ora locale (+1/+2 h rispetto all’Italia) |   |
-| Connettività (Italia / Uganda) | es. fibra o 4G in Italia; rete mobile 3G/4G instabile in Uganda |   |
+| Sostenitori | 700–800 | Associazione, settembre 2026 |
+| Bambini adottati | circa 1.200 (1,5–1,7 per sostenitore; un solo sostenitore attivo per bambino) | Associazione, settembre 2026 |
+| Famiglie seguite | *da verificare* | |
+| Interventi non di adozione all'anno | *da verificare* | |
+| Soci | Solo i soci fondatori previsti dallo statuto; adesione con quota da aprire in futuro | Associazione, settembre 2026 |
+| Amministratori | 2 (presidente e amministratore, soci fondatori) | Associazione, settembre 2026 |
+| Volontari in Italia | circa 12 | Associazione, settembre 2026 |
+| Referente in Uganda | 1 (Silvia); oggi invia il materiale via WhatsApp | Associazione |
+| Iscritti alla newsletter | *da verificare in VERIF!CO* | |
+| Canali delle donazioni | Conto UniCredit; campagne esterne (es. GoFundMe) | Associazione |
+| Gestionale contabile | VERIF!CO Maxi (contabilità per competenza) | Associazione, settembre 2026 |
+| Estratto conto | Esportazione CSV/Excel, caricata ogni 3 mesi | Associazione |
+| Orari d'uso | Amministratori e volontari soprattutto la sera; sostenitori in qualsiasi momento, con picchi dopo l'invio della newsletter e a inizio anno (detrazioni) | Stima |
+| Connettività | Buona in Italia; debole e costosa in Uganda (rilevante solo per l'accesso futuro dall'Uganda) | Associazione |
 
-## 3.2 Come si lavora oggi (situazione AS-IS)
+## 3.2 Gli archetipi
 
-*Origine: sezione aggiuntiva della nostra bozza – non richiesta dal template, la teniamo*
-
-> **✔ Sistema esistente: il bot social di Effatà (bot.effataitalia.it)**
->
-> Sviluppato da Andrea e in produzione. **Funzioni:** riceve foto e testi da Telegram, genera con l’AI i testi per Facebook, Instagram, LinkedIn, blog, Reel e YouTube Shorts, pubblica su Facebook e Instagram tramite le API di Meta, modera i commenti, offre una dashboard web e report mensili.
->
-> **Tecnologie:** Node.js + Express; database SQLite e file su disco; Docker Compose su server Hostinger, con Traefik e certificati Let’s Encrypt per l’HTTPS; test automatici con Jest.
->
-> **Dati oggi:** foto e testi in `/output/` e in `effata.db` (tabelle `drafts`, `meta_publications`, `moderation_queue`, `promotions`); i dati di bambini e sostenitori non hanno una struttura propria. SQLite non è cifrato.
->
-> **Sicurezza:** dal 24/09/2026 le API `/api/*` richiedono un token (prima erano esposte senza autenticazione); la dashboard è protetta con Basic Auth; i webhook Meta sono verificati con firma.
->
-> Documentazione tecnica di riferimento: `docs/bot/TECHNICAL-INTEGRATION.md`, verificata sul codice.
-
-> **✔ Il flusso di domani (TO-BE) – deciso il 24/09/2026**
->
-> Oggi si parte dall’adozione e si recuperano i dati dopo. Domani si parte dai dati: 1) registrazione nell’area riservata come simpatizzante; 2) modulo dati, con donante e avente diritto alla detrazione; 3) consensi privacy; 4) accordo per l’adozione o scelta dal carrello; 5) bonifico con la causale standard già corretta; 6) caricamento della quietanza e abbinamento → lettera di ringraziamento; 7) rendicontazione con foto e documenti; 8) conferma della donazione all’importazione trimestrale dell’estratto conto e invio a VERIF!CO.
-
-> **✔ Emerso dal brain dump**
->
-> **Foto e storie:** ogni sera Silvia, in Uganda, invia via **WhatsApp** le foto della giornata (nuove adozioni, consegne di materassi, animali, casette). Non usa Telegram per motivi tecnici. La sera Andrea seleziona foto e informazioni e le passa al **bot Telegram** esistente, che genera i testi per i social e archivia i dati di bambini, riceventi e sostenitori.
->
-> **Contabilità:** gli estratti conto vengono inseriti **a mano, riga per riga**, in VERIF!CO, passando dall’anagrafica alla contabilità. Le ricevute per la detrazione le invia VERIF!CO in automatico.
->
-> **Sostenitori:** comunicano con l’associazione in un **gruppo WhatsApp chiuso**; i loro dati in VERIF!CO sono spesso incompleti. Molti chiamano Silvia, avviano l’adozione e fanno il bonifico senza registrarsi: i dati vanno recuperati dopo.
-
-- Dove sono oggi i dati dei sostenitori (Excel, carta, email, WordPress)?
-- Come arrivano oggi le foto dall’Uganda e come vengono inviate ai sostenitori?
-- Quante ore al mese richiede oggi la preparazione dei dati per Verifico.it?
-- Come vengono prodotte oggi le ricevute per la detrazione fiscale?
-
-**✎ Appunti / risposte**
-
-> *(spazio per appunti)*
-
-## 3.3 Archetipi utente (Gli archetipi)
-
-> **📄 Dalla tua bozza v2.0**
->
-> **ARC-001 Amministratore / Tesoriere** – da desktop, valida donazioni, esporta per Verifico, gestisce gli abbinamenti. Competenze medio-alte. Uso settimanale/mensile.
->
-> **ARC-002 Operatore sul campo / Volontario** – da smartphone, connettività limitata in Uganda, carica foto e notizie. Competenze base/intermedie (usa Telegram). Uso quotidiano/eventuale.
->
-> **ARC-003 Sostenitore / Donatore** – da smartphone o PC, consulta l’adozione, scarica ricevute, guarda foto. Competenze base. Uso sporadico.
-
-> **✔ Deciso il 24/09/2026 – ruoli nel sistema**
->
-> **Amministratore:** gestisce tutto, è l’unico che vede i dati sensibili, configura regole e permessi dalla dashboard di gestione.
->
-> **Volontario:** vede le informazioni non sensibili e fa solo le azioni abilitate dall’amministratore (es. caricare dati e foto, rispondere alle chat). Oggi il volontario che usa il bot è Andrea.
->
-> **Socio:** ha un’area dedicata (quota, convocazioni, verbali, bilanci).
->
-> **Sostenitore:** vede solo i propri beneficiari, donazioni e documenti.
->
-> Una persona può avere **più ruoli** insieme. **Referente in Uganda:** ruolo futuro, non incluso ora.
-
-Tabella nel formato del template (la colonna **Dispositivo principale** è nuova):
-
-| ID | Archetipo | Contesto d’uso | Competenze digitali | Dispositivo principale | Frequenza d’uso |
+| ID | Archetipo | Contesto d'uso | Competenze digitali | Dispositivo principale | Frequenza d'uso |
 | --- | --- | --- | --- | --- | --- |
-| ARC-001 | Amministratore / Tesoriere | Validazione donazioni, export Verifico, abbinamenti | Medio-alte | es. PC in sede o a casa | Settimanale / mensile |
-| ARC-002 | Operatore sul campo / Volontario | Mobilità, connessione limitata in Uganda, foto e notizie | Base / intermedie | es. smartphone Android | Quotidiana / eventuale |
-| ARC-003 | Sostenitore / Donatore | Stato adozione, ricevute, foto | Base | es. smartphone, dal link della newsletter | Sporadica (1–2 volte al mese) |
-| ARC-004? |   |   |   |   |   |
+| ARC-001 | **Amministratore** (presidente e amministratore) | Imputa le entrate, abbina le donazioni, rendiconta, prepara i dati per VERIF!CO, configura regole e permessi | Medio-alte: usa VERIF!CO e i fogli di calcolo | PC | Settimanale, più intensa a ogni importazione trimestrale |
+| ARC-002 | **Volontario** (circa 12) | Carica foto e dati dei beneficiari secondo i permessi ricevuti; spesso la sera, a partire dal materiale inviato da Silvia | Base o intermedie: usa WhatsApp e Telegram | PC la sera, smartphone | Settimanale o quotidiana |
+| ARC-003 | **Sostenitore e simpatizzante** | Si registra, dona o adotta, carica la quietanza, guarda foto e aggiornamenti; arriva spesso da un link nell'email o su WhatsApp | Base; molti sostenitori non sono giovani | Smartphone | Sporadica: 1–2 volte al mese, di più dopo una newsletter o una nuova foto |
+| ARC-004 | **Socio** | Oltre a quanto fa il sostenitore, consulta quote e documenti associativi (fase 2) | Base | Smartphone o PC | Occasionale |
 
-> **⚠ Nota di revisione**
->
-> - **ARC-002 unisce due persone diverse**: volontario in Italia e operatore in Uganda hanno lingua, dispositivo, connessione e permessi diversi. Valuta di separarli (ARC-004).
-> - L’operatore in Uganda probabilmente parla **inglese**: il bot deve essere in inglese? È un requisito da dichiarare.
-> - Amministratore e tesoriere sono sempre la stessa persona? Se no, servono due ruoli.
-> - Dal template: chi sono i collaudatori veri e che dispositivo usano? La risposta cambia interfaccia, usabilità e dimensionamento.
+Una persona può avere più ruoli insieme (per esempio sostenitore e socio, oppure volontario e socio). La referente in Uganda non è per ora un utente del sistema: il suo accesso diretto è previsto in futuro (cap. 1.3).
 
-> **✍ Da compilare – domanda del template, adattata a Effatà**
->
-> I collaudatori veri chi sono? Il tesoriere usa il PC in sede o a casa la sera? Il sostenitore apre la newsletter dallo smartphone e tocca il link? L’operatore carica le foto da un villaggio con rete debole? La risposta cambia l’interfaccia, i requisiti di usabilità e perfino il dimensionamento.
+## 3.3 Come si lavora oggi e come si lavorerà
 
-| Domanda di arricchimento | ARC-001 | ARC-002 | ARC-003 |
-| --- | --- | --- | --- |
-| Età e dimestichezza reale |   |   |   |
-| Lingua |   |   |   |
-| Obiettivo principale in una frase |   |   |   |
-| Frustrazione principale oggi |   |   |   |
-| Chi collauderà questo ruolo |   |   |   |
+**Oggi.** Molti sostenitori contattano Silvia, l'adozione parte, e il bonifico arriva spesso senza una registrazione a monte: i dati vanno ricostruiti dopo. Silvia invia ogni sera foto e notizie via WhatsApp; un volontario le seleziona e le passa al bot, che genera i contenuti social. Gli estratti conto vengono inseriti a mano, riga per riga, in VERIF!CO, che invia poi le ricevute per la detrazione.
+
+**Domani.**
+
+1. La persona si registra nell'area riservata come simpatizzante.
+2. Compila i dati, compresi quelli dell'avente diritto alla detrazione, e dà i consensi.
+3. Concorda l'adozione o sceglie un intervento dal carrello.
+4. Fa il bonifico con la causale standard già pronta.
+5. Carica la quietanza: parte la lettera di ringraziamento.
+6. Riceve la rendicontazione con foto e documenti.
+7. All'importazione trimestrale dell'estratto conto la donazione viene confermata e passa a VERIF!CO.
+
+Il bot social resta in uso per la pubblicazione sui social; la sua descrizione tecnica è nel capitolo 10 e nel documento `docs/bot/TECHNICAL-INTEGRATION.md`.
 
 # 4. Panoramica e casi d’uso
 
@@ -705,7 +616,7 @@ Le storie della traccia ScuolaChill non si applicano al tuo dominio: al loro pos
 >
 > **FR-CAN-02 · Invito ai donatori delle campagne** (fase 2). Tramite i messaggi della piattaforma l’associazione invita i donatori a registrarsi; i consensi si raccolgono alla registrazione.
 >
-> **FR-VER-01 · Dati fra gestionale e VERIF!CO.** VERIF!CO resta il riferimento per contabilità, bilancio, ricevute e newsletter. Le anagrafiche raccolte e completate nel gestionale vengono importate anche in VERIF!CO (direzione gestionale → VERIF!CO); le correzioni fatte direttamente in VERIF!CO vanno riportate anche nel gestionale. Collegamento tramite l’ID dell’anagrafica VERIF!CO.
+> **FR-VER-01 · Dati fra gestionale e VERIF!CO.** VERIF!CO resta il riferimento per contabilità, bilancio, ricevute e newsletter. Le anagrafiche raccolte e completate nel gestionale vengono importate anche in VERIF!CO (direzione gestionale → VERIF!CO); le correzioni fatte direttamente in VERIF!CO vanno riportate anche nel gestionale. Collegamento tramite l’ID dell’anagrafica VERIF!CO. L’associazione usa **VERIF!CO Maxi** (contabilità per competenza): il file di caricamento dei movimenti contiene solo le **entrate confermate, con importi positivi**; sono disponibili i campi ID_PROGETTO, ID_RACCOLTAFONDI e ID_5PER1000.
 >
 > **FR-STO-01/02/03 · Sanatoria dei dati pregressi** (fase 2). Importazione iniziale dalle fonti esistenti (esportazioni di VERIF!CO, bozze del bot, contatti del gruppo WhatsApp) con unione dei duplicati e indicatore dei dati mancanti; inviti personali monouso via email o WhatsApp per completare dati e consensi; ritorno delle anagrafiche complete verso VERIF!CO (file di importazione o elenco delle modifiche).
 >
@@ -854,6 +765,7 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 | NFR-13b | Interazione | Errori in formato uniforme (trasversale) |   |   |   |
 | NFR-14 | Interazione | Elenchi paginati (trasversale) |   |   |   |
 | NFR-15 | Supporto | Ambienti Development e Production senza segreti nel codice (trasversale) |   |   |   |
+| NFR-16 | Supporto | Passaggio di consegne: il sistema può essere affidato a un altro sviluppatore | Seguendo solo il README, un nuovo sviluppatore avvia il progetto in locale ed esegue i test in mezza giornata; tutti gli account di servizio (hosting, dominio, email, pagamenti, repository) sono intestati all’associazione | Prova con uno sviluppatore esterno; verifica degli intestatari degli account | Tutte |
 
 ## 6.2 Requisiti impliciti
 
@@ -1031,6 +943,18 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 > - **Livelli** riferiti al tuo gestionale; **dipendenze** fra livelli; come la struttura riduce l’**accoppiamento** e rende il sistema **testabile**.
 
 ## 10.1 Diagramma dei componenti
+
+> **✔ Sistema esistente: il bot social di Effatà (bot.effataitalia.it)**
+>
+> Sviluppato da Andrea e in produzione. **Funzioni:** riceve foto e testi da Telegram, genera con l’AI i testi per Facebook, Instagram, LinkedIn, blog, Reel e YouTube Shorts, pubblica su Facebook e Instagram tramite le API di Meta, modera i commenti, offre una dashboard web e report mensili.
+>
+> **Tecnologie:** Node.js + Express; database SQLite e file su disco; Docker Compose su server Hostinger, con Traefik e certificati Let’s Encrypt per l’HTTPS; test automatici con Jest.
+>
+> **Dati oggi:** foto e testi in `/output/` e in `effata.db` (tabelle `drafts`, `meta_publications`, `moderation_queue`, `promotions`); i dati di bambini e sostenitori non hanno una struttura propria. SQLite non è cifrato.
+>
+> **Sicurezza:** dal 24/09/2026 le API `/api/*` richiedono un token (prima erano esposte senza autenticazione); la dashboard è protetta con Basic Auth; i webhook Meta sono verificati con firma.
+>
+> Documentazione tecnica di riferimento: `docs/bot/TECHNICAL-INTEGRATION.md`, verificata sul codice.
 
 > **📄 Dalla tua bozza v2.0**
 >
@@ -1613,7 +1537,7 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 | Sostenitori che completano il primo accesso senza aiuto | es. 90% | Osservazione durante il collaudo | Collaudo |
 | Donazioni perse o duplicate | 0 | Confronto fra estratto conto e donazioni registrate | Primo mese |
 | Righe estratte dall’AI corrette senza modifiche |   | Confronto con la revisione del tesoriere |   |
-| Ore al mese per la preparazione dati Verifico |   | Confronto con la situazione AS-IS (cap. 3.2) |   |
+| Ore al mese per la preparazione dati Verifico |   | Confronto con la situazione di oggi (cap. 3.3) |   |
 |   |   |   |   |
 
 # 19. Rischi
@@ -1633,6 +1557,7 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 | Documentazione generata con l’AI non allineata al codice | Alta | Medio | Verifica di ogni affermazione sul codice (tabella di verifica in docs/bot/TECHNICAL-INTEGRATION.md) |
 | API del bot esposte senza autenticazione | — | Alto | Risolto il 24/09/2026: token obbligatorio sulle rotte /api/* |
 | Cambi nelle API esterne (versioni Meta, modelli AI ritirati) | Media | Medio | Accesso ai servizi esterni isolato in moduli dedicati; verifica periodica di versioni e modelli |
+| Dipendenza da una sola persona (sviluppo, account e credenziali in capo ad Andrea) | Media | Alto | Repository in un’organizzazione GitHub dell’associazione; hosting, dominio e servizi intestati all’associazione; credenziali in un gestore di password condiviso con il presidente; documentazione per il passaggio di consegne (NFR-16) |
 | Poca esperienza con React all’inizio dello sviluppo | Media | Medio | Partire dalle schermate più semplici; struttura del frontend semplice; appoggio al corso parallelo; fase 1 limitata al perimetro minimo |
 |   |   |   |   |
 
@@ -1741,10 +1666,11 @@ Tutto ciò che non puoi decidere da solo va chiesto al cliente reale. Annota ris
 | Quante famiglie seguite? Quanti bambini per famiglia in media? |   |   |
 | Quanti interventi non di adozione all’anno, per tipo? |   |   |
 | Un export di esempio dell’estratto conto UniCredit (CSV/Excel), anonimizzato |   |   |
-| Quale versione di VERIF!CO usate (Maxi, Premium, Mini)? |   |   |
+| Quale versione di VERIF!CO usate (Maxi, Premium, Mini)? | VERIF!CO Maxi (contabilità per competenza) | 29/09/2026 |
 | I progetti sono già censiti in VERIF!CO (ID_PROGETTO)? |   |   |
 | Come vengono raccolti oggi i consensi per le foto dei bambini? |   |   |
-| Quanti soci? Quota annuale e scadenza? |   |   |
+| Quanti soci? Quota annuale e scadenza? | Oggi solo i soci fondatori (presidente e amministratore); adesione con quota da aprire in futuro. Volontari: circa 12 | 29/09/2026 |
+| Campagne esterne (GoFundMe): in VERIF!CO si registra il netto ricevuto o il lordo donato, con le commissioni come costo? (commercialista) |   |   |
 | Il modulo “Associati” di VERIF!CO è già usato per soci e quote associative? (impatto sull’area soci) |   |   |
 | In VERIF!CO quale SMTP è attivo e predefinito per la newsletter: Gmail o Brevo? Limiti del piano Brevo? |   |   |
 | L’export UniCredit contiene l’IBAN dell’ordinante e la causale completa? Fino a quanto indietro si può esportare? |   |   |
