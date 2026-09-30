@@ -4,7 +4,7 @@
 
 Piattaforma Sostenitori e Automazione Contabile
 
-*Versione 1.1 – versione di lavoro, struttura allineata al PRD Template del docente*
+*Versione 1.2 – versione di lavoro, struttura allineata al PRD Template del docente*
 
 Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi e valutazione
 
@@ -19,7 +19,7 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | Autori | Andrea Pavan |
 | Cliente reale | Effatà Italia ODV |
 | Contesto | Progetto ITS – 2° anno. Progetto personale che segue la metodologia della traccia “ScuolaChill”. |
-| Versione | 1.1 |
+| Versione | 1.2 |
 | Data | ____ / ____ / ________ |
 | Stato | ☐ Bozza   ☐ In revisione   ☐ Validato |
 
@@ -30,6 +30,7 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | 0.x | 23–24/09/2026 | Andrea Pavan | Bozze di lavoro (numerate internamente da 2.0 a 3.11 nella cronologia di git): bozza iniziale; struttura sul PRD Template del docente; brain dump; prime decisioni su numeri, ruoli, adozioni, interventi, accessi; perimetro in tre fasi; blocchi 1–3 della fase 1; bot esistente e contratto di integrazione; nome del prodotto. |
 | 1.0 | 24/09/2026 | Andrea Pavan | Prima versione condivisa con il docente. Capitolo 1 in forma definitiva; flusso rovesciato (prima la registrazione, poi la donazione); simpatizzanti; donante e avente diritto alla detrazione; quietanza e ringraziamenti; canali di entrata; rapporto con VERIF!CO; sanatoria dei dati pregressi in fase 2; OCR non previsto. Gli altri capitoli sono ancora in versione di lavoro. |
 | 1.1 | 29/09/2026 | Andrea Pavan | Capitoli 2 (Stakeholder) e 3 (Destinatari e contesto d’uso) in forma definitiva; numeri di amministratori, volontari e soci; VERIF!CO Maxi (solo entrate nel file di caricamento); requisito di passaggio di consegne (NFR-16) e rischio di dipendenza da una sola persona. |
+| 1.2 | 30/09/2026 | Andrea Pavan | Capitolo 4.1 in forma definitiva; richieste di sostegno precise nel carrello (uniche o per quantità, costo per richiesta); carrello con preferiti, ricerca e condivisione; pagamento con carta anticipato in fase 1 (bonifico come ultima scelta); chi paga per primo e credito solidale con scadenza a 3 mesi; durata e rinnovo dell’adozione; preferenze di comunicazione; caricamento massivo in VERIF!CO. |
 |   |   |   |   |
 |   |   |   |   |
 
@@ -135,7 +136,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 | 1 | Scopo e perimetro | DEFINITIVO (v1.0) | ☑ |
 | 2 | Stakeholder | DEFINITIVO (v1.1) | ☑ |
 | 3 | Destinatari e contesto d’uso | DEFINITIVO (v1.1) | ☑ |
-| 4 | Panoramica e casi d’uso | MANCANTE | ☐ |
+| 4 | Panoramica e casi d’uso | 4.1 DEFINITIVO (v1.2); 4.2 dopo le user story | ☐ |
 | 5 | Requisiti funzionali | PARZIALE (4 storie su ~16) | ☐ |
 | 6 | Requisiti non funzionali + impliciti | MANCANTE | ☐ |
 | 7 | Assunzioni, vincoli e dipendenze | MANCANTE | ☐ |
@@ -175,7 +176,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 
 **Dal lato business.** Oggi Effatà Italia gestisce con strumenti separati e molto lavoro manuale il rapporto con i propri sostenitori: gli estratti conto vengono inseriti riga per riga in VERIF!CO, i dati dei sostenitori sono spesso incompleti, molti bonifici arrivano senza una registrazione a monte e le foto dall’Uganda passano a mano da WhatsApp al bot. Per questo è difficile collegare ogni donazione al suo beneficiario e dimostrare a chi dona che l’aiuto è arrivato. Il Gestionale Effatà serve agli amministratori e ai volontari, ai 700–800 sostenitori e ai soci, e indirettamente ai circa 1.200 bambini e alle loro famiglie in Uganda: meno lavoro manuale, dati completi e trasparenza verso chi dona. L’obiettivo di fondo è rovesciare il flusso di oggi: prima la persona si registra, con i suoi dati, i consensi e le informazioni per la detrazione, poi parte l’adozione o la donazione, già corretta e tracciabile fin dal primo bonifico.
 
-**Dal lato tecnico.** Il sistema accompagna la persona dalla registrazione in poi: raccolta dei dati e del consenso privacy, spazio riservato con lo storico delle proprie donazioni e dei beneficiari, carrello delle donazioni. Riunisce in un unico punto di accesso, per i sostenitori e per l’associazione, informazioni oggi sparse fra il bot e il gestionale contabile, e le smista verso chi deve riceverle. I dati verso VERIF!CO passano con caricamenti massivi invece dell’inserimento a mano, e i dati storici vengono completati. La comunicazione diretta con i beneficiari e il pagamento con carta sono previsti in fasi successive.
+**Dal lato tecnico.** Il sistema accompagna la persona dalla registrazione in poi: raccolta dei dati e del consenso privacy, spazio riservato con lo storico delle proprie donazioni e dei beneficiari, carrello solidale con richieste di sostegno precise e pagamento con carta o bonifico. Riunisce in un unico punto di accesso, per i sostenitori e per l’associazione, informazioni oggi sparse fra il bot e il gestionale contabile, e le smista verso chi deve riceverle. I dati verso VERIF!CO passano con caricamenti massivi invece dell’inserimento a mano, e i dati storici vengono completati. La comunicazione diretta con i beneficiari è prevista in futuro.
 
 ## 1.2 Cosa è incluso
 
@@ -183,18 +184,21 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 
 - **Gestione dell’associazione:** dashboard per amministratori e volontari, con ruoli, permessi configurabili e vista d’insieme dei numeri principali.
 - **Anagrafiche:** simpatizzanti, sostenitori, famiglie e bambini; adozioni a distanza con riaffido e storico.
-- **Interventi e rendicontazione:** listino dei tipi di intervento (casette, animali, materassi, operazioni…), imputazione delle entrate, checklist delle prove di realizzazione.
-- **Area riservata:** registrazione con consenso privacy (chi si registra è simpatizzante, diventa sostenitore con la prima donazione); dati del donante e dell’avente diritto alla detrazione; causale standard; carrello solidale con pagamento tramite bonifico; caricamento della quietanza; storico delle donazioni e dei beneficiari sostenuti; riepilogo annuale.
-- **Comunicazioni automatiche:** conferma del carrello e lettera di ringraziamento al caricamento della quietanza.
-- **Contabilità:** importazione dell’estratto conto UniCredit e dei versamenti delle campagne esterne, conferma delle donazioni e preparazione del file di caricamento per VERIF!CO.
+- **Richieste di sostegno:** ogni adozione o progetto da sostenere è una richiesta precisa (quel bambino, quella famiglia, quella carrozzina), con foto, storia e costo propri; tipi di intervento (adozione scolastica, adozione in casa famiglia, casette, terreni, animali, materassi, scarpe, carrozzine, operazioni…).
+- **Interventi e rendicontazione:** imputazione delle entrate, checklist delle prove di realizzazione.
+- **Area riservata:** registrazione con consenso privacy (chi si registra è simpatizzante, diventa sostenitore con la prima donazione); dati del donante e dell’avente diritto alla detrazione; preferenze di comunicazione e gestione dei consensi; storico delle donazioni e dei beneficiari sostenuti; riepilogo annuale.
+- **Carrello solidale:** ricerca e filtri fra le richieste; preferiti; condivisione di una richiesta su WhatsApp; pagamento con carta (tramite un fornitore di pagamenti) o, come ultima scelta, con bonifico e caricamento della quietanza; credito solidale quando una richiesta è già stata sostenuta da altri.
+- **Comunicazioni automatiche:** conferma della donazione, lettera di ringraziamento al pagamento o al caricamento della quietanza, promemoria settimanali del credito solidale.
+- **Contabilità:** importazione dell’estratto conto UniCredit e dei versamenti delle campagne esterne, conferma delle donazioni e preparazione del file per il caricamento massivo in VERIF!CO.
 
 **Fase 2 – entro la fine dell’anno scolastico**
 
 - Integrazione del bot social esistente con il gestionale.
-- Pagamento con carta.
+- Altri metodi di pagamento (PayPal, Satispay).
+- Rinnovo delle adozioni con promemoria.
 - Area soci.
 - Scadenza degli accessi inattivi, con avvisi via email.
-- Avviso al sostenitore quando un suo intervento è rendicontato.
+- Avvisi al sostenitore quando arrivano nuove foto o un suo intervento è rendicontato.
 - Sanatoria dei dati pregressi: importazione iniziale, inviti personali ai sostenitori storici, ritorno delle anagrafiche complete verso VERIF!CO.
 - Invito a registrarsi per i donatori delle campagne esterne.
 - Spazio informativo: collegamenti ai contenuti pubblicati sul sito dell’associazione (newsletter, informative, volantini, eventi, 5×1000).
@@ -283,19 +287,15 @@ Il bot social resta in uso per la pubblicazione sui social; la sua descrizione t
 
 # 4. Panoramica e casi d’uso
 
-**Stato:** **MANCANTE**
-
-*Origine: unione fra la nostra bozza e il template del docente*
-
 ## 4.1 Il Gestionale Effatà in poche righe
 
-*Origine: template del docente – sezione nuova, non presente nella nostra bozza*
+Il Gestionale Effatà è lo spazio online dell’associazione, raggiungibile dall’area riservata del sito o installabile sul telefono come un’app. Chiunque voglia avvicinarsi a Effatà si registra come simpatizzante e trova le informazioni sull’associazione; con la prima donazione diventa sostenitore.
 
-> **✍ Da compilare – domanda del template, adattata a Effatà**
->
-> Racconta il Gestionale Effatà come lo spiegheresti al presidente dell’associazione in un minuto. Niente termini tecnici.
+Il cuore è un “carrello solidale”, come nei negozi online, ma al posto dei prodotti ci sono richieste di sostegno vere: l’adozione scolastica di un bambino preciso, l’accoglienza di un bambino con disabilità nella casa famiglia Effatà, una carrozzina, una capretta o delle galline per una famiglia, un terreno, una casetta, delle scarpe. Ogni richiesta ha le foto e la storia che Silvia ci manda dall’Uganda, le stesse che pubblichiamo sui social e sul blog, e il suo costo. Il sostenitore sceglie, paga con la carta oppure con un bonifico caricando la ricevuta della banca, e riceve subito la lettera di ringraziamento. Se nel frattempo qualcun altro ha già sostenuto la stessa richiesta, la sua donazione diventa un credito da usare per un’altra.
 
-> *(spazio per appunti)*
+Da quel momento, nella sua area, segue ciò che ha sostenuto: l’iscrizione a scuola, le foto della consegna, i documenti, lo storico delle sue donazioni. Ognuno vede solo ciò che ha donato lui.
+
+Per l’associazione, amministratori e volontari lavorano sugli stessi dati, ciascuno con i permessi che gli spettano; i soci trovano i documenti della vita associativa. I dati arrivano completi fin dall’inizio e passano a VERIF!CO in un’unica operazione, senza essere ricopiati a mano.
 
 ## 4.2 User flow e scenari
 
@@ -578,7 +578,7 @@ Le storie della traccia ScuolaChill non si applicano al tuo dominio: al loro pos
 >
 > **FR-INT-03 · Checklist di rendicontazione per tipo.** Ogni tipo di intervento ha un elenco di prove di realizzazione richieste, configurabile dall’amministratore: foto della consegna per materassi, scarpe e animali; iscrizione e foto per le adozioni; foto, contratto e fattura dove esistono, come per la casetta. Un intervento è “rendicontato” solo con tutte le prove caricate, che diventano visibili al donante nella sua area riservata.
 >
-> **FR-INT-04 · Costo dichiarato dell’intervento.** Ogni tipo di intervento ha un costo standard in un listino configurabile. La spesa coincide con il costo dichiarato e finanziato dal donante; non si registrano fatture di spesa. Il costo viene congelato nell’intervento al momento del finanziamento.
+> **FR-INT-04 · Costo dichiarato dell’intervento.** Ogni tipo di intervento ha un costo standard in un listino configurabile, proposto come valore iniziale; **ogni richiesta di sostegno può avere un costo proprio** (per esempio l’adozione in casa famiglia di un bambino con disabilità). La spesa coincide con il costo dichiarato e finanziato dal donante; non si registrano fatture di spesa. Il costo viene congelato nell’intervento al momento del finanziamento.
 >
 > **FR-INT-05 · Donazioni generiche.** Un’entrata senza destinazione specifica va nel capitolo “Cassa sostegno Effatà”, senza creare interventi.
 >
@@ -586,7 +586,23 @@ Le storie della traccia ScuolaChill non si applicano al tuo dominio: al loro pos
 >
 > **FR-SOS-01 · Causale standard.** Nell’area riservata il sostenitore trova la causale già compilata da copiare nel bonifico (es. `ADOZIONE UG-102`, `MATERASSI 2 FAM-045`).
 >
-> **FR-SOS-02 · Carrello solidale.** Il sostenitore sceglie interventi dal listino e li mette nel carrello; il checkout tramite bonifico crea un impegno e mostra IBAN e causale standard; il bonifico, quando arriva, viene abbinato all’impegno. L’adozione compare come “richiesta di adozione”, il bambino lo abbina l’amministratore. Il pagamento con carta è previsto in fase 2.
+> **FR-CAT-01 · Richieste di sostegno.** Ogni adozione o progetto da sostenere è una richiesta precisa, creata dall’amministratore: tipo, beneficiario (bambino, famiglia o comunità), foto, storia (la stessa inviata dalla referente e usata per il post social e il blog, con il collegamento a questi), costo e stato (aperta, sostenuta, chiusa). Le richieste sono **uniche** (l’adozione di un bambino, una carrozzina per una persona) oppure **per quantità** (materassi, galline, scarpe), che si possono sostenere più volte finché c’è bisogno. Pubblicare foto e storia richiede il consenso alla pubblicazione sulla scheda famiglia. In fase 2 le richieste potranno nascere dal bot (cap. 11.5).
+>
+> **FR-SOS-02 · Carrello solidale.** Il sostenitore cerca e filtra le richieste (per tipo e costo), le mette nel carrello e le paga. Mettere una richiesta nel carrello **non la prenota**. Alla chiusura della sessione il carrello si svuota e il contenuto passa nei **preferiti**; chi ha fra i preferiti una richiesta unica che viene sostenuta da altri riceve un avviso con proposte simili. Ogni richiesta può essere condivisa su WhatsApp con un collegamento.
+>
+> **FR-PAG-01 · Metodi di pagamento.** Metodo principale: **carta**, tramite un fornitore di pagamenti esterno, con conferma immediata; i dati della carta non passano mai dal gestionale. Ultima scelta: **bonifico**, con IBAN e causale standard (FR-SOS-01, FR-FIS-01) e caricamento della quietanza (FR-DON-01). Altri metodi (PayPal, Satispay) in fase 2.
+>
+> **FR-CAR-01 · Chi paga per primo.** Una richiesta unica resta disponibile finché non arriva un pagamento: con carta vale la conferma immediata, con bonifico il caricamento della quietanza. Il primo pagamento vince e la richiesta viene chiusa e tolta dal carrello degli altri.
+>
+> **FR-CAR-02 · Credito solidale.** Se arriva un secondo pagamento per una richiesta già chiusa, la donazione diventa un **credito solidale** nell’area riservata del sostenitore, che lo usa per un’altra richiesta. Il sostenitore riceve un messaggio che lo ringrazia e spiega la situazione. La regola è indicata nelle condizioni accettate al pagamento.
+>
+> **FR-CAR-03 · Scadenza del credito solidale.** Chi ha un credito attivo riceve **un’email ogni settimana** con la proposta della prima adozione disponibile dello stesso tipo e costo, e un pulsante che porta nell’area riservata per accettarla dopo l’accesso. Dopo **3 mesi** riceve l’avviso di scadenza e il credito passa alla **Cassa sostegno Effatà** come donazione generica.
+>
+> **FR-ADO-04 · Durata e rinnovo dell’adozione.** L’adozione scolastica dura un anno scolastico e si rinnova, oppure prosegue con un **bonifico ricorrente** (codice 12 nel tracciato VERIF!CO). In fase 2 il sostenitore riceve un promemoria prima della scadenza.
+>
+> **FR-COM-01 · Preferenze di comunicazione.** Il sostenitore sceglie quali comunicazioni ricevere (ringraziamenti e comunicazioni obbligatorie sempre; avvisi di nuove foto, promemoria, newsletter a scelta) e può consultare e modificare i propri consensi.
+>
+> **FR-VER-02 · Caricamento massivo in VERIF!CO.** Il gestionale genera il file Excel nel formato del tracciato di VERIF!CO con le sole donazioni confermate (per i pagamenti con carta, nel formato del fornitore previsto da VERIF!CO); l’amministratore lo carica in VERIF!CO da “Contabilità → Importazione movimenti” con un’unica operazione. In fase 2 lo stesso vale per le anagrafiche complete. Un invio completamente automatico richiederebbe un’API di VERIF!CO (DIP-12).
 >
 > **FR-VIS-01 · Ogni sostenitore vede solo ciò che ha donato** (US-301, FR-INT-01). Una famiglia o un beneficiario può ricevere da più sostenitori, ma ognuno vede solo le adozioni e gli interventi che ha finanziato, con foto, prove e documenti. Nelle foto possono comparire altri membri della famiglia (accettato); non vede le schede degli altri bambini, gli altri interventi, né donazioni e identità degli altri sostenitori. Negli interventi con più finanziatori vede la propria quota e lo stato, non gli altri finanziatori. Una richiesta API su dati non propri riceve 403.
 >
@@ -832,6 +848,7 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 | DIP-10 | API di Anthropic (Claude) per i testi social e l’eventuale lettura delle causali |   |   |
 | DIP-11 | Google Perspective e OpenAI Moderation (solo nel bot, per i commenti) | — |   |
 | DIP-12 | Risposta dell’assistenza VERIF!CO: esportazione in blocco dei PDF delle ricevute? API disponibili? | Prima della fase 2 | Andrea Pavan |
+| DIP-13 | Account del fornitore di pagamenti (Stripe) intestato all’associazione, con modalità di prova per il collaudo | Prima del collaudo della fase 1 | Presidente / Andrea Pavan |
 
 # Seconda parte · Il come
 
@@ -926,6 +943,7 @@ Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnat
 | Storage media |   |   |   |
 | Servizio esterno: provider AI e modello |   |   |   |
 | Servizio esterno: email |   |   |   |
+| Servizio esterno: pagamenti con carta | Stripe – orientamento del 30/09/2026 | PayPal | Carte, Apple Pay e Google Pay; modalità di prova per il collaudo; tracciato di importazione già previsto da VERIF!CO; i dati della carta restano al fornitore. PayPal come metodo aggiuntivo in fase 2 |
 | Libreria bot Telegram |   |   |   |
 | Generazione PDF (ricevute) |   |   |   |
 | Internazionalizzazione | File di traduzione separati | Testi scritti nel codice | Deciso il 23/09: aggiungere l’inglese in futuro senza riscrivere l’interfaccia (NFR-13) |
@@ -1513,8 +1531,8 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 
 | Priorità | Funzionalità (US) | Motivazione |
 | --- | --- | --- |
-| Fase 1 – primo collaudo | Dashboard con ruoli, permessi e vista d’insieme; simpatizzanti, sostenitori, famiglie, bambini, adozioni e riaffido; listino, interventi e rendicontazione; area riservata con causale standard, carrello con bonifico, quietanza e ringraziamenti; importazione dell’estratto conto e delle campagne esterne, esportazione per VERIF!CO | Copre tutti i requisiti obbligatori della traccia; risolve i problemi più urgenti (flusso rovesciato, inserimento manuale in VERIF!CO) |
-| Fase 2 – entro fine anno | Bot integrato; pagamento con carta; area soci; scadenza degli accessi con avvisi; avviso di rendicontazione; sanatoria dei dati pregressi; inviti ai donatori delle campagne; spazio informativo con collegamenti al sito | Si appoggia sui dati e sui ruoli della fase 1 |
+| Fase 1 – primo collaudo | Dashboard con ruoli, permessi e vista d’insieme; simpatizzanti, sostenitori, famiglie, bambini, adozioni e riaffido; richieste di sostegno e carrello solidale (ricerca, preferiti, condivisione); pagamento con carta e con bonifico, quietanza, credito solidale e ringraziamenti; preferenze e consensi; rendicontazione; importazione dell’estratto conto e delle campagne, caricamento massivo in VERIF!CO | Copre tutti i requisiti obbligatori della traccia; risolve i problemi più urgenti (flusso rovesciato, inserimento manuale in VERIF!CO) |
+| Fase 2 – entro fine anno | Bot integrato; PayPal e Satispay; rinnovo delle adozioni con promemoria; area soci; scadenza degli accessi con avvisi; avvisi di nuove foto e rendicontazioni; sanatoria dei dati pregressi; inviti ai donatori delle campagne; spazio informativo con collegamenti al sito | Si appoggia sui dati e sui ruoli della fase 1 |
 | Futuro – non incluso | Chat; gruppo WhatsApp; app sugli store; accesso dall’Uganda; interfaccia in inglese | Vincoli tecnici e di costo; vedi cap. 1.3 |
 
 # 18. Piano di valutazione
