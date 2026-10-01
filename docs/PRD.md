@@ -4,7 +4,7 @@
 
 Piattaforma Sostenitori e Automazione Contabile
 
-*Versione 1.3 – versione di lavoro, struttura allineata al PRD Template del docente*
+*Versione 1.4 – versione di lavoro, struttura allineata al PRD Template del docente*
 
 Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi e valutazione
 
@@ -19,7 +19,7 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | Autori | Andrea Pavan |
 | Cliente reale | Effatà Italia ODV |
 | Contesto | Progetto ITS – 2° anno. Progetto personale che segue la metodologia della traccia “ScuolaChill”. |
-| Versione | 1.3 |
+| Versione | 1.4 |
 | Data | ____ / ____ / ________ |
 | Stato | ☐ Bozza   ☐ In revisione   ☐ Validato |
 
@@ -32,6 +32,7 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | 1.1 | 29/09/2026 | Andrea Pavan | Capitoli 2 (Stakeholder) e 3 (Destinatari e contesto d’uso) in forma definitiva; numeri di amministratori, volontari e soci; VERIF!CO Maxi (solo entrate nel file di caricamento); requisito di passaggio di consegne (NFR-16) e rischio di dipendenza da una sola persona. |
 | 1.2 | 30/09/2026 | Andrea Pavan | Capitolo 4.1 in forma definitiva; richieste di sostegno precise nel carrello (uniche o per quantità, costo per richiesta); carrello con preferiti, ricerca e condivisione; pagamento con carta anticipato in fase 1 (bonifico come ultima scelta); chi paga per primo e credito solidale con scadenza a 3 mesi; durata e rinnovo dell’adozione; preferenze di comunicazione; caricamento massivo in VERIF!CO. |
 | 1.3 | 01/10/2026 | Andrea Pavan | Capitolo 5 in forma definitiva: 23 user story per amministratore, volontario, sostenitore e socio, con i loro acceptance criteria, e decisioni riordinate per area. Nuove decisioni: consenso della famiglia con modulo unico (FR-CON-01), visibilità dei dati configurabile (FR-RUO-04), compleanno (FR-ADO-05), casa famiglia Effatà come progetto distinto (FR-INT-07), chiusura annuale per le certificazioni (FR-VER-03), obiettivi e andamento (FR-DASH-02), filtri, report e scadenze (FR-REP-01), ricerca (FR-REP-02), impostazioni configurabili (FR-IMP-01), quota associativa (FR-SOC-01). Modifiche: estratto conto mensile; anagrafiche verso VERIF!CO già in fase 1; vetrina riservata agli utenti registrati; credito solidale a 1 mese, poi alla casa famiglia; proposta di imputazione con l’AI in fase 2; uscite e fornitori restano in VERIF!CO. Requisiti impliciti dalle prime quattro interviste e NFR-17/18/19; capitolo 1 aggiornato. |
+| 1.4 | 01/10/2026 | Andrea Pavan | Il bot social diventa la porta d’ingresso del materiale di Silvia già in fase 1: un solo caricamento pubblica sui social e alimenta il gestionale tramite API (FR-BOT-01…08), con riconoscimento dei volontari tramite Telegram. Tutte le donazioni passano dal gestionale; Silvia segnala i bisogni, manda le prove e indirizza i padrini alla vetrina. Vetrina con richieste personali e voci fisse (FR-CAT-01, FR-INT-08); casa famiglia divisa in opere e sostegno (calendario solidale, importato in automatico: FR-CAN-03). Non esiste un archivio digitale dei bambini: codici BAM/FAM/RIC generati dal gestionale (FR-COD-01), recupero dei padrini da VERIF!CO e censimento progressivo dei bambini in fase 1 (FR-STO-01, AMM-09). Foto pubbliche e riservate al padrino (FR-FOTO-01); consenso a comparire nei post (FR-COM-02). Nuove storie AMM-09 e VOL-04; aggiornate AMM-01, AMM-02, AMM-04, VOL-01, VOL-02, SOS-01, SOS-03, SOS-07, SOS-09; user flow di AMM-01. |
 |   |   |   |   |
 |   |   |   |   |
 
@@ -137,8 +138,8 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 | 1 | Scopo e perimetro | DEFINITIVO (v1.0) | ☑ |
 | 2 | Stakeholder | DEFINITIVO (v1.1) | ☑ |
 | 3 | Destinatari e contesto d’uso | DEFINITIVO (v1.1) | ☑ |
-| 4 | Panoramica e casi d’uso | 4.1 DEFINITIVO (v1.2); 4.2 da scrivere per le storie ★ | ☐ |
-| 5 | Requisiti funzionali | DEFINITIVO (v1.3) | ☑ |
+| 4 | Panoramica e casi d’uso | 4.1 DEFINITIVO (v1.2); 4.2 in corso (AMM-01 scritto, v1.4) | ☐ |
+| 5 | Requisiti funzionali | DEFINITIVO (v1.4) | ☑ |
 | 6 | Requisiti non funzionali + impliciti | PARZIALE (v1.3: NFR-16/19, requisiti impliciti) | ☐ |
 | 7 | Assunzioni, vincoli e dipendenze | MANCANTE | ☐ |
 | 8 | Stima del carico | MANCANTE | ☐ |
@@ -185,23 +186,24 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 
 - **Gestione dell’associazione:** dashboard per amministratori e volontari, con ruoli, permessi configurabili e visibilità dei dati non sensibili decisa dall’amministratore; vista d’insieme con i numeri principali, le anomalie, l’andamento mese per mese e il confronto con gli obiettivi annuali per capitolo (previsionale); ricerca di persone e beneficiari; elenchi filtrabili ed esportabili in Excel; sezione Scadenze; “Cose da fare” per i volontari.
 - **Anagrafiche:** simpatizzanti, sostenitori, famiglie e bambini; adozioni a distanza con riaffido e storico; consenso della famiglia con un modulo unico caricato nella scheda famiglia e applicato automaticamente a foto, pubblicazione e compleanno.
-- **Richieste di sostegno:** ogni adozione o progetto da sostenere è una richiesta precisa (quel bambino, quella famiglia, quella carrozzina), con foto, storia e costo propri; tipi di intervento (adozione scolastica, adozione in casa famiglia, casette, terreni, animali, materassi, scarpe, carrozzine, operazioni…); il volontario prepara, l’amministratore approva.
+- **Richieste di sostegno:** richieste personali per un beneficiario preciso (adozione scolastica, adozione in casa famiglia, operazione, carrozzina, costruzione casa, affitto terreno agricolo, acquisto terreno edificabile), con foto, storia e costo propri; voci fisse sempre presenti (materassi, scarpe, animali, opere e sostegno della casa famiglia); le richieste nascono dal bot o dal gestionale e l’amministratore le approva.
+- **Collegamento con il bot social:** un solo caricamento del materiale di Silvia pubblica sui social e porta foto, testi e prove nel gestionale; il bot riconosce ogni volontario e ne rispetta i permessi.
+- **Recupero dei dati esistenti:** importazione dei padrini da VERIF!CO e degli indizi già raccolti dal bot; censimento progressivo dei bambini e abbinamento padrino–bambino confermato dalla referente.
 - **Interventi e rendicontazione:** imputazione delle entrate ai capitoli (compresi la casa famiglia Effatà e la Cassa sostegno Effatà), checklist delle prove di realizzazione.
 - **Area riservata:** registrazione con email, password e consenso privacy (chi si registra è simpatizzante, diventa sostenitore con la prima donazione); dati del donante e dell’avente diritto alla detrazione; preferenze di comunicazione; verifica in due passaggi; storico delle donazioni e di ciò che si è sostenuto, con la rendicontazione; riepilogo annuale.
-- **Carrello solidale:** vetrina riservata agli utenti registrati, con ricerca e filtri fra le richieste aperte e quelle sostenute di recente; preferiti; condivisione di una richiesta su WhatsApp; pagamento con carta (tramite un fornitore di pagamenti) o, come ultima scelta, con bonifico e caricamento della quietanza; credito solidale quando una richiesta è già stata sostenuta da altri.
+- **Carrello solidale:** vetrina riservata agli utenti registrati, con ricerca e filtri fra le richieste aperte, quelle sostenute di recente e le voci fisse, più il collegamento al calendario solidale; preferiti; condivisione di una richiesta su WhatsApp; pagamento con carta (tramite un fornitore di pagamenti) o, come ultima scelta, con bonifico e caricamento della quietanza; credito solidale quando una richiesta è già stata sostenuta da altri.
 - **Comunicazioni automatiche:** conferma della donazione con il ringraziamento (non valida ai fini fiscali), ringraziamento alla chiusura di un’adozione, promemoria per i bonifici in attesa di quietanza, email settimanali del credito solidale.
-- **Contabilità:** importazione mensile dell’estratto conto UniCredit, conferma delle donazioni, quadrature e preparazione dei file per il caricamento massivo in VERIF!CO (movimenti e anagrafiche nuove o modificate); checklist di chiusura annuale per le certificazioni.
+- **Contabilità:** importazione mensile dell’estratto conto UniCredit e importazione automatica delle donazioni del calendario solidale, conferma delle donazioni, quadrature e preparazione dei file per il caricamento massivo in VERIF!CO (movimenti e anagrafiche nuove o modificate); checklist di chiusura annuale per le certificazioni.
 
 **Fase 2 – entro la fine dell’anno scolastico**
 
-- Integrazione del bot social esistente con il gestionale.
 - Altri metodi di pagamento (PayPal, Satispay) e pagamento ricorrente con carta.
 - Rinnovo delle adozioni con promemoria.
 - Area soci: richiesta di adesione, quota associativa con storico e pagamento, convocazioni con risposta di partecipazione, verbali e bilanci.
 - Scadenza degli accessi inattivi, con avvisi via email.
 - Avvisi al sostenitore per nuove foto e interventi rendicontati; email per il compleanno del bambino; pulsante “Scrivi un messaggio” verso l’associazione.
 - Proposta automatica dell’imputazione delle causali libere con l’AI, sempre confermata dall’amministratore.
-- Recupero dei dati pregressi: importazione iniziale, inviti personali ai sostenitori storici, ritorno delle anagrafiche complete verso VERIF!CO; raccolta graduale dei moduli di consenso delle famiglie attuali.
+- Inviti personali ai padrini storici per collegarsi al proprio storico, ritorno delle anagrafiche complete verso VERIF!CO; raccolta graduale dei moduli di consenso delle famiglie attuali.
 - Invito a registrarsi per i donatori delle campagne esterne.
 - Spazio informativo: collegamenti ai contenuti pubblicati sul sito dell’associazione (newsletter, informative, volantini, eventi, 5×1000).
 
@@ -225,7 +227,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 | --- | --- | --- | --- |
 | **Presidente e amministratore** (i due soci fondatori di Effatà Italia ODV) | Decidono le priorità, approvano il progetto e i costi, gestiscono anagrafiche e contabilità | Trasparenza verso i donatori, sostenibilità economica, meno lavoro manuale, dati corretti | Presentazione del PRD, approvazione del perimetro, verifica dei formati VERIF!CO, collaudo della fase 1 |
 | **Volontari in Italia** (circa 12) | Caricano dati e foto secondo i permessi ricevuti; oggi pubblicano le storie con il bot | Strumenti semplici e compiti chiari | Configurazione dei permessi, collaudo |
-| **Silvia, referente in Uganda** | Ogni sera invia foto e notizie via WhatsApp; è il primo contatto di molti sostenitori | Continuare a usare WhatsApp; meno richieste di dati mancanti | Consultata sul nuovo flusso (prima la registrazione); in futuro accesso diretto |
+| **Silvia, referente in Uganda** | Ogni sera invia foto e notizie via WhatsApp; è il primo contatto di molti sostenitori; è tutore dei bambini della casa famiglia; custodisce negli appunti cartacei il collegamento fra padrini e bambini | Continuare a usare WhatsApp; meno richieste di dati mancanti | Consultata sul nuovo flusso: indirizza i padrini alla vetrina invece di gestire le donazioni; compila gli elenchi dei bambini per villaggio; conferma gli abbinamenti; in futuro accesso diretto |
 | **Sostenitori** (700–800) **e simpatizzanti** | Donano, adottano, seguono i beneficiari | Vedere dove va la propria donazione, detrazione fiscale, riservatezza | Intervista per i requisiti impliciti; collaudo con alcuni sostenitori reali |
 | **Soci** | Oggi solo i soci fondatori previsti dallo statuto; l'associazione intende aprire l'adesione, con quota associativa, a chi vorrà partecipare | Quote, assemblee, documenti | Area soci in fase 2 |
 | **Bambini e famiglie in Uganda** (circa 1.200 bambini) | Ricevono adozioni e interventi; non usano il sistema | Tutela della privacy e uso corretto di foto e dati | Consensi raccolti dal genitore o tutore tramite la referente; minimizzazione dei dati |
@@ -254,7 +256,8 @@ Effatà Italia Charity Organisation ODV è un'organizzazione di volontariato con
 | Volontari in Italia | circa 12 | Associazione, settembre 2026 |
 | Referente in Uganda | 1 (Silvia); oggi invia il materiale via WhatsApp | Associazione |
 | Iscritti alla newsletter | *da verificare in VERIF!CO* | |
-| Canali delle donazioni | Conto UniCredit; campagne esterne (es. GoFundMe) | Associazione |
+| Canali delle donazioni | Conto UniCredit; campagne esterne (es. GoFundMe); calendario solidale (sito calendario.effataitalia.it, carta tramite Stripe; Satispay da verificare) | Associazione |
+| Archivio dei bambini | Non esiste un elenco digitale né un codice dei bambini: in VERIF!CO ci sono i padrini e, a volte, nelle note il nome del bambino; il collegamento padrino–bambino è negli appunti cartacei della referente | Associazione, ottobre 2026 |
 | Gestionale contabile | VERIF!CO Maxi (contabilità per competenza) | Associazione, settembre 2026 |
 | Estratto conto | Esportazione CSV/Excel, caricata ogni mese | Associazione, ottobre 2026 |
 | Orari d'uso | Amministratori e volontari soprattutto la sera; sostenitori in qualsiasi momento, con picchi dopo l'invio della newsletter e a inizio anno (detrazioni) | Stima |
@@ -273,19 +276,18 @@ Una persona può avere più ruoli insieme (per esempio sostenitore e socio, oppu
 
 ## 3.3 Come si lavora oggi e come si lavorerà
 
-**Oggi.** Molti sostenitori contattano Silvia, l'adozione parte, e il bonifico arriva spesso senza una registrazione a monte: i dati vanno ricostruiti dopo. Silvia invia ogni sera foto e notizie via WhatsApp; un volontario le seleziona e le passa al bot, che genera i contenuti social. Gli estratti conto vengono inseriti a mano, riga per riga, in VERIF!CO, che invia poi le ricevute per la detrazione.
+**Oggi.** Molti sostenitori contattano Silvia, l'adozione parte, e il bonifico arriva spesso senza una registrazione a monte: i dati vanno ricostruiti dopo. Silvia invia ogni sera foto e notizie nel gruppo WhatsApp; un volontario le seleziona e le passa al bot, che genera i contenuti social e manda il ringraziamento al padrino. Gli estratti conto vengono inseriti a mano, riga per riga, in VERIF!CO, che invia poi le certificazioni per la detrazione. Le offerte del calendario solidale arrivano su un sito separato.
 
 **Domani.**
 
-1. La persona si registra nell'area riservata come simpatizzante.
-2. Compila i dati, compresi quelli dell'avente diritto alla detrazione, e dà i consensi.
-3. Concorda l'adozione o sceglie un intervento dal carrello.
-4. Fa il bonifico con la causale standard già pronta.
-5. Carica la quietanza (oppure paga con carta): parte la conferma di donazione con il ringraziamento.
-6. Riceve la rendicontazione con foto e documenti.
-7. All'importazione mensile dell'estratto conto la donazione viene confermata e passa a VERIF!CO; a inizio anno VERIF!CO invia a tutti la certificazione per la detrazione.
+1. Silvia manda nel gruppo WhatsApp foto e storia di un bisogno; il volontario le trascina nel bot, che pubblica sui social e crea la richiesta in bozza nel gestionale; l'amministratore la approva e la richiesta va in vetrina.
+2. Silvia non gestisce più la donazione: manda al padrino interessato il collegamento della richiesta.
+3. La persona si registra nell'area riservata come simpatizzante, compila i dati (compresi quelli dell'avente diritto alla detrazione) e dà i consensi.
+4. Sceglie la richiesta o la voce fissa dal carrello e paga con carta, oppure con bonifico e causale standard caricando la quietanza: parte la conferma di donazione con il ringraziamento.
+5. Quando Silvia manda le foto dell'aiuto consegnato, il volontario le carica nel bot: escono sui social e diventano la rendicontazione che il sostenitore vede nella sua area.
+6. All'importazione mensile dell'estratto conto la donazione viene confermata e passa a VERIF!CO; a inizio anno VERIF!CO invia a tutti la certificazione per la detrazione.
 
-Il bot social resta in uso per la pubblicazione sui social; la sua descrizione tecnica è nel capitolo 10 e nel documento `docs/bot/TECHNICAL-INTEGRATION.md`.
+Il bot social resta lo strumento con cui i volontari pubblicano; il suo collegamento con il gestionale è descritto nel capitolo 5.6 (FR-BOT) e nel capitolo 11.5, la sua struttura attuale nel documento `docs/bot/TECHNICAL-INTEGRATION.md`.
 
 # 4. Panoramica e casi d’uso
 
@@ -301,85 +303,18 @@ Per l’associazione, amministratori e volontari lavorano sugli stessi dati, cia
 
 ## 4.2 User flow e scenari
 
-> **🧭 Dal template – attenzione, è più esigente della nostra bozza**
->
-> - Per **ogni ruolo** servono **almeno tre** storie principali, ciascuna con: user flow (passi numerati), scenario principale (con un personaggio e una situazione concreta), scenari alternativi (cosa succede quando qualcosa va storto).
-> - Nel tuo dominio gli scenari alternativi naturali sono: connessione che cade in Uganda durante l’upload, codice bambino sbagliato, estratto conto che non quadra, sostenitore che dimentica la password.
+Per ogni storia principale (★ nel capitolo 5) sono descritti il percorso passo per passo, uno scenario concreto e gli scenari alternativi. Nomi e codici sono di fantasia.
 
-> **✔ Modello di forma (dalla nostra bozza)**
->
-> Flow US-101: 1) l’operatore apre la chat con il bot → 2) invia la foto → 3) il bot chiede il codice bambino → 4) l’operatore scrive `UG-102` → 5) il bot mostra nome e foto profilo per conferma → 6) conferma → 7) messaggio “Foto salvata”.
->
-> Scenario alternativo: al passo 4 il codice non esiste → il bot risponde “Codice non trovato” e richiede il codice senza perdere la foto.
-
-### Operatore sul campo (ARC-002)
+### Amministratore (ARC-001)
 
 | Voce | Contenuto |
 | --- | --- |
-| **Storia (ID e titolo)** | US-101 · Upload rapido foto bambino |
-| **User flow (passi numerati)** | *es. 1. L’operatore apre la chat con il bot  2. Invia la foto  3. Scrive il codice del bambino  4. …* |
-| **Scenario principale** | *Racconta il caso in cui tutto va bene, con un personaggio e una situazione concreta (es. un operatore che dopo la visita al villaggio manda le foto di tre bambini).* |
-| **Scenari alternativi** | *Cosa succede quando qualcosa va storto? Connessione che cade a metà invio, codice bambino sbagliato, stessa foto mandata due volte…* |
+| **Storia** | AMM-01 · Pubblicare una richiesta di sostegno |
+| **User flow** | 1. Silvia manda nel gruppo WhatsApp foto e testi di un bisogno. 2. Il volontario trascina tutto nel bot e sceglie 🆘 Richiesta di aiuto, poi la categoria (es. adozione scolastica). 3. Il bot propone il nome del bambino letto dal messaggio di Silvia e mostra i bambini con quel nome (codice, età, villaggio, foto profilo); il volontario tocca quello giusto, oppure lo propone come nuovo. 4. Il bot propone il costo di listino; il volontario lo conferma o indica l’importo scritto da Silvia. 5. Il bot chiede al gestionale se la famiglia ha il modulo di consenso. 6. Il volontario sceglie nel foglio provini le foto per i social, nell’ordine della storia. 7. Il bot pubblica i post e invia al gestionale tutte le foto (le scelte come pubbliche, le altre come riservate al padrino), i testi agganciati e il testo proposto per la vetrina. 8. Il gestionale crea la richiesta in bozza; l’amministratore la trova nell’email riassuntiva del giorno. 9. L’amministratore corregge se serve testo, foto, copertina, costo, oppure la rimanda al volontario con una nota, e la approva. 10. La richiesta compare in vetrina come “aperta” con il suo codice (RIC-0042); Silvia ne manda il collegamento ai padrini interessati. |
+| **Scenario principale** | Martedì sera Silvia scrive nel gruppo: “Grace, 7 anni, vorrebbe andare a scuola”, con venti foto. Marta, volontaria, le trascina nel bot; il bot riconosce Grace (BAM-0215) fra tre bambine con lo stesso nome e Marta conferma guardando la foto. Sceglie otto foto per i social, nell’ordine del racconto. Il post esce, la bozza arriva nel gestionale. Mercoledì mattina l’amministratore riceve l’email “1 bozza da approvare”, cambia la foto di copertina e approva. Giovedì una sostenitrice apre il collegamento ricevuto da Silvia, si registra e sostiene Grace con la carta. |
+| **Scenari alternativi** | **Nome con più corrispondenze:** il bot mostra i candidati con età, villaggio e foto profilo, il volontario sceglie. **Bambino non in archivio:** il volontario lo propone come nuovo (nome, età, famiglia, villaggio); l’amministratore conferma la scheda insieme alla richiesta e il gestionale assegna il codice. **Famiglia senza modulo di consenso:** il bot non pubblica sui social, le foto arrivano comunque al gestionale ma restano non visibili e la bozza non si può approvare finché il modulo non è caricato. **Bozza da correggere:** l’amministratore la corregge o la rimanda al volontario con una nota. **Gestionale non raggiungibile:** il post esce, il bot mette l’invio in coda, ritenta ogni 10 minuti e avvisa il volontario quando è arrivato. **Volontario senza permesso:** il bot non mostra il bottone 🆘. **Costo da cambiare dopo un pagamento:** non si può più; storia e foto restano modificabili. **Nessun sostenitore dopo 30 giorni:** la richiesta compare fra le segnalazioni. |
 
-| Voce | Contenuto |
-| --- | --- |
-| **Storia (ID e titolo)** | es. invio di una notizia testuale o di una pagella |
-| **User flow (passi numerati)** | *es. 1. L’operatore apre la chat con il bot  2. Invia la foto  3. Scrive il codice del bambino  4. …* |
-| **Scenario principale** | *Racconta il caso in cui tutto va bene, con un personaggio e una situazione concreta (es. un operatore che dopo la visita al villaggio manda le foto di tre bambini).* |
-| **Scenari alternativi** | *Cosa succede quando qualcosa va storto? Connessione che cade a metà invio, codice bambino sbagliato, stessa foto mandata due volte…* |
-
-| Voce | Contenuto |
-| --- | --- |
-| **Storia (ID e titolo)** |   |
-| **User flow (passi numerati)** | *es. 1. L’operatore apre la chat con il bot  2. Invia la foto  3. Scrive il codice del bambino  4. …* |
-| **Scenario principale** | *Racconta il caso in cui tutto va bene, con un personaggio e una situazione concreta (es. un operatore che dopo la visita al villaggio manda le foto di tre bambini).* |
-| **Scenari alternativi** | *Cosa succede quando qualcosa va storto? Connessione che cade a metà invio, codice bambino sbagliato, stessa foto mandata due volte…* |
-
-### Tesoriere / Amministratore (ARC-001)
-
-| Voce | Contenuto |
-| --- | --- |
-| **Storia (ID e titolo)** | US-201 + US-202 · Importazione e conferma estratto conto |
-| **User flow (passi numerati)** | *es. 1. Il tesoriere accede al pannello  2. Carica l’estratto conto del mese  3. Controlla le righe estratte  4. …* |
-| **Scenario principale** | *Racconta il caso in cui tutto va bene (es. il tesoriere a fine mese importa l’estratto e conferma 40 donazioni in dieci minuti).* |
-| **Scenari alternativi** | *Cosa succede quando qualcosa va storto? Saldo che non quadra, donatore non riconosciuto, AI non disponibile, estratto già caricato…* |
-
-| Voce | Contenuto |
-| --- | --- |
-| **Storia (ID e titolo)** | es. US-401 · Esportazione per Verifico |
-| **User flow (passi numerati)** | *es. 1. Il tesoriere accede al pannello  2. Carica l’estratto conto del mese  3. Controlla le righe estratte  4. …* |
-| **Scenario principale** | *Racconta il caso in cui tutto va bene (es. il tesoriere a fine mese importa l’estratto e conferma 40 donazioni in dieci minuti).* |
-| **Scenari alternativi** | *Cosa succede quando qualcosa va storto? Saldo che non quadra, donatore non riconosciuto, AI non disponibile, estratto già caricato…* |
-
-| Voce | Contenuto |
-| --- | --- |
-| **Storia (ID e titolo)** | es. US-503 · Abbinare sostenitore e bambino |
-| **User flow (passi numerati)** | *es. 1. Il tesoriere accede al pannello  2. Carica l’estratto conto del mese  3. Controlla le righe estratte  4. …* |
-| **Scenario principale** | *Racconta il caso in cui tutto va bene (es. il tesoriere a fine mese importa l’estratto e conferma 40 donazioni in dieci minuti).* |
-| **Scenari alternativi** | *Cosa succede quando qualcosa va storto? Saldo che non quadra, donatore non riconosciuto, AI non disponibile, estratto già caricato…* |
-
-### Sostenitore (ARC-003)
-
-| Voce | Contenuto |
-| --- | --- |
-| **Storia (ID e titolo)** | US-301 · Accesso area riservata |
-| **User flow (passi numerati)** | *es. 1. Il sostenitore riceve la newsletter  2. Tocca “Vedi le nuove foto”  3. Fa il login  4. …* |
-| **Scenario principale** | *Racconta il caso in cui tutto va bene, con un personaggio concreto (es. una sostenitrice di 65 anni che apre le foto dal telefono).* |
-| **Scenari alternativi** | *Cosa succede quando qualcosa va storto? Password dimenticata, adozione chiusa, link aperto su un altro dispositivo, tentativo di vedere un altro bambino…* |
-
-| Voce | Contenuto |
-| --- | --- |
-| **Storia (ID e titolo)** | es. US-302 · Scaricare la ricevuta fiscale |
-| **User flow (passi numerati)** | *es. 1. Il sostenitore riceve la newsletter  2. Tocca “Vedi le nuove foto”  3. Fa il login  4. …* |
-| **Scenario principale** | *Racconta il caso in cui tutto va bene, con un personaggio concreto (es. una sostenitrice di 65 anni che apre le foto dal telefono).* |
-| **Scenari alternativi** | *Cosa succede quando qualcosa va storto? Password dimenticata, adozione chiusa, link aperto su un altro dispositivo, tentativo di vedere un altro bambino…* |
-
-| Voce | Contenuto |
-| --- | --- |
-| **Storia (ID e titolo)** | es. US-303 · Storico delle mie donazioni |
-| **User flow (passi numerati)** | *es. 1. Il sostenitore riceve la newsletter  2. Tocca “Vedi le nuove foto”  3. Fa il login  4. …* |
-| **Scenario principale** | *Racconta il caso in cui tutto va bene, con un personaggio concreto (es. una sostenitrice di 65 anni che apre le foto dal telefono).* |
-| **Scenari alternativi** | *Cosa succede quando qualcosa va storto? Password dimenticata, adozione chiusa, link aperto su un altro dispositivo, tentativo di vedere un altro bambino…* |
+Da scrivere: AMM-04, AMM-06 (amministratore); VOL-01, VOL-02, VOL-03 (volontario); SOS-03, SOS-04, SOS-07 (sostenitore).
 
 # 5. Requisiti funzionali
 
@@ -387,21 +322,25 @@ Le user story descrivono ciò che ogni ruolo deve poter fare, nel formato **Come
 
 Le storie segnate con ★ sono le principali di ogni ruolo: per ciascuna il capitolo 4.2 descrive user flow, scenario principale e scenari alternativi.
 
+Il materiale che la referente manda dall’Uganda entra nel gestionale soprattutto dal bot social, che i volontari già usano: un solo caricamento pubblica sui social e alimenta richieste, schede e rendicontazione (FR-BOT-01…08). Le stesse operazioni si possono fare anche dalle schermate del gestionale.
+
 ## 5.1 Riepilogo delle user story
 
 | ID | Ruolo | Storia | Fase | AC |
 | --- | --- | --- | --- | --- |
-| AMM-01 ★ | Amministratore | Pubblicare una richiesta di sostegno | 1 | 5 |
+| AMM-01 ★ | Amministratore | Pubblicare una richiesta di sostegno | 1 | 6 |
 | AMM-02 | Amministratore | Gestire famiglie e bambini | 1 | 7 |
 | AMM-03 | Amministratore | Chiudere e riaffidare un’adozione | 1 | 5 |
-| AMM-04 ★ | Amministratore | Importare l’estratto conto e confermare le donazioni | 1 | 6 |
+| AMM-04 ★ | Amministratore | Importare l’estratto conto e confermare le donazioni | 1 | 7 |
 | AMM-05 | Amministratore | Imputare le entrate | 1 | 5 |
 | AMM-06 ★ | Amministratore | Preparare il caricamento in VERIF!CO | 1 | 8 |
 | AMM-07 | Amministratore | Vedere tutto: numeri, andamento, anomalie | 1 | 6 |
 | AMM-08 | Amministratore | Configurare permessi e impostazioni | 1 | 6 |
-| VOL-01 ★ | Volontario | Caricare le prove di realizzazione | 1 | 6 |
-| VOL-02 ★ | Volontario | Aggiornare la scheda di un bambino | 1 | 5 |
+| AMM-09 | Amministratore | Recuperare padrini e bambini già seguiti | 1 | 6 |
+| VOL-01 ★ | Volontario | Caricare le prove di realizzazione | 1 | 7 |
+| VOL-02 ★ | Volontario | Aggiornare la scheda di un bambino | 1 | 6 |
 | VOL-03 ★ | Volontario | Consultare le cose da fare | 1 | 5 |
+| VOL-04 | Volontario | Usare il bot collegato al gestionale | 1 | 6 |
 | SOS-01 | Simpatizzante | Registrarsi | 1 | 6 |
 | SOS-02 | Sostenitore | Completare i miei dati | 1 | 5 |
 | SOS-03 ★ | Simpatizzante e sostenitore | Scegliere una richiesta di sostegno | 1 | 8 |
@@ -421,19 +360,20 @@ Le storie segnate con ★ sono le principali di ogni ruolo: per ciascuna il capi
 
 **Come** Amministratore **voglio** pubblicare nel carrello solidale una richiesta con foto, storia e costo **così da** trovare un sostenitore per quel bambino o quel progetto.
 
-- **AC-01** · **Dato che** un volontario abilitato ha preparato una richiesta in bozza, **Quando** la approvo, **Allora** la richiesta compare nel carrello solidale con stato “aperta”.
-- **AC-02** · **Dato che** la famiglia del beneficiario non ha il modulo di consenso caricato, **Quando** provo a pubblicare foto e storia, **Allora** il sistema lo impedisce e me lo segnala. (FR-CON-01)
+- **AC-01** · **Dato che** un volontario abilitato ha preparato una richiesta in bozza, dal bot o dal gestionale, **Quando** la approvo, **Allora** la richiesta riceve il suo codice (es. RIC-0042) e compare nella vetrina con stato “aperta”, con le sole foto pubbliche. (FR-COD-01, FR-FOTO-01)
+- **AC-02** · **Dato che** la famiglia del beneficiario non ha il modulo di consenso caricato, **Quando** provo ad approvare la richiesta, **Allora** il sistema lo impedisce e me lo segnala. (FR-CON-01)
 - **AC-03** · **Dato che** sono un Volontario o un Sostenitore, **Quando** provo a pubblicare una richiesta, **Allora** l’operazione viene negata.
 - **AC-04** · **Dato che** una richiesta ha già ricevuto un pagamento, **Quando** provo a modificarne il costo, **Allora** l’operazione viene negata; storia e foto restano modificabili. (FR-INT-04)
 - **AC-05** · **Dato che** una richiesta è aperta da più di 30 giorni senza sostenitori, **Quando** apro la vista d’insieme, **Allora** la trovo fra le segnalazioni. (FR-IMP-01)
+- **AC-06** · **Dato che** apro una bozza, **Quando** la controllo, **Allora** posso correggere testo, foto, copertina, ordine e costo proposto dal volontario, oppure rimandarla al volontario con una nota.
 
-**Regole collegate.** Pubblicare significa rendere visibile la richiesta nella vetrina del gestionale; la pubblicazione sui social resta al bot. Il volontario abilitato prepara la bozza, l’amministratore la approva (FR-CAT-01).
+**Regole collegate.** Pubblicare significa rendere visibile la richiesta nella vetrina del gestionale; la pubblicazione sui social resta al bot. Le bozze da approvare arrivano all’amministratore anche con un’email riassuntiva giornaliera, disattivabile (FR-IMP-01). Il flusso dal bot è descritto nel capitolo 4.2.
 
 ### AMM-02 · Gestire famiglie e bambini
 
 **Come** Amministratore **voglio** creare e aggiornare famiglie e bambini con i loro consensi **così da** avere un archivio completo e conforme.
 
-- **AC-01** · **Dato che** sono autenticato come Amministratore, **Quando** creo una famiglia con i suoi bambini, **Allora** ogni bambino riceve automaticamente un codice univoco (es. UG-102) ed è collegato alla famiglia.
+- **AC-01** · **Dato che** sono autenticato come Amministratore, **Quando** creo una famiglia con i suoi bambini, **Allora** ogni bambino riceve automaticamente un codice univoco (es. BAM-0102) ed è collegato alla famiglia. (FR-COD-01)
 - **AC-02** · **Dato che** invio dati incompleti o non validi, **Quando** confermo, **Allora** ricevo l’indicazione puntuale dei campi errati e nulla viene salvato.
 - **AC-03** · **Dato che** esiste già un bambino con lo stesso nome e la stessa data di nascita, **Quando** ne creo uno nuovo, **Allora** il sistema mi avvisa del possibile doppione e decido io se proseguire.
 - **AC-04** · **Dato che** un bambino esce dal programma, **Quando** lo segnalo con data e motivo, **Allora** non viene cancellato, passa allo stato “uscito dal programma” e il suo storico resta consultabile.
@@ -441,7 +381,7 @@ Le storie segnate con ★ sono le principali di ogni ruolo: per ciascuna il capi
 - **AC-06** · **Dato che** sono un Sostenitore, **Quando** consulto la scheda del bambino che sostengo, **Allora** vedo nome, età, scuola, distretto e foto, ma non il cognome né il luogo esatto in cui vive. (FR-RUO-04)
 - **AC-07** · **Dato che** la famiglia ha il modulo di consenso caricato, **Quando** il sostenitore consulta la scheda, **Allora** vede giorno e mese del compleanno, senza l’anno; senza consenso non lo vede. (FR-ADO-05)
 
-**Regole collegate.** Solo l’amministratore crea famiglie e bambini; il volontario aggiorna foto, pagelle e notizie (VOL-02). Il codice segue il formato già in uso e i bambini storici mantengono il proprio. Nessun bambino viene cancellato: si archivia. Dati obbligatori: nome, data di nascita, famiglia, villaggio; facoltativi: cognome, scuola e classe (cap. 5.7).
+**Regole collegate.** Solo l’amministratore crea famiglie e bambini; il volontario può proporre un bambino nuovo dal bot, e l’amministratore lo conferma (VOL-04). Il volontario aggiorna foto, pagelle e notizie (VOL-02). I codici li genera il gestionale: non esiste un codice precedente da conservare (FR-COD-01). La casa famiglia è registrata come una famiglia, con la referente come tutore. Nessun bambino viene cancellato: si archivia. Dati obbligatori: nome, data di nascita, famiglia, villaggio; facoltativi: cognome, scuola e classe (cap. 5.7).
 
 ### AMM-03 · Chiudere e riaffidare un’adozione
 
@@ -463,6 +403,7 @@ Le storie segnate con ★ sono le principali di ogni ruolo: per ciascuna il capi
 - **AC-04** · **Dato che** nell’estratto c’è un versamento cumulativo del fornitore dei pagamenti con carta, **Quando** lo importo, **Allora** viene collegato alle donazioni con carta già registrate e non genera nuove donazioni.
 - **AC-05** · **Dato che** ricarico un estratto conto già importato, oppure due file con periodi sovrapposti, **Quando** confermo, **Allora** i movimenti già presenti non vengono duplicati.
 - **AC-06** · **Dato che** sono un Volontario, **Quando** provo a caricare un estratto conto, **Allora** l’operazione viene negata.
+- **AC-07** · **Dato che** ogni giorno il gestionale importa le donazioni del calendario solidale, **Quando** l’importazione termina, **Allora** ogni giorno adottato compare come donazione confermata, imputata al sostegno della casa famiglia, con l’anagrafica del donatore, e i versamenti del fornitore delle carte tornano con le quadrature. (FR-CAN-03)
 
 **Regole collegate.** Un’entrata da IBAN sconosciuto si collega a un sostenitore esistente, a una nuova anagrafica da completare oppure alla Cassa sostegno Effatà. Le uscite presenti nell’estratto vengono ignorate: la contabilità resta in VERIF!CO (cap. 1.3). Il formato del file UniCredit va verificato su una copia anonimizzata (DIP-01).
 
@@ -491,7 +432,7 @@ Le storie segnate con ★ sono le principali di ogni ruolo: per ciascuna il capi
 - **AC-07** · **Dato che** un sostenitore riceve la conferma di donazione dal gestionale, **Quando** la legge, **Allora** vi trova l’indicazione che non è valida ai fini fiscali e che la certificazione per la detrazione arriverà dall’associazione entro marzo dell’anno successivo. (FR-RIC-01)
 - **AC-08** · **Dato che** siamo fra il 1° gennaio e il 15 febbraio, **Quando** apro la sezione Scadenze, **Allora** trovo la checklist di chiusura dell’anno precedente con l’elenco di ciò che manca per le certificazioni. (FR-VER-03)
 
-**Regole collegate.** I file si generano ogni mese, dopo l’importazione dell’estratto conto. Le anagrafiche nuove o modificate passano a VERIF!CO già in fase 1, con un file di importazione se VERIF!CO lo accetta, altrimenti con un elenco da inserire a mano; il recupero dei sostenitori storici resta in fase 2 (FR-STO-01/02/03).
+**Regole collegate.** I file si generano ogni mese, dopo l’importazione dell’estratto conto. Le anagrafiche nuove o modificate passano a VERIF!CO già in fase 1, con un file di importazione se VERIF!CO lo accetta, altrimenti con un elenco da inserire a mano; l’importazione dei padrini storici è descritta in AMM-09, mentre gli inviti ai padrini e il ritorno delle anagrafiche complete restano in fase 2 (FR-STO-02/03).
 
 ### AMM-07 · Vedere tutto: numeri, andamento, anomalie
 
@@ -519,32 +460,47 @@ Le storie segnate con ★ sono le principali di ogni ruolo: per ciascuna il capi
 
 **Regole collegate.** L’elenco delle impostazioni e dei valori predefiniti è in FR-IMP-01. Un amministratore può nominarne altri.
 
+### AMM-09 · Recuperare padrini e bambini già seguiti
+
+**Come** Amministratore **voglio** importare i padrini da VERIF!CO e abbinarli ai bambini che sostengono **così da** portare nel gestionale le adozioni già in corso senza perdere nessuno.
+
+- **AC-01** · **Dato che** carico l’esportazione delle anagrafiche e delle donazioni da VERIF!CO, **Quando** l’importazione termina, **Allora** ogni padrino entra come “padrino storico” con il suo storico delle donazioni e i suoi IBAN, senza account, e ricevo un rapporto con doppioni e dati mancanti da controllare prima di confermare. (FR-STO-01)
+- **AC-02** · **Dato che** nelle note di VERIF!CO o nelle storie del bot c’è il nome di un bambino collegato a un padrino, **Quando** l’importazione termina, **Allora** quel nome compare come indizio nella scheda del padrino, non come bambino.
+- **AC-03** · **Dato che** la referente ha compilato l’elenco dei bambini di un villaggio, **Quando** lo carico, **Allora** i bambini nuovi ricevono il loro codice e quelli già presenti mi vengono segnalati come possibili doppioni.
+- **AC-04** · **Dato che** apro le liste “padrini senza bambino” e “bambini senza padrino”, **Quando** collego un padrino a un bambino con la conferma della referente, **Allora** nasce l’adozione attiva e da quel momento il padrino, una volta registrato, vede le foto del bambino.
+- **AC-05** · **Dato che** un’adozione storica non ha ancora un bambino identificato, **Quando** il padrino accede, **Allora** vede le proprie donazioni ma nessuna foto, e l’adozione resta nelle liste da abbinare.
+- **AC-06** · **Dato che** sono un Volontario, **Quando** provo a importare o abbinare, **Allora** l’operazione viene negata.
+
+**Regole collegate.** I bambini entrano nel gestionale poco alla volta: dalle foto di ogni giorno (bambino nuovo proposto dal volontario) e dagli elenchi per villaggio che la referente compila dal telefono con un modello semplice (nome, età, famiglia, villaggio, nome del padrino). Gli inviti ai padrini storici per collegarsi al proprio storico sono in fase 2 (FR-STO-02).
+
 ## 5.3 Volontario
 
 ### VOL-01 · Caricare le prove di realizzazione ★
 
 **Come** Volontario **voglio** caricare foto e documenti su un intervento **così da** rendicontarlo al sostenitore.
 
-- **AC-01** · **Dato che** ho il permesso di caricare prove, **Quando** carico una foto su una voce della checklist di un intervento, **Allora** la voce risulta completata e la foto è visibile ai sostenitori di quell’intervento.
+- **AC-01** · **Dato che** ho il permesso di caricare prove e carico dal bot le foto di un aiuto consegnato per un bambino o una famiglia, **Quando** confermo la voce della checklist proposta, **Allora** la voce risulta completata e le foto sono visibili ai sostenitori di quell’intervento. (FR-INT-03)
 - **AC-02** · **Dato che** tutte le voci della checklist hanno la loro prova, **Quando** carico l’ultima, **Allora** l’intervento passa allo stato “rendicontato”. (FR-INT-03)
-- **AC-03** · **Dato che** la famiglia non ha il modulo di consenso caricato, **Quando** carico una foto, **Allora** la foto viene archiviata ma il sostenitore vede solo “consegna avvenuta” con la data. (FR-CON-01)
-- **AC-04** · **Dato che** carico un file che non è un’immagine o un PDF, o supera la dimensione massima, **Quando** confermo, **Allora** ricevo un errore chiaro e nulla viene salvato.
-- **AC-05** · **Dato che** non ho il permesso di caricare prove, **Quando** provo a farlo, **Allora** l’operazione viene negata. (FR-RUO-01)
-- **AC-06** · **Dato che** una prova è stata caricata per errore, **Quando** l’amministratore la nasconde o la elimina, **Allora** il sostenitore non la vede più e resta registrato chi l’ha caricata e chi l’ha rimossa.
+- **AC-03** · **Dato che** la famiglia non ha il modulo di consenso caricato, **Quando** carico una foto, **Allora** la foto viene archiviata ma il sostenitore vede solo “consegna avvenuta” con la data, e il bot non la pubblica sui social. (FR-CON-01)
+- **AC-04** · **Dato che** carico la consegna di una voce fissa (es. 10 materassi alla famiglia FAM-0045), **Quando** indico quantità e famiglia, **Allora** la consegna viene assegnata alle donazioni più vecchie ancora da rendicontare per quella voce, e quei sostenitori vedono le foto. (FR-INT-08)
+- **AC-05** · **Dato che** carico un file che non è un’immagine o un PDF, o supera la dimensione massima, **Quando** confermo, **Allora** ricevo un errore chiaro e nulla viene salvato.
+- **AC-06** · **Dato che** non ho il permesso di caricare prove, **Quando** provo a farlo, **Allora** il bot non mi mostra l’opzione e il gestionale nega l’operazione. (FR-RUO-01)
+- **AC-07** · **Dato che** una prova è stata caricata per errore, **Quando** l’amministratore la nasconde o la elimina, **Allora** il sostenitore non la vede più e resta registrato chi l’ha caricata e chi l’ha rimossa.
 
-**Regole collegate.** Le prove sono visibili subito, senza approvazione preventiva. Si possono caricare più foto insieme (NFR-19).
+**Regole collegate.** Le prove sono visibili subito, senza approvazione preventiva. Le risposte date al bot valgono per tutte le foto dello stesso invio; foto di interventi diversi si caricano con invii diversi. Se le foto non corrispondono a nessuna voce, il volontario sceglie “solo aggiornamento” e finiscono nella scheda (VOL-02). Si possono caricare più foto insieme anche dal gestionale (NFR-19).
 
 ### VOL-02 · Aggiornare la scheda di un bambino ★
 
 **Come** Volontario **voglio** aggiungere foto, pagelle e notizie alla scheda di un bambino **così da** tenere aggiornato chi lo sostiene.
 
-- **AC-01** · **Dato che** ho il permesso di aggiornare le schede, **Quando** aggiungo una foto, una pagella o una notizia, **Allora** il contenuto compare nella scheda e il sostenitore attivo lo vede (per le foto vale FR-CON-01).
+- **AC-01** · **Dato che** ho il permesso di aggiornare le schede, **Quando** aggiungo dal bot o dal gestionale una foto, una pagella o una notizia, **Allora** il contenuto compare nella scheda e il sostenitore attivo lo vede (per le foto vale FR-CON-01).
 - **AC-02** · **Dato che** sono un Volontario, **Quando** provo a modificare nome, data di nascita o famiglia del bambino, **Allora** l’operazione viene negata. (AMM-02)
 - **AC-03** · **Dato che** il bambino non ha un sostenitore attivo, **Quando** aggiungo un contenuto, **Allora** resta nello storico del bambino e lo vedrà il prossimo sostenitore. (FR-ADO-02)
 - **AC-04** · **Dato che** scrivo una notizia, **Quando** la salvo, **Allora** il sistema mi ricorda che è visibile al sostenitore e che le informazioni sanitarie vanno nell’apposito campo riservato.
 - **AC-05** · **Dato che** non ho il permesso di aggiornare le schede, **Quando** provo a farlo, **Allora** l’operazione viene negata.
+- **AC-06** · **Dato che** la referente ha scritto un testo per una foto, **Quando** lo carico come didascalia o con “Rispondi” sulla foto, **Allora** il testo resta legato a quella foto anche nella scheda del bambino. (FR-BOT-04)
 
-**Regole collegate.** Il volontario aggiorna foto, pagelle, notizie e storia, non l’anagrafica. Il campo notizie (visibile al sostenitore) è separato dal campo sanitario (solo amministratore). In fase 2 il sostenitore riceve un avviso per ogni novità.
+**Regole collegate.** Il volontario aggiorna foto, pagelle, notizie e storia, non l’anagrafica. Le foto non scelte per i social arrivano nella scheda come riservate al padrino (FR-FOTO-01). Il campo notizie (visibile al sostenitore) è separato dal campo sanitario (solo amministratore). In fase 2 il sostenitore riceve un avviso per ogni novità.
 
 ### VOL-03 · Consultare le cose da fare ★
 
@@ -557,6 +513,19 @@ Le storie segnate con ★ sono le principali di ogni ruolo: per ciascuna il capi
 - **AC-05** · **Dato che** l’elenco supera la dimensione di una pagina, **Quando** lo consulto, **Allora** i risultati sono paginati e filtrabili per tipo.
 
 **Regole collegate.** L’elenco comprende anche le richieste in bozza da completare. La presa in carico funziona come nella dashboard del bot.
+
+### VOL-04 · Usare il bot collegato al gestionale
+
+**Come** Volontario **voglio** caricare nel bot il materiale della referente una sola volta **così da** pubblicarlo sui social e allo stesso tempo portarlo nel gestionale.
+
+- **AC-01** · **Dato che** dal mio profilo nel gestionale genero il codice “Collega Telegram”, **Quando** scrivo nel bot `/collega` seguito dal codice entro 10 minuti, **Allora** il mio account Telegram viene collegato al mio profilo. (FR-BOT-02)
+- **AC-02** · **Dato che** il mio account Telegram non è collegato, oppure sono stato disattivato, **Quando** scrivo al bot, **Allora** il bot non esegue nessuna azione e mi dice di rivolgermi all’amministratore.
+- **AC-03** · **Dato che** sono collegato, **Quando** avvio un caricamento, **Allora** il bot mi chiede prima il tipo (🆘 Richiesta di aiuto, ✅ Aiuto consegnato, 📣 Solo social), poi la categoria, e mi mostra solo le opzioni che i miei permessi consentono. (FR-BOT-01, FR-BOT-03)
+- **AC-04** · **Dato che** ho caricato tutte le foto di un invio, **Quando** tocco nel foglio provini le foto per i social nell’ordine della storia, **Allora** il bot pubblica quelle foto in quell’ordine e invia al gestionale tutte le foto, con le scelte come pubbliche e le altre come riservate al padrino. (FR-BOT-04, FR-FOTO-01)
+- **AC-05** · **Dato che** il gestionale non è raggiungibile, **Quando** il bot ha già pubblicato, **Allora** conserva l’invio, ritenta ogni 10 minuti e mi avvisa quando è arrivato; se il gestionale lo rifiuta, mi spiega il motivo. (FR-BOT-06)
+- **AC-06** · **Dato che** pubblico un contenuto 📣 Solo social, **Quando** confermo, **Allora** il bot mi chiede di confermare che nelle foto non ci sono minori riconoscibili senza consenso. (FR-CON-01)
+
+**Regole collegate.** Le regole complete del collegamento sono in FR-BOT-01…08; il contratto delle API è nel capitolo 11.5.
 
 ## 5.4 Simpatizzante e sostenitore
 
@@ -571,7 +540,7 @@ Le storie segnate con ★ sono le principali di ogni ruolo: per ciascuna il capi
 - **AC-05** · **Dato che** l’email è già registrata, **Quando** provo a registrarmi, **Allora** ricevo lo stesso messaggio di una registrazione nuova (“controlla la tua email”), e il titolare dell’indirizzo riceve un avviso con il link per accedere o recuperare la password.
 - **AC-06** · **Dato che** il link di conferma è scaduto, **Quando** lo apro, **Allora** posso richiederne uno nuovo.
 
-**Regole collegate.** L’accesso avviene con email e password per tutti i ruoli; la pagina di accesso offre “Non hai un account? Registrati” e “Password dimenticata?”. Alla registrazione si chiedono solo nome, cognome, email, password e consenso privacy; gli altri dati si chiedono alla prima donazione (SOS-02). L’accesso con Google o Apple non è previsto in fase 1.
+**Regole collegate.** L’accesso avviene con email e password per tutti i ruoli; la pagina di accesso offre “Non hai un account? Registrati” e “Password dimenticata?”. Alla registrazione si chiedono solo nome, cognome, email, password e consenso privacy, più una casella facoltativa e non preselezionata “Posso comparire nei post social dell’associazione” (FR-COM-02); gli altri dati si chiedono alla prima donazione (SOS-02). L’accesso con Google o Apple non è previsto in fase 1.
 
 ### SOS-02 · Completare i miei dati
 
@@ -589,14 +558,14 @@ Le storie segnate con ★ sono le principali di ogni ruolo: per ciascuna il capi
 
 **Come** Simpatizzante o Sostenitore **voglio** consultare, salvare e condividere le richieste di sostegno **così da** scegliere chi aiutare.
 
-- **AC-01** · **Dato che** sono registrato e ho fatto l’accesso, **Quando** apro la vetrina, **Allora** vedo le richieste aperte con foto, storia e costo, e posso filtrarle per tipo e costo.
+- **AC-01** · **Dato che** sono registrato e ho fatto l’accesso, **Quando** apro la vetrina, **Allora** vedo le richieste personali aperte con foto, storia e costo, le voci fisse sempre disponibili e il collegamento “Adotta un giorno” al calendario solidale, e posso filtrare per tipo e costo. (FR-SOS-02)
 - **AC-02** · **Dato che** non ho fatto l’accesso, **Quando** provo ad aprire la vetrina o il collegamento di una richiesta, **Allora** mi viene chiesto di accedere o registrarmi, e poi arrivo alla richiesta. (SOS-01)
 - **AC-03** · **Dato che** apro la vetrina, **Quando** scorro le richieste, **Allora** vedo anche quelle sostenute negli ultimi 30 giorni con l’etichetta “Sostenuto ✓”, senza l’identità di chi le ha sostenute né gli aggiornamenti successivi. (FR-VIS-01, FR-IMP-01)
 - **AC-04** · **Dato che** la famiglia del bambino non ha il modulo di consenso caricato, **Quando** la richiesta viene preparata, **Allora** non può comparire nella vetrina. (FR-CON-01)
 - **AC-05** · **Dato che** una richiesta unica viene pagata da un altro sostenitore, **Quando** aggiorno la pagina o apro il carrello, **Allora** passa a “Sostenuto ✓”, non è più acquistabile e mi vengono proposte richieste simili. (FR-CAR-01)
 - **AC-06** · **Dato che** chiudo la sessione con qualcosa nel carrello, **Quando** accedo di nuovo, **Allora** lo ritrovo nei preferiti. (FR-SOS-02)
 - **AC-07** · **Dato che** una richiesta mi colpisce, **Quando** tocco “Condividi”, **Allora** posso inviarne il collegamento su WhatsApp; chi lo riceve accede o si registra per vederla.
-- **AC-08** · **Dato che** una richiesta è per quantità, **Quando** la consulto, **Allora** vedo quanto è già stato raccolto e quanto manca.
+- **AC-08** · **Dato che** scelgo una voce fissa (es. materassi, animali), **Quando** la metto nel carrello, **Allora** indico la quantità (e, per gli animali, la specie, ognuna con il suo prezzo) e la voce resta sempre disponibile per altri sostenitori. (FR-CAT-01)
 
 **Regole collegate.** La vetrina è riservata agli utenti registrati: il pubblico conosce le storie dai social, chi vuole seguirle da vicino si registra (FR-SOS-02).
 
@@ -643,7 +612,7 @@ Le storie segnate con ★ sono le principali di ogni ruolo: per ciascuna il capi
 
 **Come** Sostenitore **voglio** vedere foto, documenti e rendicontazione di ciò che ho sostenuto **così da** sapere che l’aiuto è arrivato.
 
-- **AC-01** · **Dato che** ho sostenuto un’adozione o un intervento, **Quando** apro la mia area riservata, **Allora** vedo per ognuno lo stato (pagato, in corso, realizzato, rendicontato) e la sequenza di foto, pagelle, notizie e documenti.
+- **AC-01** · **Dato che** ho sostenuto un’adozione o un intervento, **Quando** apro la mia area riservata, **Allora** vedo per ognuno lo stato (pagato, in corso, realizzato, rendicontato) e la sequenza di foto, pagelle, notizie e documenti, comprese le foto riservate al padrino. (FR-FOTO-01)
 - **AC-02** · **Dato che** un mio intervento ha tutte le prove caricate, **Quando** lo apro, **Allora** risulta “rendicontato” con le prove visibili. (FR-INT-03)
 - **AC-03** · **Dato che** la famiglia non ha il modulo di consenso caricato, **Quando** apro la scheda, **Allora** vedo lo stato e le date ma non le foto. (FR-CON-01)
 - **AC-04** · **Dato che** la mia adozione è stata chiusa, **Quando** la apro, **Allora** vedo i contenuti fino alla data di chiusura e nulla di successivo. (FR-ADO-03)
@@ -669,7 +638,7 @@ Le storie segnate con ★ sono le principali di ogni ruolo: per ciascuna il capi
 
 **Come** Sostenitore **voglio** scegliere le comunicazioni che ricevo e modificare i miei dati in sicurezza **così da** avere il controllo delle mie informazioni.
 
-- **AC-01** · **Dato che** apro le preferenze, **Quando** attivo o disattivo avvisi di novità, promemoria e newsletter, **Allora** la scelta vale da subito; ringraziamenti, conferme e comunicazioni obbligatorie restano sempre attive. (FR-COM-01)
+- **AC-01** · **Dato che** apro le preferenze, **Quando** attivo o disattivo avvisi di novità, promemoria, newsletter e la possibilità di comparire nei post social, **Allora** la scelta vale da subito; ringraziamenti, conferme e comunicazioni obbligatorie restano sempre attive. (FR-COM-01)
 - **AC-02** · **Dato che** cambio la mia email, **Quando** confermo, **Allora** ricevo un link di conferma sulla nuova email e un avviso sulla vecchia. (FR-SEC-02)
 - **AC-03** · **Dato che** cambio IBAN o codice fiscale, **Quando** confermo, **Allora** ricevo un avviso e la modifica diventa effettiva solo dopo l’approvazione dell’amministratore. (FR-SEC-02)
 - **AC-04** · **Dato che** voglio più sicurezza, **Quando** attivo la verifica in due passaggi dal profilo, **Allora** dal successivo accesso mi viene chiesto anche il codice. (FR-SEC-01)
@@ -716,7 +685,7 @@ Ogni scelta che le storie lasciano aperta è decisa qui, in modo verificabile, c
 
 ### Ruoli e visibilità
 
-**FR-RUO-01 · Permessi dei volontari** (AMM-08, VOL-01, VOL-02, VOL-03). Il volontario vede le informazioni non sensibili ed esegue solo le azioni abilitate dall’amministratore (preparare richieste, caricare prove, aggiornare schede); le altre vengono negate dal backend con 403.
+**FR-RUO-01 · Permessi dei volontari** (AMM-08, VOL-01…04). Il volontario vede le informazioni non sensibili ed esegue solo le azioni abilitate dall’amministratore: preparare richieste, caricare prove, aggiornare schede, pubblicare sui social (contenuti 📣 e pubblicazione delle bozze Facebook). Le altre vengono negate dal backend con 403, anche quando la richiesta arriva dal bot. Report e promozioni del bot sono riservati all’amministratore.
 
 **FR-RUO-02 · Dati sensibili solo all’amministratore** (AMM-02, SOS-02). Dati bancari e fiscali, quietanze, dati sanitari e moduli di consenso sono accessibili solo agli amministratori; la regola non è configurabile. **Motivazione:** minimizzazione richiesta dal GDPR.
 
@@ -732,7 +701,7 @@ Ogni scelta che le storie lasciano aperta è decisa qui, in modo verificabile, c
 
 **FR-REG-02 · Disattivazione da parte dell’amministratore.** L’amministratore può disattivare o archiviare un account in qualsiasi momento, con le regole di FR-ACC-02.
 
-**FR-REG-03 · Collegamento ai dati storici** (fase 2). Un nuovo account viene collegato a un sostenitore già esistente solo con una prova di identità: email verificata coincidente con quella in archivio, codice di invito monouso inviato ai contatti già noti, conferma dell’amministratore su un canale già in archivio, oppure bonifico con codice da un IBAN già noto. Mai sulla sola base di codice fiscale, nome o IBAN inseriti dall’utente. **Motivazione:** questi dati identificano una persona ma non dimostrano che sei tu.
+**FR-REG-03 · Collegamento ai dati storici** (fase 2, AMM-09). Un nuovo account viene collegato a un padrino storico solo con una prova di identità: email verificata coincidente con quella in archivio, codice di invito monouso inviato ai contatti già noti, conferma dell’amministratore su un canale già in archivio, oppure bonifico con codice da un IBAN già noto. Mai sulla sola base di codice fiscale, nome o IBAN inseriti dall’utente. **Motivazione:** questi dati identificano una persona ma non dimostrano che sei tu.
 
 **FR-REG-04 · Simpatizzanti e sostenitori** (SOS-01). Chi si registra è simpatizzante; diventa sostenitore automaticamente con la prima donazione o la prima adozione. Il ruolo di socio si aggiunge in modo indipendente (SOC-01).
 
@@ -759,9 +728,9 @@ Ogni scelta che le storie lasciano aperta è decisa qui, in modo verificabile, c
 **FR-ADO-05 · Compleanno** (AMM-02). Con il modulo di consenso caricato, il sostenitore vede giorno e mese del compleanno del bambino, mai l’anno di nascita. In fase 2 riceve un’email qualche giorno prima, con l’invito a mandare gli auguri tramite l’associazione.
 
 **FR-CON-01 · Consenso della famiglia** (AMM-01, AMM-02, VOL-01, SOS-03, SOS-07). Ogni famiglia ha un **modulo di consenso unico, valido per tutte le voci** (foto al sostenitore, pubblicazione su social e sito, comunicazione del compleanno), che si accetta per intero, senza scelte parziali.
-- Il modulo riporta il codice famiglia (es. FAM-045). La referente lo fa firmare (o apporre l’impronta digitale davanti a un testimone), lo fotografa e lo invia via WhatsApp; l’originale cartaceo resta alla referente, ordinato per codice famiglia.
-- L’amministratore carica la foto o la scansione nella scheda famiglia e spunta **una sola casella, “modulo di consenso caricato”**, con data e nome di chi l’ha raccolto. Il modulo è un dato sensibile (FR-RUO-02).
-- Il sistema applica il consenso automaticamente a ogni visualizzazione e pubblicazione. **Senza modulo caricato la famiglia è trattata come “nessun consenso”**: foto archiviate ma non mostrate, nessuna pubblicazione, nessun compleanno.
+- Il modulo riporta nome del genitore o tutore, villaggio e data. La referente lo fa firmare (o apporre l’impronta digitale davanti a un testimone), lo fotografa e lo invia via WhatsApp; l’originale cartaceo resta alla referente. Per i bambini della casa famiglia firma la referente stessa, che ne è il tutore, e aggiorna il modulo quando entra un nuovo bambino.
+- L’amministratore aggancia il modulo alla scheda famiglia giusta, carica la foto o la scansione e spunta **una sola casella, “modulo di consenso caricato”**, con data e nome di chi l’ha raccolto. Il modulo è un dato sensibile (FR-RUO-02).
+- Il sistema applica il consenso automaticamente a ogni visualizzazione e pubblicazione, compresa quella del bot, che lo chiede al gestionale prima di pubblicare. **Senza modulo caricato la famiglia è trattata come “nessun consenso”**: foto archiviate ma non mostrate, nessuna pubblicazione nella vetrina né sui social, nessun compleanno. Per i contenuti social senza un beneficiario preciso il volontario conferma che non ci sono minori riconoscibili senza consenso.
 - Se il genitore non accetta tutte le voci o revoca il consenso vale “nessun consenso”, con effetto immediato anche sui contenuti già caricati.
 - La vista d’insieme mostra le famiglie con e senza modulo caricato. I consensi delle famiglie attuali vengono raccolti gradualmente durante le visite della referente; per il primo collaudo bastano alcune famiglie con modulo caricato.
 
@@ -769,15 +738,19 @@ Ogni scelta che le storie lasciano aperta è decisa qui, in modo verificabile, c
 
 ### Richieste di sostegno, carrello e pagamenti
 
-**FR-CAT-01 · Richieste di sostegno** (AMM-01, SOS-03). Ogni adozione o progetto da sostenere è una richiesta precisa: tipo, beneficiario (bambino, famiglia o comunità), foto, storia (la stessa inviata dalla referente e usata per i social e il blog, con il collegamento a questi), costo e stato (bozza, aperta, sostenuta, chiusa). Un volontario abilitato prepara la bozza, l’amministratore la approva e la pubblica. Le richieste sono **uniche** (l’adozione di un bambino, una carrozzina per una persona) oppure **per quantità** (materassi, galline, scarpe), che si possono sostenere più volte finché c’è bisogno. Foto e storia si pubblicano solo con il modulo di consenso caricato (FR-CON-01). Una richiesta aperta da più di 30 giorni senza sostenitori viene segnalata. In fase 2 le richieste potranno nascere dal bot (cap. 11.5).
+**FR-CAT-01 · Richieste personali e voci fisse** (AMM-01, SOS-03). La vetrina offre due tipi di sostegno.
+- **Richieste personali**, per un beneficiario preciso (bambino, famiglia o comunità): adozione scolastica, adozione in casa famiglia, operazione chirurgica, carrozzina, costruzione casa, affitto terreno agricolo, acquisto terreno edificabile. Ognuna ha foto pubbliche, storia, costo, codice (RIC-0042) e stato (bozza, aperta, sostenuta, chiusa). Nasce dal bot (🆘 Richiesta di aiuto) o dal gestionale, preparata da un volontario abilitato; l’amministratore la approva. Una richiesta aperta da più di 30 giorni senza sostenitori viene segnalata. Per le operazioni la storia descrive il bisogno in modo generico, mai la diagnosi, anche nei testi social.
+- **Voci fisse**, bisogni sempre presenti e non legati a un beneficiario al momento della donazione: materassi, scarpe, animali (il sostenitore sceglie la specie, ognuna con il suo prezzo), opere della casa famiglia (importo libero) e sostegno della casa famiglia, che rimanda al calendario solidale (FR-CAN-03). Il sostenitore ne sceglie la quantità; il beneficiario si decide alla consegna (FR-INT-08). Un post di richiesta di aiuto per una voce fissa non crea una richiesta nuova, ma rimanda alla voce.
 
-**FR-SOS-01 · Causale standard** (SOS-05). Al momento del bonifico il sostenitore trova la causale già compilata da copiare (es. `EROGAZIONE LIBERALE – CF … – ADOZIONE UG-102`), secondo FR-FIS-01.
+L’amministratore aggiunge o toglie dalla vetrina, dalla dashboard, sia le richieste sia le voci fisse. Le categorie sono un’unica lista gestita nel gestionale e usata anche dal bot (FR-BOT-03).
 
-**FR-SOS-02 · Vetrina e carrello solidale** (SOS-03). La vetrina è riservata agli utenti registrati e mostra le richieste aperte e quelle sostenute negli ultimi 30 giorni (“Sostenuto ✓”). Il sostenitore cerca e filtra le richieste (per tipo e costo), le mette nel carrello e le paga. Mettere una richiesta nel carrello **non la prenota**. Alla chiusura della sessione il carrello si svuota e il contenuto passa nei **preferiti**; chi ha fra i preferiti una richiesta unica che viene sostenuta da altri riceve un avviso con proposte simili. Ogni richiesta si può condividere su WhatsApp: il collegamento porta all’accesso o alla registrazione. **Motivazione:** il pubblico conosce già le storie dai social; la vetrina è il passo successivo per chi vuole seguire da vicino.
+**FR-SOS-01 · Causale standard** (SOS-05). Al momento del bonifico il sostenitore trova la causale già compilata da copiare (es. `EROGAZIONE LIBERALE – CF … – ADOZIONE BAM-0102`, `EROGAZIONE LIBERALE – CF … – MATERASSI 3`), secondo FR-FIS-01.
+
+**FR-SOS-02 · Vetrina e carrello solidale** (SOS-03). La vetrina è riservata agli utenti registrati e mostra le richieste personali aperte e quelle sostenute negli ultimi 30 giorni (“Sostenuto ✓”), le voci fisse e la card “Adotta un giorno” che porta al sito del calendario solidale. Il sostenitore cerca e filtra le richieste (per tipo e costo), le mette nel carrello e le paga. Mettere una richiesta nel carrello **non la prenota**. Alla chiusura della sessione il carrello si svuota e il contenuto passa nei **preferiti**; chi ha fra i preferiti una richiesta unica che viene sostenuta da altri riceve un avviso con proposte simili. Ogni richiesta si può condividere su WhatsApp: il collegamento porta all’accesso o alla registrazione. **Motivazione:** il pubblico conosce già le storie dai social; la vetrina è il passo successivo per chi vuole seguire da vicino.
 
 **FR-PAG-01 · Metodi di pagamento** (SOS-04, SOS-05, SOC-01). Metodo principale: **carta**, tramite un fornitore di pagamenti esterno, con conferma immediata; i dati della carta non passano mai dal gestionale. Ultima scelta: **bonifico**, con IBAN e causale standard e caricamento della quietanza (FR-DON-01). Altri metodi (PayPal, Satispay) in fase 2.
 
-**FR-CAR-01 · Chi paga per primo** (SOS-03, SOS-04, SOS-05). Una richiesta unica resta disponibile finché non arriva un pagamento: con carta vale la conferma immediata, con bonifico il caricamento della quietanza. Il primo pagamento vince: la richiesta passa a “Sostenuto ✓” e non è più acquistabile.
+**FR-CAR-01 · Chi paga per primo** (SOS-03, SOS-04, SOS-05). Vale solo per le richieste personali: le voci fisse non si esauriscono. Una richiesta personale resta disponibile finché non arriva un pagamento: con carta vale la conferma immediata, con bonifico il caricamento della quietanza. Il primo pagamento vince: la richiesta passa a “Sostenuto ✓” e non è più acquistabile.
 
 **FR-CAR-02 · Credito solidale** (SOS-04, SOS-05, SOS-06). Se arriva un secondo pagamento per una richiesta già sostenuta, la donazione diventa un **credito solidale** nell’area riservata del sostenitore, utilizzabile per un’altra richiesta **della stessa tipologia e dello stesso importo**. Il credito non è rimborsabile né cedibile. Il sostenitore riceve un messaggio che lo ringrazia e spiega la situazione; la regola è spiegata prima del pagamento e va accettata (SOS-05, AC-07).
 
@@ -799,19 +772,23 @@ Ogni scelta che le storie lasciano aperta è decisa qui, in modo verificabile, c
 
 **FR-INT-02 · Imputazione delle entrate** (AMM-05). Ogni entrata confermata va imputata a un capitolo (adozioni, adozioni in casa famiglia, casetta, affitto, animali, operazione, sedia a rotelle…, casa famiglia Effatà, Cassa sostegno Effatà) e, dove previsto, a un intervento, che diventa una “cosa da fare”. Ogni capitolo corrisponde a un ID_PROGETTO di VERIF!CO.
 
-**FR-INT-03 · Checklist di rendicontazione per tipo** (VOL-01, SOS-07). Ogni tipo di intervento ha un elenco di prove di realizzazione richieste, configurabile dall’amministratore: foto della consegna per materassi, scarpe e animali; iscrizione e foto per le adozioni; foto, contratto e fattura dove esistono, come per la casetta. Un intervento è “rendicontato” solo con tutte le prove caricate, che diventano visibili al donante nella sua area riservata (con le regole di FR-CON-01).
+**FR-INT-03 · Checklist di rendicontazione per tipo** (VOL-01, SOS-07). Ogni tipo di intervento ha un elenco di prove di realizzazione richieste, configurabile dall’amministratore: foto della consegna per materassi, scarpe e animali; iscrizione e foto per le adozioni; foto, contratto e fattura dove esistono, come per la casetta. Un intervento è “rendicontato” solo con tutte le prove caricate, che diventano visibili al donante nella sua area riservata (con le regole di FR-CON-01). Quando le prove arrivano dal bot, il bot mostra le voci mancanti, l’AI propone quella giusta guardando le foto e il volontario conferma con un tocco, una volta per invio; le foto che non corrispondono a una voce vanno nella scheda come aggiornamento.
 
-**FR-INT-04 · Costo dichiarato dell’intervento** (AMM-01, AMM-08). Ogni tipo di intervento ha un costo standard in un listino configurabile, proposto come valore iniziale; ogni richiesta può avere un costo proprio (per esempio l’adozione in casa famiglia di un bambino con disabilità). La spesa coincide con il costo dichiarato e finanziato dal donante; non si registrano fatture di spesa. Il costo si può modificare solo prima del primo pagamento, poi resta congelato.
+**FR-INT-04 · Costo dichiarato dell’intervento** (AMM-01, AMM-08). Ogni tipo di intervento ha un costo standard in un listino configurabile, proposto come valore iniziale; ogni richiesta può avere un costo proprio (per esempio l’adozione in casa famiglia di un bambino con disabilità). La spesa coincide con il costo dichiarato e finanziato dal donante; non si registrano fatture di spesa. Il volontario che prepara una richiesta può proporre un costo diverso dal listino (es. il preventivo di un’operazione indicato dalla referente); decide l’amministratore all’approvazione. Il costo si può modificare solo prima del primo pagamento, poi resta congelato.
 
 **FR-INT-05 · Donazioni generiche** (AMM-05). Un’entrata senza destinazione specifica va nel capitolo “Cassa sostegno Effatà”, senza creare interventi.
 
 **FR-INT-06 · Imputazione guidata dalla causale** (AMM-05, SOS-05). La parte dell’entrata che corrisponde a interventi riconoscibili dalla causale (tipo e quantità secondo il listino) viene imputata a quegli interventi; tutto ciò che non corrisponde va nella Cassa sostegno Effatà. Esempio: 25 € con causale “materassi” → 2 materassi da 10 € + 5 € in cassa. In fase 1 l’amministratore imputa a mano le causali libere; in fase 2 l’AI potrà proporre l’imputazione, sempre confermata dall’amministratore.
 
-**FR-INT-07 · Casa famiglia Effatà** (SOS-06, AMM-07). La casa famiglia Effatà è un progetto specifico dell’associazione: una comunità protetta per minori con costi mensili di sostentamento. Ha un proprio capitolo, distinto dalla Cassa sostegno Effatà (la cassa per le donazioni generiche), e un proprio ID_PROGETTO in VERIF!CO. Riceve i crediti solidali scaduti (FR-CAR-03), compare fra i capitoli con obiettivo annuale (FR-DASH-02) ed è collegata alle adozioni in casa famiglia.
+**FR-INT-07 · Casa famiglia Effatà** (SOS-06, AMM-07). La casa famiglia Effatà è un progetto specifico dell’associazione: una comunità protetta per minori, di cui la referente è tutore. Ha un proprio capitolo, distinto dalla Cassa sostegno Effatà (la cassa per le donazioni generiche), e un proprio ID_PROGETTO in VERIF!CO. In vetrina ha due voci fisse: **opere della casa famiglia** (lavori e acquisti, importo libero) e **sostegno della casa famiglia** (cibo, cuoca, infermiera, personale assistenziale, manutenzione), che corrisponde ai 50 € al giorno del calendario solidale. Riceve i crediti solidali scaduti (FR-CAR-03), compare fra i capitoli con obiettivo annuale (FR-DASH-02) ed è collegata alle adozioni in casa famiglia.
+
+**FR-INT-08 · Consegne delle voci fisse** (VOL-01). Le donazioni per una voce fissa si accumulano. Quando la referente consegna (es. 10 materassi alla famiglia FAM-0045), il volontario indica quantità e famiglia; il gestionale crea l’intervento e lo assegna alle donazioni più vecchie ancora da rendicontare per quella voce, fino alla quantità consegnata. Chi ha donato prima viene rendicontato prima.
 
 ### Canali, VERIF!CO e certificazioni
 
 **FR-CAN-01 · Canali di entrata** (AMM-05). Le donazioni arrivano dal conto UniCredit (bonifici singoli e versamenti cumulativi del fornitore delle carte) e da campagne e iniziative esterne come GoFundMe o il calendario solidale. I versamenti delle campagne si imputano alla raccolta fondi corrispondente (ID_RACCOLTAFONDI di VERIF!CO) e possono finanziare interventi, senza creare sostenitori individuali.
+
+**FR-CAN-03 · Calendario solidale** (AMM-04). Il calendario solidale resta un sito a sé (calendario.effataitalia.it), con la sua griglia dei giorni e le gift card; un giorno si adotta una sola volta, con 50 €. La vetrina vi rimanda con la card “Adotta un giorno”. Ogni giorno il gestionale importa in automatico le donazioni del calendario (con un token, non con la password dell’amministratore): le registra come confermate, le imputa al sostegno della casa famiglia, crea o aggiorna l’anagrafica del donatore e le include nel file per VERIF!CO. **Motivazione:** il calendario usa lo stesso account del fornitore delle carte, quindi senza queste donazioni i versamenti sul conto non tornerebbero con le quadrature; inoltre le offerte diventano visibili subito (intervista 3).
 
 **FR-CAN-02 · Invito ai donatori delle campagne** (fase 2). Tramite i messaggi della piattaforma l’associazione invita i donatori a registrarsi; i consensi si raccolgono alla registrazione.
 
@@ -825,7 +802,7 @@ Ogni scelta che le storie lasciano aperta è decisa qui, in modo verificabile, c
 
 ### Vista d’insieme, report e impostazioni
 
-**FR-DASH-01 · Vista d’insieme** (AMM-07). La dashboard dell’amministratore mostra: sostenitori (simpatizzanti, sostenitori, archiviati); bambini con e senza sostenitore; famiglie con e senza modulo di consenso; donazioni del periodo, dichiarate e confermate separatamente; entrate da abbinare o da imputare; Cassa sostegno Effatà; crediti solidali attivi; interventi per tipo e per stato con le prove mancanti; segnalazioni e anomalie. Ogni numero si apre in un elenco. Il volontario vede solo i numeri operativi, senza importi.
+**FR-DASH-01 · Vista d’insieme** (AMM-07). La dashboard dell’amministratore mostra: sostenitori (simpatizzanti, sostenitori, archiviati); bambini con e senza sostenitore; famiglie con e senza modulo di consenso; donazioni del periodo, dichiarate e confermate separatamente; entrate da abbinare o da imputare; Cassa sostegno Effatà; crediti solidali attivi; interventi per tipo e per stato con le prove mancanti; padrini storici senza bambino e bambini senza padrino; invii dal bot rifiutati; segnalazioni e anomalie. Ogni numero si apre in un elenco. Il volontario vede solo i numeri operativi, senza importi.
 
 **FR-DASH-02 · Obiettivi e andamento** (AMM-07). L’amministratore fissa un obiettivo annuale per ogni capitolo; la vista d’insieme mostra raccolto contro obiettivo, con la percentuale, e l’andamento mese per mese di donazioni e interventi, confrontato con lo stesso periodo dell’anno precedente. Gli obiettivi potranno essere ripresi dal piano economico di VERIF!CO, se esiste (Appendice B). **Motivazione:** interviste 1 e 3 (cap. 6.2): avere sempre il dato aggiornato rispetto al previsionale.
 
@@ -842,6 +819,7 @@ Ogni scelta che le storie lasciano aperta è decisa qui, in modo verificabile, c
 | Listino dei tipi di intervento e checklist di rendicontazione | Definiti con l’associazione prima del collaudo |
 | Obiettivi annuali per capitolo | Nessuno |
 | Testi delle email | Modelli iniziali |
+| Email riassuntiva giornaliera delle bozze da approvare | Attiva |
 | Segnalazione delle richieste senza sostenitori | 30 giorni |
 | Richieste sostenute mostrate nella vetrina | 30 giorni |
 | Promemoria e decadenza dell’impegno con bonifico | 7 e 30 giorni |
@@ -850,11 +828,43 @@ Ogni scelta che le storie lasciano aperta è decisa qui, in modo verificabile, c
 | Scadenza della chiusura annuale | 15 febbraio |
 | Inattività dell’accesso (fase 2) | 12 mesi |
 
+### Codici, foto e comunicazioni
+
+**FR-COD-01 · Codici identificativi** (AMM-01, AMM-02, AMM-09). I codici li genera sempre il gestionale, progressivi e mai riutilizzati: **BAM-0215** per un bambino (alla conferma della scheda), **FAM-0045** per una famiglia, **RIC-0042** per una richiesta personale (all’approvazione). Le voci fisse non hanno codice. I codici compaiono nella causale standard, nella scheda vista dal sostenitore e nelle schermate di amministratori e volontari; non contengono dati personali. La referente non deve usarli: continua a scrivere i nomi. **Motivazione:** oggi non esiste un codice dei bambini, e il nome da solo non distingue i molti bambini con lo stesso nome.
+
+**FR-FOTO-01 · Visibilità delle foto** (VOL-02, VOL-04, SOS-07). Ogni foto ha uno di due livelli: **pubblica** (social e vetrina) oppure **riservata al padrino** (solo nella scheda, visibile al padrino dopo l’adozione e all’amministratore). Le foto scelte per i social sono pubbliche, le altre dello stesso invio riservate. L’amministratore può nascondere o eliminare qualsiasi foto. Il consenso della famiglia vale per entrambi i livelli (FR-CON-01).
+
+**FR-COM-02 · Comparire nei post social** (SOS-01, SOS-09). Il sostenitore sceglie se il suo nome può comparire nei post dell’associazione: casella facoltativa e non preselezionata alla registrazione, modificabile nel profilo. Se ha acconsentito, il gestionale dà al bot nome, iniziale del cognome e provincia (“Maria R. di Treviso”) per i post di un aiuto consegnato; altrimenti il post non lo nomina.
+
+### Bot social
+
+Il bot social resta un sistema separato, proprietario dei contenuti social; il gestionale è proprietario dei dati e detta le regole. I due sistemi si parlano solo tramite API, con un token del bot (capitolo 11.5). Le modifiche richieste al codice del bot sono parte della fase 1.
+
+**FR-BOT-01 · Tipi di contenuto** (VOL-04). Dopo il caricamento il bot chiede prima il tipo e poi la categoria: 🆘 **Richiesta di aiuto** (richiesta personale in bozza, oppure rimando a una voce fissa), ✅ **Aiuto consegnato** (prove di rendicontazione o aggiornamento della scheda), 📣 **Solo social** (nessun effetto sul gestionale; solo le categorie generiche: vari, volontariato digitale, grazie ai volontari).
+
+**FR-BOT-02 · Riconoscimento dei volontari** (VOL-04). Ogni volontario collega il proprio account Telegram al profilo nel gestionale con un codice usa e getta valido 10 minuti (“Collega Telegram” nel profilo, `/collega` nel bot). A ogni azione il bot invia al gestionale l’identificativo Telegram e riceve i permessi; mostra solo le opzioni consentite. Un account non collegato o disattivato non può fare nulla. Sostituisce la chat autorizzata unica di oggi.
+
+**FR-BOT-03 · Categorie dal gestionale** (VOL-04). Il bot legge dal gestionale la lista delle categorie e il loro prezzo ogni volta che il volontario sceglie una categoria: una categoria aggiunta dall’amministratore compare subito. Restano nel bot le regole per i testi, le parole chiave dei commenti e i link, che sono contenuti social.
+
+**FR-BOT-04 · Foto, testi e ordine** (VOL-02, VOL-04). Le risposte date al bot valgono per tutto l’invio. Il volontario carica tutte le foto; un testo della referente resta legato a una foto se arriva come didascalia o con “Rispondi” sulla foto. Poi il bot mostra un foglio provini numerato e il volontario tocca le foto per i social nell’ordine della storia; Claude scrive carosello, Storie e un testo per la vetrina seguendo quell’ordine e i testi agganciati. Al gestionale arrivano tutte le foto originali, con livello di visibilità, testi e ordine.
+
+**FR-BOT-05 · Aggancio al beneficiario** (AMM-01, VOL-01, VOL-02). Il bot propone il nome del bambino (o del genitore, per una famiglia) letto dal messaggio della referente e chiede al gestionale i candidati, che mostra con codice, età, villaggio e foto profilo; il volontario tocca quello giusto. Se nel messaggio c’è un codice, chiede solo la conferma. Nessun abbinamento avviene senza la conferma di una persona. Se nessuno corrisponde, il volontario propone un bambino nuovo, confermato dall’amministratore. Il gestionale dà al bot solo i dati che un volontario può già vedere.
+
+**FR-BOT-06 · Consegna al gestionale ed errori** (VOL-04). Prima di pubblicare il bot chiede al gestionale il consenso (FR-CON-01). Dopo la pubblicazione consegna il pacchetto; se il gestionale non risponde lo mette in coda, ritenta ogni 10 minuti e avvisa il volontario quando è arrivato. Un invio rifiutato viene spiegato al volontario e segnalato all’amministratore; un invio ripetuto non crea doppioni.
+
+**FR-BOT-07 · Dati personali e ringraziamenti** (FR-COM-02, FR-RING-01). Il bot non raccoglie più dati personali dei sostenitori (nome, provincia, email del padrino) e non invia più ringraziamenti: li manda il gestionale. Il nome del padrino per un post arriva dal gestionale, solo con il suo consenso. I dati già presenti nel bot entrano nel gestionale come indizi per l’abbinamento (FR-STO-01) e poi vengono cancellati dal bot.
+
+**FR-BOT-08 · Report e riepilogo mensile.** I report `/report-mese` e `/report-anno` restano nel bot come report dell’attività social. Il riepilogo mensile pubblicato su Instagram prende i numeri dal gestionale (interventi realizzati e rendicontati nel mese, per categoria).
+
+### Recupero dei dati esistenti
+
+**FR-STO-01 · Importazione iniziale e censimento progressivo** (AMM-09; fase 1). Prima dell’avvio si importano da VERIF!CO i padrini, con anagrafica, IBAN e storico delle donazioni, come “padrini storici” senza account. I nomi dei bambini trovati nelle note di VERIF!CO e nelle storie del bot diventano indizi, non bambini. I bambini entrano poco alla volta, dalle foto di ogni giorno e dagli elenchi per villaggio compilati dalla referente; l’amministratore abbina padrini e bambini con la conferma della referente, usando le liste “padrini senza bambino” e “bambini senza padrino”. Finché l’abbinamento non è confermato, l’adozione resta “storica, bambino da identificare” e il padrino non riceve foto. L’avvio è graduale: si parte con un primo gruppo di famiglie, un villaggio o 30–50 famiglie, con i moduli di consenso già raccolti. Durante il passaggio il gruppo WhatsApp dei sostenitori resta attivo.
+
 ### Fase 2
 
 **FR-SOC-01 · Quota associativa** (SOC-01). La quota associativa si paga come una donazione (carta o bonifico con quietanza) ma è registrata come quota associativa, non come erogazione liberale: non compare nel riepilogo per la detrazione e nel file per VERIF!CO ha la sua causale. Avviso prima della scadenza e promemoria nei tre mesi successivi. Il trattamento contabile va verificato con il commercialista (Appendice B).
 
-**FR-STO-01/02/03 · Recupero dei dati pregressi.** Importazione iniziale dalle fonti esistenti (esportazioni di VERIF!CO, bozze del bot, contatti del gruppo WhatsApp) con unione dei duplicati e indicatore dei dati mancanti; inviti personali monouso via email o WhatsApp per completare dati e consensi; ritorno delle anagrafiche complete verso VERIF!CO.
+**FR-STO-02/03 · Inviti ai padrini storici e ritorno verso VERIF!CO.** Inviti personali monouso via email o WhatsApp ai padrini storici per registrarsi, collegarsi al proprio storico (FR-REG-03) e completare dati e consensi; ritorno delle anagrafiche complete verso VERIF!CO.
 
 **FR-INF-01 · Spazio informativo.** L’area riservata raccoglie i collegamenti ai contenuti pubblicati sul sito dell’associazione (newsletter, informative, volantini, eventi, 5×1000) e mostra i contenuti personali; il gestionale non duplica il sistema di pubblicazione del sito.
 
@@ -887,7 +897,8 @@ Le schede descrivono **quali informazioni** servono e chi le vede, non come sono
 | Opposizione all’invio dei dati all’Agenzia delle Entrate | Scelta del donante (FR-FIS-01) | Sostenitore | No | A, S |
 | Consenso privacy (data, versione dell’informativa) | Obbligo GDPR, prova del consenso | Sostenitore | Sì | A, S |
 | Preferenze di comunicazione e newsletter | Separate dal consenso privacy (FR-COM-01) | Sostenitore | No | A, S |
-| Consenso a comparire nei post social | Il bot chiede il nome del padrino per i post | Sostenitore | No | A, S |
+| Consenso a comparire nei post social | Il bot riceve nome, iniziale del cognome e provincia solo con questo consenso (FR-COM-02) | Sostenitore | No | A, S |
+| Indizi dal recupero (nome del bambino nelle note di VERIF!CO o nel bot) | Abbinamento padrino–bambino (AMM-09) | Sistema | — | A |
 | **Collegamenti** |   |   |   |   |
 | Adozioni e interventi sostenuti | Rendicontazione (SOS-07) | Sistema | — | S vede solo i propri |
 | Storico donazioni e crediti solidali | SOS-06, SOS-08 | Sistema | — | S vede solo i propri |
@@ -897,7 +908,7 @@ Le schede descrivono **quali informazioni** servono e chi le vede, non come sono
 | Campo | Perché serve | Chi lo inserisce | Obbl. | Visibile a / note privacy |
 | --- | --- | --- | --- | --- |
 | **Identità** |   |   |   |   |
-| Codice (es. UG-102) | Identificativo usato dal bot e nelle comunicazioni | Sistema | Sì | A, V, S |
+| Codice (es. BAM-0102) | Identificativo generato dal gestionale (FR-COD-01) | Sistema | Sì | A, V, S |
 | Nome | Riconoscibilità per il sostenitore | Amministratore | Sì | A, V, S |
 | Cognome | Identificazione certa nell’archivio | Amministratore | No | A; V se abilitato; **mai S** |
 | Data di nascita | Età, adozioni scolastiche, controllo dei doppioni | Amministratore | Sì | A; S vede solo l’età e, con il consenso, giorno e mese del compleanno (FR-ADO-05) |
@@ -907,7 +918,7 @@ Le schede descrivono **quali informazioni** servono e chi le vede, non come sono
 | Scuola e classe | Pagelle, progressi | Amministratore / volontario | No | A, V, S |
 | Storia | Richiesta di sostegno e rendicontazione | Amministratore / volontario | No | A, V, S (completa o riassunto, FR-RUO-04) |
 | **Storico** |   |   |   |   |
-| Foto, pagelle, notizie | Contenuti per il sostenitore (VOL-02) | Volontario | — | S vede solo i bambini che sostiene; foto solo con consenso (FR-CON-01) |
+| Foto, pagelle, notizie, con i testi della referente | Contenuti per il sostenitore (VOL-02) | Volontario (dal bot o dal gestionale) | — | Pubbliche o riservate al padrino (FR-FOTO-01); S vede solo i bambini che sostiene; foto solo con consenso (FR-CON-01) |
 | Adozioni (attiva e chiuse) | Riaffido e storico (FR-ADO-01/02/03) | Amministratore | — | A; S vede solo la propria |
 | Stato (attivo, uscito dal programma, con data e motivo) | Fine del percorso (AMM-02) | Amministratore | Sì | A, V |
 | Informazioni sanitarie (solo se indispensabili) | Operazioni chirurgiche | Amministratore | No | **Dato sanitario (art. 9 GDPR): solo A**, campo separato dalle notizie |
@@ -918,8 +929,8 @@ Una famiglia ha uno o più bambini, ciascuno adottato dal proprio sostenitore. G
 
 | Campo | Perché serve | Chi lo inserisce | Obbl. | Visibile a / note privacy |
 | --- | --- | --- | --- | --- |
-| Codice famiglia (es. FAM-045) | Identificativo, riportato sul modulo di consenso | Sistema | Sì | A, V |
-| Genitore o tutore di riferimento | Firma il modulo di consenso | Amministratore | Sì | A; dato personale di terzi |
+| Codice famiglia (es. FAM-0045) | Identificativo generato dal gestionale (FR-COD-01) | Sistema | Sì | A, V |
+| Genitore o tutore di riferimento | Firma il modulo di consenso (per la casa famiglia: la referente) | Amministratore | Sì | A; dato personale di terzi |
 | Villaggio / distretto | Rendicontazione per zona | Amministratore | Sì | A, V; S solo il distretto |
 | Componenti (bambini) | Collegamento alle schede bambino | Sistema | — | Ogni sostenitore vede solo i propri beneficiari |
 | Modulo di consenso caricato (sì/no, data, raccolto da) | Applicazione automatica del consenso (FR-CON-01) | Amministratore | — | A; V e S vedono solo gli effetti |
@@ -928,7 +939,7 @@ Una famiglia ha uno o più bambini, ciascuno adottato dal proprio sostenitore. G
 
 ### Scheda intervento
 
-L’intervento collega donazioni e beneficiari: “adozione scolastica di UG-102 per l’anno 2026”, “casetta per la famiglia FAM-045”, “capretta per la famiglia FAM-112”. Nasce da una richiesta di sostegno quando arriva il pagamento.
+L’intervento collega donazioni e beneficiari: “adozione scolastica di BAM-0102 per l’anno 2026”, “casa per la famiglia FAM-0045”, “10 materassi alla famiglia FAM-0112”. Nasce da una richiesta personale quando arriva il pagamento, oppure dalla consegna di una voce fissa (FR-INT-08).
 
 | Campo | Perché serve | Chi lo inserisce | Obbl. | Visibile a / note privacy |
 | --- | --- | --- | --- | --- |
@@ -1021,7 +1032,8 @@ Prime interviste: 01/10/2026, rivolte a membri dell’associazione (ruoli da ind
 | ASS-03 | Gli operatori in Uganda hanno uno smartphone con Telegram |   |
 | ASS-04 | I sostenitori hanno un indirizzo email valido |   |
 | ASS-05b | Il costo dichiarato di un intervento corrisponde alla spesa effettiva (FR-INT-04) | La rendicontazione economica va rivista |
-| ASS-05 |   |   |
+| ASS-06 | La referente può compilare dal telefono gli elenchi dei bambini per villaggio e confermare gli abbinamenti con i padrini (AMM-09) | Il recupero delle adozioni storiche rallenta; restano più adozioni “da identificare” |
+| ASS-07 | I volontari hanno un account Telegram personale da collegare al gestionale (FR-BOT-02) | Serve un’alternativa: il caricamento dalle schermate del gestionale |
 
 ## 7.2 Vincoli
 
@@ -1045,14 +1057,17 @@ Prime interviste: 01/10/2026, rivolte a membri dell’associazione (ruoli da ind
 | DIP-05 | Account Brevo (già usato come relay SMTP da VERIF!CO): chiave dedicata per le email del gestionale; verificare i limiti del piano | Prima del collaudo | Andrea Pavan |
 | DIP-06 | Server / dominio per il deploy |   |   |
 | DIP-07 | Consenso dell’associazione a usare dati e foto reali nel collaudo |   |   |
-| DIP-08 | Bot social esistente, con le API di integrazione protette da token (fase 2) | Fase 2 | Andrea Pavan |
+| DIP-08 | Modifiche al bot social per il collegamento con il gestionale (FR-BOT-01…08) | Prima del collaudo della fase 1 | Andrea Pavan |
 | DIP-09 | API di Meta (Facebook, Instagram) per la pubblicazione | Fase 2 |   |
 | DIP-10 | API di Anthropic (Claude) per i testi social e l’eventuale lettura delle causali |   |   |
 | DIP-11 | Google Perspective e OpenAI Moderation (solo nel bot, per i commenti) | — |   |
 | DIP-12 | Risposta dell’assistenza VERIF!CO: esportazione in blocco dei PDF delle ricevute? API disponibili? | Prima della fase 2 | Andrea Pavan |
 | DIP-13 | Account del fornitore di pagamenti (Stripe) intestato all’associazione, con modalità di prova per il collaudo | Prima del collaudo della fase 1 | Presidente / Andrea Pavan |
-| DIP-14 | Modulo di consenso della famiglia aggiornato (unico, con il codice famiglia) e verificato dal referente privacy dell’associazione | Prima del collaudo della fase 1 | Presidente / referente in Uganda |
+| DIP-14 | Modulo di consenso della famiglia aggiornato (unico, con nome del genitore, villaggio e data) e verificato dal referente privacy dell’associazione | Prima del collaudo della fase 1 | Presidente / referente in Uganda |
 | DIP-15 | ID_PROGETTO di VERIF!CO per ogni capitolo, compresa la casa famiglia Effatà | Prima del collaudo della fase 1 | Amministratore |
+| DIP-16 | Esportazione da VERIF!CO delle anagrafiche dei padrini e delle donazioni, per l’importazione iniziale (AMM-09) | Prima del collaudo della fase 1 | Amministratore |
+| DIP-17 | Elenchi dei bambini del primo villaggio compilati dalla referente, con i moduli di consenso delle famiglie | Prima del collaudo della fase 1 | Referente in Uganda |
+| DIP-18 | Accesso del gestionale alle donazioni del calendario solidale tramite token (modifica al sito del calendario) | Prima del collaudo della fase 1 | Andrea Pavan |
 
 # Seconda parte · Il come
 
@@ -1299,28 +1314,30 @@ GESTIONALE (proprietario dei dati)        BOT (proprietario dei contenuti social
 }
 ```
 
-## 11.5 Contratto di integrazione con il bot (fase 2)
-
-*Origine: sezione aggiuntiva della nostra bozza – non richiesta dal template, la teniamo*
+## 11.5 Contratto di integrazione con il bot (fase 1)
 
 ```text
-IL BOT CHIEDE AL GESTIONALE (token di servizio, HTTPS)
-  GET  /api/v1/interventi?stato=da-rendicontare   → cosa c’è da documentare
-  GET  /api/v1/interventi/{id}/dati-pubblicabili   → solo i dati coperti da consenso
-  POST /api/v1/interventi/{id}/prove               → allega le foto scelte come prova
- 
-IL BOT AVVISA IL GESTIONALE
-  POST /api/v1/webhooks/bot/pubblicazione          → {draft_id, intervento_id, piattaforma, url}
- 
+IL BOT CHIEDE AL GESTIONALE (HTTPS, token del bot + identificativo Telegram del volontario)
+  POST /api/v1/bot/collegamenti                     → collega l'account Telegram (codice usa e getta)
+  GET  /api/v1/bot/volontari/{telegramId}/permessi  → cosa può fare il volontario
+  GET  /api/v1/bot/categorie                        → lista delle categorie con tipo e prezzo
+  GET  /api/v1/bot/beneficiari?nome=…               → candidati (codice, nome, età, villaggio, miniatura)
+  GET  /api/v1/bot/beneficiari/{codice}/consenso    → la famiglia ha il modulo di consenso?
+  GET  /api/v1/bot/interventi?beneficiario=…        → interventi pagati e voci mancanti della checklist
+  GET  /api/v1/bot/sostenitori-pubblicabili?intervento=… → nome del padrino, solo con il suo consenso
+  GET  /api/v1/bot/riepilogo-mensile?mese=…         → numeri per il riepilogo pubblicato su Instagram
+
+IL BOT CONSEGNA AL GESTIONALE (dopo la pubblicazione)
+  POST /api/v1/bot/invii                            → foto originali, visibilità, ordine, testi agganciati,
+                                                      tipo, categoria, codice, costo proposto o quantità,
+                                                      voce della checklist, testo per la vetrina, autore,
+                                                      identificativo dell'invio (per evitare doppioni)
+
 TUTTO IL RESTO RESTA NEL BOT
-  testi generati, bozze, pubblicazioni, moderazione dei commenti, promozioni
+  testi social generati, bozze, pubblicazioni, moderazione dei commenti, promozioni, report social
 ```
 
-> **🧭 Perché è fatto così**
->
-> - L’endpoint dei **dati pubblicabili** è il “cancello del consenso”: il bot non riceve mai un dato che non è autorizzato a pubblicare (es. mai la località esatta; il nome del padrino solo con il suo consenso).
-> - Nel bot l’unica modifica strutturale è la colonna `intervento_id` nella tabella `drafts`.
-> - Da definire: cosa succede se il webhook di pubblicazione non arriva (ritentativi dal bot? riconciliazione periodica?).
+Il dettaglio dei campi, degli errori e dei codici di risposta sarà nella specifica OpenAPI. Il bot conserva in coda gli invii non riusciti e li ripete ogni 10 minuti (FR-BOT-06).
 
 ## 11.3 Errori, validazione e paginazione
 
@@ -1410,7 +1427,7 @@ TUTTO IL RESTO RESTA NEL BOT
 > **🧭 Domanda chiave**
 >
 > - Con ID sequenziali un sostenitore può provare `/children/58` dopo `/children/57`. Il backend deve bloccarlo comunque, ma ID non indovinabili (UUID) sono una difesa in più. ID interno e ID pubblico possono essere diversi.
-> - Il codice `UG-102` è un ID o un attributo di business? Può cambiare?
+> - Il codice `BAM-0102` è un ID o un attributo di business? Può cambiare?
 
 **✎ Appunti / risposte**
 
@@ -1781,6 +1798,10 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 | Cambi nelle API esterne (versioni Meta, modelli AI ritirati) | Media | Medio | Accesso ai servizi esterni isolato in moduli dedicati; verifica periodica di versioni e modelli |
 | Dipendenza da una sola persona (sviluppo, account e credenziali in capo ad Andrea) | Media | Alto | Repository in un’organizzazione GitHub dell’associazione; hosting, dominio e servizi intestati all’associazione; credenziali in un gestore di password condiviso con il presidente; documentazione per il passaggio di consegne (NFR-16) |
 | Poca esperienza con React all’inizio dello sviluppo | Media | Medio | Partire dalle schermate più semplici; struttura del frontend semplice; appoggio al corso parallelo; fase 1 limitata al perimetro minimo |
+| Dati storici incompleti: per alcuni padrini nessuno ricorda il nome del bambino | Alta | Medio | Adozione storica valida e corretta contabilmente, “bambino da identificare” finché la referente non lo ritrova; nessuna foto inviata senza abbinamento confermato |
+| La fase 1 cresce con le modifiche al bot e il recupero dei dati | Alta | Alto | Prima da spostare in fase 2: nome del padrino nei post e riepilogo mensile dal gestionale; caricamento dalle schermate del gestionale come alternativa al bot |
+| Foto di un minore agganciata al bambino sbagliato | Bassa | Alto | Nessun abbinamento senza conferma di una persona con la foto profilo (FR-BOT-05); l’amministratore può nascondere subito una foto |
+| Calendario solidale con password predefinita nel codice pubblico e database in una cartella temporanea | Media | Alto | Verificare subito la password impostata sul server e la posizione del database; backup; accesso del gestionale tramite token (DIP-18) |
 |   |   |   |   |
 
 # 20. Domande di verifica (autovalutazione)
@@ -1885,6 +1906,7 @@ Tutto ciò che non puoi decidere da solo va chiesto al cliente reale. Annota ris
 | Domanda | Risposta | Data |
 | --- | --- | --- |
 | Tutti i ~1.200 bambini hanno un sostenitore? |   |   |
+| Esiste un elenco dei bambini con un codice? | No: in VERIF!CO ci sono i padrini, a volte con il nome del bambino nelle note; il collegamento è negli appunti cartacei della referente | 01/10/2026 |
 | Quante famiglie seguite? Quanti bambini per famiglia in media? |   |   |
 | Quanti interventi non di adozione all’anno, per tipo? |   |   |
 | Un export di esempio dell’estratto conto UniCredit (CSV/Excel), anonimizzato |   |   |
@@ -1906,6 +1928,9 @@ Tutto ciò che non puoi decidere da solo va chiesto al cliente reale. Annota ris
 | VERIF!CO (assistenza): si possono importare le anagrafiche da file? Con quale tracciato? (FR-VER-02) |   |   |
 | La casa famiglia Effatà ha un proprio ID_PROGETTO in VERIF!CO? (FR-INT-07) |   |   |
 | Quota associativa: come va registrata in VERIF!CO e nella causale? (commercialista, FR-SOC-01) |   |   |
+| Satispay è attivo e usato per il calendario solidale? Dove arrivano i suoi versamenti? (FR-CAN-03) |   |   |
+| Esportazione da VERIF!CO di anagrafiche dei padrini, donazioni e note: in quale formato? (AMM-09) |   |   |
+| La referente è disponibile a compilare dal telefono gli elenchi dei bambini per villaggio? Da quale villaggio si parte? (AMM-09) | Sì, li compila la referente | 01/10/2026 |
 |   |   |   |
 
 # Allegato finale – Brain dump iniziale

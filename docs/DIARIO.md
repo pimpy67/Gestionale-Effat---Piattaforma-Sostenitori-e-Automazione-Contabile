@@ -123,3 +123,26 @@ Il dettaglio di ogni decisione è nel PRD (`docs/PRD.md`), capitolo 5.7.
 **Prossimi passi**
 - Capitolo 4.2: user flow e scenari delle storie ★.
 - Capitoli 6–7, poi la seconda parte (8–16) e la terza (17–19). Consegna v2.0: 9 ottobre 2026.
+
+## 01/10/2026 (pomeriggio) – Bot, recupero dei dati e PRD v1.4
+
+**Fatto**
+- Letti i codici del bot social (`pimpy67/social_effata`) e del calendario solidale (`pimpy67/calendario-solidale-uganda`).
+- Revisione del collegamento bot–gestionale in 10 punti.
+- **PRD v1.4** (tag `prd-v1.4`): user flow di AMM-01; nuove storie AMM-09 e VOL-04; decisioni FR-BOT-01…08, FR-COD-01, FR-FOTO-01, FR-COM-02, FR-INT-08, FR-CAN-03, FR-STO-01 in fase 1.
+
+**Decisioni**
+- Tutte le donazioni passano dal gestionale; Silvia segnala i bisogni, manda le prove e indirizza i padrini alla vetrina.
+- Il bot diventa la porta d'ingresso già in fase 1: un solo caricamento pubblica sui social e alimenta il gestionale tramite API (mai database condiviso). Prima il tipo (richiesta di aiuto, aiuto consegnato, solo social), poi la categoria. Volontari riconosciuti dall'account Telegram collegato con un codice usa e getta.
+- Foto: si caricano tutte, poi si scelgono e si ordinano quelle per i social (foglio provini); testi agganciati con didascalia o "Rispondi"; due livelli, pubbliche e riservate al padrino.
+- Vetrina: richieste personali (adozioni, operazione, carrozzina, casa, terreni) e voci fisse (materassi, scarpe, animali, opere e sostegno della casa famiglia); consegne delle voci fisse assegnate a chi ha donato prima.
+- Non esiste un archivio dei bambini: codici BAM/FAM/RIC generati dal gestionale; padrini importati da VERIF!CO in fase 1, bambini censiti poco alla volta, abbinamenti confermati da Silvia; avvio graduale con un primo villaggio.
+- Calendario solidale: resta un sito a sé, card in vetrina, donazioni importate in automatico.
+
+**Aperto**
+- Satispay; formato dell'esportazione da VERIF!CO; chat autorizzata attuale del bot (gruppo o privata).
+- Sicurezza del calendario: password dell'amministratore impostata sul server, posizione del database e backup.
+
+**Prossimi passi**
+- Capitolo 4.2: user flow di AMM-04, AMM-06, VOL-01…03, SOS-03, SOS-04, SOS-07.
+- Capitoli 6–7, poi la seconda parte. Consegna v2.0: 9 ottobre 2026.
