@@ -100,3 +100,26 @@ Il dettaglio di ogni decisione è nel PRD (`docs/PRD.md`), capitolo 5.7.
 - Giovedì: cap. 4 (Panoramica e user flow).
 - Venerdì: cap. 5 (User story).
 - Consegna del PRD ripulito: venerdì 9 ottobre 2026.
+
+## 01/10/2026 – Revisione delle user story e PRD v1.3
+
+**Fatto**
+- Revisione, una alla volta, di tutte le 23 user story (AMM-01…08, VOL-01…03, SOS-01…09, SOC-01…03) con i loro acceptance criteria.
+- Prime quattro interviste per i requisiti impliciti (membri dell'associazione): previsionale e andamento, attendibilità dei dati, tempestività, filtri, report e scadenze.
+- **PRD v1.3** (tag `prd-v1.3`): capitolo 5 in forma definitiva; NFR-17/18/19 e requisiti impliciti nel capitolo 6; capitolo 1 aggiornato.
+
+**Decisioni**
+- Contabilità ufficiale, uscite e fornitori restano in VERIF!CO; certificazioni per la detrazione inviate da VERIF!CO una volta l'anno (fine febbraio–inizio marzo).
+- Estratto conto mensile; anagrafiche nuove o modificate verso VERIF!CO già in fase 1; chiusura annuale con scadenza 15 febbraio (FR-VER-03).
+- Consenso della famiglia: modulo unico "tutto o niente", una sola casella "modulo caricato"; senza modulo = nessun consenso (FR-CON-01).
+- Vetrina riservata agli utenti registrati; credito solidale stessa tipologia e importo, scade dopo 1 mese e va alla casa famiglia Effatà (progetto distinto dalla Cassa sostegno).
+- Niente TRN/CRO, suggerito il bonifico istantaneo; proposta di imputazione con l'AI in fase 2.
+- Obiettivi annuali per capitolo e andamento mensile in fase 1 (FR-DASH-02); ricerca, filtri, report e scadenze (FR-REP-01/02).
+
+**Aperto**
+- Domande nuove in Appendice B (ruoli degli intervistati, modulo di consenso e referente privacy, calendario solidale, previsionale e anagrafiche in VERIF!CO, ID_PROGETTO della casa famiglia, quota associativa).
+- Intervista a un sostenitore.
+
+**Prossimi passi**
+- Capitolo 4.2: user flow e scenari delle storie ★.
+- Capitoli 6–7, poi la seconda parte (8–16) e la terza (17–19). Consegna v2.0: 9 ottobre 2026.
