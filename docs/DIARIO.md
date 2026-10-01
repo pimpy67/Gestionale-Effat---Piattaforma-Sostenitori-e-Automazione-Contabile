@@ -146,3 +146,25 @@ Il dettaglio di ogni decisione è nel PRD (`docs/PRD.md`), capitolo 5.7.
 **Prossimi passi**
 - Capitolo 4.2: user flow di AMM-04, AMM-06, VOL-01…03, SOS-03, SOS-04, SOS-07.
 - Capitoli 6–7, poi la seconda parte. Consegna v2.0: 9 ottobre 2026.
+
+## 01/10/2026 (sera) – Flussi dell'amministratore, VERIF!CO e Stripe
+
+**Fatto**
+- User flow approvati in chat (entreranno nella v1.5): AMM-04 (estratto conto), AMM-06 (caricamento VERIF!CO), VOL-01 (prove di realizzazione).
+- Analisi delle esportazioni VERIF!CO (movimenti 2024–2026, anagrafiche) e del modello di importazione Stripe: solo struttura e totali, nessun dato personale nel PRD né nella repository.
+
+**Decisioni**
+- Destinazione contabile: ogni categoria del gestionale è collegata a un conto 215.020.xx, trasportato con il campo Progetti di VERIF!CO; carrozzina in Cure ospedaliere.
+- Importazione iniziale da VERIF!CO dal 2025; padrino storico = versamenti da 180 € o multipli sul conto adozioni; nomi dei bambini nelle note come indizio.
+- Soci: i 10 associati registrati; esiste il tesoriere. Indirizzo non più obbligatorio.
+- Caricamento in VERIF!CO: prima le anagrafiche (codice fiscale ed email uguale a quella del pagamento), poi i movimenti; pagamenti Stripe su un conto finanziario STRIPE, bonifici Stripe come giroconto. Satispay passa da Stripe.
+- Bot: ricerca del bambino filtrata per tipo di invio; il gestionale web resta il centro di controllo.
+- Voci fisse senza conteggio delle unità: a ogni consegna si rendicontano tutte le donazioni di quella categoria in attesa.
+- Adozione (rapporto) distinta dall'anno scolastico (intervento annuale con prova di fine anno).
+
+**Aperto**
+- Commercialista: calendario solidale come erogazione liberale o raccolta fondi; schema Stripe; anno di competenza delle donazioni di dicembre.
+- Assistenza VERIF!CO: destinazione dei movimenti importati, annullamento di un'importazione.
+
+**Prossimi passi**
+- User flow di VOL-02, VOL-03, SOS-03, SOS-04, SOS-07 → PRD v1.5.
