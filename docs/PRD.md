@@ -4,7 +4,7 @@
 
 Piattaforma Sostenitori e Automazione Contabile
 
-*Versione 1.4 – versione di lavoro, struttura allineata al PRD Template del docente*
+*Versione 1.6 – versione di lavoro, struttura allineata al PRD Template del docente*
 
 Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi e valutazione
 
@@ -19,7 +19,7 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | Autori | Andrea Pavan |
 | Cliente reale | Effatà Italia ODV |
 | Contesto | Progetto ITS – 2° anno. Progetto personale che segue la metodologia della traccia “ScuolaChill”. |
-| Versione | 1.4 |
+| Versione | 1.6 |
 | Data | ____ / ____ / ________ |
 | Stato | ☐ Bozza   ☐ In revisione   ☐ Validato |
 
@@ -33,6 +33,8 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | 1.2 | 30/09/2026 | Andrea Pavan | Capitolo 4.1 in forma definitiva; richieste di sostegno precise nel carrello (uniche o per quantità, costo per richiesta); carrello con preferiti, ricerca e condivisione; pagamento con carta anticipato in fase 1 (bonifico come ultima scelta); chi paga per primo e credito solidale con scadenza a 3 mesi; durata e rinnovo dell’adozione; preferenze di comunicazione; caricamento massivo in VERIF!CO. |
 | 1.3 | 01/10/2026 | Andrea Pavan | Capitolo 5 in forma definitiva: 23 user story per amministratore, volontario, sostenitore e socio, con i loro acceptance criteria, e decisioni riordinate per area. Nuove decisioni: consenso della famiglia con modulo unico (FR-CON-01), visibilità dei dati configurabile (FR-RUO-04), compleanno (FR-ADO-05), casa famiglia Effatà come progetto distinto (FR-INT-07), chiusura annuale per le certificazioni (FR-VER-03), obiettivi e andamento (FR-DASH-02), filtri, report e scadenze (FR-REP-01), ricerca (FR-REP-02), impostazioni configurabili (FR-IMP-01), quota associativa (FR-SOC-01). Modifiche: estratto conto mensile; anagrafiche verso VERIF!CO già in fase 1; vetrina riservata agli utenti registrati; credito solidale a 1 mese, poi alla casa famiglia; proposta di imputazione con l’AI in fase 2; uscite e fornitori restano in VERIF!CO. Requisiti impliciti dalle prime quattro interviste e NFR-17/18/19; capitolo 1 aggiornato. |
 | 1.4 | 01/10/2026 | Andrea Pavan | Il bot social diventa la porta d’ingresso del materiale di Silvia già in fase 1: un solo caricamento pubblica sui social e alimenta il gestionale tramite API (FR-BOT-01…08), con riconoscimento dei volontari tramite Telegram. Tutte le donazioni passano dal gestionale; Silvia segnala i bisogni, manda le prove e indirizza i padrini alla vetrina. Vetrina con richieste personali e voci fisse (FR-CAT-01, FR-INT-08); casa famiglia divisa in opere e sostegno (calendario solidale, importato in automatico: FR-CAN-03). Non esiste un archivio digitale dei bambini: codici BAM/FAM/RIC generati dal gestionale (FR-COD-01), recupero dei padrini da VERIF!CO e censimento progressivo dei bambini in fase 1 (FR-STO-01, AMM-09). Foto pubbliche e riservate al padrino (FR-FOTO-01); consenso a comparire nei post (FR-COM-02). Nuove storie AMM-09 e VOL-04; aggiornate AMM-01, AMM-02, AMM-04, VOL-01, VOL-02, SOS-01, SOS-03, SOS-07, SOS-09; user flow di AMM-01. |
+| 1.5 | 02/10/2026 | Andrea Pavan | Capitolo 4.2 in forma definitiva: user flow, scenario principale e scenari alternativi delle nove storie principali. Accesso ospite di 7 giorni a tutta la vetrina con la sola email, tramite il link promozionale della referente (FR-REG-05); dati raccolti per fasi (ospite, registrazione, prima donazione), con codice fiscale facoltativo e indirizzo non più richiesto (FR-REG-01, FR-FIS-01). Voci fisse senza conteggio delle unità: ogni consegna rendiconta le donazioni in attesa (FR-INT-08). Adozione distinta dall’anno scolastico, che si chiude con la prova di fine anno (FR-ADO-06). Ricerca del beneficiario nel bot filtrata per tipo di invio (FR-BOT-05); foglio provini e domanda sulle informazioni sanitarie (FR-BOT-04). Caricamento in VERIF!CO: anagrafiche prima dei movimenti, tracciato Stripe collegato tramite l’email, destinazione contabile tramite i Progetti, versamenti di Stripe come giroconto (FR-INT-02, FR-VER-01/02). Recupero dei padrini dal 2025 con la regola dei 180 € (FR-STO-01). Numeri dell’associazione da VERIF!CO (solo totali), 10 soci, Satispay tramite Stripe. Aggiornate AMM-04, AMM-06, AMM-09, VOL-01, VOL-02, VOL-03, SOS-01, SOS-02, SOS-03, SOS-04, SOS-07. |
+| 1.6 | 02/10/2026 | Andrea Pavan | Capitoli 6, 7, 8 e 9 in forma definitiva. Requisiti non funzionali NFR-01…20 con soglia, verifica e storie: disponibilità 99%, backup notturni con copia esterna, conservazione per 10 anni, accessibilità provata con tre sostenitori sopra i 60 anni, risposte al bot entro 1 s (NFR-20). Assunzioni, vincoli e dipendenze completi (ASS-09, VIN-06/07, scadenze e responsabili di tutte le dipendenze). Stima del carico: picco di 50 utenti nello stesso minuto dopo la newsletter, circa 5 GB di dati all’anno. Scelte tecnologiche decise, una per riga: NestJS, Prisma, Ionic + React PWA, PostgreSQL 16, VPS Hostinger a Parigi con Docker Compose, Brevo, Stripe, Claude solo nel bot (Sonnet 5.5 e Haiku 4.5). Nuovo rischio sulla sicurezza del server. |
 |   |   |   |   |
 |   |   |   |   |
 
@@ -99,12 +101,12 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 | Scopo e perimetro | 1. Scopo e perimetro | Definitivo |
 | Stakeholder | 2. Stakeholder | Definitivo |
 | Destinatari e contesto d’uso | 3. Destinatari e contesto d’uso | Definitivo |
-| Panoramica e casi d’uso | 4. Panoramica e casi d’uso | Unione |
+| Panoramica e casi d’uso | 4. Panoramica e casi d’uso | Definitivo |
 | Requisiti funzionali | 5. Requisiti funzionali | Definitivo |
-| Requisiti non funzionali (+ impliciti) | 6. Requisiti non funzionali | Unione |
-| Assunzioni, vincoli e dipendenze | 7. Assunzioni, vincoli e dipendenze | Template |
-| Stima del carico | 8. Stima del carico | Unione |
-| Scelte tecnologiche | 9. Scelte tecnologiche con alternative | Unione |
+| Requisiti non funzionali (+ impliciti) | 6. Requisiti non funzionali | Definitivo |
+| Assunzioni, vincoli e dipendenze | 7. Assunzioni, vincoli e dipendenze | Definitivo |
+| Stima del carico | 8. Stima del carico | Definitivo |
+| Scelte tecnologiche | 9. Scelte tecnologiche con alternative | Definitivo |
 | Architettura | 10. Area 1 – Fondamenti di architettura | Unione |
 | Le API | 11. Area 2 – Progettazione delle API | Unione |
 | Persistenza e modello dei dati | 12. Area 3 – Persistenza e modellazione | Unione |
@@ -136,14 +138,14 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 | Cap. | Sezione | Stato iniziale | Fatto |
 | --- | --- | --- | --- |
 | 1 | Scopo e perimetro | DEFINITIVO (v1.0) | ☑ |
-| 2 | Stakeholder | DEFINITIVO (v1.1) | ☑ |
-| 3 | Destinatari e contesto d’uso | DEFINITIVO (v1.1) | ☑ |
-| 4 | Panoramica e casi d’uso | 4.1 DEFINITIVO (v1.2); 4.2 in corso (AMM-01 scritto, v1.4) | ☐ |
-| 5 | Requisiti funzionali | DEFINITIVO (v1.4) | ☑ |
-| 6 | Requisiti non funzionali + impliciti | PARZIALE (v1.3: NFR-16/19, requisiti impliciti) | ☐ |
-| 7 | Assunzioni, vincoli e dipendenze | MANCANTE | ☐ |
-| 8 | Stima del carico | MANCANTE | ☐ |
-| 9 | Scelte tecnologiche | DA RIVEDERE (non deciso) | ☐ |
+| 2 | Stakeholder | DEFINITIVO (v1.1, aggiornato v1.5) | ☑ |
+| 3 | Destinatari e contesto d’uso | DEFINITIVO (v1.1, aggiornato v1.5) | ☑ |
+| 4 | Panoramica e casi d’uso | DEFINITIVO (4.1 v1.2; 4.2 v1.5) | ☑ |
+| 5 | Requisiti funzionali | DEFINITIVO (v1.5) | ☑ |
+| 6 | Requisiti non funzionali + impliciti | DEFINITIVO (v1.6; manca l’intervista a un sostenitore) | ☑ |
+| 7 | Assunzioni, vincoli e dipendenze | DEFINITIVO (v1.6) | ☑ |
+| 8 | Stima del carico | DEFINITIVO (v1.6) | ☑ |
+| 9 | Scelte tecnologiche | DEFINITIVO (v1.6) | ☑ |
 | 10 | Architettura | PARZIALE | ☐ |
 | 11 | Le API | MANCANTE | ☐ |
 | 12 | Persistenza e modello dei dati | PARZIALE | ☐ |
@@ -190,7 +192,7 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 - **Collegamento con il bot social:** un solo caricamento del materiale di Silvia pubblica sui social e porta foto, testi e prove nel gestionale; il bot riconosce ogni volontario e ne rispetta i permessi.
 - **Recupero dei dati esistenti:** importazione dei padrini da VERIF!CO e degli indizi già raccolti dal bot; censimento progressivo dei bambini e abbinamento padrino–bambino confermato dalla referente.
 - **Interventi e rendicontazione:** imputazione delle entrate ai capitoli (compresi la casa famiglia Effatà e la Cassa sostegno Effatà), checklist delle prove di realizzazione.
-- **Area riservata:** registrazione con email, password e consenso privacy (chi si registra è simpatizzante, diventa sostenitore con la prima donazione); dati del donante e dell’avente diritto alla detrazione; preferenze di comunicazione; verifica in due passaggi; storico delle donazioni e di ciò che si è sostenuto, con la rendicontazione; riepilogo annuale.
+- **Area riservata:** accesso ospite di 7 giorni alla vetrina con la sola email; registrazione con email, password e presa visione dell’informativa privacy (chi si registra è simpatizzante, diventa sostenitore con la prima donazione); dati del donante e dell’avente diritto alla detrazione; preferenze di comunicazione; verifica in due passaggi; storico delle donazioni e di ciò che si è sostenuto, con la rendicontazione; riepilogo annuale.
 - **Carrello solidale:** vetrina riservata agli utenti registrati, con ricerca e filtri fra le richieste aperte, quelle sostenute di recente e le voci fisse, più il collegamento al calendario solidale; preferiti; condivisione di una richiesta su WhatsApp; pagamento con carta (tramite un fornitore di pagamenti) o, come ultima scelta, con bonifico e caricamento della quietanza; credito solidale quando una richiesta è già stata sostenuta da altri.
 - **Comunicazioni automatiche:** conferma della donazione con il ringraziamento (non valida ai fini fiscali), ringraziamento alla chiusura di un’adozione, promemoria per i bonifici in attesa di quietanza, email settimanali del credito solidale.
 - **Contabilità:** importazione mensile dell’estratto conto UniCredit e importazione automatica delle donazioni del calendario solidale, conferma delle donazioni, quadrature e preparazione dei file per il caricamento massivo in VERIF!CO (movimenti e anagrafiche nuove o modificate); checklist di chiusura annuale per le certificazioni.
@@ -225,11 +227,11 @@ Come dice il template: i riquadri di consiglio vanno **cancellati prima della co
 
 | Stakeholder | Cosa fa | Cosa gli interessa | Come lo coinvolgiamo |
 | --- | --- | --- | --- |
-| **Presidente e amministratore** (i due soci fondatori di Effatà Italia ODV) | Decidono le priorità, approvano il progetto e i costi, gestiscono anagrafiche e contabilità | Trasparenza verso i donatori, sostenibilità economica, meno lavoro manuale, dati corretti | Presentazione del PRD, approvazione del perimetro, verifica dei formati VERIF!CO, collaudo della fase 1 |
+| **Presidente e amministratore** (i due soci fondatori di Effatà Italia ODV; l'amministratore può coincidere con il tesoriere registrato in VERIF!CO, da verificare) | Decidono le priorità, approvano il progetto e i costi, gestiscono anagrafiche e contabilità | Trasparenza verso i donatori, sostenibilità economica, meno lavoro manuale, dati corretti | Presentazione del PRD, approvazione del perimetro, verifica dei formati VERIF!CO, collaudo della fase 1 |
 | **Volontari in Italia** (circa 12) | Caricano dati e foto secondo i permessi ricevuti; oggi pubblicano le storie con il bot | Strumenti semplici e compiti chiari | Configurazione dei permessi, collaudo |
 | **Silvia, referente in Uganda** | Ogni sera invia foto e notizie via WhatsApp; è il primo contatto di molti sostenitori; è tutore dei bambini della casa famiglia; custodisce negli appunti cartacei il collegamento fra padrini e bambini | Continuare a usare WhatsApp; meno richieste di dati mancanti | Consultata sul nuovo flusso: indirizza i padrini alla vetrina invece di gestire le donazioni; compila gli elenchi dei bambini per villaggio; conferma gli abbinamenti; in futuro accesso diretto |
-| **Sostenitori** (700–800) **e simpatizzanti** | Donano, adottano, seguono i beneficiari | Vedere dove va la propria donazione, detrazione fiscale, riservatezza | Intervista per i requisiti impliciti; collaudo con alcuni sostenitori reali |
-| **Soci** | Oggi solo i soci fondatori previsti dallo statuto; l'associazione intende aprire l'adesione, con quota associativa, a chi vorrà partecipare | Quote, assemblee, documenti | Area soci in fase 2 |
+| **Sostenitori** (circa 700 padrini, oltre 1.000 donatori in archivio) **e simpatizzanti** | Donano, adottano, seguono i beneficiari | Vedere dove va la propria donazione, detrazione fiscale, riservatezza | Intervista per i requisiti impliciti; collaudo con alcuni sostenitori reali |
+| **Soci** (10) | Gli associati registrati dal 23/05/2023: presidente, tesoriere e 8 volontari; l'associazione intende aprire l'adesione, con quota associativa, a chi vorrà partecipare | Quote, assemblee, documenti | Area soci in fase 2 |
 | **Bambini e famiglie in Uganda** (circa 1.200 bambini) | Ricevono adozioni e interventi; non usano il sistema | Tutela della privacy e uso corretto di foto e dati | Consensi raccolti dal genitore o tutore tramite la referente; minimizzazione dei dati |
 | **Donatori delle campagne esterne** | Donano tramite piattaforme come GoFundMe | Semplicità e fiducia | Invito alla registrazione (fase 2) |
 | **Commercialista** | Usa VERIF!CO per contabilità e bilancio | Dati corretti e conformi (detrazioni, commissioni) | Verifica del formato di importazione e delle regole fiscali |
@@ -243,22 +245,25 @@ VERIF!CO, UniCredit, Brevo e Hostinger non sono stakeholder ma **fornitori**: co
 
 ## 3.1 L'associazione
 
-Effatà Italia Charity Organisation ODV è un'organizzazione di volontariato con sede in Italia che sostiene bambini e famiglie in condizioni di estrema povertà in Uganda: adozioni a distanza, costruzione di casette, affitto di terreni, animali da cortile, materassi, scarpe, sedie a rotelle, operazioni chirurgiche. È guidata dai due soci fondatori (presidente e amministratore), con l'aiuto di circa dodici volontari in Italia; in Uganda l'attività è seguita da una referente locale, Silvia. La contabilità, le anagrafiche e la newsletter sono gestite con VERIF!CO; la comunicazione con i sostenitori passa oggi da un gruppo WhatsApp; le storie dei beneficiari vengono pubblicate sui social tramite un bot sviluppato internamente.
+Effatà Italia Charity Organisation ODV è un'organizzazione di volontariato con sede in Italia che sostiene bambini e famiglie in condizioni di estrema povertà in Uganda: adozioni a distanza, costruzione di casette, affitto di terreni, animali da cortile, materassi, scarpe, sedie a rotelle, operazioni chirurgiche. È guidata dai due soci fondatori (presidente e amministratore); gli associati sono 10 e i volontari in Italia circa dodici; in Uganda l'attività è seguita da una referente locale, Silvia. La contabilità, le anagrafiche e la newsletter sono gestite con VERIF!CO; la comunicazione con i sostenitori passa oggi da un gruppo WhatsApp; le storie dei beneficiari vengono pubblicate sui social tramite un bot sviluppato internamente.
 
 | | Valore | Fonte |
 | --- | --- | --- |
-| Sostenitori | 700–800 | Associazione, settembre 2026 |
+| Sostenitori | Circa 700 padrini con un’adozione (690 nel 2025); 1.067 anagrafiche in VERIF!CO (1.021 persone, 46 enti) | VERIF!CO, ottobre 2026 |
+| Donazioni | 2025: circa 567.000 € di erogazioni liberali in circa 1.850 movimenti; 2026, fino a settembre: circa 208.000 € | VERIF!CO, ottobre 2026 |
+| Quota di adozione | 180 € per anno scolastico, senza rate | Associazione, ottobre 2026 |
+| Dati delle anagrafiche | Codice fiscale 99,6%, email 71%, cellulare 31%, indirizzo 3%; nessun IBAN | VERIF!CO, ottobre 2026 |
 | Bambini adottati | circa 1.200 (1,5–1,7 per sostenitore; un solo sostenitore attivo per bambino) | Associazione, settembre 2026 |
 | Famiglie seguite | *da verificare* | |
 | Interventi non di adozione all'anno | *da verificare* | |
-| Soci | Solo i soci fondatori previsti dallo statuto; adesione con quota da aprire in futuro | Associazione, settembre 2026 |
-| Amministratori | 2 (presidente e amministratore, soci fondatori) | Associazione, settembre 2026 |
+| Soci | 10 associati (presidente, tesoriere e 8 volontari, dal 23/05/2023); adesione con quota da aprire ad altri in futuro | VERIF!CO, ottobre 2026 |
+| Amministratori | 2 (presidente e amministratore, soci fondatori; l'amministratore può coincidere con il tesoriere) | Associazione, settembre 2026 |
 | Volontari in Italia | circa 12 | Associazione, settembre 2026 |
 | Referente in Uganda | 1 (Silvia); oggi invia il materiale via WhatsApp | Associazione |
 | Iscritti alla newsletter | *da verificare in VERIF!CO* | |
-| Canali delle donazioni | Conto UniCredit; campagne esterne (es. GoFundMe); calendario solidale (sito calendario.effataitalia.it, carta tramite Stripe; Satispay da verificare) | Associazione |
-| Archivio dei bambini | Non esiste un elenco digitale né un codice dei bambini: in VERIF!CO ci sono i padrini e, a volte, nelle note il nome del bambino; il collegamento padrino–bambino è negli appunti cartacei della referente | Associazione, ottobre 2026 |
-| Gestionale contabile | VERIF!CO Maxi (contabilità per competenza) | Associazione, settembre 2026 |
+| Canali delle donazioni | Conto UniCredit; campagne esterne (es. GoFundMe); calendario solidale (sito calendario.effataitalia.it, carta e Satispay tramite Stripe, dal 2026) | Associazione, ottobre 2026 |
+| Archivio dei bambini | Non esiste un elenco digitale né un codice dei bambini: in VERIF!CO ci sono i padrini e, nelle note di 248 anagrafiche, il nome del bambino; il collegamento padrino–bambino è negli appunti cartacei della referente | Associazione, ottobre 2026 |
+| Gestionale contabile | VERIF!CO Maxi (contabilità per competenza; piano dei conti attuale dal 2025) | Associazione, settembre 2026 |
 | Estratto conto | Esportazione CSV/Excel, caricata ogni mese | Associazione, ottobre 2026 |
 | Orari d'uso | Amministratori e volontari soprattutto la sera; sostenitori in qualsiasi momento, con picchi dopo l'invio della newsletter e a inizio anno (detrazioni) | Stima |
 | Connettività | Buona in Italia; debole e costosa in Uganda (rilevante solo per l'accesso futuro dall'Uganda) | Associazione |
@@ -281,9 +286,9 @@ Una persona può avere più ruoli insieme (per esempio sostenitore e socio, oppu
 **Domani.**
 
 1. Silvia manda nel gruppo WhatsApp foto e storia di un bisogno; il volontario le trascina nel bot, che pubblica sui social e crea la richiesta in bozza nel gestionale; l'amministratore la approva e la richiesta va in vetrina.
-2. Silvia non gestisce più la donazione: manda al padrino interessato il collegamento della richiesta.
-3. La persona si registra nell'area riservata come simpatizzante, compila i dati (compresi quelli dell'avente diritto alla detrazione) e dà i consensi.
-4. Sceglie la richiesta o la voce fissa dal carrello e paga con carta, oppure con bonifico e causale standard caricando la quietanza: parte la conferma di donazione con il ringraziamento.
+2. Silvia non gestisce più la donazione: manda al padrino interessato il collegamento della richiesta, oppure il link promozionale che per 7 giorni apre tutta la vetrina con la sola email.
+3. Per donare la persona si registra come simpatizzante (nome, cognome, email, password) e alla prima donazione indica il codice fiscale ed eventualmente l'avente diritto alla detrazione.
+4. Sceglie la richiesta o la voce fissa dal carrello e paga con carta o Satispay, oppure con bonifico e causale standard caricando la quietanza: parte la conferma di donazione con il ringraziamento.
 5. Quando Silvia manda le foto dell'aiuto consegnato, il volontario le carica nel bot: escono sui social e diventano la rendicontazione che il sostenitore vede nella sua area.
 6. All'importazione mensile dell'estratto conto la donazione viene confermata e passa a VERIF!CO; a inizio anno VERIF!CO invia a tutti la certificazione per la detrazione.
 
@@ -303,18 +308,76 @@ Per l’associazione, amministratori e volontari lavorano sugli stessi dati, cia
 
 ## 4.2 User flow e scenari
 
-Per ogni storia principale (★ nel capitolo 5) sono descritti il percorso passo per passo, uno scenario concreto e gli scenari alternativi. Nomi e codici sono di fantasia.
+Per ogni storia principale (★ nel capitolo 5) sono descritti il percorso passo per passo, uno scenario concreto e gli scenari alternativi. Nomi, codici e importi sono di fantasia. Le storie del volontario VOL-01 e VOL-02 si svolgono nel bot; tutte le altre nel gestionale web.
 
 ### Amministratore (ARC-001)
 
 | Voce | Contenuto |
 | --- | --- |
 | **Storia** | AMM-01 · Pubblicare una richiesta di sostegno |
-| **User flow** | 1. Silvia manda nel gruppo WhatsApp foto e testi di un bisogno. 2. Il volontario trascina tutto nel bot e sceglie 🆘 Richiesta di aiuto, poi la categoria (es. adozione scolastica). 3. Il bot propone il nome del bambino letto dal messaggio di Silvia e mostra i bambini con quel nome (codice, età, villaggio, foto profilo); il volontario tocca quello giusto, oppure lo propone come nuovo. 4. Il bot propone il costo di listino; il volontario lo conferma o indica l’importo scritto da Silvia. 5. Il bot chiede al gestionale se la famiglia ha il modulo di consenso. 6. Il volontario sceglie nel foglio provini le foto per i social, nell’ordine della storia. 7. Il bot pubblica i post e invia al gestionale tutte le foto (le scelte come pubbliche, le altre come riservate al padrino), i testi agganciati e il testo proposto per la vetrina. 8. Il gestionale crea la richiesta in bozza; l’amministratore la trova nell’email riassuntiva del giorno. 9. L’amministratore corregge se serve testo, foto, copertina, costo, oppure la rimanda al volontario con una nota, e la approva. 10. La richiesta compare in vetrina come “aperta” con il suo codice (RIC-0042); Silvia ne manda il collegamento ai padrini interessati. |
-| **Scenario principale** | Martedì sera Silvia scrive nel gruppo: “Grace, 7 anni, vorrebbe andare a scuola”, con venti foto. Marta, volontaria, le trascina nel bot; il bot riconosce Grace (BAM-0215) fra tre bambine con lo stesso nome e Marta conferma guardando la foto. Sceglie otto foto per i social, nell’ordine del racconto. Il post esce, la bozza arriva nel gestionale. Mercoledì mattina l’amministratore riceve l’email “1 bozza da approvare”, cambia la foto di copertina e approva. Giovedì una sostenitrice apre il collegamento ricevuto da Silvia, si registra e sostiene Grace con la carta. |
-| **Scenari alternativi** | **Nome con più corrispondenze:** il bot mostra i candidati con età, villaggio e foto profilo, il volontario sceglie. **Bambino non in archivio:** il volontario lo propone come nuovo (nome, età, famiglia, villaggio); l’amministratore conferma la scheda insieme alla richiesta e il gestionale assegna il codice. **Famiglia senza modulo di consenso:** il bot non pubblica sui social, le foto arrivano comunque al gestionale ma restano non visibili e la bozza non si può approvare finché il modulo non è caricato. **Bozza da correggere:** l’amministratore la corregge o la rimanda al volontario con una nota. **Gestionale non raggiungibile:** il post esce, il bot mette l’invio in coda, ritenta ogni 10 minuti e avvisa il volontario quando è arrivato. **Volontario senza permesso:** il bot non mostra il bottone 🆘. **Costo da cambiare dopo un pagamento:** non si può più; storia e foto restano modificabili. **Nessun sostenitore dopo 30 giorni:** la richiesta compare fra le segnalazioni. |
+| **User flow** | 1. Silvia manda nel gruppo WhatsApp foto e testi di un bisogno. 2. Il volontario trascina tutto nel bot e sceglie 🆘 Richiesta di aiuto, poi la categoria (es. adozione scolastica). 3. Il bot legge dal messaggio di Silvia il nome del bambino e chiede al gestionale i candidati, solo fra i bambini senza sostenitore: se ne resta uno chiede la conferma, altrimenti li mostra con codice, età, villaggio e foto profilo e il volontario tocca quello giusto; “Cerca fra tutti” allarga la ricerca, “Nessuno: è nuovo” lo propone come nuovo. 4. Il bot propone il costo di listino; il volontario lo conferma o indica l’importo scritto da Silvia. 5. Il bot chiede al gestionale se la famiglia ha il modulo di consenso. 6. Nel foglio provini, l’anteprima numerata delle foto, il volontario tocca le foto per i social nell’ordine della storia. 7. Il bot pubblica i post e invia al gestionale tutte le foto (le scelte come pubbliche, le altre come riservate al padrino), i testi agganciati e il testo proposto per la vetrina. 8. Il gestionale crea la richiesta in bozza; l’amministratore la trova nell’email riassuntiva del giorno. 9. L’amministratore corregge se serve testo, foto, copertina, costo, oppure la rimanda al volontario con una nota, e la approva. 10. La richiesta compare in vetrina come “aperta” con il suo codice (RIC-0042); Silvia ne manda il collegamento ai padrini interessati. |
+| **Scenario principale** | Martedì sera Silvia scrive nel gruppo: “Grace, 7 anni, vorrebbe andare a scuola”, con venti foto. Marta, volontaria, le trascina nel bot; delle tre Grace in archivio solo una non ha un sostenitore, BAM-0215, e Marta conferma guardando la foto profilo. Sceglie otto foto per i social, nell’ordine del racconto. Il post esce, la bozza arriva nel gestionale. Mercoledì mattina l’amministratore riceve l’email “1 bozza da approvare”, cambia la foto di copertina e approva. Giovedì una sostenitrice apre il collegamento ricevuto da Silvia e sostiene Grace con la carta. |
+| **Scenari alternativi** | **Più candidati:** il bot li mostra con età, villaggio e foto profilo, il volontario sceglie. **Bambino non in archivio:** il volontario lo propone come nuovo (nome, età, famiglia, villaggio); l’amministratore conferma la scheda insieme alla richiesta e il gestionale assegna il codice. **Famiglia senza modulo di consenso:** il bot non pubblica sui social, le foto arrivano comunque al gestionale ma restano non visibili e la bozza non si può approvare finché il modulo non è caricato. **Bozza da correggere:** l’amministratore la corregge o la rimanda al volontario con una nota. **Gestionale non raggiungibile:** il post esce, il bot mette l’invio in coda, ritenta ogni 10 minuti e avvisa il volontario quando è arrivato. **Volontario senza permesso:** il bot non mostra il bottone 🆘. **Costo da cambiare dopo un pagamento:** non si può più; storia e foto restano modificabili. **Nessun sostenitore dopo 30 giorni:** la richiesta compare fra le segnalazioni. |
 
-Da scrivere: AMM-04, AMM-06 (amministratore); VOL-01, VOL-02, VOL-03 (volontario); SOS-03, SOS-04, SOS-07 (sostenitore).
+| Voce | Contenuto |
+| --- | --- |
+| **Storia** | AMM-04 · Importare l’estratto conto e confermare le donazioni |
+| **User flow** | 1. All’inizio del mese l’amministratore scarica da UniCredit l’estratto del mese precedente (CSV o Excel); la sezione Scadenze glielo ricorda entro il giorno 10. 2. Nel gestionale apre “Contabilità → Importa estratto conto” e carica il file. 3. Il gestionale ignora le uscite e scarta i movimenti già importati. 4. Per ogni entrata cerca la corrispondenza: una donazione dichiarata con quietanza (stesso importo, data vicina, causale standard) passa a “confermata”; un versamento di Stripe viene collegato ai pagamenti con carta e Satispay già registrati, compresi quelli del calendario solidale; un IBAN già noto viene abbinato al suo sostenitore; un nome nella causale che corrisponde a un sostenitore diventa una proposta di abbinamento. 5. Il gestionale mostra il riepilogo, per esempio “58 confermate · 3 versamenti Stripe quadrati · 6 da abbinare · 1 anomalia”. 6. Per ogni entrata da abbinare l’amministratore conferma la proposta con un clic, oppure collega l’entrata a un sostenitore esistente (e l’IBAN viene ricordato), crea un’anagrafica da completare o la mette nella Cassa sostegno. 7. Le anomalie restano nella vista d’insieme finché l’amministratore non le risolve. 8. Le donazioni confermate sono pronte per i file di VERIF!CO (AMM-06). |
+| **Scenario principale** | Il 5 novembre l’amministratore carica l’estratto di ottobre: 72 righe. In un minuto il gestionale conferma 58 donazioni dichiarate e quadra i 3 versamenti di Stripe. Restano 6 bonifici da IBAN sconosciuti: 4 sono di padrini storici, riconosciuti dal nome nella causale, e li collega con un clic; 1 è di una persona nuova, di cui crea l’anagrafica da completare; 1 ha la causale “offerta” e va nella Cassa sostegno. In un quarto d’ora ottobre è chiuso. |
+| **Scenari alternativi** | **File già caricato** o periodo che si sovrappone: le righe già presenti vengono riconosciute e non si duplicano. **Formato del file sbagliato** (non CSV/Excel, o colonne diverse da quelle attese): errore chiaro, nulla viene importato. **Quietanza senza bonifico:** la donazione dichiarata non si trova nel mese e diventa un’anomalia; l’amministratore aspetta il mese successivo oppure annulla la donazione e riapre la richiesta. **Versamento di Stripe che non torna** (es. un rimborso o una commissione diversa): anomalia, con la differenza indicata. **Importo diverso dalla quietanza:** se è maggiore, la differenza va nella Cassa sostegno; se è minore, l’amministratore riceve una segnalazione. **Estratto non importato entro il giorno 10:** il promemoria resta in Scadenze. **Volontario** che prova a importare: operazione negata. |
+
+| Voce | Contenuto |
+| --- | --- |
+| **Storia** | AMM-06 · Preparare il caricamento in VERIF!CO |
+| **User flow** | 1. Chiuso l’estratto del mese (AMM-04), l’amministratore apre “Contabilità → Prepara VERIF!CO” e sceglie il mese. 2. Il gestionale controlla le quadrature: esclude le donazioni ancora “dichiarate” o con anomalie aperte e dice quante sono; se i totali non tornano, blocca e mostra la differenza. 3. File 1, anagrafiche: i sostenitori nuovi o modificati nel mese, con il codice fiscale e un’email uguale a quella usata nei pagamenti. 4. File 2, bonifici: il tracciato master, una riga per ogni bonifico confermato, con importo, data, causale, IBAN del mittente e progetto. 5. File 3, pagamenti con carta e Satispay: il tracciato Stripe, una riga per ogni pagamento (calendario compreso), con l’email del donatore e il progetto. 6. Il gestionale indica l’ordine di caricamento, prima le anagrafiche e poi i movimenti, e ricorda che i versamenti di Stripe sull’estratto si registrano come giroconto, non come donazioni. 7. L’amministratore carica i file in VERIF!CO da “Contabilità → Importazione movimenti” e segna nel gestionale il mese come “caricato”. 8. Da quel momento ogni correzione su quel mese resta tracciata, e il gestionale avvisa che va riportata anche in VERIF!CO. |
+| **Scenario principale** | Il 6 novembre, chiuso ottobre, l’amministratore prepara i file: 4 anagrafiche nuove, 61 bonifici, 9 pagamenti con carta. I totali tornano. Carica le anagrafiche in VERIF!CO, poi i due file dei movimenti, e segna ottobre come caricato. In tutto dieci minuti, senza ricopiare nulla. |
+| **Scenari alternativi** | **Totali che non tornano:** l’esportazione resta bloccata finché la differenza non viene risolta (NFR-17). **Mese già caricato:** il gestionale avvisa prima di rigenerare i file, per evitare doppi caricamenti. **Email usata da più anagrafiche:** il gestionale la segnala prima di generare il file Stripe, perché VERIF!CO collegherebbe il pagamento alla persona sbagliata. **Donatore senza codice fiscale:** la donazione entra nei file, ma il donatore finisce nell’elenco di chi non riceverà la certificazione (FR-VER-03). **Volontario:** operazione negata. |
+
+### Volontario (ARC-002)
+
+| Voce | Contenuto |
+| --- | --- |
+| **Storia** | VOL-01 · Caricare le prove di realizzazione |
+| **User flow** | 1. Silvia manda nel gruppo WhatsApp le foto di un aiuto consegnato, per esempio l’iscrizione a scuola di Grace. 2. Il volontario le trascina tutte nel bot, con i testi di Silvia agganciati come didascalia o con “Rispondi”. 3. Il bot chiede il tipo, ✅ Aiuto consegnato, poi la categoria: adozione scolastica. 4. Il bot legge “Grace” dal messaggio e chiede al gestionale i candidati solo fra i bambini con un intervento pagato e prove mancanti: ne resta uno, BAM-0215, e il volontario conferma. 5. Il gestionale manda le voci mancanti della checklist dell’anno scolastico (iscrizione, foto con la divisa, prova di fine anno); Claude propone “Iscrizione”, il volontario conferma con un tocco. 6. Il bot controlla il consenso della famiglia. 7. Il volontario sceglie nel foglio provini le foto per i social, nell’ordine della storia; il bot pubblica il post, con il nome della madrina solo se ha acconsentito. 8. Il gestionale riceve tutte le foto: la voce “Iscrizione” risulta completata e la madrina vede subito le foto nella sua area. 9. Con la prova di fine anno (pagella, lavori di fine anno o quaderni) l’anno scolastico diventa “rendicontato”; l’adozione resta attiva. |
+| **Scenario principale** | Giovedì sera Silvia manda sei foto di Grace a scuola con il quaderno nuovo. Luca, volontario, le trascina nel bot e sceglie ✅ Aiuto consegnato → Adozione scolastica. Il bot propone una sola bambina, Grace (BAM-0215, adozione pagata, manca l’iscrizione), e Luca conferma; poi conferma la voce “Iscrizione” proposta da Claude e sceglie tre foto per i social. Il post esce con “Grazie a Maria R. di Treviso”; pochi minuti dopo la madrina trova nella sua area le sei foto con le parole di Silvia. |
+| **Scenari alternativi** | **Voce fissa:** per una consegna di materassi il volontario sceglie ✅ Aiuto consegnato → Materassi e, se vuole, la famiglia; tutte le donazioni per i materassi ancora da rendicontare ricevono le foto di quella consegna, senza contare i pezzi (FR-INT-08). **Nessun intervento pagato per quel bambino:** con “Cerca fra tutti” il volontario lo trova, le foto vanno nella scheda come aggiornamento e l’amministratore riceve una segnalazione. **Famiglia senza modulo di consenso:** foto archiviate, nessun post; il sostenitore vede solo “consegna avvenuta” con la data. **Foto di bambini diversi nello stesso messaggio:** invii separati. **Gestionale non raggiungibile:** coda e nuovo tentativo ogni 10 minuti. **Prova caricata per errore:** l’amministratore la nasconde. **Volontario senza permesso:** il bot non mostra ✅. |
+
+| Voce | Contenuto |
+| --- | --- |
+| **Storia** | VOL-02 · Aggiornare la scheda di un bambino |
+| **User flow** | 1. Silvia manda nel gruppo foto o notizie di un bambino adottato: Grace che gioca, la pagella del primo trimestre, “Grace sta bene, ha imparato a leggere”. 2. Il volontario trascina tutto nel bot e sceglie ✅ Aiuto consegnato, categoria adozione scolastica. 3. Il bot cerca solo fra i bambini con un’adozione attiva e propone Grace (BAM-0215); il volontario conferma. 4. Fra le voci della checklist il volontario tocca “Nessuna: solo aggiornamento”. 5. Se c’è un testo, il bot chiede “Contiene informazioni sulla salute?”. 6. Nel foglio provini il volontario sceglie le foto per i social, se vuole pubblicarne; se non ne sceglie nessuna, il bot non pubblica nulla. 7. Il gestionale aggiunge foto, pagella e notizie alla scheda di Grace, con i testi di Silvia agganciati; le foto non scelte per i social sono riservate alla madrina, che vede tutto subito. |
+| **Scenario principale** | Domenica sera Silvia manda tre foto di Grace che gioca con le compagne e scrive “Ha imparato a leggere”. Marta le carica dal bot come aggiornamento, risponde “No” alla domanda sulla salute e sceglie una foto per i social. La madrina trova nella sua area le tre foto con la frase di Silvia. |
+| **Scenari alternativi** | **Notizia sulla salute** (es. “Grace è stata in ospedale”): con “Sì” il testo va nel campo sanitario, visibile solo all’amministratore, e non esce sui social. **Bambino senza padrino:** il contenuto resta nella scheda e lo vedrà il prossimo padrino (FR-ADO-02). **Famiglia senza modulo di consenso:** foto archiviate ma non visibili, nessun post. **Volontario senza permesso di aggiornare le schede:** il bot non gli mostra l’opzione. **Gestionale non raggiungibile:** coda e nuovo tentativo. |
+
+| Voce | Contenuto |
+| --- | --- |
+| **Storia** | VOL-03 · Consultare le cose da fare (gestionale web) |
+| **User flow** | 1. Il volontario apre il gestionale dal PC o dal telefono e va su “Cose da fare”. 2. Vede solo le voci consentite dai suoi permessi, dalla più vecchia: anni scolastici senza prova di fine anno; interventi pagati con prove mancanti (es. casa senza le foto della costruzione); richieste in bozza da completare; bambini senza aggiornamenti da 6 mesi. 3. Tocca “Prendo in carico” su una voce: gli altri volontari vedono il suo nome accanto. 4. Chiede a Silvia il materiale mancante e lo carica dal bot; quando arriva, la voce sparisce da sola dall’elenco. |
+| **Scenario principale** | Lunedì sera Marta apre “Cose da fare”: 7 voci. La più vecchia è l’anno scolastico di Joseph, senza prova di fine anno da due mesi. La prende in carico e scrive a Silvia su WhatsApp; giovedì arrivano le foto dei quaderni di Joseph, Marta le carica dal bot e la voce scompare. |
+| **Scenari alternativi** | **Voce già presa** da un altro volontario: la vede, ma non la può prendere; l’amministratore può riassegnarla. **Elenco lungo:** filtri per tipo e per villaggio, e pagine. **Presa in carico senza novità da 30 giorni:** la voce torna libera e l’amministratore riceve una segnalazione. **Voce fuori dai propri permessi:** il volontario non la vede. |
+
+### Simpatizzante e sostenitore (ARC-003)
+
+| Voce | Contenuto |
+| --- | --- |
+| **Storia** | SOS-03 · Scegliere una richiesta di sostegno |
+| **User flow** | 1. Una persona scrive a Silvia che vorrebbe aiutare; Silvia le manda il link promozionale della vetrina, oppure il collegamento di una richiesta precisa. 2. Chi non ha un account lascia solo l’email, prende visione dell’informativa privacy e riceve un link per entrare: per 7 giorni è ospite e vede tutta la vetrina, con le sole foto pubbliche e senza poterle scaricare. Chi è registrato accede come sempre. 3. Nella vetrina trova le richieste personali aperte (foto, storia, costo), le voci fisse e la card “Adotta un giorno” del calendario solidale, e filtra per tipo e costo. 4. Mette nel carrello una richiesta, oppure una voce fissa indicando “quanti” (es. 3 materassi × 10 € = 30 €) solo per calcolare l’importo. 5. Può salvare una richiesta nei preferiti o condividerla su WhatsApp. 6. Al 5° giorno l’ospite riceve un promemoria; per donare si registra (nome, cognome, email, password) e ritrova il carrello. |
+| **Scenario principale** | Sabato Paolo scrive a Silvia che vorrebbe dare una mano, ma non sa come. Silvia gli manda il link promozionale. Paolo lascia l’email, entra e gira la vetrina: le adozioni, poi i materassi e gli animali. Mette nel carrello due galline e l’affitto di un terreno per la famiglia di Moses, e condivide la richiesta del terreno con la moglie. Lunedì si registra e passa al pagamento (SOS-04). |
+| **Scenari alternativi** | **Richiesta già sostenuta:** mostra “Sostenuto ✓”, non è più acquistabile e vengono proposte richieste simili. **Carrello lasciato a metà:** alla chiusura della sessione il contenuto passa nei preferiti. **Famiglia senza modulo di consenso:** la richiesta non compare nella vetrina. **Accesso ospite scaduto:** la persona può chiedere un nuovo link con la stessa email. **Ospite che prova a donare o a scaricare una foto:** gli viene chiesto di registrarsi; le foto non si scaricano. |
+
+| Voce | Contenuto |
+| --- | --- |
+| **Storia** | SOS-04 · Donare con carta |
+| **User flow** | 1. La sostenitrice, o l’ospite che ha appena completato la registrazione, apre il carrello: per esempio l’adozione di Grace, 180 €. 2. Sceglie “Paga con carta”. Il gestionale chiede solo i dati mancanti per la certificazione (codice fiscale ed eventuale avente diritto diverso), spiegando a cosa servono. 3. Legge e accetta la regola “Come funziona la tua donazione”: la donazione si conclude solo con il pagamento, e se un altro paga prima nasce un credito solidale. 4. Paga sulla pagina sicura di Stripe, con carta o Satispay; i dati della carta non passano mai dal gestionale. 5. Torna al gestionale: la donazione è confermata e la richiesta passa a “Sostenuto ✓”. 6. Riceve subito l’email di conferma con il ringraziamento, con l’indicazione che non vale ai fini fiscali e che la certificazione arriverà dall’associazione entro marzo. 7. Nella sua area trova Grace con lo stato “pagato”. |
+| **Scenario principale** | Martedì sera Laura riceve da Silvia il link promozionale, lascia l’email e gira la vetrina. Si innamora della storia di Grace, la mette nel carrello, si registra, inserisce il codice fiscale e paga con la carta. Dopo un minuto riceve l’email di ringraziamento, e nella sua area vede Grace con la scritta “Pagato”. |
+| **Scenari alternativi** | **Carta rifiutata o pagamento abbandonato:** nulla viene registrato, la richiesta resta disponibile e si può riprovare. **Un altro ha pagato la stessa richiesta un attimo prima:** la donazione diventa un credito solidale di 180 € per un’altra adozione, e Laura riceve un messaggio che lo spiega. **Conferma di Stripe che non arriva al gestionale:** il controllo periodico con Stripe la recupera e la registra una sola volta. **Codice fiscale non valido:** errore chiaro prima del pagamento. **Codice fiscale non indicato:** si può donare lo stesso, con l’avviso che non arriverà la certificazione. **Voce fissa** (3 materassi, 30 €): stesso percorso, senza “Sostenuto ✓”, perché le voci fisse restano sempre disponibili. |
+
+| Voce | Contenuto |
+| --- | --- |
+| **Storia** | SOS-07 · Seguire ciò che ho sostenuto |
+| **User flow** | 1. La madrina entra nella sua area quando vuole, dal link nell’email di conferma, oppure dall’avviso “Ci sono novità per Grace” (fase 2). 2. Vede Grace con l’anno scolastico 2026 e la sua checklist: ✓ iscrizione · ✓ foto con la divisa · ☐ prova di fine anno. 3. Apre la sequenza di foto, pubbliche e riservate, ognuna con il testo di Silvia, più le notizie e le pagelle intermedie, dalla più recente. 4. Può scaricare una foto per sé, con l’avviso che ritrae una minore e non va pubblicata né condivisa. 5. Quando arriva la prova di fine anno vede “Anno scolastico 2026 completato”; con il rinnovo comincia l’anno successivo. 6. Per una voce fissa (es. 3 materassi) vede “In attesa di consegna” e poi, alla consegna, le foto con “Consegnato”. |
+| **Scenario principale** | A novembre Laura riceve l’email “Grace ha ricevuto la divisa”. Apre il link, vede le tre foto con le parole di Silvia (“È felicissima, l’ha indossata subito”) e ne scarica una da tenere sul telefono. |
+| **Scenari alternativi** | **Famiglia senza modulo di consenso:** Laura vede stati e date (“divisa consegnata il 12/11”), ma non le foto. **Adozione chiusa:** vede i contenuti fino alla data di chiusura, nulla dopo. **Bambino non suo**, aperto da un altro collegamento: accesso negato. **Padrino storico non ancora abbinato:** vede le proprie donazioni e il messaggio “Stiamo ritrovando il tuo bambino: presto vedrai le sue foto”. |
 
 # 5. Requisiti funzionali
 
@@ -331,23 +394,23 @@ Il materiale che la referente manda dall’Uganda entra nel gestionale soprattut
 | AMM-01 ★ | Amministratore | Pubblicare una richiesta di sostegno | 1 | 6 |
 | AMM-02 | Amministratore | Gestire famiglie e bambini | 1 | 7 |
 | AMM-03 | Amministratore | Chiudere e riaffidare un’adozione | 1 | 5 |
-| AMM-04 ★ | Amministratore | Importare l’estratto conto e confermare le donazioni | 1 | 7 |
+| AMM-04 ★ | Amministratore | Importare l’estratto conto e confermare le donazioni | 1 | 9 |
 | AMM-05 | Amministratore | Imputare le entrate | 1 | 5 |
-| AMM-06 ★ | Amministratore | Preparare il caricamento in VERIF!CO | 1 | 8 |
+| AMM-06 ★ | Amministratore | Preparare il caricamento in VERIF!CO | 1 | 9 |
 | AMM-07 | Amministratore | Vedere tutto: numeri, andamento, anomalie | 1 | 6 |
 | AMM-08 | Amministratore | Configurare permessi e impostazioni | 1 | 6 |
 | AMM-09 | Amministratore | Recuperare padrini e bambini già seguiti | 1 | 6 |
-| VOL-01 ★ | Volontario | Caricare le prove di realizzazione | 1 | 7 |
-| VOL-02 ★ | Volontario | Aggiornare la scheda di un bambino | 1 | 6 |
-| VOL-03 ★ | Volontario | Consultare le cose da fare | 1 | 5 |
+| VOL-01 ★ | Volontario | Caricare le prove di realizzazione | 1 | 8 |
+| VOL-02 ★ | Volontario | Aggiornare la scheda di un bambino | 1 | 8 |
+| VOL-03 ★ | Volontario | Consultare le cose da fare | 1 | 6 |
 | VOL-04 | Volontario | Usare il bot collegato al gestionale | 1 | 6 |
-| SOS-01 | Simpatizzante | Registrarsi | 1 | 6 |
+| SOS-01 | Ospite e simpatizzante | Entrare e registrarsi | 1 | 8 |
 | SOS-02 | Sostenitore | Completare i miei dati | 1 | 5 |
-| SOS-03 ★ | Simpatizzante e sostenitore | Scegliere una richiesta di sostegno | 1 | 8 |
+| SOS-03 ★ | Ospite, simpatizzante e sostenitore | Scegliere una richiesta di sostegno | 1 | 9 |
 | SOS-04 ★ | Sostenitore | Donare con carta | 1 | 5 |
 | SOS-05 | Sostenitore | Donare con bonifico | 1 | 7 |
 | SOS-06 | Sostenitore | Usare il credito solidale | 1 | 6 |
-| SOS-07 ★ | Sostenitore | Seguire ciò che ho sostenuto | 1 | 6 |
+| SOS-07 ★ | Sostenitore | Seguire ciò che ho sostenuto | 1 | 9 |
 | SOS-08 | Sostenitore | Storico e riepilogo annuale | 1 | 6 |
 | SOS-09 | Sostenitore | Preferenze e dati sensibili | 1 | 6 |
 | SOC-01 | Socio | Aderire e gestire la mia quota | 2 | 7 |
@@ -400,12 +463,14 @@ Il materiale che la referente manda dall’Uganda entra nel gestionale soprattut
 - **AC-01** · **Dato che** carico il file CSV/Excel dell’estratto conto, **Quando** l’importazione termina, **Allora** le donazioni dichiarate ritrovate passano a “confermate” e le altre entrate compaiono nell’elenco “da abbinare”. (FR-DON-02)
 - **AC-02** · **Dato che** un’entrata proviene da un IBAN sconosciuto, **Quando** la collego a un sostenitore, **Allora** il sistema salva quell’IBAN nella sua scheda e lo riconosce automaticamente nelle importazioni successive.
 - **AC-03** · **Dato che** una donazione dichiarata con quietanza non compare nell’estratto del periodo, **Quando** l’importazione termina, **Allora** viene segnalata come anomalia nella vista d’insieme.
-- **AC-04** · **Dato che** nell’estratto c’è un versamento cumulativo del fornitore dei pagamenti con carta, **Quando** lo importo, **Allora** viene collegato alle donazioni con carta già registrate e non genera nuove donazioni.
+- **AC-04** · **Dato che** nell’estratto c’è un versamento cumulativo del fornitore dei pagamenti con carta, **Quando** lo importo, **Allora** viene collegato ai pagamenti con carta e Satispay già registrati e non genera nuove donazioni; per VERIF!CO è un giroconto (FR-VER-02).
 - **AC-05** · **Dato che** ricarico un estratto conto già importato, oppure due file con periodi sovrapposti, **Quando** confermo, **Allora** i movimenti già presenti non vengono duplicati.
 - **AC-06** · **Dato che** sono un Volontario, **Quando** provo a caricare un estratto conto, **Allora** l’operazione viene negata.
 - **AC-07** · **Dato che** ogni giorno il gestionale importa le donazioni del calendario solidale, **Quando** l’importazione termina, **Allora** ogni giorno adottato compare come donazione confermata, imputata al sostegno della casa famiglia, con l’anagrafica del donatore, e i versamenti del fornitore delle carte tornano con le quadrature. (FR-CAN-03)
+- **AC-08** · **Dato che** un’entrata proviene da un IBAN sconosciuto ma la causale contiene il nome di un sostenitore, **Quando** l’importazione termina, **Allora** il gestionale mi propone l’abbinamento e io lo confermo con un clic; senza conferma l’entrata resta da abbinare.
+- **AC-09** · **Dato che** è il giorno 10 del mese e l’estratto del mese precedente non è stato importato, **Quando** apro la sezione Scadenze, **Allora** trovo il promemoria dell’importazione. (FR-REP-01, FR-IMP-01)
 
-**Regole collegate.** Un’entrata da IBAN sconosciuto si collega a un sostenitore esistente, a una nuova anagrafica da completare oppure alla Cassa sostegno Effatà. Le uscite presenti nell’estratto vengono ignorate: la contabilità resta in VERIF!CO (cap. 1.3). Il formato del file UniCredit va verificato su una copia anonimizzata (DIP-01).
+**Regole collegate.** Un’entrata da IBAN sconosciuto si collega a un sostenitore esistente, a una nuova anagrafica da completare oppure alla Cassa sostegno Effatà. Il nome nella causale produce solo una proposta, mai un abbinamento automatico. Le uscite presenti nell’estratto vengono ignorate: la contabilità resta in VERIF!CO (cap. 1.3). Il formato del file UniCredit va verificato su una copia anonimizzata (DIP-01).
 
 ### AMM-05 · Imputare le entrate
 
@@ -423,16 +488,17 @@ Il materiale che la referente manda dall’Uganda entra nel gestionale soprattut
 
 **Come** Amministratore **voglio** generare ogni mese i file per il caricamento massivo in VERIF!CO **così da** non ricopiare più movimenti e anagrafiche a mano.
 
-- **AC-01** · **Dato che** esistono donazioni confermate nel periodo scelto, **Quando** genero i file, **Allora** ottengo i bonifici nel tracciato master e i pagamenti con carta nel tracciato del fornitore, con solo importi positivi e l’ID del progetto o della raccolta fondi. (FR-VER-01, FR-VER-02)
-- **AC-02** · **Dato che** nel periodo si sono registrati nuovi sostenitori o qualcuno ha modificato i propri dati, **Quando** genero i file, **Allora** ottengo anche l’elenco delle anagrafiche da creare o aggiornare in VERIF!CO.
+- **AC-01** · **Dato che** esistono donazioni confermate nel periodo scelto, **Quando** genero i file, **Allora** ottengo i bonifici nel tracciato master e i pagamenti con carta e Satispay nel tracciato Stripe, una riga per pagamento, con solo importi positivi e il progetto o la raccolta fondi. (FR-VER-01, FR-VER-02)
+- **AC-02** · **Dato che** nel periodo si sono registrati nuovi sostenitori o qualcuno ha modificato i propri dati, **Quando** genero i file, **Allora** ottengo anche il file delle anagrafiche da creare o aggiornare in VERIF!CO, con codice fiscale ed email uguale a quella usata nei pagamenti, e l’indicazione di caricarlo prima dei movimenti.
 - **AC-03** · **Dato che** alcune donazioni sono ancora “dichiarate” o hanno anomalie aperte, **Quando** genero i file, **Allora** sono escluse e me ne viene indicato il numero.
 - **AC-04** · **Dato che** un movimento è già stato esportato, **Quando** genero di nuovo i file dello stesso periodo, **Allora** il sistema me lo segnala per evitare doppi caricamenti.
 - **AC-05** · **Dato che** i totali dei file non coincidono con le donazioni confermate del periodo, **Quando** li genero, **Allora** il sistema blocca l’esportazione e segnala la differenza. (NFR-17)
 - **AC-06** · **Dato che** sono un Volontario, **Quando** provo a generare i file, **Allora** l’operazione viene negata.
 - **AC-07** · **Dato che** un sostenitore riceve la conferma di donazione dal gestionale, **Quando** la legge, **Allora** vi trova l’indicazione che non è valida ai fini fiscali e che la certificazione per la detrazione arriverà dall’associazione entro marzo dell’anno successivo. (FR-RIC-01)
 - **AC-08** · **Dato che** siamo fra il 1° gennaio e il 15 febbraio, **Quando** apro la sezione Scadenze, **Allora** trovo la checklist di chiusura dell’anno precedente con l’elenco di ciò che manca per le certificazioni. (FR-VER-03)
+- **AC-09** · **Dato che** ho caricato i file in VERIF!CO, **Quando** segno il mese come “caricato”, **Allora** ogni correzione successiva su quel mese resta registrata e il sistema mi avvisa che va riportata anche in VERIF!CO. (NFR-17)
 
-**Regole collegate.** I file si generano ogni mese, dopo l’importazione dell’estratto conto. Le anagrafiche nuove o modificate passano a VERIF!CO già in fase 1, con un file di importazione se VERIF!CO lo accetta, altrimenti con un elenco da inserire a mano; l’importazione dei padrini storici è descritta in AMM-09, mentre gli inviti ai padrini e il ritorno delle anagrafiche complete restano in fase 2 (FR-STO-02/03).
+**Regole collegate.** I file si generano ogni mese, dopo l’importazione dell’estratto conto, e si caricano in quest’ordine: anagrafiche, bonifici, pagamenti con carta. I versamenti di Stripe sul conto UniCredit sono giroconti, non donazioni; la destinazione contabile viaggia con il campo Progetti (FR-INT-02). Le anagrafiche nuove o modificate passano a VERIF!CO già in fase 1, con un file di importazione se VERIF!CO lo accetta, altrimenti con un elenco da inserire a mano; l’importazione dei padrini storici è descritta in AMM-09, mentre gli inviti ai padrini e il ritorno delle anagrafiche complete restano in fase 2 (FR-STO-02/03).
 
 ### AMM-07 · Vedere tutto: numeri, andamento, anomalie
 
@@ -464,14 +530,14 @@ Il materiale che la referente manda dall’Uganda entra nel gestionale soprattut
 
 **Come** Amministratore **voglio** importare i padrini da VERIF!CO e abbinarli ai bambini che sostengono **così da** portare nel gestionale le adozioni già in corso senza perdere nessuno.
 
-- **AC-01** · **Dato che** carico l’esportazione delle anagrafiche e delle donazioni da VERIF!CO, **Quando** l’importazione termina, **Allora** ogni padrino entra come “padrino storico” con il suo storico delle donazioni e i suoi IBAN, senza account, e ricevo un rapporto con doppioni e dati mancanti da controllare prima di confermare. (FR-STO-01)
+- **AC-01** · **Dato che** carico l’esportazione delle anagrafiche e dei movimenti di VERIF!CO dal 2025, **Quando** l’importazione termina, **Allora** ogni anagrafica con almeno un versamento di 180 € (o multipli) nel conto delle adozioni scolastiche entra come “padrino storico” con il suo storico delle donazioni, senza account, e ricevo un rapporto con doppioni e dati mancanti da controllare prima di confermare. (FR-STO-01)
 - **AC-02** · **Dato che** nelle note di VERIF!CO o nelle storie del bot c’è il nome di un bambino collegato a un padrino, **Quando** l’importazione termina, **Allora** quel nome compare come indizio nella scheda del padrino, non come bambino.
 - **AC-03** · **Dato che** la referente ha compilato l’elenco dei bambini di un villaggio, **Quando** lo carico, **Allora** i bambini nuovi ricevono il loro codice e quelli già presenti mi vengono segnalati come possibili doppioni.
 - **AC-04** · **Dato che** apro le liste “padrini senza bambino” e “bambini senza padrino”, **Quando** collego un padrino a un bambino con la conferma della referente, **Allora** nasce l’adozione attiva e da quel momento il padrino, una volta registrato, vede le foto del bambino.
 - **AC-05** · **Dato che** un’adozione storica non ha ancora un bambino identificato, **Quando** il padrino accede, **Allora** vede le proprie donazioni ma nessuna foto, e l’adozione resta nelle liste da abbinare.
 - **AC-06** · **Dato che** sono un Volontario, **Quando** provo a importare o abbinare, **Allora** l’operazione viene negata.
 
-**Regole collegate.** I bambini entrano nel gestionale poco alla volta: dalle foto di ogni giorno (bambino nuovo proposto dal volontario) e dagli elenchi per villaggio che la referente compila dal telefono con un modello semplice (nome, età, famiglia, villaggio, nome del padrino). Gli inviti ai padrini storici per collegarsi al proprio storico sono in fase 2 (FR-STO-02).
+**Regole collegate.** Le adozioni non si pagano a rate: gli importi minori sul conto delle adozioni sono altre donazioni. Un multiplo di 180 € (es. 360 €) fa pensare a più bambini, ma è solo un indizio da confermare (FR-STO-01). I bambini entrano nel gestionale poco alla volta: dalle foto di ogni giorno (bambino nuovo proposto dal volontario) e dagli elenchi per villaggio che la referente compila dal telefono con un modello semplice (nome, età, famiglia, villaggio, nome del padrino). Gli inviti ai padrini storici per collegarsi al proprio storico sono in fase 2 (FR-STO-02).
 
 ## 5.3 Volontario
 
@@ -479,13 +545,14 @@ Il materiale che la referente manda dall’Uganda entra nel gestionale soprattut
 
 **Come** Volontario **voglio** caricare foto e documenti su un intervento **così da** rendicontarlo al sostenitore.
 
-- **AC-01** · **Dato che** ho il permesso di caricare prove e carico dal bot le foto di un aiuto consegnato per un bambino o una famiglia, **Quando** confermo la voce della checklist proposta, **Allora** la voce risulta completata e le foto sono visibili ai sostenitori di quell’intervento. (FR-INT-03)
+- **AC-01** · **Dato che** ho il permesso di caricare prove e carico dal bot le foto di un aiuto consegnato, **Quando** confermo il beneficiario, scelto fra quelli con un intervento pagato e prove mancanti (FR-BOT-05), e la voce della checklist proposta, **Allora** la voce risulta completata e le foto sono visibili ai sostenitori di quell’intervento. (FR-INT-03)
 - **AC-02** · **Dato che** tutte le voci della checklist hanno la loro prova, **Quando** carico l’ultima, **Allora** l’intervento passa allo stato “rendicontato”. (FR-INT-03)
 - **AC-03** · **Dato che** la famiglia non ha il modulo di consenso caricato, **Quando** carico una foto, **Allora** la foto viene archiviata ma il sostenitore vede solo “consegna avvenuta” con la data, e il bot non la pubblica sui social. (FR-CON-01)
-- **AC-04** · **Dato che** carico la consegna di una voce fissa (es. 10 materassi alla famiglia FAM-0045), **Quando** indico quantità e famiglia, **Allora** la consegna viene assegnata alle donazioni più vecchie ancora da rendicontare per quella voce, e quei sostenitori vedono le foto. (FR-INT-08)
+- **AC-04** · **Dato che** carico le foto della consegna di una voce fissa (es. materassi alla famiglia FAM-0045), **Quando** confermo la categoria, **Allora** tutte le donazioni per quella voce ancora da rendicontare ricevono le foto e passano a “rendicontate”, senza contare le unità; la famiglia è facoltativa. (FR-INT-08)
 - **AC-05** · **Dato che** carico un file che non è un’immagine o un PDF, o supera la dimensione massima, **Quando** confermo, **Allora** ricevo un errore chiaro e nulla viene salvato.
 - **AC-06** · **Dato che** non ho il permesso di caricare prove, **Quando** provo a farlo, **Allora** il bot non mi mostra l’opzione e il gestionale nega l’operazione. (FR-RUO-01)
 - **AC-07** · **Dato che** una prova è stata caricata per errore, **Quando** l’amministratore la nasconde o la elimina, **Allora** il sostenitore non la vede più e resta registrato chi l’ha caricata e chi l’ha rimossa.
+- **AC-08** · **Dato che** carico la prova di fine anno di un’adozione scolastica (pagella, lavori di fine anno o quaderni), **Quando** la confermo, **Allora** l’anno scolastico passa a “rendicontato” e l’adozione resta attiva. (FR-ADO-06)
 
 **Regole collegate.** Le prove sono visibili subito, senza approvazione preventiva. Le risposte date al bot valgono per tutte le foto dello stesso invio; foto di interventi diversi si caricano con invii diversi. Se le foto non corrispondono a nessuna voce, il volontario sceglie “solo aggiornamento” e finiscono nella scheda (VOL-02). Si possono caricare più foto insieme anche dal gestionale (NFR-19).
 
@@ -499,20 +566,23 @@ Il materiale che la referente manda dall’Uganda entra nel gestionale soprattut
 - **AC-04** · **Dato che** scrivo una notizia, **Quando** la salvo, **Allora** il sistema mi ricorda che è visibile al sostenitore e che le informazioni sanitarie vanno nell’apposito campo riservato.
 - **AC-05** · **Dato che** non ho il permesso di aggiornare le schede, **Quando** provo a farlo, **Allora** l’operazione viene negata.
 - **AC-06** · **Dato che** la referente ha scritto un testo per una foto, **Quando** lo carico come didascalia o con “Rispondi” sulla foto, **Allora** il testo resta legato a quella foto anche nella scheda del bambino. (FR-BOT-04)
+- **AC-07** · **Dato che** carico dal bot un testo per la scheda, **Quando** il bot mi chiede “Contiene informazioni sulla salute?” e rispondo “Sì”, **Allora** il testo va nel campo sanitario, visibile solo all’amministratore, e non viene pubblicato sui social. (FR-BOT-04)
+- **AC-08** · **Dato che** carico un aggiornamento, **Quando** nel foglio provini non scelgo nessuna foto per i social, **Allora** il bot non pubblica nulla e tutte le foto arrivano nella scheda come riservate al padrino. (FR-FOTO-01)
 
-**Regole collegate.** Il volontario aggiorna foto, pagelle, notizie e storia, non l’anagrafica. Le foto non scelte per i social arrivano nella scheda come riservate al padrino (FR-FOTO-01). Il campo notizie (visibile al sostenitore) è separato dal campo sanitario (solo amministratore). In fase 2 il sostenitore riceve un avviso per ogni novità.
+**Regole collegate.** Per un aggiornamento il bot cerca il bambino solo fra quelli con un’adozione attiva (FR-BOT-05). Il volontario aggiorna foto, pagelle, notizie e storia, non l’anagrafica. Le foto non scelte per i social arrivano nella scheda come riservate al padrino (FR-FOTO-01). Il campo notizie (visibile al sostenitore) è separato dal campo sanitario (solo amministratore). In fase 2 il sostenitore riceve un avviso per ogni novità.
 
 ### VOL-03 · Consultare le cose da fare ★
 
 **Come** Volontario **voglio** vedere l’elenco delle cose su cui posso lavorare **così da** sapere da dove cominciare.
 
-- **AC-01** · **Dato che** ho il permesso di caricare prove, **Quando** apro “Cose da fare”, **Allora** vedo gli interventi pagati ma non ancora rendicontati, con le prove mancanti, ordinati dal più vecchio.
+- **AC-01** · **Dato che** ho il permesso di caricare prove, **Quando** apro “Cose da fare”, **Allora** vedo gli interventi pagati ma non ancora rendicontati, con le prove mancanti, compresi gli anni scolastici senza prova di fine anno, ordinati dal più vecchio. (FR-ADO-06)
 - **AC-02** · **Dato che** ho il permesso di aggiornare le schede, **Quando** apro “Cose da fare”, **Allora** vedo anche i bambini senza aggiornamenti da più di 6 mesi. (FR-IMP-01)
-- **AC-03** · **Dato che** prendo in carico una voce, **Quando** un altro volontario apre la sua lista, **Allora** vede che me ne sto occupando io.
+- **AC-03** · **Dato che** prendo in carico una voce, **Quando** un altro volontario apre la sua lista, **Allora** vede il mio nome accanto alla voce e non può prenderla; l’amministratore può riassegnarla.
 - **AC-04** · **Dato che** una voce non rientra nei miei permessi, **Quando** apro “Cose da fare”, **Allora** non la vedo.
-- **AC-05** · **Dato che** l’elenco supera la dimensione di una pagina, **Quando** lo consulto, **Allora** i risultati sono paginati e filtrabili per tipo.
+- **AC-05** · **Dato che** l’elenco supera la dimensione di una pagina, **Quando** lo consulto, **Allora** i risultati sono paginati e filtrabili per tipo e per villaggio.
+- **AC-06** · **Dato che** ho preso in carico una voce, **Quando** passano 30 giorni senza novità, **Allora** la voce torna libera e l’amministratore riceve una segnalazione. (FR-IMP-01)
 
-**Regole collegate.** L’elenco comprende anche le richieste in bozza da completare. La presa in carico funziona come nella dashboard del bot.
+**Regole collegate.** “Cose da fare” si usa nel gestionale web, non nel bot. L’elenco comprende anche le richieste in bozza da completare. Una voce sparisce da sola quando arriva la prova mancante.
 
 ### VOL-04 · Usare il bot collegato al gestionale
 
@@ -529,57 +599,60 @@ Il materiale che la referente manda dall’Uganda entra nel gestionale soprattut
 
 ## 5.4 Simpatizzante e sostenitore
 
-### SOS-01 · Registrarsi
+### SOS-01 · Entrare e registrarsi
 
-**Come** Simpatizzante **voglio** registrarmi e dare il mio consenso privacy **così da** entrare nell’area riservata di Effatà.
+**Come** Simpatizzante **voglio** conoscere la vetrina e registrarmi in modo semplice **così da** entrare nell’area riservata di Effatà e poter donare.
 
-- **AC-01** · **Dato che** inserisco nome, cognome, email, password e accetto l’informativa privacy, **Quando** confermo, **Allora** ricevo un’email con il link di conferma. (FR-REG-01)
+- **AC-01** · **Dato che** inserisco nome, cognome, email, password e spunto la presa visione dell’informativa privacy, **Quando** confermo, **Allora** ricevo un’email con il link di conferma. (FR-REG-01)
 - **AC-02** · **Dato che** apro il link di conferma, **Quando** l’account viene attivato, **Allora** entro nell’area riservata come simpatizzante; se ero partito da una richiesta, torno a quella richiesta.
-- **AC-03** · **Dato che** non accetto l’informativa privacy, **Quando** provo a registrarmi, **Allora** la registrazione non viene completata.
+- **AC-03** · **Dato che** non spunto la presa visione dell’informativa privacy, **Quando** provo a registrarmi o a entrare come ospite, **Allora** la registrazione non viene completata.
 - **AC-04** · **Dato che** scelgo una password troppo corta o presente negli elenchi di password violate, **Quando** confermo, **Allora** ricevo un errore chiaro e la password viene rifiutata. (FR-SEC-01)
 - **AC-05** · **Dato che** l’email è già registrata, **Quando** provo a registrarmi, **Allora** ricevo lo stesso messaggio di una registrazione nuova (“controlla la tua email”), e il titolare dell’indirizzo riceve un avviso con il link per accedere o recuperare la password.
 - **AC-06** · **Dato che** il link di conferma è scaduto, **Quando** lo apro, **Allora** posso richiederne uno nuovo.
+- **AC-07** · **Dato che** apro il link promozionale ricevuto dalla referente, **Quando** lascio la mia email e spunto la presa visione dell’informativa, **Allora** ricevo un link per entrare come ospite e vedo tutta la vetrina per 7 giorni, con un promemoria al 5° giorno. (FR-REG-05)
+- **AC-08** · **Dato che** sono ospite, **Quando** mi registro, **Allora** non devo prendere di nuovo visione dell’informativa (salvo una nuova versione) e ritrovo il mio carrello.
 
-**Regole collegate.** L’accesso avviene con email e password per tutti i ruoli; la pagina di accesso offre “Non hai un account? Registrati” e “Password dimenticata?”. Alla registrazione si chiedono solo nome, cognome, email, password e consenso privacy, più una casella facoltativa e non preselezionata “Posso comparire nei post social dell’associazione” (FR-COM-02); gli altri dati si chiedono alla prima donazione (SOS-02). L’accesso con Google o Apple non è previsto in fase 1.
+**Regole collegate.** I dati si chiedono un po’ alla volta (FR-REG-01): all’ospite solo l’email; alla registrazione nome, cognome, email e password, più due consensi facoltativi e non preselezionati, newsletter e comunicazioni e “Posso comparire nei post social dell’associazione” (FR-COM-02); il codice fiscale alla prima donazione (SOS-02). L’accesso avviene con email e password per tutti i ruoli; la pagina di accesso offre “Non hai un account? Registrati” e “Password dimenticata?”. L’accesso con Google o Apple e l’accesso senza password per tutti sono in fase 2.
 
 ### SOS-02 · Completare i miei dati
 
 **Come** Sostenitore **voglio** indicare i miei dati e quelli dell’avente diritto alla detrazione **così da** ottenere la certificazione per la detrazione fiscale.
 
-- **AC-01** · **Dato che** faccio la mia prima donazione e mancano indirizzo o codice fiscale, **Quando** arrivo al pagamento, **Allora** il sistema mi chiede solo i dati mancanti, spiegando che servono per la detrazione.
+- **AC-01** · **Dato che** faccio la mia prima donazione e non ho indicato il codice fiscale, **Quando** arrivo al pagamento, **Allora** il sistema me lo chiede spiegando che serve per la certificazione; posso proseguire anche senza, con l’avviso “Senza codice fiscale la donazione è valida ma non riceverai la certificazione per la detrazione”. (FR-FIS-01)
 - **AC-02** · **Dato che** la detrazione spetta a un’altra persona, **Quando** lo indico, **Allora** inserisco nome, cognome e codice fiscale dell’avente diritto, che compaiono nella causale standard. (FR-FIS-01)
 - **AC-03** · **Dato che** inserisco un codice fiscale formalmente errato o non coerente con nome e cognome, **Quando** confermo, **Allora** ricevo un errore chiaro e il dato non viene salvato.
 - **AC-04** · **Dato che** non voglio che i miei dati siano inviati all’Agenzia delle Entrate, **Quando** lo indico, **Allora** la scelta viene registrata e trasmessa a VERIF!CO con l’anagrafica. (FR-FIS-01)
 - **AC-05** · **Dato che** sono un altro sostenitore o un volontario, **Quando** provo a vedere o modificare questi dati, **Allora** l’operazione viene negata. (FR-RUO-02)
 
-**Regole collegate.** I dati si possono compilare anche prima, dal profilo. L’avente diritto è il sostenitore stesso, salvo indicazione diversa.
+**Regole collegate.** I dati si possono compilare anche prima, dal profilo. L’avente diritto è il sostenitore stesso, salvo indicazione diversa. L’indirizzo non serve alla certificazione e non viene chiesto; il telefono è facoltativo.
 
 ### SOS-03 · Scegliere una richiesta di sostegno ★
 
-**Come** Simpatizzante o Sostenitore **voglio** consultare, salvare e condividere le richieste di sostegno **così da** scegliere chi aiutare.
+**Come** Ospite, Simpatizzante o Sostenitore **voglio** consultare, salvare e condividere le richieste di sostegno **così da** scegliere chi aiutare.
 
-- **AC-01** · **Dato che** sono registrato e ho fatto l’accesso, **Quando** apro la vetrina, **Allora** vedo le richieste personali aperte con foto, storia e costo, le voci fisse sempre disponibili e il collegamento “Adotta un giorno” al calendario solidale, e posso filtrare per tipo e costo. (FR-SOS-02)
-- **AC-02** · **Dato che** non ho fatto l’accesso, **Quando** provo ad aprire la vetrina o il collegamento di una richiesta, **Allora** mi viene chiesto di accedere o registrarmi, e poi arrivo alla richiesta. (SOS-01)
+- **AC-01** · **Dato che** ho fatto l’accesso, come utente registrato o come ospite, **Quando** apro la vetrina, **Allora** vedo le richieste personali aperte con foto, storia e costo, le voci fisse sempre disponibili e il collegamento “Adotta un giorno” al calendario solidale, e posso filtrare per tipo e costo. (FR-SOS-02)
+- **AC-02** · **Dato che** non ho fatto l’accesso, **Quando** provo ad aprire la vetrina o il collegamento di una richiesta, **Allora** posso entrare come ospite con la sola email oppure accedere, e poi arrivo alla richiesta. (SOS-01, FR-REG-05)
 - **AC-03** · **Dato che** apro la vetrina, **Quando** scorro le richieste, **Allora** vedo anche quelle sostenute negli ultimi 30 giorni con l’etichetta “Sostenuto ✓”, senza l’identità di chi le ha sostenute né gli aggiornamenti successivi. (FR-VIS-01, FR-IMP-01)
 - **AC-04** · **Dato che** la famiglia del bambino non ha il modulo di consenso caricato, **Quando** la richiesta viene preparata, **Allora** non può comparire nella vetrina. (FR-CON-01)
 - **AC-05** · **Dato che** una richiesta unica viene pagata da un altro sostenitore, **Quando** aggiorno la pagina o apro il carrello, **Allora** passa a “Sostenuto ✓”, non è più acquistabile e mi vengono proposte richieste simili. (FR-CAR-01)
 - **AC-06** · **Dato che** chiudo la sessione con qualcosa nel carrello, **Quando** accedo di nuovo, **Allora** lo ritrovo nei preferiti. (FR-SOS-02)
-- **AC-07** · **Dato che** una richiesta mi colpisce, **Quando** tocco “Condividi”, **Allora** posso inviarne il collegamento su WhatsApp; chi lo riceve accede o si registra per vederla.
-- **AC-08** · **Dato che** scelgo una voce fissa (es. materassi, animali), **Quando** la metto nel carrello, **Allora** indico la quantità (e, per gli animali, la specie, ognuna con il suo prezzo) e la voce resta sempre disponibile per altri sostenitori. (FR-CAT-01)
+- **AC-07** · **Dato che** una richiesta mi colpisce, **Quando** tocco “Condividi”, **Allora** posso inviarne il collegamento su WhatsApp; chi lo riceve entra come ospite o accede per vederla.
+- **AC-08** · **Dato che** scelgo una voce fissa (es. materassi, animali), **Quando** la metto nel carrello, **Allora** posso indicare “quanti” (e, per gli animali, la specie, ognuna con il suo prezzo) solo per calcolare l’importo; il gestionale registra importo e categoria, e la voce resta sempre disponibile per altri sostenitori. (FR-CAT-01)
+- **AC-09** · **Dato che** sono ospite, **Quando** provo a donare o a scaricare una foto, **Allora** mi viene chiesto di registrarmi; le foto della vetrina non si scaricano. (FR-REG-05)
 
-**Regole collegate.** La vetrina è riservata agli utenti registrati: il pubblico conosce le storie dai social, chi vuole seguirle da vicino si registra (FR-SOS-02).
+**Regole collegate.** La vetrina è riservata agli utenti registrati e agli ospiti: il pubblico conosce le storie dai social, chi vuole seguirle da vicino lascia almeno l’email (FR-SOS-02, FR-REG-05).
 
 ### SOS-04 · Donare con carta ★
 
 **Come** Sostenitore **voglio** pagare con la carta le richieste nel mio carrello **così da** confermare subito il mio sostegno.
 
-- **AC-01** · **Dato che** ho una o più richieste nel carrello e i miei dati sono completi, **Quando** pago con carta sulla pagina sicura del fornitore e il pagamento va a buon fine, **Allora** la donazione è confermata, le richieste uniche passano a “Sostenuto ✓” e ricevo subito la conferma di donazione con il ringraziamento. (FR-PAG-01, FR-RING-01)
+- **AC-01** · **Dato che** ho una o più richieste nel carrello e i miei dati sono completi, **Quando** pago con carta o Satispay sulla pagina sicura del fornitore e il pagamento va a buon fine, **Allora** la donazione è confermata, le richieste uniche passano a “Sostenuto ✓” e ricevo subito la conferma di donazione con il ringraziamento. (FR-PAG-01, FR-RING-01)
 - **AC-02** · **Dato che** il pagamento viene rifiutato o lo abbandono, **Quando** torno al gestionale, **Allora** nulla viene registrato, le richieste restano disponibili e posso riprovare.
 - **AC-03** · **Dato che** nel frattempo un altro sostenitore ha pagato la stessa richiesta unica, **Quando** il mio pagamento va a buon fine, **Allora** la mia donazione diventa un credito solidale e ricevo un messaggio che lo spiega. (FR-CAR-02)
 - **AC-04** · **Dato che** il fornitore ha confermato il pagamento ma il gestionale non ha ricevuto la notifica, **Quando** il sistema esegue il controllo periodico con il fornitore, **Allora** la donazione viene recuperata e registrata una sola volta.
 - **AC-05** · **Dato che** pago, **Quando** inserisco i dati della carta, **Allora** lo faccio sulla pagina del fornitore e il gestionale non li riceve né li conserva mai.
 
-**Regole collegate.** Il versamento cumulativo del fornitore sul conto serve solo alle quadrature (AMM-04, AC-04). Il pagamento ricorrente con carta per il rinnovo dell’adozione è in fase 2 (FR-ADO-04). Il recupero delle conferme perse è la gestione del fallimento dell’API esterna (cap. 13.3).
+**Regole collegate.** Satispay passa dalla stessa pagina di Stripe, come la carta (FR-PAG-01). Il versamento cumulativo del fornitore sul conto serve solo alle quadrature (AMM-04, AC-04). Il pagamento ricorrente con carta per il rinnovo dell’adozione è in fase 2 (FR-ADO-04). Il recupero delle conferme perse è la gestione del fallimento dell’API esterna (cap. 13.3).
 
 ### SOS-05 · Donare con bonifico
 
@@ -618,6 +691,9 @@ Il materiale che la referente manda dall’Uganda entra nel gestionale soprattut
 - **AC-04** · **Dato che** la mia adozione è stata chiusa, **Quando** la apro, **Allora** vedo i contenuti fino alla data di chiusura e nulla di successivo. (FR-ADO-03)
 - **AC-05** · **Dato che** scarico una foto, **Quando** la salvo, **Allora** vedo l’avviso che ritrae un minore e non va pubblicata né condivisa.
 - **AC-06** · **Dato che** provo ad aprire la scheda di un bambino o di un intervento che non ho sostenuto, **Quando** invio la richiesta, **Allora** l’operazione viene negata. (FR-VIS-01)
+- **AC-07** · **Dato che** sono un padrino storico e il mio bambino non è ancora stato abbinato, **Quando** apro la mia area, **Allora** vedo le mie donazioni e il messaggio “Stiamo ritrovando il tuo bambino: presto vedrai le sue foto”. (AMM-09)
+- **AC-08** · **Dato che** ho donato per una voce fissa, **Quando** apro la mia area, **Allora** vedo “In attesa di consegna” e, dopo la consegna, le foto con “Consegnato”. (FR-INT-08)
+- **AC-09** · **Dato che** è arrivata la prova di fine anno del bambino che sostengo, **Quando** apro la sua scheda, **Allora** vedo “Anno scolastico completato” con tutte le prove, e l’adozione continua. (FR-ADO-06)
 
 **Regole collegate.** Le foto sono scaricabili per uso personale. In fase 2 il pulsante “Scrivi un messaggio” permette di scrivere all’associazione, che inoltra alla referente (anche per gli auguri di compleanno, FR-ADO-05); la chat resta fra gli sviluppi futuri.
 
@@ -697,13 +773,15 @@ Ogni scelta che le storie lasciano aperta è decisa qui, in modo verificabile, c
 
 ### Registrazione, accesso e sicurezza
 
-**FR-REG-01 · Registrazione libera** (SOS-01). Chiunque può registrarsi (anche dal menu di effataitalia.it) con email e password, consenso privacy (casella non preselezionata, data e versione dell’informativa salvate) e conferma dell’email; dopo la conferma l’account è attivo subito. Limite ai tentativi ripetuti contro le registrazioni automatiche.
+**FR-REG-01 · Registrazione libera e dati per fasi** (SOS-01, SOS-02). Chiunque può registrarsi (anche dal menu di effataitalia.it) con nome, cognome, email e password, la presa visione dell’informativa privacy (casella non preselezionata, data e versione dell’informativa salvate) e la conferma dell’email; dopo la conferma l’account è attivo subito. Due consensi facoltativi, separati e non preselezionati: newsletter e comunicazioni; comparire nei post social (FR-COM-02). Chi era ospite non prende di nuovo visione dell’informativa, salvo una nuova versione. I dati si chiedono un po’ alla volta: all’ospite solo l’email; alla registrazione l’identità; alla prima donazione il codice fiscale (facoltativo), l’eventuale avente diritto, il telefono (facoltativo), l’eventuale opposizione all’invio dei dati all’Agenzia delle Entrate e l’accettazione di “Come funziona la tua donazione”. Limite ai tentativi ripetuti contro le registrazioni automatiche. **Motivazione:** minimizzazione richiesta dal GDPR; l’informativa si legge, mentre i veri consensi sono solo quelli facoltativi, revocabili dal profilo (SOS-09).
 
 **FR-REG-02 · Disattivazione da parte dell’amministratore.** L’amministratore può disattivare o archiviare un account in qualsiasi momento, con le regole di FR-ACC-02.
 
 **FR-REG-03 · Collegamento ai dati storici** (fase 2, AMM-09). Un nuovo account viene collegato a un padrino storico solo con una prova di identità: email verificata coincidente con quella in archivio, codice di invito monouso inviato ai contatti già noti, conferma dell’amministratore su un canale già in archivio, oppure bonifico con codice da un IBAN già noto. Mai sulla sola base di codice fiscale, nome o IBAN inseriti dall’utente. **Motivazione:** questi dati identificano una persona ma non dimostrano che sei tu.
 
-**FR-REG-04 · Simpatizzanti e sostenitori** (SOS-01). Chi si registra è simpatizzante; diventa sostenitore automaticamente con la prima donazione o la prima adozione. Il ruolo di socio si aggiunge in modo indipendente (SOC-01).
+**FR-REG-04 · Ospiti, simpatizzanti e sostenitori** (SOS-01). Chi entra con il link promozionale è ospite per 7 giorni (FR-REG-05); chi si registra è simpatizzante; diventa sostenitore automaticamente con la prima donazione o la prima adozione. Il ruolo di socio si aggiunge in modo indipendente (SOC-01).
+
+**FR-REG-05 · Accesso ospite** (SOS-01, SOS-03). La referente manda a chi vuole aiutare il link promozionale della vetrina, sempre lo stesso. Chi lo apre lascia solo l’email e prende visione dell’informativa; riceve un link per entrare, senza password, e per 7 giorni vede tutta la vetrina (richieste personali, voci fisse, calendario solidale), con le sole foto pubbliche e senza poterle scaricare. Può riempire il carrello, salvare preferiti e condividere; per donare si registra e ritrova il carrello. Al 5° giorno riceve un promemoria; dopo 7 giorni l’accesso scade e può chiederne un altro. La durata è configurabile (FR-IMP-01); la vista d’insieme mostra quanti ospiti diventano sostenitori (FR-DASH-01). L’accesso senza password per tutti gli utenti è in fase 2. **Motivazione:** chi contatta la referente spesso non sa ancora come aiutare, e vedere tutta la vetrina lo aiuta a scegliere (materassi, terreni, adozioni); l’email permette di sapere chi ha visto le foto dei minori e di ricontattarlo.
 
 **FR-SEC-01 · Password e accesso** (SOS-01, SOS-09). Password di almeno 12 caratteri, rifiutata se presente negli elenchi di password violate; salvata solo con un algoritmo di hashing dedicato (bcrypt o Argon2); blocco temporaneo dopo tentativi errati; recupero con link a scadenza e monouso; nessun messaggio che riveli se un’email è registrata; verifica in due passaggi obbligatoria per amministratori e volontari, facoltativa per sostenitori e soci.
 
@@ -727,6 +805,8 @@ Ogni scelta che le storie lasciano aperta è decisa qui, in modo verificabile, c
 
 **FR-ADO-05 · Compleanno** (AMM-02). Con il modulo di consenso caricato, il sostenitore vede giorno e mese del compleanno del bambino, mai l’anno di nascita. In fase 2 riceve un’email qualche giorno prima, con l’invito a mandare gli auguri tramite l’associazione.
 
+**FR-ADO-06 · Adozione e anno scolastico** (VOL-01, VOL-03, SOS-07). L’adozione è il rapporto fra padrino e bambino: resta attiva finché il padrino non smette o il bambino non esce dal programma (AMM-03). Ogni anno pagato (180 €) crea un intervento “adozione scolastica BAM-0215 – anno 2026”, con la checklist iscrizione, foto con la divisa e prova di fine anno (pagella, lavori di fine anno o quaderni). Con la prova di fine anno l’intervento diventa “rendicontato” e il padrino vede “Anno scolastico 2026 completato”; l’adozione continua e con il rinnovo nasce l’anno successivo. Le pagelle intermedie sono aggiornamenti della scheda. Gli anni senza prova di fine anno compaiono in “Cose da fare”. **Motivazione:** il padrino ha ogni anno un traguardo chiaro, senza che il rapporto con il bambino si interrompa.
+
 **FR-CON-01 · Consenso della famiglia** (AMM-01, AMM-02, VOL-01, SOS-03, SOS-07). Ogni famiglia ha un **modulo di consenso unico, valido per tutte le voci** (foto al sostenitore, pubblicazione su social e sito, comunicazione del compleanno), che si accetta per intero, senza scelte parziali.
 - Il modulo riporta nome del genitore o tutore, villaggio e data. La referente lo fa firmare (o apporre l’impronta digitale davanti a un testimone), lo fotografa e lo invia via WhatsApp; l’originale cartaceo resta alla referente. Per i bambini della casa famiglia firma la referente stessa, che ne è il tutore, e aggiorna il modulo quando entra un nuovo bambino.
 - L’amministratore aggancia il modulo alla scheda famiglia giusta, carica la foto o la scansione e spunta **una sola casella, “modulo di consenso caricato”**, con data e nome di chi l’ha raccolto. Il modulo è un dato sensibile (FR-RUO-02).
@@ -740,15 +820,15 @@ Ogni scelta che le storie lasciano aperta è decisa qui, in modo verificabile, c
 
 **FR-CAT-01 · Richieste personali e voci fisse** (AMM-01, SOS-03). La vetrina offre due tipi di sostegno.
 - **Richieste personali**, per un beneficiario preciso (bambino, famiglia o comunità): adozione scolastica, adozione in casa famiglia, operazione chirurgica, carrozzina, costruzione casa, affitto terreno agricolo, acquisto terreno edificabile. Ognuna ha foto pubbliche, storia, costo, codice (RIC-0042) e stato (bozza, aperta, sostenuta, chiusa). Nasce dal bot (🆘 Richiesta di aiuto) o dal gestionale, preparata da un volontario abilitato; l’amministratore la approva. Una richiesta aperta da più di 30 giorni senza sostenitori viene segnalata. Per le operazioni la storia descrive il bisogno in modo generico, mai la diagnosi, anche nei testi social.
-- **Voci fisse**, bisogni sempre presenti e non legati a un beneficiario al momento della donazione: materassi, scarpe, animali (il sostenitore sceglie la specie, ognuna con il suo prezzo), opere della casa famiglia (importo libero) e sostegno della casa famiglia, che rimanda al calendario solidale (FR-CAN-03). Il sostenitore ne sceglie la quantità; il beneficiario si decide alla consegna (FR-INT-08). Un post di richiesta di aiuto per una voce fissa non crea una richiesta nuova, ma rimanda alla voce.
+- **Voci fisse**, bisogni sempre presenti e non legati a un beneficiario al momento della donazione: materassi, scarpe, animali (il sostenitore sceglie la specie, ognuna con il suo prezzo), opere della casa famiglia (importo libero) e sostegno della casa famiglia, che rimanda al calendario solidale (FR-CAN-03). Il sostenitore può indicare “quanti” (es. 3 materassi × 10 € = 30 €) solo per calcolare l’importo: il gestionale registra importo e categoria, non le unità. Il beneficiario si decide alla consegna (FR-INT-08). Un post di richiesta di aiuto per una voce fissa non crea una richiesta nuova, ma rimanda alla voce.
 
 L’amministratore aggiunge o toglie dalla vetrina, dalla dashboard, sia le richieste sia le voci fisse. Le categorie sono un’unica lista gestita nel gestionale e usata anche dal bot (FR-BOT-03).
 
-**FR-SOS-01 · Causale standard** (SOS-05). Al momento del bonifico il sostenitore trova la causale già compilata da copiare (es. `EROGAZIONE LIBERALE – CF … – ADOZIONE BAM-0102`, `EROGAZIONE LIBERALE – CF … – MATERASSI 3`), secondo FR-FIS-01.
+**FR-SOS-01 · Causale standard** (SOS-05). Al momento del bonifico il sostenitore trova la causale già compilata da copiare (es. `EROGAZIONE LIBERALE – CF … – ADOZIONE BAM-0102`, `EROGAZIONE LIBERALE – CF … – MATERASSI`), secondo FR-FIS-01.
 
-**FR-SOS-02 · Vetrina e carrello solidale** (SOS-03). La vetrina è riservata agli utenti registrati e mostra le richieste personali aperte e quelle sostenute negli ultimi 30 giorni (“Sostenuto ✓”), le voci fisse e la card “Adotta un giorno” che porta al sito del calendario solidale. Il sostenitore cerca e filtra le richieste (per tipo e costo), le mette nel carrello e le paga. Mettere una richiesta nel carrello **non la prenota**. Alla chiusura della sessione il carrello si svuota e il contenuto passa nei **preferiti**; chi ha fra i preferiti una richiesta unica che viene sostenuta da altri riceve un avviso con proposte simili. Ogni richiesta si può condividere su WhatsApp: il collegamento porta all’accesso o alla registrazione. **Motivazione:** il pubblico conosce già le storie dai social; la vetrina è il passo successivo per chi vuole seguire da vicino.
+**FR-SOS-02 · Vetrina e carrello solidale** (SOS-03). La vetrina è riservata agli utenti registrati e agli ospiti (FR-REG-05) e mostra le richieste personali aperte e quelle sostenute negli ultimi 30 giorni (“Sostenuto ✓”), le voci fisse e la card “Adotta un giorno” che porta al sito del calendario solidale. Il sostenitore cerca e filtra le richieste (per tipo e costo), le mette nel carrello e le paga. Mettere una richiesta nel carrello **non la prenota**. Alla chiusura della sessione il carrello si svuota e il contenuto passa nei **preferiti**; chi ha fra i preferiti una richiesta unica che viene sostenuta da altri riceve un avviso con proposte simili. Ogni richiesta si può condividere su WhatsApp: il collegamento porta all’accesso, alla registrazione o all’accesso ospite. **Motivazione:** il pubblico conosce già le storie dai social; la vetrina è il passo successivo per chi vuole seguire da vicino.
 
-**FR-PAG-01 · Metodi di pagamento** (SOS-04, SOS-05, SOC-01). Metodo principale: **carta**, tramite un fornitore di pagamenti esterno, con conferma immediata; i dati della carta non passano mai dal gestionale. Ultima scelta: **bonifico**, con IBAN e causale standard e caricamento della quietanza (FR-DON-01). Altri metodi (PayPal, Satispay) in fase 2.
+**FR-PAG-01 · Metodi di pagamento** (SOS-04, SOS-05, SOC-01). Metodo principale: **carta**, tramite un fornitore di pagamenti esterno, con conferma immediata; i dati della carta non passano mai dal gestionale. Ultima scelta: **bonifico**, con IBAN e causale standard e caricamento della quietanza (FR-DON-01). Satispay è offerto dalla stessa pagina di Stripe, insieme alla carta, senza integrazioni in più; PayPal in fase 2.
 
 **FR-CAR-01 · Chi paga per primo** (SOS-03, SOS-04, SOS-05). Vale solo per le richieste personali: le voci fisse non si esauriscono. Una richiesta personale resta disponibile finché non arriva un pagamento: con carta vale la conferma immediata, con bonifico il caricamento della quietanza. Il primo pagamento vince: la richiesta passa a “Sostenuto ✓” e non è più acquistabile.
 
@@ -760,7 +840,7 @@ L’amministratore aggiunge o toglie dalla vetrina, dalla dashboard, sia le rich
 
 **FR-DON-02 · Conferma e anomalie** (AMM-04, SOS-05). All’importazione mensile dell’estratto conto le donazioni dichiarate vengono ritrovate e passano a “confermate”; solo quelle confermate vanno a VERIF!CO. Una donazione dichiarata non ritrovata diventa un’anomalia: l’amministratore verifica e, se la quietanza non corrisponde a un bonifico reale, annulla la donazione (con il motivo) e riapre la richiesta. Una donazione non viene mai cancellata.
 
-**FR-FIS-01 · Donante e avente diritto alla detrazione** (SOS-02, SOS-05). Nel modulo dati si indica l’avente diritto alla detrazione (nome, cognome, codice fiscale) se diverso dal donante, e l’eventuale opposizione all’invio dei dati all’Agenzia delle Entrate. La causale standard contiene la dicitura “erogazione liberale”, il codice fiscale dell’avente diritto, nome e cognome se non intestatario del conto e il codice dell’adozione o dell’intervento. Vincolo: la causale resta entro 140 caratteri.
+**FR-FIS-01 · Donante e avente diritto alla detrazione** (SOS-02, SOS-05). Nel modulo dati si indica l’avente diritto alla detrazione (nome, cognome, codice fiscale) se diverso dal donante, e l’eventuale opposizione all’invio dei dati all’Agenzia delle Entrate. La causale standard contiene la dicitura “erogazione liberale”, il codice fiscale dell’avente diritto, nome e cognome se non intestatario del conto e il codice dell’adozione o dell’intervento. Vincolo: la causale resta entro 140 caratteri. Il codice fiscale del donante è facoltativo: senza, la donazione è valida ma non riceve la certificazione, e il donatore ne è avvisato prima del pagamento. L’indirizzo non è richiesto.
 
 **FR-RING-01 · Conferme e ringraziamenti automatici** (SOS-04, SOS-05, AMM-03). Alla scelta del bonifico parte un’email con IBAN e causale standard. La **conferma di donazione con il ringraziamento** parte al pagamento con carta o al caricamento della quietanza, e indica che non è valida ai fini fiscali (FR-RIC-01). Alla chiusura di un’adozione parte un’email di ringraziamento per il sostegno dato. I testi sono modelli modificabili dall’amministratore; il bot non invia più ringraziamenti; in caso di errore di invio il sistema ritenta e lo segnala nella vista d’insieme.
 
@@ -770,43 +850,53 @@ L’amministratore aggiunge o toglie dalla vetrina, dalla dashboard, sia le rich
 
 **FR-INT-01 · Finanziatori di un intervento.** Un intervento ha uno o più finanziatori, ciascuno con la propria quota; la somma delle quote non supera il costo. Nel caso normale c’è un solo finanziatore. **Motivazione:** prevedere subito il caso multiplo evita migrazioni del modello dei dati.
 
-**FR-INT-02 · Imputazione delle entrate** (AMM-05). Ogni entrata confermata va imputata a un capitolo (adozioni, adozioni in casa famiglia, casetta, affitto, animali, operazione, sedia a rotelle…, casa famiglia Effatà, Cassa sostegno Effatà) e, dove previsto, a un intervento, che diventa una “cosa da fare”. Ogni capitolo corrisponde a un ID_PROGETTO di VERIF!CO.
+**FR-INT-02 · Imputazione delle entrate** (AMM-05). Ogni entrata confermata va imputata a un capitolo (adozioni, adozioni in casa famiglia, casetta, affitto, animali, operazione, sedia a rotelle…, casa famiglia Effatà, Cassa sostegno Effatà) e, dove previsto, a un intervento, che diventa una “cosa da fare”. Ogni capitolo corrisponde a un Progetto di VERIF!CO (ID_PROGETTO), che porta il movimento sul conto di ricavo:
 
-**FR-INT-03 · Checklist di rendicontazione per tipo** (VOL-01, SOS-07). Ogni tipo di intervento ha un elenco di prove di realizzazione richieste, configurabile dall’amministratore: foto della consegna per materassi, scarpe e animali; iscrizione e foto per le adozioni; foto, contratto e fattura dove esistono, come per la casetta. Un intervento è “rendicontato” solo con tutte le prove caricate, che diventano visibili al donante nella sua area riservata (con le regole di FR-CON-01). Quando le prove arrivano dal bot, il bot mostra le voci mancanti, l’AI propone quella giusta guardando le foto e il volontario conferma con un tocco, una volta per invio; le foto che non corrispondono a una voce vanno nella scheda come aggiornamento.
+| Categorie del gestionale | Progetto e conto di VERIF!CO |
+| --- | --- |
+| Adozione scolastica | Adozioni scolastiche (215.020.01) |
+| Adozione in casa famiglia; opere e sostegno della casa famiglia | Casa struttura (215.020.02) |
+| Materassi, scarpe, animali, costruzione casa, affitto terreno agricolo, acquisto terreno edificabile | Aiuto famiglie in difficoltà (215.020.03) |
+| Operazione chirurgica, carrozzina | Cure ospedaliere (215.020.04) |
+| Cassa sostegno Effatà | Da definire con l’amministratore |
+
+Il tracciato di importazione di VERIF!CO non ha un campo per il conto di bilancio, quindi la destinazione viaggia con il campo Progetti. Che il progetto porti davvero il movimento sul conto giusto va verificato con l’assistenza VERIF!CO (DIP-12, DIP-15). **Motivazione:** oggi l’imputazione in VERIF!CO si fa con il conto di bilancio e i Progetti quasi non sono usati.
+
+**FR-INT-03 · Checklist di rendicontazione per tipo** (VOL-01, SOS-07). Ogni tipo di intervento ha un elenco di prove di realizzazione richieste, configurabile dall’amministratore: foto della consegna per materassi, scarpe e animali; iscrizione, foto con la divisa e prova di fine anno per l’anno scolastico (FR-ADO-06); foto, contratto e fattura dove esistono, come per la casetta. Un intervento è “rendicontato” solo con tutte le prove caricate, che diventano visibili al donante nella sua area riservata (con le regole di FR-CON-01). Quando le prove arrivano dal bot, il bot mostra le voci mancanti, l’AI propone quella giusta guardando le foto e il volontario conferma con un tocco, una volta per invio; le foto che non corrispondono a una voce vanno nella scheda come aggiornamento.
 
 **FR-INT-04 · Costo dichiarato dell’intervento** (AMM-01, AMM-08). Ogni tipo di intervento ha un costo standard in un listino configurabile, proposto come valore iniziale; ogni richiesta può avere un costo proprio (per esempio l’adozione in casa famiglia di un bambino con disabilità). La spesa coincide con il costo dichiarato e finanziato dal donante; non si registrano fatture di spesa. Il volontario che prepara una richiesta può proporre un costo diverso dal listino (es. il preventivo di un’operazione indicato dalla referente); decide l’amministratore all’approvazione. Il costo si può modificare solo prima del primo pagamento, poi resta congelato.
 
 **FR-INT-05 · Donazioni generiche** (AMM-05). Un’entrata senza destinazione specifica va nel capitolo “Cassa sostegno Effatà”, senza creare interventi.
 
-**FR-INT-06 · Imputazione guidata dalla causale** (AMM-05, SOS-05). La parte dell’entrata che corrisponde a interventi riconoscibili dalla causale (tipo e quantità secondo il listino) viene imputata a quegli interventi; tutto ciò che non corrisponde va nella Cassa sostegno Effatà. Esempio: 25 € con causale “materassi” → 2 materassi da 10 € + 5 € in cassa. In fase 1 l’amministratore imputa a mano le causali libere; in fase 2 l’AI potrà proporre l’imputazione, sempre confermata dall’amministratore.
+**FR-INT-06 · Imputazione guidata dalla causale** (AMM-05, SOS-05). La parte dell’entrata che corrisponde a interventi riconoscibili dalla causale (le richieste personali per il loro costo, le voci fisse per l’importo indicato) viene imputata a quegli interventi o a quelle voci; tutto ciò che non corrisponde va nella Cassa sostegno Effatà. Esempio: 200 € con causale “adozione BAM-0102” → 180 € all’adozione + 20 € in cassa. In fase 1 l’amministratore imputa a mano le causali libere; in fase 2 l’AI potrà proporre l’imputazione, sempre confermata dall’amministratore.
 
 **FR-INT-07 · Casa famiglia Effatà** (SOS-06, AMM-07). La casa famiglia Effatà è un progetto specifico dell’associazione: una comunità protetta per minori, di cui la referente è tutore. Ha un proprio capitolo, distinto dalla Cassa sostegno Effatà (la cassa per le donazioni generiche), e un proprio ID_PROGETTO in VERIF!CO. In vetrina ha due voci fisse: **opere della casa famiglia** (lavori e acquisti, importo libero) e **sostegno della casa famiglia** (cibo, cuoca, infermiera, personale assistenziale, manutenzione), che corrisponde ai 50 € al giorno del calendario solidale. Riceve i crediti solidali scaduti (FR-CAR-03), compare fra i capitoli con obiettivo annuale (FR-DASH-02) ed è collegata alle adozioni in casa famiglia.
 
-**FR-INT-08 · Consegne delle voci fisse** (VOL-01). Le donazioni per una voce fissa si accumulano. Quando la referente consegna (es. 10 materassi alla famiglia FAM-0045), il volontario indica quantità e famiglia; il gestionale crea l’intervento e lo assegna alle donazioni più vecchie ancora da rendicontare per quella voce, fino alla quantità consegnata. Chi ha donato prima viene rendicontato prima.
+**FR-INT-08 · Consegne delle voci fisse** (VOL-01, SOS-07). Per le voci fisse si rendiconta la donazione, non si contano le unità. Le donazioni per una voce fissa restano “in attesa di consegna”. Quando la referente manda le foto di una consegna (es. materassi alla famiglia FAM-0045), il volontario le carica con ✅ Aiuto consegnato e la categoria, indicando se vuole la famiglia (utile allo storico, non obbligatoria); il gestionale crea l’intervento e gli collega tutte le donazioni di quella voce ancora da rendicontare, che diventano “rendicontate”: ogni donatore vede le foto con “Consegnato”. Le donazioni successive aspettano la consegna seguente. **Motivazione:** la referente compra e consegna secondo i bisogni, non a pezzi per donatore; contare le unità creerebbe consegne “in più” o “in meno” senza utilità per chi dona.
 
 ### Canali, VERIF!CO e certificazioni
 
-**FR-CAN-01 · Canali di entrata** (AMM-05). Le donazioni arrivano dal conto UniCredit (bonifici singoli e versamenti cumulativi del fornitore delle carte) e da campagne e iniziative esterne come GoFundMe o il calendario solidale. I versamenti delle campagne si imputano alla raccolta fondi corrispondente (ID_RACCOLTAFONDI di VERIF!CO) e possono finanziare interventi, senza creare sostenitori individuali.
+**FR-CAN-01 · Canali di entrata** (AMM-05). Le donazioni arrivano dal conto UniCredit (bonifici singoli e versamenti cumulativi di Stripe, il fornitore delle carte, che gestisce anche Satispay) e da campagne e iniziative esterne come GoFundMe o il calendario solidale. I versamenti delle campagne si imputano alla raccolta fondi corrispondente (ID_RACCOLTAFONDI di VERIF!CO) e possono finanziare interventi, senza creare sostenitori individuali.
 
-**FR-CAN-03 · Calendario solidale** (AMM-04). Il calendario solidale resta un sito a sé (calendario.effataitalia.it), con la sua griglia dei giorni e le gift card; un giorno si adotta una sola volta, con 50 €. La vetrina vi rimanda con la card “Adotta un giorno”. Ogni giorno il gestionale importa in automatico le donazioni del calendario (con un token, non con la password dell’amministratore): le registra come confermate, le imputa al sostegno della casa famiglia, crea o aggiorna l’anagrafica del donatore e le include nel file per VERIF!CO. **Motivazione:** il calendario usa lo stesso account del fornitore delle carte, quindi senza queste donazioni i versamenti sul conto non tornerebbero con le quadrature; inoltre le offerte diventano visibili subito (intervista 3).
+**FR-CAN-03 · Calendario solidale** (AMM-04). Il calendario solidale resta un sito a sé (calendario.effataitalia.it), con la sua griglia dei giorni e le gift card; un giorno si adotta una sola volta, con 50 €, con carta o Satispay tramite Stripe. La vetrina vi rimanda con la card “Adotta un giorno”. Ogni giorno il gestionale importa in automatico le donazioni del calendario (con un token, non con la password dell’amministratore): le registra come confermate, le imputa al sostegno della casa famiglia, crea o aggiorna l’anagrafica del donatore e le include nel file per VERIF!CO. **Motivazione:** il calendario usa lo stesso account del fornitore delle carte, quindi senza queste donazioni i versamenti sul conto non tornerebbero con le quadrature; inoltre le offerte diventano visibili subito (intervista 3).
 
 **FR-CAN-02 · Invito ai donatori delle campagne** (fase 2). Tramite i messaggi della piattaforma l’associazione invita i donatori a registrarsi; i consensi si raccolgono alla registrazione.
 
-**FR-VER-01 · Dati fra gestionale e VERIF!CO** (AMM-06). VERIF!CO resta il riferimento per contabilità, uscite, fornitori, bilancio, certificazioni e newsletter. Le anagrafiche raccolte e completate nel gestionale passano anche a VERIF!CO (direzione gestionale → VERIF!CO); le correzioni fatte direttamente in VERIF!CO vanno riportate anche nel gestionale. Il collegamento avviene tramite l’ID dell’anagrafica VERIF!CO. L’associazione usa **VERIF!CO Maxi** (contabilità per competenza): il file di caricamento contiene solo le **entrate confermate, con importi positivi**, e usa i campi ID_PROGETTO, ID_RACCOLTAFONDI e ID_5PER1000.
+**FR-VER-01 · Dati fra gestionale e VERIF!CO** (AMM-06). VERIF!CO resta il riferimento per contabilità, uscite, fornitori, bilancio, certificazioni e newsletter. Le anagrafiche raccolte e completate nel gestionale passano anche a VERIF!CO (direzione gestionale → VERIF!CO); le correzioni fatte direttamente in VERIF!CO vanno riportate anche nel gestionale. Il collegamento avviene tramite l’ID dell’anagrafica VERIF!CO. L’associazione usa **VERIF!CO Maxi** (contabilità per competenza): il file di caricamento contiene solo le **entrate confermate, con importi positivi**, e usa i campi ID_PROGETTO, ID_RACCOLTAFONDI e ID_5PER1000. I movimenti si collegano alle anagrafiche in due modi: nel tracciato master tramite l’anagrafica, nel tracciato Stripe tramite l’**email**, perché quel tracciato non ha il codice fiscale; per questo l’anagrafica in VERIF!CO deve avere la stessa email usata nel pagamento, e la stessa email non deve appartenere a più anagrafiche. Il tracciato non ha un campo per il conto di bilancio: la destinazione contabile viaggia con il campo Progetti (FR-INT-02).
 
-**FR-VER-02 · Caricamento massivo in VERIF!CO** (AMM-06). Ogni mese, dopo l’importazione dell’estratto conto, il gestionale genera il file Excel nel tracciato master di VERIF!CO con i bonifici confermati e il file nel tracciato del fornitore delle carte con i pagamenti con carta; l’amministratore li carica da “Contabilità → Importazione movimenti” con un’unica operazione. Insieme ai movimenti il gestionale prepara le anagrafiche nuove o modificate (file di importazione, se VERIF!CO lo consente, oppure elenco da inserire a mano). Un invio completamente automatico richiederebbe un’API di VERIF!CO (DIP-12).
+**FR-VER-02 · Caricamento massivo in VERIF!CO** (AMM-06). Ogni mese, dopo l’importazione dell’estratto conto, l’amministratore apre “Contabilità → Prepara VERIF!CO” e il gestionale genera tre file: 1) le **anagrafiche** nuove o modificate, con codice fiscale ed email uguale a quella dei pagamenti (file di importazione, se VERIF!CO lo consente, oppure elenco da inserire a mano); 2) i **bonifici** confermati nel tracciato master; 3) i **pagamenti con carta e Satispay** nel tracciato Stripe, una riga per pagamento (calendario compreso), con l’email del donatore. L’amministratore li carica da “Contabilità → Importazione movimenti” in quest’ordine, prima le anagrafiche e poi i movimenti, e segna il mese come “caricato”. In VERIF!CO i pagamenti con carta entrano sul conto finanziario STRIPE alla data del pagamento; i versamenti di Stripe sul conto UniCredit si registrano come giroconto da STRIPE a UNICREDIT, con le commissioni di Stripe come costo (un movimento per versamento; schema da confermare con il commercialista, Appendice B). Un invio completamente automatico richiederebbe un’API di VERIF!CO (DIP-12).
 
-**FR-VER-03 · Chiusura annuale per le certificazioni** (AMM-06, SOS-08). Dal 1° gennaio la sezione Scadenze mostra la checklist di chiusura dell’anno precedente, con scadenza predefinita al 15 febbraio: estratto conto di dicembre importato; nessuna donazione dell’anno ancora dichiarata o con anomalie; nessun sostenitore senza i dati per la certificazione (codice fiscale dell’avente diritto, indirizzo), con la possibilità di inviare inviti a completarli; file e anagrafiche caricati in VERIF!CO. **Motivazione:** VERIF!CO invia le certificazioni una volta l’anno, fra fine febbraio e inizio marzo; i dati devono essere completi prima.
+**FR-VER-03 · Chiusura annuale per le certificazioni** (AMM-06, SOS-08). Dal 1° gennaio la sezione Scadenze mostra la checklist di chiusura dell’anno precedente, con scadenza predefinita al 15 febbraio: estratto conto di dicembre importato; nessuna donazione dell’anno ancora dichiarata o con anomalie; l’elenco dei donatori dell’anno senza codice fiscale, con la possibilità di inviare inviti a completarlo prima della chiusura; file e anagrafiche caricati in VERIF!CO. **Motivazione:** VERIF!CO invia le certificazioni una volta l’anno, fra fine febbraio e inizio marzo; i dati devono essere completi prima.
 
 **FR-RIC-01 · Certificazioni per la detrazione** (SOS-08, AMM-06). Le certificazioni restano prodotte e inviate da VERIF!CO, una volta l’anno, sulle donazioni dell’anno precedente. Il gestionale invia solo la conferma di donazione con il ringraziamento, non valida ai fini fiscali. Nell’area riservata, da gennaio, il riepilogo annuale delle donazioni in PDF (non valido ai fini fiscali) e il pulsante “Richiedi copia della certificazione”, che crea una richiesta per l’amministratore. Il caricamento dei PDF delle certificazioni sarà valutato dopo la risposta dell’assistenza VERIF!CO (DIP-12).
 
 ### Vista d’insieme, report e impostazioni
 
-**FR-DASH-01 · Vista d’insieme** (AMM-07). La dashboard dell’amministratore mostra: sostenitori (simpatizzanti, sostenitori, archiviati); bambini con e senza sostenitore; famiglie con e senza modulo di consenso; donazioni del periodo, dichiarate e confermate separatamente; entrate da abbinare o da imputare; Cassa sostegno Effatà; crediti solidali attivi; interventi per tipo e per stato con le prove mancanti; padrini storici senza bambino e bambini senza padrino; invii dal bot rifiutati; segnalazioni e anomalie. Ogni numero si apre in un elenco. Il volontario vede solo i numeri operativi, senza importi.
+**FR-DASH-01 · Vista d’insieme** (AMM-07). La dashboard dell’amministratore mostra: persone per ruolo (ospiti, simpatizzanti, sostenitori, archiviati) e quanti ospiti diventano sostenitori; donatori senza codice fiscale; bambini con e senza sostenitore; famiglie con e senza modulo di consenso; donazioni del periodo, dichiarate e confermate separatamente; entrate da abbinare o da imputare; Cassa sostegno Effatà; crediti solidali attivi; interventi per tipo e per stato con le prove mancanti; padrini storici senza bambino e bambini senza padrino; invii dal bot rifiutati; segnalazioni e anomalie. Ogni numero si apre in un elenco. Il volontario vede solo i numeri operativi, senza importi.
 
 **FR-DASH-02 · Obiettivi e andamento** (AMM-07). L’amministratore fissa un obiettivo annuale per ogni capitolo; la vista d’insieme mostra raccolto contro obiettivo, con la percentuale, e l’andamento mese per mese di donazioni e interventi, confrontato con lo stesso periodo dell’anno precedente. Gli obiettivi potranno essere ripresi dal piano economico di VERIF!CO, se esiste (Appendice B). **Motivazione:** interviste 1 e 3 (cap. 6.2): avere sempre il dato aggiornato rispetto al previsionale.
 
-**FR-REP-01 · Filtri, report e scadenze** (AMM-07). Ogni elenco è paginato, filtrabile per categoria e periodo ed esportabile in Excel. La sezione Scadenze raccoglie in un solo punto le date da rispettare: chiusura annuale (FR-VER-03), crediti solidali in scadenza, impegni con bonifico in attesa di quietanza, richieste senza sostenitori, rinnovi delle adozioni (fase 2). **Motivazione:** intervista 4 (cap. 6.2).
+**FR-REP-01 · Filtri, report e scadenze** (AMM-07). Ogni elenco è paginato, filtrabile per categoria e periodo ed esportabile in Excel. La sezione Scadenze raccoglie in un solo punto le date da rispettare: importazione dell’estratto conto del mese precedente (entro il giorno 10), chiusura annuale (FR-VER-03), crediti solidali in scadenza, impegni con bonifico in attesa di quietanza, richieste senza sostenitori, rinnovi delle adozioni (fase 2). **Motivazione:** intervista 4 (cap. 6.2).
 
 **FR-REP-02 · Ricerca e situazione di una persona** (AMM-07). L’amministratore cerca una persona per nome, email, codice fiscale o IBAN, oppure un beneficiario per nome o codice, e ne apre la situazione completa: dati, donazioni con il loro stato, adozioni e interventi sostenuti, crediti, comunicazioni inviate. **Motivazione:** intervista 4 (cap. 6.2): trovare subito le informazioni senza scorrere elenchi.
 
@@ -826,6 +916,9 @@ L’amministratore aggiunge o toglie dalla vetrina, dalla dashboard, sia le rich
 | Scadenza del credito solidale | 1 mese |
 | Bambini senza aggiornamenti in “Cose da fare” | 6 mesi |
 | Scadenza della chiusura annuale | 15 febbraio |
+| Durata dell’accesso ospite e promemoria (FR-REG-05) | 7 giorni, promemoria al 5° |
+| Promemoria dell’importazione dell’estratto conto | Entro il giorno 10 del mese |
+| Scadenza della presa in carico in “Cose da fare” | 30 giorni |
 | Inattività dell’accesso (fase 2) | 12 mesi |
 
 ### Codici, foto e comunicazioni
@@ -846,9 +939,9 @@ Il bot social resta un sistema separato, proprietario dei contenuti social; il g
 
 **FR-BOT-03 · Categorie dal gestionale** (VOL-04). Il bot legge dal gestionale la lista delle categorie e il loro prezzo ogni volta che il volontario sceglie una categoria: una categoria aggiunta dall’amministratore compare subito. Restano nel bot le regole per i testi, le parole chiave dei commenti e i link, che sono contenuti social.
 
-**FR-BOT-04 · Foto, testi e ordine** (VOL-02, VOL-04). Le risposte date al bot valgono per tutto l’invio. Il volontario carica tutte le foto; un testo della referente resta legato a una foto se arriva come didascalia o con “Rispondi” sulla foto. Poi il bot mostra un foglio provini numerato e il volontario tocca le foto per i social nell’ordine della storia; Claude scrive carosello, Storie e un testo per la vetrina seguendo quell’ordine e i testi agganciati. Al gestionale arrivano tutte le foto originali, con livello di visibilità, testi e ordine.
+**FR-BOT-04 · Foto, testi e ordine** (VOL-02, VOL-04). Le risposte date al bot valgono per tutto l’invio. Il volontario carica tutte le foto; un testo della referente resta legato a una foto se arriva come didascalia o con “Rispondi” sulla foto. Poi il bot mostra un foglio provini, cioè un’unica immagine con le anteprime numerate delle foto (segnate quelle con un testo agganciato), e il volontario tocca le foto per i social nell’ordine della storia, con “Annulla ultima” per correggere; se non ne sceglie nessuna, il bot non pubblica nulla e le foto vanno solo al gestionale. Claude scrive carosello, Storie e un testo per la vetrina seguendo quell’ordine e i testi agganciati. Se l’invio contiene un testo per la scheda, il bot chiede “Contiene informazioni sulla salute?”: con “Sì” il testo va nel campo sanitario, visibile solo all’amministratore, e non esce sui social. Al gestionale arrivano tutte le foto originali, con livello di visibilità, testi e ordine.
 
-**FR-BOT-05 · Aggancio al beneficiario** (AMM-01, VOL-01, VOL-02). Il bot propone il nome del bambino (o del genitore, per una famiglia) letto dal messaggio della referente e chiede al gestionale i candidati, che mostra con codice, età, villaggio e foto profilo; il volontario tocca quello giusto. Se nel messaggio c’è un codice, chiede solo la conferma. Nessun abbinamento avviene senza la conferma di una persona. Se nessuno corrisponde, il volontario propone un bambino nuovo, confermato dall’amministratore. Il gestionale dà al bot solo i dati che un volontario può già vedere.
+**FR-BOT-05 · Aggancio al beneficiario** (AMM-01, VOL-01, VOL-02). Il bot propone il nome del bambino (o del genitore, per una famiglia) letto dal messaggio della referente e chiede al gestionale i candidati, filtrati secondo il tipo di invio: per ✅ Aiuto consegnato solo i bambini o le famiglie con un intervento pagato e prove mancanti; per 🆘 Richiesta di aiuto solo i bambini senza sostenitore e senza una richiesta aperta; per un aggiornamento solo i bambini con un’adozione attiva. Se resta un solo candidato il bot chiede solo la conferma; altrimenti li mostra con codice, età, villaggio e foto profilo e il volontario tocca quello giusto. “Cerca fra tutti” allarga la ricerca; “Nessuno: è nuovo” propone un bambino nuovo, confermato dall’amministratore. Se nel messaggio c’è un codice, il bot chiede solo la conferma. Nessun abbinamento avviene senza la conferma di una persona. Il gestionale dà al bot solo i dati che un volontario può già vedere. **Motivazione:** molti bambini hanno lo stesso nome; cercare solo fra quelli che hanno senso in quel momento riduce errori e tocchi.
 
 **FR-BOT-06 · Consegna al gestionale ed errori** (VOL-04). Prima di pubblicare il bot chiede al gestionale il consenso (FR-CON-01). Dopo la pubblicazione consegna il pacchetto; se il gestionale non risponde lo mette in coda, ritenta ogni 10 minuti e avvisa il volontario quando è arrivato. Un invio rifiutato viene spiegato al volontario e segnalato all’amministratore; un invio ripetuto non crea doppioni.
 
@@ -858,7 +951,7 @@ Il bot social resta un sistema separato, proprietario dei contenuti social; il g
 
 ### Recupero dei dati esistenti
 
-**FR-STO-01 · Importazione iniziale e censimento progressivo** (AMM-09; fase 1). Prima dell’avvio si importano da VERIF!CO i padrini, con anagrafica, IBAN e storico delle donazioni, come “padrini storici” senza account. I nomi dei bambini trovati nelle note di VERIF!CO e nelle storie del bot diventano indizi, non bambini. I bambini entrano poco alla volta, dalle foto di ogni giorno e dagli elenchi per villaggio compilati dalla referente; l’amministratore abbina padrini e bambini con la conferma della referente, usando le liste “padrini senza bambino” e “bambini senza padrino”. Finché l’abbinamento non è confermato, l’adozione resta “storica, bambino da identificare” e il padrino non riceve foto. L’avvio è graduale: si parte con un primo gruppo di famiglie, un villaggio o 30–50 famiglie, con i moduli di consenso già raccolti. Durante il passaggio il gruppo WhatsApp dei sostenitori resta attivo.
+**FR-STO-01 · Importazione iniziale e censimento progressivo** (AMM-09; fase 1). Prima dell’avvio si importano da VERIF!CO le anagrafiche e i movimenti **dal 2025** (il 2024 usa un piano dei conti diverso). È padrino storico chi ha almeno un versamento di 180 € o multipli nel conto delle adozioni scolastiche: le adozioni non si pagano a rate, e gli importi minori sono altre donazioni; un multiplo (es. 360 €) indica forse più bambini, da confermare. I padrini entrano con anagrafica e storico delle donazioni, come “padrini storici” senza account; gli IBAN si imparano dai bonifici successivi, perché VERIF!CO non li conserva. I nomi brevi nel campo Note delle anagrafiche (oggi 248) e quelli nelle storie del bot diventano indizi, non bambini. Il padrino storico non ancora abbinato vede nella sua area “Stiamo ritrovando il tuo bambino” (SOS-07). I bambini entrano poco alla volta, dalle foto di ogni giorno e dagli elenchi per villaggio compilati dalla referente; l’amministratore abbina padrini e bambini con la conferma della referente, usando le liste “padrini senza bambino” e “bambini senza padrino”. Finché l’abbinamento non è confermato, l’adozione resta “storica, bambino da identificare” e il padrino non riceve foto. L’avvio è graduale: si parte con un primo gruppo di famiglie, un villaggio o 30–50 famiglie, con i moduli di consenso già raccolti. Durante il passaggio il gruppo WhatsApp dei sostenitori resta attivo.
 
 ### Fase 2
 
@@ -879,13 +972,13 @@ Le schede descrivono **quali informazioni** servono e chi le vede, non come sono
 | **Identità** |   |   |   |   |
 | Tipo (persona / ente o azienda) | Certificazioni e contabilità cambiano | Sostenitore | Sì | A, S |
 | Nome e cognome / ragione sociale | Identificazione | Sostenitore | Sì | A, S; V solo se abilitato |
-| Codice fiscale / partita IVA | Certificazione per la detrazione, allineamento con VERIF!CO | Sostenitore | Alla prima donazione | Dato fiscale: A, S |
+| Codice fiscale / partita IVA | Certificazione per la detrazione, allineamento con VERIF!CO | Sostenitore | No: chiesto alla prima donazione; senza, niente certificazione (FR-FIS-01) | Dato fiscale: A, S |
 | **Contatti** |   |   |   |   |
 | Email | Accesso all’area riservata, comunicazioni | Sostenitore | Sì | A, S |
 | Telefono / WhatsApp | Contatto diretto | Sostenitore | No | A, S |
-| Indirizzo e provincia | Certificazione per la detrazione | Sostenitore | Alla prima donazione | A, S |
+| Provincia (e indirizzo, se il sostenitore vuole) | Nome nei post social (“Maria R. di Treviso”, FR-COM-02); l’indirizzo non serve alla certificazione | Sostenitore | No | A, S |
 | **Rapporto con Effatà** |   |   |   |   |
-| Ruoli (simpatizzante, sostenitore, socio, volontario) | Una persona può averne più di uno (FR-REG-04) | Sistema / amministratore | Sì | A, S |
+| Ruoli (ospite, simpatizzante, sostenitore, socio, volontario) | Una persona può averne più di uno (FR-REG-04) | Sistema / amministratore | Sì | A, S |
 | Data di registrazione e origine del dato | Autoregistrato, importato da VERIF!CO o inserito dall’amministratore | Sistema | Sì | A |
 | Quota associativa (se socio, fase 2) | Anno e stato del pagamento (FR-SOC-01) | Sistema | — | A, S |
 | Come ci ha conosciuto | Utile all’associazione | Sostenitore | No | A |
@@ -895,8 +988,8 @@ Le schede descrivono **quali informazioni** servono e chi le vede, non come sono
 | **Detrazione e consensi** |   |   |   |   |
 | Avente diritto alla detrazione (nome, cognome, CF), se diverso | Certificazione; causale standard (FR-FIS-01) | Sostenitore | Solo se diverso | Dato fiscale: A, S |
 | Opposizione all’invio dei dati all’Agenzia delle Entrate | Scelta del donante (FR-FIS-01) | Sostenitore | No | A, S |
-| Consenso privacy (data, versione dell’informativa) | Obbligo GDPR, prova del consenso | Sostenitore | Sì | A, S |
-| Preferenze di comunicazione e newsletter | Separate dal consenso privacy (FR-COM-01) | Sostenitore | No | A, S |
+| Presa visione dell’informativa privacy (data, versione) | Obbligo GDPR, prova dell’informazione data | Sostenitore | Sì | A, S |
+| Preferenze di comunicazione e newsletter | Consensi facoltativi, separati dall’informativa (FR-COM-01) | Sostenitore | No | A, S |
 | Consenso a comparire nei post social | Il bot riceve nome, iniziale del cognome e provincia solo con questo consenso (FR-COM-02) | Sostenitore | No | A, S |
 | Indizi dal recupero (nome del bambino nelle note di VERIF!CO o nel bot) | Abbinamento padrino–bambino (AMM-09) | Sistema | — | A |
 | **Collegamenti** |   |   |   |   |
@@ -939,11 +1032,12 @@ Una famiglia ha uno o più bambini, ciascuno adottato dal proprio sostenitore. G
 
 ### Scheda intervento
 
-L’intervento collega donazioni e beneficiari: “adozione scolastica di BAM-0102 per l’anno 2026”, “casa per la famiglia FAM-0045”, “10 materassi alla famiglia FAM-0112”. Nasce da una richiesta personale quando arriva il pagamento, oppure dalla consegna di una voce fissa (FR-INT-08).
+L’intervento collega donazioni e beneficiari: “adozione scolastica di BAM-0102 per l’anno 2026”, “casa per la famiglia FAM-0045”, “consegna di materassi alla famiglia FAM-0112”. Nasce da una richiesta personale quando arriva il pagamento, oppure dalla consegna di una voce fissa (FR-INT-08).
 
 | Campo | Perché serve | Chi lo inserisce | Obbl. | Visibile a / note privacy |
 | --- | --- | --- | --- | --- |
 | Tipo di intervento | Adozione scolastica, adozione in casa famiglia, casetta, affitto terreno, animali, materassi, scarpe, carrozzina, operazione… | Amministratore | Sì | A, V, S |
+| Anno scolastico (solo adozioni) | Un intervento per ogni anno pagato (FR-ADO-06) | Sistema | Per le adozioni | A, V, S |
 | Beneficiario | Bambino, famiglia o comunità | Amministratore | Sì | A, V, S (con le regole della scheda bambino) |
 | Finanziatori e quote | Chi lo finanzia (FR-INT-01) | Sistema | Sì | A; S vede solo la propria quota |
 | Costo dichiarato e raccolto | Sapere se è coperto; costo congelato al primo pagamento (FR-INT-04) | Amministratore | Sì | A, S; V senza importi |
@@ -954,53 +1048,37 @@ L’intervento collega donazioni e beneficiari: “adozione scolastica di BAM-01
 
 # 6. Requisiti non funzionali
 
-**Stato:** **MANCANTE**
+## 6.1 Requisiti con soglia
 
-*Origine: unione fra la nostra bozza e il template del docente*
-
-> **🧭 Dal template**
->
-> - Ogni requisito ha una **soglia**, una **condizione** e un **modo per verificarlo**, ed è collegato ad almeno una user story.
-> - Famiglie da coprire: prestazioni, disponibilità, scalabilità, sicurezza, conformità, usabilità, ambientali, supporto, interazione. Se una famiglia resta vuota, scrivi perché non vi riguarda.
-> - I requisiti trasversali della traccia (HTTPS, paginazione, OpenAPI, errori uniformi, Dev e Prod) sono obbligatori: riportali con il loro ID.
-
-> **✔ Esempio del template adattato**
->
-> NFR-01 · Prestazioni · Apertura della scheda bambino nel picco dopo la newsletter · meno di 2 s per il 95% delle richieste con N utenti nello stesso minuto · Test di carico · SOS-07.
-
-Nella colonna **Requisito** trovi le categorie della nostra bozza, già assegnate alla famiglia del template.
+Ogni requisito ha una soglia misurabile, la condizione in cui vale, il modo in cui si verifica e le storie a cui si collega. Le soglie partono dai numeri del capitolo 3.1: circa 1.000 donatori e 760 email, con il picco dopo l’invio della newsletter (circa il 5% dei destinatari nello stesso minuto, cioè 50 persone). I requisiti trasversali della traccia sono NFR-06, NFR-12, NFR-13b, NFR-14 e NFR-15.
 
 | ID | Famiglia | Requisito | Soglia e condizione | Come si verifica | Storie |
 | --- | --- | --- | --- | --- | --- |
-| NFR-01 | Prestazioni | Tempo di risposta area sostenitori nel picco | es. < 2 s per il 95% delle richieste, N utenti nello stesso minuto | es. test di carico | es. SOS-07 |
-| NFR-02 | Prestazioni | Tempo di elaborazione di un estratto conto |   |   |   |
-| NFR-03 | Disponibilità | Disponibilità del servizio |   |   |   |
-| NFR-04 | Disponibilità | Backup e ripristino |   |   |   |
-| NFR-05 | Scalabilità | Crescita di sostenitori e foto |   |   |   |
-| NFR-06 | Sicurezza | Tutto il traffico su HTTPS (trasversale) |   |   |   |
-| NFR-07 | Sicurezza | Controllo ruoli nel backend |   |   |   |
-| NFR-08 | Conformità | GDPR e dati di minori |   |   |   |
-| NFR-09 | Conformità | Conservazione dei dati (per quanto tempo?) |   |   |   |
-| NFR-10 | Usabilità | Accessibilità per sostenitori anziani |   |   |   |
-| NFR-11 | Ambientale | Connettività limitata in Uganda |   |   |   |
-| NFR-12 | Supporto | Manutenibilità e documentazione OpenAPI (trasversale) |   |   |   |
+| NFR-01 | Prestazioni | Velocità della vetrina e dell’area sostenitore | Meno di 2 s per il 95% delle pagine, con 50 utenti nello stesso minuto | Test di carico | SOS-03, SOS-07 |
+| NFR-02 | Prestazioni | Importazione dell’estratto conto | Un mese di movimenti (fino a 300 righe) importato in meno di 30 s | Test con un file di prova | AMM-04 |
+| NFR-03 | Disponibilità | Disponibilità del servizio | 99% al mese (al massimo circa 7 ore di fermo); manutenzione di notte, annunciata | Monitoraggio esterno con avviso via email all’amministratore e allo sviluppatore | Tutte |
+| NFR-04 | Disponibilità | Backup e ripristino | Database ogni notte, copie conservate 30 giorni, una copia fuori dal server; foto ogni settimana. Al massimo un giorno di dati perso; ripristino entro 4 ore | Prova di ripristino completa prima del collaudo, poi una volta l’anno | Tutte |
+| NFR-05 | Scalabilità | Crescita di sostenitori, bambini e foto | Il sistema regge il triplo dei numeri attuali (3.000 sostenitori, 4.000 bambini, 50.000 foto) senza cambiare architettura; le foto sono ridotte e hanno una miniatura | Test con dati generati | AMM-02, VOL-01, VOL-02 |
+| NFR-06 | Sicurezza | Tutto il traffico su HTTPS (trasversale) | Nessuna pagina né API raggiungibile in chiaro: http rediretto su https; certificato rinnovato in automatico | Test SSL Labs con voto A | Tutte |
+| NFR-07 | Sicurezza | Controllo di ruoli e proprietà nel backend | Ogni endpoint controlla ruolo e proprietà del dato, anche per le richieste del bot; ogni endpoint protetto ha un test che verifica il diniego (403) | Test automatici nel CI | Tutte, FR-VIS-01, FR-RUO-01 |
+| NFR-08 | Conformità | GDPR e dati di minori | Foto dei minori mai pubbliche: servite con link firmati che scadono dopo 10 minuti; dati sensibili solo all’amministratore, con registro degli accessi (chi, quando, cosa); dati su server nell’Unione europea | Revisione del codice e test | AMM-02, VOL-02, SOS-07, FR-CON-01, FR-RUO-02 |
+| NFR-09 | Conformità | Conservazione dei dati | Donazioni e dati fiscali: 10 anni. Storico e foto dei bambini usciti dal programma: 10 anni, poi anonimizzati. Email degli ospiti mai registrati: cancellata dopo 6 mesi. Log tecnici: 12 mesi | Procedura automatica di pulizia, con test | SOS-09, AMM-02, FR-REG-05 |
+| NFR-10 | Usabilità | Accessibilità per i sostenitori meno pratici | Pagine dei sostenitori conformi a WCAG 2.1 livello AA, testo di almeno 16 px; dal carrello al pagamento al massimo 4 passaggi | Controllo automatico dell’accessibilità; durante il collaudo 3 sostenitori sopra i 60 anni, scelti con l’associazione, completano da soli una donazione di prova | SOS-01, SOS-03, SOS-04 |
+| NFR-11 | Ambientale | Rete lenta | Prima pagina caricata in meno di 3 s su un telefono con rete 3G simulata; vale anche per il futuro accesso dall’Uganda | Test con rete simulata | SOS-03, SOS-07 |
+| NFR-12 | Supporto | Documentazione delle API (trasversale) | Tutti gli endpoint documentati in OpenAPI, generata dal codice; collezione Postman per le chiamate principali | Controllo automatico nel CI | Tutte |
 | NFR-13 | Interazione | Lingua: solo italiano in questa versione; testi in file di traduzione separati per aggiungere l’inglese con l’accesso dall’Uganda | Nessun testo dell’interfaccia scritto nel codice | Revisione del codice | Tutte |
-| NFR-13b | Interazione | Errori in formato uniforme (trasversale) |   |   |   |
-| NFR-14 | Interazione | Elenchi paginati (trasversale) |   |   |   |
-| NFR-15 | Supporto | Ambienti Development e Production senza segreti nel codice (trasversale) |   |   |   |
+| NFR-13b | Interazione | Errori in formato uniforme (trasversale) | Tutti gli errori con lo stesso formato (codice, messaggio, campi non validi), secondo lo standard RFC 7807 | Test sugli endpoint | Tutte |
+| NFR-14 | Interazione | Elenchi paginati (trasversale) | Tutti gli elenchi paginati: 20 righe se non indicato, al massimo 100 | Test sugli endpoint | AMM-07, VOL-03, SOS-08 |
+| NFR-15 | Supporto | Ambienti Development e Production senza segreti nel codice (trasversale) | Ambienti separati, con dati di prova in Development; segreti solo in variabili d’ambiente, con il file `.env.example`; scansione dei segreti a ogni commit | Scansione automatica nel CI | Tutte |
 | NFR-16 | Supporto | Passaggio di consegne: il sistema può essere affidato a un altro sviluppatore | Seguendo solo il README, un nuovo sviluppatore avvia il progetto in locale ed esegue i test in mezza giornata; tutti gli account di servizio (hosting, dominio, email, pagamenti, repository) sono intestati all’associazione | Prova con uno sviluppatore esterno; verifica degli intestatari degli account | Tutte |
 | NFR-17 | Affidabilità | Affidabilità dei dati economici: un numero mostrato è sempre verificabile, altrimenti compare un’anomalia | Differenza zero fra donazioni confermate del mese, imputazioni e totali dei file per VERIF!CO; nessuna donazione cancellata (solo annullata con motivo); ogni modifica di un dato economico registrata con chi e quando | Test automatici di quadratura su dati di prova; collaudo su un mese di dati reali anonimizzati confrontato con VERIF!CO | AMM-04, AMM-05, AMM-06, AMM-07 |
 | NFR-18 | Prestazioni | Tempestività: le donazioni sono visibili all’associazione appena dichiarate, senza aspettare l’estratto conto | Donazione con carta nella vista d’insieme entro 1 minuto dalla conferma del fornitore; donazione con bonifico visibile come “dichiarata” subito dopo il caricamento della quietanza | Test end-to-end con il fornitore in modalità di prova | SOS-04, SOS-05, AMM-07 |
 | NFR-19 | Usabilità | Caricamento di più foto insieme, anche dal telefono | Fino a 20 foto in una sola selezione, con avanzamento visibile; un file non riuscito si ricarica da solo, senza ripetere gli altri | Prova d’uso con un volontario reale | VOL-01, VOL-02 |
+| NFR-20 | Interazione | Risposte del gestionale al bot | Meno di 1 s per il 95% delle richieste del bot (candidati, consenso, voci della checklist), perché il volontario aspetta nella chat | Test di carico sulle API del bot | VOL-01, VOL-02, VOL-04, FR-BOT-05 |
 
 ## 6.2 Requisiti impliciti
 
-*Origine: template del docente – sezione nuova, non presente nella nostra bozza*
-
-> **🧭 Dal template, adattato**
->
-> - Intervista per dieci minuti un utente reale. Una sola domanda: **“Cosa daresti per scontato che un’app di questo tipo faccia sempre, o non faccia mai?”**
-> - Nel tuo caso intervista almeno un **sostenitore** e il **tesoriere**. Esempio di risposta: “Una donazione registrata non deve sparire, mai”.
+I requisiti impliciti sono ciò che un utente dà per scontato e quindi non dice. Sono stati raccolti con una sola domanda: “Cosa daresti per scontato che un’app di questo tipo faccia sempre, o non faccia mai?”
 
 Prime interviste: 01/10/2026, rivolte a membri dell’associazione (ruoli da indicare, Appendice B). L’intervista a un sostenitore è ancora da fare.
 
@@ -1014,60 +1092,58 @@ Prime interviste: 01/10/2026, rivolte a membri dell’associazione (ruoli da ind
 
 # 7. Assunzioni, vincoli e dipendenze
 
-**Stato:** **MANCANTE**
-
-*Origine: template del docente – sezione nuova, non presente nella nostra bozza*
-
-> **🧭 Dal template**
->
-> - **Assunzioni**: ciò che date per vero senza poterlo garantire. **Vincoli**: i limiti che non potete cambiare. **Dipendenze**: le cose esterne senza cui non potete andare avanti.
-> - Le righe precompilate sono **proposte** emerse dalla nostra analisi: confermale, correggile o cancellale.
+Le **assunzioni** sono ciò che diamo per vero senza poterlo garantire; i **vincoli** sono i limiti che non possiamo cambiare; le **dipendenze** sono le cose esterne senza cui il lavoro non può andare avanti.
 
 ## 7.1 Assunzioni
 
 | ID | Assunzione | Cosa succede se è falsa |
 | --- | --- | --- |
-| ASS-01 | L’associazione ha 700–800 sostenitori e ~1.200 bambini adottati (cap. 3.1) | Il dimensionamento va rifatto |
-| ASS-02 | Gli estratti conto contengono i dati necessari all’abbinamento (codice fiscale?) |   |
-| ASS-03 | Gli operatori in Uganda hanno uno smartphone con Telegram |   |
-| ASS-04 | I sostenitori hanno un indirizzo email valido |   |
-| ASS-05b | Il costo dichiarato di un intervento corrisponde alla spesa effettiva (FR-INT-04) | La rendicontazione economica va rivista |
+| ASS-01 | L’associazione ha circa 700 padrini, oltre 1.000 donatori e ~1.200 bambini adottati (cap. 3.1) | Il dimensionamento va rifatto |
+| ASS-02 | L’estratto conto UniCredit contiene data, importo, causale completa e nome o IBAN dell’ordinante | Quasi tutti gli abbinamenti diventano manuali |
+| ASS-03 | La referente continua a mandare foto e testi nel gruppo WhatsApp, e almeno un volontario li carica nel bot ogni giorno | Le prove arrivano in ritardo e la rendicontazione rallenta |
+| ASS-04 | La maggior parte dei sostenitori ha un’email valida (oggi il 71% delle anagrafiche) | Chi non ha email non accede all’area riservata: resta padrino storico, contattato tramite la referente |
+| ASS-05 | Il costo dichiarato di un intervento corrisponde alla spesa effettiva (FR-INT-04) | La rendicontazione economica va rivista |
 | ASS-06 | La referente può compilare dal telefono gli elenchi dei bambini per villaggio e confermare gli abbinamenti con i padrini (AMM-09) | Il recupero delle adozioni storiche rallenta; restano più adozioni “da identificare” |
 | ASS-07 | I volontari hanno un account Telegram personale da collegare al gestionale (FR-BOT-02) | Serve un’alternativa: il caricamento dalle schermate del gestionale |
+| ASS-08 | In VERIF!CO ogni anagrafica ha un’email propria, uguale a quella usata nei pagamenti con carta (FR-VER-01) | Il tracciato Stripe collega il pagamento alla persona sbagliata o crea anagrafiche nuove: serve un controllo prima del caricamento |
+| ASS-09 | Stripe resta l’unico fornitore per carta e Satispay, sia per il gestionale sia per il calendario solidale | Le quadrature dei versamenti vanno riprogettate |
 
 ## 7.2 Vincoli
 
 | ID | Vincolo | Da dove viene |
 | --- | --- | --- |
-| VIN-01 | Budget mensile limitato di un’ODV | Associazione |
+| VIN-01 | Budget limitato di un’ODV: costi nuovi di hosting e servizi entro 30 € al mese | Associazione |
 | VIN-02 | Trattamento di dati di minori e dati fiscali | GDPR |
 | VIN-03 | Formato di importazione imposto da Verifico.it | Verifico.it |
 | VIN-04 | Sviluppatore singolo e tempi del corso ITS | Progetto didattico |
 | VIN-05 | Requisiti trasversali della traccia (HTTPS, OpenAPI, Postman, Dev/Prod, deploy pubblico) | Traccia del progetto |
-| VIN-06 |   |   |
+| VIN-06 | Il bot social resta un sistema separato, con il proprio database: parla con il gestionale solo tramite API | Scelta di progetto (FR-BOT) |
+| VIN-07 | Hosting sul server Hostinger dell’associazione, lo stesso del bot e del calendario solidale, con un sottodominio di effataitalia.it | Associazione |
 
 ## 7.3 Dipendenze
 
 | ID | Dipendenza | Serve entro | Chi se ne occupa |
 | --- | --- | --- | --- |
-| DIP-01 | Estratti conto reali (anonimizzati) per test |   |   |
-| DIP-02 | Formato ufficiale di importazione Verifico.it |   |   |
-| DIP-03 | Token del bot Telegram |   |   |
-| DIP-04 | Account e chiave del provider AI |   |   |
+| DIP-01 | Un estratto conto reale anonimizzato (nomi e IBAN sostituiti con dati inventati), anche di un solo mese | Inizio dello sviluppo dell’importazione | Andrea Pavan |
+| DIP-02 | Tracciati di importazione di VERIF!CO | Disponibili dal 01/10/2026 (master e Stripe); manca quello delle anagrafiche (DIP-12) | Andrea Pavan |
+| DIP-03 | Token del bot dedicato al collegamento con il gestionale, diverso da quello attuale | Prima del collaudo della fase 1 | Andrea Pavan |
+| DIP-04 | Account Anthropic intestato all’associazione, con chiavi separate per Development e Production | Inizio dello sviluppo delle modifiche al bot | Presidente / Andrea Pavan |
 | DIP-05 | Account Brevo (già usato come relay SMTP da VERIF!CO): chiave dedicata per le email del gestionale; verificare i limiti del piano | Prima del collaudo | Andrea Pavan |
-| DIP-06 | Server / dominio per il deploy |   |   |
-| DIP-07 | Consenso dell’associazione a usare dati e foto reali nel collaudo |   |   |
+| DIP-06 | Sottodominio di effataitalia.it per il gestionale (es. gestionale.effataitalia.it) sul server Hostinger | Primo deploy | Andrea Pavan |
+| DIP-07 | Consenso dell’associazione a usare dati e foto reali nel collaudo | Prima del collaudo della fase 1 | Presidente |
 | DIP-08 | Modifiche al bot social per il collegamento con il gestionale (FR-BOT-01…08) | Prima del collaudo della fase 1 | Andrea Pavan |
-| DIP-09 | API di Meta (Facebook, Instagram) per la pubblicazione | Fase 2 |   |
-| DIP-10 | API di Anthropic (Claude) per i testi social e l’eventuale lettura delle causali |   |   |
-| DIP-11 | Google Perspective e OpenAI Moderation (solo nel bot, per i commenti) | — |   |
+| DIP-09 | API di Meta (Facebook, Instagram) per la pubblicazione | Fase 2 | Andrea Pavan |
+| DIP-10 | API di Anthropic (Claude) per i testi social | Già in uso nel bot | Andrea Pavan |
+| DIP-11 | Google Perspective e OpenAI Moderation (solo nel bot, per i commenti) | Nessuna azione per il gestionale | — |
 | DIP-12 | Risposta dell’assistenza VERIF!CO: esportazione in blocco dei PDF delle ricevute? API disponibili? | Prima della fase 2 | Andrea Pavan |
 | DIP-13 | Account del fornitore di pagamenti (Stripe) intestato all’associazione, con modalità di prova per il collaudo | Prima del collaudo della fase 1 | Presidente / Andrea Pavan |
 | DIP-14 | Modulo di consenso della famiglia aggiornato (unico, con nome del genitore, villaggio e data) e verificato dal referente privacy dell’associazione | Prima del collaudo della fase 1 | Presidente / referente in Uganda |
-| DIP-15 | ID_PROGETTO di VERIF!CO per ogni capitolo, compresa la casa famiglia Effatà | Prima del collaudo della fase 1 | Amministratore |
+| DIP-15 | Progetti di VERIF!CO corrispondenti ai quattro conti (Adozioni scolastiche, Casa struttura, Aiuto famiglie in difficoltà, Cure ospedaliere) e conferma dell’assistenza che il progetto porti il movimento sul conto giusto (FR-INT-02) | Prima del collaudo della fase 1 | Amministratore |
 | DIP-16 | Esportazione da VERIF!CO delle anagrafiche dei padrini e delle donazioni, per l’importazione iniziale (AMM-09) | Prima del collaudo della fase 1 | Amministratore |
 | DIP-17 | Elenchi dei bambini del primo villaggio compilati dalla referente, con i moduli di consenso delle famiglie | Prima del collaudo della fase 1 | Referente in Uganda |
 | DIP-18 | Accesso del gestionale alle donazioni del calendario solidale tramite token (modifica al sito del calendario) | Prima del collaudo della fase 1 | Andrea Pavan |
+| DIP-19 | Conto finanziario STRIPE in VERIF!CO, per registrare i pagamenti con carta alla data del pagamento e i versamenti come giroconto (FR-VER-02) | Prima del caricamento delle donazioni Stripe del 2026 | Amministratore |
+| DIP-20 | Parere del commercialista sulle donazioni del calendario (erogazione liberale o raccolta fondi) e sullo schema di registrazione di Stripe | Prima del caricamento delle donazioni Stripe del 2026 | Amministratore |
 
 # Seconda parte · Il come
 
@@ -1079,94 +1155,68 @@ Prime interviste: 01/10/2026, rivolte a membri dell’associazione (ruoli da ind
 
 # 8. Stima del carico
 
-**Stato:** **MANCANTE**
-
-*Origine: unione fra la nostra bozza e il template del docente*
-
-> **🧭 Guida**
->
-> - Dalla traccia: utenti concorrenti normali e nei picchi, profilo di carico. Ogni numero deve discendere dal cap. 3.
-> - Dal template: se dichiarate N sostenitori non potete dimensionare per pochi utenti senza spiegare perché.
+Tutti i numeri discendono dal capitolo 3.1: circa 1.000 donatori, 760 email, 2 amministratori, circa 12 volontari; i sostenitori entrano 1–2 volte al mese, soprattutto la sera e dopo la newsletter.
 
 ## 8.1 Utenti concorrenti
 
-> **⚠ Il tuo “picco delle 9:00”**
->
-> - Nella traccia il picco è l’inizio di tre verifiche insieme. Nel tuo dominio è l’**invio della newsletter**: se ~600 persone ricevono “ci sono nuove foto”, quante fanno login nella prima ora? E nei primi 10 minuti?
-> - L’equivalente di “fine quadrimestre” è il periodo delle **ricevute fiscali** (inizio anno) o la **campagna di Natale**.
-
 | Situazione | Utenti concorrenti | Da dove viene il numero |
 | --- | --- | --- |
-| Uso normale durante la giornata |   |   |
-| Prima ora dopo la newsletter (picco) |   |   |
-| Periodo ricevute fiscali / Natale |   |   |
+| Sera normale | 5–10 | Circa 1.000 donatori × 1–2 accessi al mese ≈ 70 visite al giorno, concentrate fra le 19 e le 23; più 1–2 amministratori e 1–3 volontari |
+| Prima ora dopo la newsletter (picco) | 50 nello stesso minuto | 760 destinatari; apre circa il 40% (300 persone), metà nella prima ora, un terzo di queste nei primi 10 minuti |
+| Gennaio–febbraio (riepilogo annuale, chiusura dell’anno) e campagna di Natale | Come il picco, per più giorni | Stesse persone, motivo diverso; in più l’amministratore lavora alla chiusura annuale |
+| Margine di progetto | 100 | Il doppio del picco: è il carico con cui si prova NFR-01 |
 
 ## 8.2 Profilo di carico
 
 | Operazione | Frequente? | Pesante? | Critica? | Note |
 | --- | --- | --- | --- | --- |
-| Login e dashboard sostenitore |   |   |   |   |
-| Visualizzazione foto |   |   |   |   |
-| Upload foto dal bot (ridimensionamento) |   |   |   |   |
-| Parsing estratto conto con AI |   |   |   |   |
-| Generazione ricevute PDF |   |   |   |   |
-| Esportazione CSV per Verifico |   |   |   |   |
-| Dashboard amministratore |   |   |   |   |
+| Vetrina e area sostenitore | Sì, nel picco | No | Sì | Soglia NFR-01; letture paginate (NFR-14) |
+| Visualizzazione foto | Sì | Media | Sì, per la privacy | Miniature e link firmati a scadenza (NFR-08) |
+| Invii dal bot (circa 20 foto la sera, ridotte e con miniatura) | Ogni giorno | Sì | Media | Elaborazione in background: il bot riceve subito la conferma (NFR-20) |
+| Conferme di pagamento da Stripe | A ogni donazione | No | Sì | Registrate una sola volta anche se arrivano due volte (NFR-18) |
+| Importazione dell’estratto conto | Una volta al mese | Media | Sì | Fino a 300 righe in meno di 30 s (NFR-02, NFR-17) |
+| File per VERIF!CO | Una volta al mese | No | Sì | Bloccati se i totali non tornano (NFR-17) |
+| Importazione del calendario solidale | Una volta al giorno | No | Media | Di notte, fuori dagli orari di uso |
+| Riepilogo annuale in PDF | Gennaio–febbraio | Media | No | Generato in background e conservato |
+| Vista d’insieme dell’amministratore | Ogni giorno | Media | No | Totali calcolati con query aggregate (cap. 12.5) |
+
+Le operazioni pesanti (foto e PDF) girano in background, così chi carica non aspetta e le pagine dei sostenitori non rallentano nel picco.
 
 ## 8.3 Stima dello storage
 
-*Origine: sezione aggiuntiva della nostra bozza – non richiesta dal template, la teniamo*
+| Voce | Calcolo | Ogni anno | In 5 anni |
+| --- | --- | --- | --- |
+| Foto | 20 al giorno × circa 0,5 MB dopo la riduzione (lato lungo 2.000 px), più la miniatura | circa 4 GB | circa 20 GB |
+| Documenti | Quietanze, moduli di consenso, riepiloghi PDF | circa 0,5 GB | circa 2,5 GB |
+| Database | Anagrafiche, donazioni, interventi, registri | meno di 1 GB | circa 3 GB |
+| **Totale** | | **circa 5 GB** | **circa 25 GB** |
 
-(numero bambini) × (foto al mese per bambino) × (peso medio dopo il ridimensionamento) × 12 mesi, più PDF di estratti conto e ricevute.
-
-**✎ Appunti / risposte**
-
-> *(spazio per appunti)*
+Il server dell’associazione (VPS Hostinger KVM 1: 1 CPU, 4 GB di RAM, 50 GB di disco) ha oggi 31 GB liberi e la memoria usata al 47% da bot e calendario. Basta per la fase 1 e i primi anni; si passa al piano superiore (KVM 2) quando disco o memoria superano stabilmente l’80%. I backup esterni (NFR-04) occupano circa lo stesso spazio, fuori dal server.
 
 # 9. Scelte tecnologiche con alternative considerate (Scelte tecnologiche)
 
-> **✔ Orientamento del 24/09/2026 – da confermare dopo aver scritto i requisiti**
->
-> **Frontend: Ionic + React, pubblicato come PWA;** Capacitor per un’eventuale app sugli store in futuro. Alternative considerate: Ionic + Angular, React Native, Flutter, due frontend separati. Motivazione: un solo codice per PC e smartphone (i sostenitori usano soprattutto lo smartphone); React è oggetto del corso parallelo dell’ITS; la PWA evita nella fase 1 i costi e i vincoli degli store (account sviluppatore, revisioni, Mac per iOS).
->
-> **Backend: Node.js con NestJS, in TypeScript.** Alternativa considerata: Express. Motivazione: struttura a livelli e dependency injection già integrate (cap. 14.2); stesso linguaggio del frontend, con definizioni dei dati condivisibili.
->
-> Punto da verificare: la dashboard amministratore (tabelle, filtri, paginazione) va resa bene anche su PC con i layout responsive di Ionic.
-
-**Stato:** **DA RIVEDERE**
-
-*Origine: unione fra la nostra bozza e il template del docente*
-
-> **📄 Dalla tua bozza v2.0**
->
-> Frontend: Angular / Ionic (PWA). Backend: Node.js (Express) con Knex.js / TypeORM. Database: PostgreSQL o MySQL (SQLite in locale/test). AI: OpenAI GPT-4o / Anthropic Claude 3.5 Sonnet / Google Gemini. Deployment: Docker Compose su VPS Linux con Nginx e certbot (SSL).
-
-> **⚠ Nota di revisione**
->
-> - Il PRD deve mostrare che hai **deciso**: ogni “/” e ogni “o” va eliminato. Una scelta per riga.
-> - Servono almeno un’alternativa scartata e i criteri (competenze, ecosistema, costi, requisiti non funzionali).
-> - SQLite nei test e PostgreSQL in produzione può nascondere differenze: se lo tieni, motivalo.
-> - Per l’AI indica un **modello specifico e attuale**, verificando il nome sul sito del provider: quello in bozza è superato.
-> - Confronta la VPS con un PaaS come **Railway**, che hai già usato per CarPro.
-> - Il template chiede anche **Provider cloud**, **Servizi cloud** e **Regione**: la regione conta per il GDPR (dati in UE?).
+Una scelta per riga, con l’alternativa scartata e il criterio: competenze, costi (VIN-01), requisiti non funzionali, ecosistema.
 
 | Area | Scelta | Alternativa considerata | Perché avete scelto così |
 | --- | --- | --- | --- |
-| Backend | Node.js + NestJS (TypeScript) – orientamento | Express | Vedi riquadro sopra |
-| Accesso ai dati (ORM / query builder) |   |   |   |
-| Frontend | Ionic + React come PWA – orientamento | Ionic + Angular; React Native; Flutter | Vedi riquadro sopra |
-| Database |   |   |   |
-| Provider cloud |   |   |   |
-| Servizi cloud (VM, container, PaaS, DB gestito) |   |   |   |
-| Regione |   |   |   |
-| Storage media |   |   |   |
-| Servizio esterno: provider AI e modello |   |   |   |
-| Servizio esterno: email |   |   |   |
-| Servizio esterno: pagamenti con carta | Stripe – orientamento del 30/09/2026 | PayPal | Carte, Apple Pay e Google Pay; modalità di prova per il collaudo; tracciato di importazione già previsto da VERIF!CO; i dati della carta restano al fornitore. PayPal come metodo aggiuntivo in fase 2 |
-| Libreria bot Telegram |   |   |   |
-| Generazione PDF (ricevute) |   |   |   |
-| Internazionalizzazione | File di traduzione separati | Testi scritti nel codice | Deciso il 23/09: aggiungere l’inglese in futuro senza riscrivere l’interfaccia (NFR-13) |
-| Autenticazione |   |   |   |
+| Backend | Node.js + NestJS, in TypeScript | Express | Livelli e dependency injection già integrati (cap. 14.2); stesso linguaggio del frontend, con definizioni dei dati condivisibili |
+| Accesso ai dati | Prisma | TypeORM; Knex | Migrazioni generate dallo schema e tipi TypeScript ricavati in automatico; meno codice ripetitivo |
+| Frontend | Ionic + React, pubblicato come PWA | Ionic + Angular; React Native; Flutter | Un solo codice per PC e telefono (i sostenitori usano soprattutto il telefono); React è oggetto del corso parallelo; la PWA evita costi e vincoli degli store. Capacitor resta possibile per un’app sugli store in futuro |
+| Database | PostgreSQL 16, uguale in sviluppo, test e produzione (con Docker) | MySQL; SQLite nei test | Transazioni e vincoli robusti; un indice unico parziale impedisce due adozioni attive per lo stesso bambino (FR-ADO-01); test sullo stesso database della produzione, senza differenze nascoste |
+| Provider cloud | VPS Hostinger dell’associazione (KVM 1) | Railway (PaaS) | Già pagato, ci girano il bot e il calendario solidale; Railway costa a consumo e aggiunge un account da gestire |
+| Servizi cloud | Docker Compose sulla VPS (API, frontend, database); Nginx come reverse proxy con certificati Let’s Encrypt | Database gestito; PaaS | Nessun costo aggiuntivo (VIN-01); stesso schema già usato per il bot |
+| Regione | Francia, Parigi (data center Hostinger nell’Unione europea) | — | I dati restano nell’UE (NFR-08, GDPR) |
+| Storage media | Disco della VPS, foto servite con link firmati a scadenza; copia notturna cifrata su uno storage esterno nell’UE (es. Backblaze B2, regione europea) | Solo disco locale; foto su un servizio S3 | La copia fuori dal server è richiesta da NFR-04; costa pochi centesimi al mese per 25 GB |
+| Elaborazione immagini | sharp | ImageMagick | Veloce, già usata nel bot |
+| Servizio esterno: provider AI e modello | Anthropic Claude, solo nel bot: Claude Sonnet 5.5 per i testi social (oggi Sonnet 4.6, aggiornato con le modifiche al bot); Claude Haiku 4.5 per leggere il nome del beneficiario e proporre la voce della checklist. Nel gestionale nessuna chiamata AI in fase 1 | OpenAI; Google Gemini | Un solo fornitore, già usato; Haiku è rapido ed economico per le risposte brevi che il volontario aspetta in chat (NFR-20). La proposta di imputazione con l’AI è in fase 2 |
+| Servizio esterno: email | Brevo | Gmail SMTP; SendGrid | Già usato da VERIF!CO; azienda europea; piano gratuito sufficiente per conferme e avvisi (DIP-05) |
+| Servizio esterno: pagamenti | Stripe (carta, Apple Pay, Google Pay, Satispay) | PayPal (fase 2) | Modalità di prova per il collaudo; tracciato di importazione già previsto da VERIF!CO; stesso account del calendario solidale; i dati della carta restano al fornitore |
+| Libreria bot Telegram | node-telegram-bot-api, nel bot | Telegraf; grammY | Già in uso nel bot; il gestionale non parla con Telegram, solo con le API del bot (VIN-06) |
+| Generazione PDF | pdfmake | Puppeteer | Leggera, senza un browser sul server: con 4 GB di RAM condivisi conta |
+| Autenticazione | Token di accesso brevi (15 minuti) e token di rinnovo in un cookie protetto (httpOnly); password con Argon2id; codice a tempo (TOTP) per amministratori e volontari; link magico per gli ospiti | Auth0; Keycloak | Nessun servizio esterno né costo; copre FR-SEC-01 e FR-REG-05 |
+| Monitoraggio | UptimeRobot (piano gratuito) | — | Avviso via email se il servizio non risponde (NFR-03) |
+| Integrazione continua | GitHub Actions: test, scansione dei segreti, generazione della specifica OpenAPI | — | NFR-07, NFR-12, NFR-15 |
+| Internazionalizzazione | File di traduzione separati | Testi scritti nel codice | Deciso il 23/09: aggiungere l’inglese senza riscrivere l’interfaccia (NFR-13) |
 
 # 10. Area 1 – Fondamenti di architettura (Architettura)
 
@@ -1321,7 +1371,7 @@ IL BOT CHIEDE AL GESTIONALE (HTTPS, token del bot + identificativo Telegram del 
   POST /api/v1/bot/collegamenti                     → collega l'account Telegram (codice usa e getta)
   GET  /api/v1/bot/volontari/{telegramId}/permessi  → cosa può fare il volontario
   GET  /api/v1/bot/categorie                        → lista delle categorie con tipo e prezzo
-  GET  /api/v1/bot/beneficiari?nome=…               → candidati (codice, nome, età, villaggio, miniatura)
+  GET  /api/v1/bot/beneficiari?nome=…&tipo=…        → candidati filtrati per tipo di invio (codice, nome, età, villaggio, miniatura)
   GET  /api/v1/bot/beneficiari/{codice}/consenso    → la famiglia ha il modulo di consenso?
   GET  /api/v1/bot/interventi?beneficiario=…        → interventi pagati e voci mancanti della checklist
   GET  /api/v1/bot/sostenitori-pubblicabili?intervento=… → nome del padrino, solo con il suo consenso
@@ -1329,7 +1379,7 @@ IL BOT CHIEDE AL GESTIONALE (HTTPS, token del bot + identificativo Telegram del 
 
 IL BOT CONSEGNA AL GESTIONALE (dopo la pubblicazione)
   POST /api/v1/bot/invii                            → foto originali, visibilità, ordine, testi agganciati,
-                                                      tipo, categoria, codice, costo proposto o quantità,
+                                                      tipo, categoria, codice, costo proposto, nota sanitaria,
                                                       voce della checklist, testo per la vetrina, autore,
                                                       identificativo dell'invio (per evitare doppioni)
 
@@ -1802,6 +1852,10 @@ Segna ✅ (permesso), ❌ (negato) o “solo propri”. Ogni ❌ deve avere un A
 | La fase 1 cresce con le modifiche al bot e il recupero dei dati | Alta | Alto | Prima da spostare in fase 2: nome del padrino nei post e riepilogo mensile dal gestionale; caricamento dalle schermate del gestionale come alternativa al bot |
 | Foto di un minore agganciata al bambino sbagliato | Bassa | Alto | Nessun abbinamento senza conferma di una persona con la foto profilo (FR-BOT-05); l’amministratore può nascondere subito una foto |
 | Calendario solidale con password predefinita nel codice pubblico e database in una cartella temporanea | Media | Alto | Verificare subito la password impostata sul server e la posizione del database; backup; accesso del gestionale tramite token (DIP-18) |
+| Donazioni con carta del 2026 non registrate in VERIF!CO in tempo per le certificazioni, se la fase 1 non è pronta entro gennaio | Alta | Alto | Registrarle prima della chiusura con il conto STRIPE e il tracciato Stripe, dopo il parere del commercialista e una prova su una riga; conservare le esportazioni di Stripe come copia (DIP-19, DIP-20) |
+| Importazione in VERIF!CO che crea anagrafiche doppie o collega un pagamento alla persona sbagliata (email condivise da più anagrafiche, donatori nuovi senza codice fiscale) | Media | Medio | Anagrafiche caricate prima dei movimenti; il gestionale segnala le email duplicate prima di generare i file; prova su una riga (ASS-08) |
+| Server condiviso con bot e calendario: risorse limitate (1 CPU, 4 GB) e protezioni di base non ancora attive (firewall senza regole, accesso root) | Media | Alto | Firewall con le sole porte 22, 80 e 443; accesso SSH solo con chiave, senza password di root; monitoraggio di disco e memoria, passaggio a KVM 2 oltre l’80% |
+| Ospite che inoltra il link di accesso e mostra le foto dei minori ad altri | Bassa | Medio | Solo foto pubbliche, già sui social; nessun download; link legato all’email; accesso di 7 giorni (FR-REG-05) |
 |   |   |   |   |
 
 # 20. Domande di verifica (autovalutazione)
@@ -1911,9 +1965,9 @@ Tutto ciò che non puoi decidere da solo va chiesto al cliente reale. Annota ris
 | Quanti interventi non di adozione all’anno, per tipo? |   |   |
 | Un export di esempio dell’estratto conto UniCredit (CSV/Excel), anonimizzato |   |   |
 | Quale versione di VERIF!CO usate (Maxi, Premium, Mini)? | VERIF!CO Maxi (contabilità per competenza) | 29/09/2026 |
-| I progetti sono già censiti in VERIF!CO (ID_PROGETTO)? |   |   |
+| I progetti sono già censiti in VERIF!CO (ID_PROGETTO)? | Oggi si imputa con il conto di bilancio (215.020.01–04) e i Progetti quasi non sono usati; si useranno i Progetti corrispondenti ai quattro conti (FR-INT-02) | 01/10/2026 |
 | Come vengono raccolti oggi i consensi per le foto dei bambini? | Moduli cartacei firmati tramite la referente; archiviazione da verificare | 01/10/2026 |
-| Quanti soci? Quota annuale e scadenza? | Oggi solo i soci fondatori (presidente e amministratore); adesione con quota da aprire in futuro. Volontari: circa 12 | 29/09/2026 |
+| Quanti soci? Quota annuale e scadenza? | 10 associati registrati in VERIF!CO dal 23/05/2023: presidente, tesoriere e 8 volontari; quota e scadenza da definire. Volontari: circa 12 | 01/10/2026 |
 | Campagne esterne (GoFundMe): in VERIF!CO si registra il netto ricevuto o il lordo donato, con le commissioni come costo? (commercialista) |   |   |
 | Il modulo “Associati” di VERIF!CO è già usato per soci e quote associative? (impatto sull’area soci) |   |   |
 | In VERIF!CO quale SMTP è attivo e predefinito per la newsletter: Gmail o Brevo? Limiti del piano Brevo? |   |   |
@@ -1928,9 +1982,16 @@ Tutto ciò che non puoi decidere da solo va chiesto al cliente reale. Annota ris
 | VERIF!CO (assistenza): si possono importare le anagrafiche da file? Con quale tracciato? (FR-VER-02) |   |   |
 | La casa famiglia Effatà ha un proprio ID_PROGETTO in VERIF!CO? (FR-INT-07) |   |   |
 | Quota associativa: come va registrata in VERIF!CO e nella causale? (commercialista, FR-SOC-01) |   |   |
-| Satispay è attivo e usato per il calendario solidale? Dove arrivano i suoi versamenti? (FR-CAN-03) |   |   |
-| Esportazione da VERIF!CO di anagrafiche dei padrini, donazioni e note: in quale formato? (AMM-09) |   |   |
+| Satispay è attivo e usato per il calendario solidale? Dove arrivano i suoi versamenti? (FR-CAN-03) | Sì: passa da Stripe, come la carta, e arriva con i versamenti di Stripe | 01/10/2026 |
+| Esportazione da VERIF!CO di anagrafiche dei padrini, donazioni e note: in quale formato? (AMM-09) | Excel. Movimenti in partita doppia con anagrafica e progetto (formato attuale dal 2025); anagrafiche con codice fiscale, email e note, senza IBAN | 01/10/2026 |
 | La referente è disponibile a compilare dal telefono gli elenchi dei bambini per villaggio? Da quale villaggio si parte? (AMM-09) | Sì, li compila la referente | 01/10/2026 |
+| Cosa c’è nel campo Note delle anagrafiche di VERIF!CO? | Il nome del bambino adottato | 01/10/2026 |
+| Le adozioni si pagano a rate? | No: 180 € l’anno; gli importi minori sul conto delle adozioni sono altre donazioni | 01/10/2026 |
+| L’indirizzo serve per la certificazione? | No: basta il codice fiscale | 01/10/2026 |
+| L’amministratore e il tesoriere registrato in VERIF!CO sono la stessa persona? (cap. 2, 3.1) |   |   |
+| Commercialista: le donazioni del calendario solidale sono erogazioni liberali (area A) o raccolta fondi (area C)? Va bene lo schema con il conto STRIPE (donazione alla data del pagamento, giroconto al versamento, commissioni con un movimento per versamento)? (FR-VER-02, DIP-20) |   |   |
+| VERIF!CO (assistenza): il campo Progetti del tracciato di importazione porta il movimento sul conto di bilancio giusto? Si può annullare un’importazione sbagliata? (FR-INT-02, DIP-15) |   |   |
+| Stripe 2026: i pagamenti che non tornano con i versamenti (probabili tentativi ripetuti) vanno verificati prima del caricamento in VERIF!CO |   |   |
 |   |   |   |
 
 # Allegato finale – Brain dump iniziale

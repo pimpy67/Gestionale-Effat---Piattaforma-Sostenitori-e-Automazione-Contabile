@@ -168,3 +168,47 @@ Il dettaglio di ogni decisione è nel PRD (`docs/PRD.md`), capitolo 5.7.
 
 **Prossimi passi**
 - User flow di VOL-02, VOL-03, SOS-03, SOS-04, SOS-07 → PRD v1.5.
+
+## 02/10/2026 – User flow completi e PRD v1.5
+
+**Fatto**
+- Chiusi gli user flow delle nove storie principali (AMM-01, AMM-04, AMM-06, VOL-01, VOL-02, VOL-03, SOS-03, SOS-04, SOS-07): capitolo 4.2 definitivo.
+- **PRD v1.5** (tag `prd-v1.5`): aggiornate undici storie; nuove decisioni FR-REG-05 (accesso ospite) e FR-ADO-06 (anno scolastico); riscritte FR-INT-02, FR-INT-08, FR-VER-01/02/03, FR-BOT-04/05, FR-STO-01; numeri dell'associazione da VERIF!CO (solo totali).
+
+**Decisioni**
+- Accesso ospite di 7 giorni a tutta la vetrina con la sola email, tramite il link promozionale di Silvia: solo foto pubbliche, niente download, registrazione per donare.
+- Dati per fasi: email all'ospite; nome, cognome, email e password alla registrazione; codice fiscale facoltativo alla prima donazione (senza, niente certificazione). Indirizzo non più richiesto.
+- Voci fisse: nessun conteggio delle unità; ogni consegna rendiconta tutte le donazioni in attesa. "Quanti" in vetrina serve solo a calcolare l'importo.
+- Adozione (rapporto) distinta dall'anno scolastico (intervento), che si chiude con la prova di fine anno: pagella, lavori o quaderni.
+- Bot: ricerca del beneficiario filtrata per tipo di invio; domanda sulle informazioni sanitarie; nessuna foto scelta = nessun post.
+- "Cose da fare" nel gestionale web; la presa in carico scade dopo 30 giorni.
+- VERIF!CO: anagrafiche prima dei movimenti; tracciato Stripe collegato tramite l'email; destinazione contabile con i Progetti; versamenti Stripe come giroconto dal conto STRIPE.
+- Padrini storici importati dal 2025, riconosciuti dai versamenti di 180 € o multipli; i nomi nelle note sono indizi.
+- Soci: 10 associati, compreso il tesoriere. Satispay passa da Stripe.
+
+**Aperto**
+- Commercialista: calendario come erogazione liberale o raccolta fondi; schema di registrazione di Stripe.
+- Assistenza VERIF!CO: il campo Progetti porta al conto giusto? Si può annullare un'importazione?
+- Stripe 2026: verificare i pagamenti che non tornano con i versamenti.
+
+**Prossimi passi**
+- Sabato 3: capitoli 6 e 7. Consegna v2.0: 9 ottobre 2026.
+
+## 02/10/2026 (sera) – Capitoli 6–9 e PRD v1.6
+
+**Fatto**
+- **PRD v1.6** (tag `prd-v1.6`): capitoli 6, 7, 8 e 9 in forma definitiva. Prima parte (cap. 1–7) chiusa.
+
+**Decisioni**
+- Disponibilità 99% al mese; backup notturno con copia esterna cifrata; conservazione 10 anni, poi anonimizzazione; email degli ospiti cancellata dopo 6 mesi.
+- Accessibilità verificata con tre sostenitori sopra i 60 anni, scelti con l'associazione durante il collaudo.
+- Budget per i costi nuovi entro 30 € al mese; gestionale su un sottodominio di effataitalia.it.
+- Picco: 50 utenti nello stesso minuto dopo la newsletter (prova con 100); circa 5 GB di dati all'anno.
+- Tecnologie: NestJS, Prisma, Ionic + React PWA, PostgreSQL 16, VPS Hostinger KVM 1 a Parigi con Docker Compose e Nginx, Brevo, Stripe, pdfmake; Claude solo nel bot (Sonnet 5.5 per i testi, Haiku 4.5 per nomi e checklist).
+
+**Aperto**
+- Sicurezza del server: firewall senza regole, accesso root con password.
+- Intervista a un sostenitore (cap. 6.2).
+
+**Prossimi passi**
+- Sabato 3: capitoli 10 e 11. Consegna v2.0: 9 ottobre 2026.
