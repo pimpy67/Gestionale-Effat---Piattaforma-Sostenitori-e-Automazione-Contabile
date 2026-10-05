@@ -212,3 +212,150 @@ Il dettaglio di ogni decisione è nel PRD (`docs/PRD.md`), capitolo 5.7.
 
 **Prossimi passi**
 - Sabato 3: capitoli 10 e 11. Consegna v2.0: 9 ottobre 2026.
+
+## 03/10/2026 – Architettura, API e PRD v1.7
+
+**Fatto**
+- **PRD v1.7** (tag `prd-v1.7`): capitoli 10 (architettura) e 11 (API) in forma definitiva.
+
+**Decisioni**
+- Un'unica app web per tutti i ruoli; pagine dell'amministratore pensate per il PC.
+- Worker in un processo separato per foto, PDF, email e importazioni; coda dei lavori in PostgreSQL (pg-boss), senza Redis.
+- Reverse proxy: il Traefik già usato dal bot, non un secondo Nginx.
+- API in italiano, prefisso /api/v1; PATCH, azioni con endpoint propri, nessuna cancellazione di persone, bambini e donazioni.
+- Errori secondo RFC 9457; paginazione con pagina e dimensione (20, massimo 100); chiavi contro gli invii ripetuti.
+- Documentazione OpenAPI generata dal codice, visibile solo agli amministratori in produzione; Postman con un test per ogni AC negativo.
+
+**Prossimi passi**
+- Lunedì 5: capitoli 12 e 13. Consegna v2.0: 9 ottobre 2026.
+
+## 03/10/2026 (pomeriggio) – Dati, sicurezza e PRD v1.8
+
+**Fatto**
+- **PRD v1.8** (tag `prd-v1.8`): capitoli 12 (persistenza e modello dei dati) e 13 (sicurezza e integrazione) in forma definitiva.
+
+**Decisioni**
+- Circa 30 tabelle in quattro gruppi; tre diagrammi ER; UUID v7 interni, codici BAM/FAM/RIC immutabili; importi in centesimi; dati sanitari in tabella separata.
+- Carrello salvato sul server, per l'ospite che si registra e per chi cambia dispositivo.
+- Pagamenti simultanei sulla stessa richiesta: blocco della riga nella transazione, il secondo diventa credito solidale.
+- Sessioni: 30 giorni per sostenitori e ospiti, 12 ore per amministratori e volontari; token di accesso di 15 minuti.
+- Telefono perso: si scollega l'account Telegram dal profilo.
+- Il modulo di consenso dovrà citare l'elaborazione delle foto con un servizio di AI: domanda al referente privacy.
+
+**Prossimi passi**
+- Capitoli 14, 15 e 16. Consegna v2.0: 9 ottobre 2026.
+
+## 03/10/2026 (pomeriggio) – Qualità, costi, deployment e PRD v1.9
+
+**Fatto**
+- **PRD v1.9** (tag `prd-v1.9`): capitoli 14, 15 e 16 in forma definitiva. Seconda parte (cap. 8–16) completa.
+
+**Decisioni**
+- Codice nello stesso repository del PRD, come monorepo (apps/api, apps/web, packages/condivisi).
+- Moduli per funzionalità, con i quattro livelli dentro ogni modulo; IoC con il container di NestJS.
+- Test: unitari, integrazione con PostgreSQL vero, autorizzazioni, Postman, end-to-end, accessibilità, carico; copertura minima dell'80% sul livello applicativo.
+- Nessun ambiente di staging: collaudo in produzione con accesso limitato e Stripe in modalità test, prima dell'apertura ai sostenitori.
+- Costi nuovi stimati fra 0 e 8 € al mese; scalabilità verticale (KVM 2) oltre l'80% di disco o memoria.
+- Rilascio solo con un tag di versione; backup prima delle migrazioni; ritorno automatico alla versione precedente se il controllo di salute fallisce.
+
+**Prossimi passi**
+- Capitoli 17, 18 e 19. Consegna v2.0: 9 ottobre 2026.
+
+## 03/10/2026 (pomeriggio) – Roadmap, valutazione, rischi e PRD v1.10
+
+**Fatto**
+- **PRD v1.10** (tag `prd-v1.10`): capitoli 17, 18 e 19 in forma definitiva.
+
+**Decisioni**
+- Consegna del PRD il 9 ottobre, correzioni e validazione entro il 23 ottobre; lo sviluppo parte dopo la validazione.
+- Gestionale online entro il 30 aprile 2027, in otto milestone (M1 fondamenta 15/11 … M7 collaudo 18/04, M8 apertura 30/04), con 12–15 ore di lavoro a settimana.
+- Se il ritardo supera il margine si tagliano, nell'ordine: riepilogo mensile su Instagram, nome del padrino nei post, PDF annuale, import automatico del calendario, accesso ospite.
+- Dieci obiettivi misurabili; le ore di inserimento in VERIF!CO di oggi si cronometrano con l'amministratore prima del collaudo.
+- Rischi numerati RIS-01…21.
+
+**Prossimi passi**
+- Capitoli 20 e 21, appendici, cancellazione dei riquadri di guida; poi rilettura e v2.0. Consegna: 9 ottobre 2026.
+
+## 03/10/2026 (pomeriggio) – PRD diviso in due file, v1.11
+
+**Fatto**
+- Capitolo 20 (domande di verifica) scritto.
+- **PRD v1.11** (tag `prd-v1.11`): il documento è diviso in due file.
+  - `docs/PRD.md` segue punto per punto l'indice del template del docente, con i suoi titoli; guida, riquadri, "Come usare", "Corrispondenza" e "Stato di avanzamento" cancellati; storico breve; capitolo 19 = Acceptance Criteria del template, compilato.
+  - `docs/PRD_allegati.md`: A gestione delle modifiche, B schede informative, C rischi, D domande di verifica, E storico completo, F domande all'associazione, G fonti, H brain dump.
+- Prima parte senza riferimenti tecnici (codici di risposta, algoritmo delle password, nome del modello AI). Alternative scartate aggiunte per regione, monitoraggio e CI.
+
+**Decisioni**
+- Si segue l'indice del template del docente; ciò che il template non prevede va negli allegati.
+- Gli user flow del 4.2 restano nel PRD: il template li chiede (tre storie principali per ruolo).
+
+**Aperto**
+- Lunghezza: PRD circa 47 pagine in formato compatto, contro le 15–25 del template. Da accorciare i doppioni nella rilettura e da segnalare al docente.
+
+**Prossimi passi**
+- Rilettura completa, accorciamento dei doppioni → v2.0. Consegna: 9 ottobre 2026.
+
+## 03/10/2026 (sera) – Rilettura dei capitoli 1–5, PRD v1.12
+
+**Fatto**
+- **PRD v1.12** (tag `prd-v1.12`): rilettura dei capitoli 1–5 e legenda delle sigle.
+- Presentazione del PRD (17 slide, 15 minuti, note del relatore) preparata come artifact Slides.
+
+**Decisioni**
+- Si tolgono solo i doppioni, mai decisioni: ogni regola resta scritta una volta, con il rimando dall'altro punto.
+- L'ospite resta: è il primo passo prima del simpatizzante (solo email, 7 giorni, non può donare).
+- Il PRD resta di circa 47 pagine: lo si spiega al docente con un'email (bozza pronta).
+
+**Prossimi passi**
+- Rilettura dei capitoli 6–19 (coerenza fra capitoli), poi v2.0. Consegna: 9 ottobre 2026.
+
+## 04/10/2026 – Intervista a una sostenitrice, PRD v1.13
+
+**Fatto**
+- Intervista a una sostenitrice di 35 anni (due messaggi vocali, trascritti) inserita nel capitolo 6.2.
+- **PRD v1.13** (tag `prd-v1.13`).
+
+**Decisioni**
+- Totale donato nell'anno in corso nell'area riservata, in fase 1 (SOS-08 AC-07).
+- Barra di avanzamento degli obiettivi e contatori di impatto in vetrina, in fase 2 (FR-DASH-03).
+- L'intervista conferma la rendicontazione con le foto delle voci fisse e i prezzi in vetrina.
+
+**Prossimi passi**
+- Rilettura dei capitoli 6–19, poi v2.0. Consegna: 9 ottobre 2026.
+
+## 04/10/2026 – Rilettura dei capitoli 6–19, PRD v1.14
+
+**Fatto**
+- Rilettura dei capitoli 6–19 con un controllo indipendente: 30 incoerenze trovate e corrette.
+- Controlli automatici: tutti i codici citati sono definiti, i quattro diagrammi si generano, PRD di 39 pagine e allegati di 13.
+- **PRD v1.14** (tag `prd-v1.14`).
+
+**Decisioni**
+- Il simpatizzante compare nelle tabelle di API e permessi: può vedere la vetrina e donare; dopo la prima donazione diventa sostenitore.
+- Picco del carico ricavato dai numeri: 760 anagrafiche con email, 50 accessi nei primi dieci minuti dopo la newsletter, trattati come nello stesso minuto.
+- Backup notturno di database e file (NFR-04).
+- Le dipendenze hanno la scadenza legata alle milestone; il capitolo 17.1 dice quali servono a ogni milestone.
+- Restano aperte, nell'Allegato F: la Cassa sostegno progetto e per quanto tempo si conservano gli account archiviati.
+
+**Prossimi passi**
+- Ultima passata e v2.0, commit dal Mac, email al docente. Consegna: 9 ottobre 2026.
+
+## 04/10/2026 (sera) – Consenso della famiglia e notizie in vetrina, PRD v1.15
+
+**Fatto**
+- Rivisti con Andrea i tre punti della rilettura: confermati. Riga sotto la matrice 13.2 sull'area riservata del simpatizzante.
+- Presentazione rifatta con una slide per ogni capitolo del template: 24 slide più una di riserva sui rischi. PDF delle note con la slide e, sotto, "Da dire" e "Se ti chiedono".
+- Capitolo 19: lunghezza aggiornata a circa 39 pagine più 13 di allegati.
+- Bozza del modulo di consenso della famiglia in italiano e inglese (Allegato I e PDF stampabile per Silvia).
+- **PRD v1.15** (tag `prd-v1.15`).
+
+**Decisioni**
+- Consenso della famiglia con una casella per ogni scopo: foto al padrino, pubblicazione, compleanno, salute (GDPR). Senza modulo tutto "no".
+- Famiglie già seguite: raccolta graduale; richieste nuove: modulo obbligatorio prima dell'approvazione.
+- Notizie e newsletter nella vetrina in fase 1, visibili dall'ospite in poi (FR-INF-01). La newsletter resta creata e inviata da VERIF!CO.
+
+**Da chiedere**
+- Nessuna domanda nuova: deciso che senza consenso alla pubblicazione la richiesta resta in vetrina senza foto, con solo nome ed età.
+
+**Prossimi passi**
+- Rivedere la presentazione e provarla a cronometro (stima 15–17 minuti); v2.0; commit dal Mac. Consegna: 9 ottobre 2026.
