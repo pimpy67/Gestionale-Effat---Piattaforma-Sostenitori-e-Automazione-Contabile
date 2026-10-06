@@ -4,7 +4,7 @@
 
 Piattaforma Sostenitori e Automazione Contabile
 
-*Versione 1.15 – struttura del PRD Template del docente*
+*Versione 2.0 – struttura del PRD Template del docente*
 
 Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi e valutazione
 
@@ -18,9 +18,9 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | Autori | Andrea Pavan |
 | Cliente reale | Effatà Italia ODV |
 | Contesto | Progetto ITS – 2° anno. Progetto personale che segue la metodologia della traccia “ScuolaChill”. |
-| Versione | 1.15 |
+| Versione | 2.0 |
 | Data | 09/10/2026 |
-| Stato | In revisione (consegna per la validazione) |
+| Stato | Consegnato per la validazione |
 
 ## Storico delle versioni
 
@@ -43,6 +43,7 @@ Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi
 | 1.13 | 04/10/2026 | Andrea Pavan | Intervista a una sostenitrice (cap. 6.2): totale dell’anno nell’area riservata (SOS-08 AC-07); avanzamento degli obiettivi e contatori di impatto in vetrina in fase 2 (FR-DASH-03) |
 | 1.14 | 04/10/2026 | Andrea Pavan | Rilettura dei capitoli 6–19: permessi del simpatizzante, numeri del picco, backup, modello dei dati e route allineati fra i capitoli; dipendenze collegate alle milestone; intestazione compilata |
 | 1.15 | 04/10/2026 | Andrea Pavan | Consenso della famiglia con una casella per ogni scopo (foto al padrino, pubblicazione, compleanno, salute) e modulo bilingue italiano-inglese (Allegato I); raccolta graduale per le famiglie già seguite; senza consenso alla pubblicazione la richiesta resta in vetrina senza foto; notizie e newsletter nella vetrina in fase 1, visibili dall’ospite in poi (FR-INF-01) |
+| 2.0 | 09/10/2026 | Andrea Pavan | Versione consegnata al docente per la validazione: contenuto della v1.15, senza nuove decisioni |
 
 Lo storico completo, con il dettaglio di ogni versione, è nell’Allegato E; la regola di gestione delle modifiche nell’Allegato A.
 

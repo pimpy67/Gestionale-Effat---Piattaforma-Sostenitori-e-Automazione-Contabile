@@ -359,3 +359,16 @@ Il dettaglio di ogni decisione è nel PRD (`docs/PRD.md`), capitolo 5.7.
 
 **Prossimi passi**
 - Rivedere la presentazione e provarla a cronometro (stima 15–17 minuti); v2.0; commit dal Mac. Consegna: 9 ottobre 2026.
+
+## 05–06/10/2026 – Presentazione e PRD v2.0
+
+**Fatto**
+- Commit e tag `prd-v1.15` dal Mac (34c9f88).
+- Presentazione rifatta seguendo l'indice del template: una slide per capitolo (24 slide più una di riserva sui rischi), testi ingranditi e leggibili da soli.
+- Materiale per la presentazione, fuori dalla repository: note con "Da dire" e "Se ti chiedono" per ogni slide; testo della presentazione a caratteri grandi, con i tempi (circa 14 minuti e mezzo).
+- README e CLAUDE.md aggiornati: il PRD è in due file (`docs/PRD.md` e `docs/PRD_allegati.md`).
+- **PRD v2.0** (tag `prd-v2.0`): versione consegnata, con il contenuto della v1.15.
+
+**Prossimi passi**
+- Prova della presentazione a cronometro; ripasso dell'Allegato D; email al docente sulla lunghezza.
+- Consegna venerdì 9 ottobre 2026; correzioni del docente entro il 23 ottobre (v3.0).
