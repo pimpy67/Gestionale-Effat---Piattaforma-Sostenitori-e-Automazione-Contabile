@@ -372,3 +372,15 @@ Il dettaglio di ogni decisione è nel PRD (`docs/PRD.md`), capitolo 5.7.
 **Prossimi passi**
 - Prova della presentazione a cronometro; ripasso dell'Allegato D; email al docente sulla lunghezza.
 - Consegna venerdì 9 ottobre 2026; correzioni del docente entro il 23 ottobre (v3.0).
+
+## 07/10/2026 – Presentazione in due parti e lunghezza reale del PRD
+
+**Fatto**
+- Capitolo 19: lunghezza corretta a circa 65 pagine più 32 di allegati, cioè le pagine reali del PDF (commit `docs:`, la versione resta 2.0).
+- Presentazione divisa in due: venerdì i capitoli 1–10 e la checklist (17 slide con la riserva, circa 11 minuti); i capitoli 11–18 in un secondo momento. Il PRD si consegna intero.
+- Slide con il numero in un cerchio, etichette del template più grandi, domande guida su requisiti funzionali ("che cosa fa il sistema?") e non funzionali ("come deve funzionare, e quanto bene?").
+- Materiale per la presentazione, fuori dalla repository: PowerPoint con il testo nelle note, PDF delle slide, testo a caratteri grandi, note con le spiegazioni.
+
+**Prossimi passi**
+- Prova a cronometro giovedì 8; consegna venerdì 9 ottobre 2026.
+- Preparare la seconda parte della presentazione (capitoli 11–18).
