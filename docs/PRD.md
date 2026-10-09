@@ -6,7 +6,89 @@ Piattaforma Sostenitori e Automazione Contabile
 
 *Versione 2.0 – struttura del PRD Template del docente*
 
-Prima parte · Il cosa   |   Seconda parte · Il come   |   Terza parte · Tempi e valutazione
+# Indice
+
+- [Informazioni sul documento](#informazioni-sul-documento)
+    - [Storico delle versioni](#storico-delle-versioni)
+    - [Legenda delle sigle](#legenda-delle-sigle)
+
+**[PRIMA PARTE · IL COSA](#prima-parte--il-cosa)**
+
+- [1. Scopo e perimetro](#1-scopo-e-perimetro)
+    - [1.1 Perché esiste il Gestionale Effatà](#11-perché-esiste-il-gestionale-effatà)
+    - [1.2 Cosa è incluso](#12-cosa-è-incluso)
+    - [1.3 Cosa non è incluso](#13-cosa-non-è-incluso)
+- [2. Stakeholder](#2-stakeholder)
+- [3. Destinatari e contesto d'uso](#3-destinatari-e-contesto-duso)
+    - [3.1 L'associazione](#31-lassociazione)
+    - [3.2 Gli archetipi](#32-gli-archetipi)
+    - [3.3 Come si lavora oggi e come si lavorerà](#33-come-si-lavora-oggi-e-come-si-lavorerà)
+- [4. Panoramica e casi d’uso](#4-panoramica-e-casi-duso)
+    - [4.1 Il Gestionale Effatà in poche righe](#41-il-gestionale-effatà-in-poche-righe)
+    - [4.2 User flow e scenari](#42-user-flow-e-scenari)
+- [5. Requisiti funzionali](#5-requisiti-funzionali)
+    - [5.1 Riepilogo delle user story](#51-riepilogo-delle-user-story)
+    - [5.2 Amministratore](#52-amministratore)
+    - [5.3 Volontario](#53-volontario)
+    - [5.4 Simpatizzante e sostenitore](#54-simpatizzante-e-sostenitore)
+    - [5.5 Socio (fase 2)](#55-socio-fase-2)
+    - [5.6 Decisioni](#56-decisioni)
+- [6. Requisiti non funzionali](#6-requisiti-non-funzionali)
+    - [6.1 Requisiti con soglia](#61-requisiti-con-soglia)
+    - [6.2 Requisiti impliciti](#62-requisiti-impliciti)
+- [7. Assunzioni, vincoli e dipendenze](#7-assunzioni-vincoli-e-dipendenze)
+    - [7.1 Assunzioni](#71-assunzioni)
+    - [7.2 Vincoli](#72-vincoli)
+    - [7.3 Dipendenze](#73-dipendenze)
+
+**[SECONDA PARTE · IL COME](#seconda-parte--il-come)**
+
+- [8. Stima del carico](#8-stima-del-carico)
+    - [8.1 Utenti concorrenti](#81-utenti-concorrenti)
+    - [8.2 Profilo di carico](#82-profilo-di-carico)
+    - [8.3 Stima dello storage](#83-stima-dello-storage)
+- [9. Scelte tecnologiche](#9-scelte-tecnologiche)
+- [10. Architettura](#10-architettura)
+    - [10.1 Diagramma dei componenti](#101-diagramma-dei-componenti)
+    - [10.2 I livelli](#102-i-livelli)
+    - [10.3 Le dipendenze fra i livelli](#103-le-dipendenze-fra-i-livelli)
+- [11. Le API](#11-le-api)
+    - [11.1 Le risorse](#111-le-risorse)
+    - [11.2 Il contratto delle API principali](#112-il-contratto-delle-api-principali)
+    - [11.3 Errori, validazione e paginazione](#113-errori-validazione-e-paginazione)
+    - [11.4 Documentazione e verifica](#114-documentazione-e-verifica)
+    - [11.5 Contratto di integrazione con il bot (fase 1)](#115-contratto-di-integrazione-con-il-bot-fase-1)
+- [12. Persistenza e modello dei dati](#12-persistenza-e-modello-dei-dati)
+    - [12.1 Entità](#121-entità)
+    - [12.2 Diagramma ER](#122-diagramma-er)
+    - [12.3 Identificatori](#123-identificatori)
+    - [12.4 Tre modelli diversi](#124-tre-modelli-diversi)
+    - [12.5 Normalizzazione e letture aggregate](#125-normalizzazione-e-letture-aggregate)
+    - [12.6 Accesso ai dati](#126-accesso-ai-dati)
+- [13. Sicurezza e integrazione](#13-sicurezza-e-integrazione)
+    - [13.1 Autenticazione e token](#131-autenticazione-e-token)
+    - [13.2 Chi può fare cosa](#132-chi-può-fare-cosa)
+    - [13.3 L’API esterna](#133-lapi-esterna)
+    - [13.4 Privacy e dati di minori](#134-privacy-e-dati-di-minori)
+    - [13.5 Configurazione e segreti](#135-configurazione-e-segreti)
+- [14. Qualità architetturale](#14-qualità-architetturale)
+    - [14.1 Organizzazione del codice](#141-organizzazione-del-codice)
+    - [14.2 Dependency inversion e IoC](#142-dependency-inversion-e-ioc)
+    - [14.3 Testabilità](#143-testabilità)
+    - [14.4 Development e Production](#144-development-e-production)
+- [15. Dimensionamento e costi](#15-dimensionamento-e-costi)
+- [16. Piano di deployment](#16-piano-di-deployment)
+
+**[TERZA PARTE · TEMPI E VALUTAZIONE](#terza-parte--tempi-e-valutazione)**
+
+- [17. Milestone](#17-milestone)
+    - [17.1 Milestone](#171-milestone)
+    - [17.2 Priorità e tagli](#172-priorità-e-tagli)
+- [18. Piano di valutazione](#18-piano-di-valutazione)
+- [19. Acceptance Criteria di questa PRD](#19-acceptance-criteria-di-questa-prd)
+
+**ALLEGATI** (file separato [`PRD_allegati.md`](PRD_allegati.md)): A Gestione delle modifiche · B Schede informative · C Rischi · D Domande di verifica · E Storico completo delle versioni · F Domande da fare all’associazione · G Ricerca: link e fonti · H Brain dump iniziale · I Modulo di consenso della famiglia
+
 
 # Informazioni sul documento
 
