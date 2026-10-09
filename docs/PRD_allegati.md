@@ -2,7 +2,7 @@
 
 Piattaforma Sostenitori e Automazione Contabile
 
-*Versione 2.0 – file di accompagnamento a `docs/PRD.md`*
+*Versione 2.1 – file di accompagnamento a `docs/PRD.md`*
 
 Questo file raccoglie le sezioni aggiunte da noi al template del docente e il materiale di lavoro. I riferimenti “cap.” rimandano ai capitoli del PRD.
 
@@ -143,7 +143,7 @@ Ogni rischio ha una probabilità e un impatto (basso, medio, alto) e una controm
 | RIS-17 | Backup che non si riesce a ripristinare | Bassa | Alto | Prova di ripristino completa prima del collaudo e poi una volta l’anno (NFR-04); chiave di cifratura anche nel gestore di password dell’associazione |
 | RIS-18 | Ospite che inoltra il link di accesso e mostra le foto dei minori ad altri | Bassa | Medio | Solo foto pubbliche, già sui social; nessun download; link legato all’email; accesso di 7 giorni (FR-REG-05) |
 | RIS-19 | Documentazione generata con l’AI non allineata al codice | Alta | Medio | Verifica di ogni affermazione sul codice; OpenAPI generata dal codice (NFR-12); il codice segue il PRD (Allegato A) |
-| RIS-20 | Connessione debole in Uganda, per il futuro accesso diretto della referente | Bassa | Basso | Fuori dalla fase 1 (cap. 1.3); pagine leggere e immagini compresse già richieste da NFR-11 |
+| RIS-20 | Connessione debole in Uganda, per il futuro accesso diretto della referente | Bassa | Basso | Fuori dalla fase 1 (cap. 1.4); pagine leggere e immagini compresse già richieste da NFR-11 |
 | RIS-21 | API del bot esposte senza autenticazione | — | Alto | Risolto il 24/09/2026: token obbligatorio sulle rotte /api/*; per il gestionale un token dedicato (DIP-03) |
 
 
@@ -186,6 +186,7 @@ Le domande che un cliente o un valutatore potrebbe porre sul PRD, con la rispost
 | 1.14 | 04/10/2026 | Andrea Pavan | Rilettura dei capitoli 6–19 con un controllo indipendente. Simpatizzante aggiunto nelle tabelle di API e permessi (cap. 11 e 13). Picco del carico ricavato in modo esplicito (760 anagrafiche con email, 50 accessi nei primi dieci minuti trattati come nello stesso minuto) e reso uguale nei capitoli 6.1, 8 e 8.1; NFR-04 con backup notturno di database e file. Modello dei dati: tabelle capitolo e raccolta_fondi descritte, email del sostenitore, quota_donazione collegata a intervento e capitolo, cardinalità e diagramma ER aggiornati; lavori pianificati del worker e controllo delle conferme di Stripe nel diagramma dell’architettura. Nuove route nel capitolo 11 (storico importazioni, abbinamenti, riepiloghi dell’area riservata, collegamento Telegram, modifiche in attesa, salute) e ruoli allineati alla matrice, divisa in righe più precise. Metrica del capitolo 18 divisa in due; capitolo 19 con l’elenco dei fornitori e le scelte provvisorie. Dipendenze con scadenza riferita alle milestone (DIP-12, DIP-13, DIP-16) e capitolo 17.1 con le dipendenze di ogni milestone. Intestazione compilata (team, data di consegna, stato). Allegato F: nuove domande sulla Cassa sostegno progetto e sulla conservazione degli account archiviati; Allegato G completato. |
 | 1.15 | 04/10/2026 | Andrea Pavan | Consenso della famiglia rivisto con Andrea: un solo modulo bilingue (italiano e inglese) con una casella per ogni scopo, come chiede il GDPR: foto e notizie al padrino, pubblicazione su vetrina, sito e social, compleanno, informazioni sulla salute. L’amministratore riporta le caselle segnate dalla famiglia; senza modulo valgono tutte “no”; revoca possibile anche per un solo scopo. Raccolta graduale per le famiglie già seguite, obbligatoria prima dell’approvazione per le richieste nuove. Senza consenso alla pubblicazione la richiesta compare nella vetrina senza foto, con solo nome ed età, perché il consenso deve essere libero. Aggiornati FR-CON-01, gli AC collegati (AMM-01, AMM-02, VOL-01, VOL-02, SOS-03, SOS-07), FR-ADO-05, FR-BOT-04, DIP-14, il contratto con il bot e il modello dei dati. Nuovo Allegato I con la bozza del modulo; nuove domande nell’Allegato F. Notizie e newsletter passano in fase 1: una sezione “Notizie” nella vetrina, visibile dall’ospite in poi, con avvisi pubblicati dall’amministratore e collegamenti alle newsletter, che restano create e inviate da VERIF!CO (FR-INF-01, M2, nuova tabella `notizia`, route `/notizie`, riga nella matrice dei permessi). |
 | 2.0 | 09/10/2026 | Andrea Pavan | Versione consegnata al docente per la validazione. Il contenuto è quello della v1.15; dopo la v1.15 è cambiato solo il materiale della presentazione, che non fa parte del PRD. Le correzioni chieste dal docente porteranno alla v3.0. |
+| 2.1 | 09/10/2026 | Andrea Pavan | Correzioni chieste dal docente alla consegna del 9 ottobre. Indice di tutti i capitoli e sottocapitoli, con la numerazione esistente, all’inizio del PRD (con i numeri di pagina nel PDF). Nuovo capitolo 1.1 “Chi è Effatà”: chi è l’associazione, come opera e quali progetti segue, per inquadrare il gestionale nel suo contesto prima di descriverlo; i paragrafi successivi del capitolo 1 diventano 1.2, 1.3 e 1.4 e i rimandi sono aggiornati. Per i bambini con l’adozione scolastica si usa il dato del capitolo 3.1 (circa 1.200). La stessa introduzione diventa la seconda slide della presentazione. |
 
 
 # Allegato F – Domande da fare all’associazione
@@ -400,7 +401,7 @@ Ogni idea del brain dump è stata assegnata a un tema e al capitolo del PRD dell
 
 Affrontati uno alla volta fra il 24/09 e il 03/10/2026; le decisioni sono nei capitoli indicati del PRD (i numeri dei capitoli e delle storie sono quelli della bozza di allora).
 
-- [x] Perimetro: cosa deve funzionare al collaudo ITS e cosa è visione futura → cap. 1.3, 17.2
+- [x] Perimetro: cosa deve funzionare al collaudo ITS e cosa è visione futura → cap. 1.4, 17.2
 - [x] Persone e ruoli reali: amministratori, volontari, soci, sostenitori, Silvia, tu → cap. 2, 3.3
 - [x] Beneficiari e tipi di intervento: il modello concettuale → cap. 5, 12
 - [x] Dall’estratto conto a VERIF!CO: formato della banca, IBAN, ID progetto → cap. 5.3, 5.5, 7
@@ -408,7 +409,7 @@ Affrontati uno alla volta fra il 24/09 e il 03/10/2026; le decisioni sono nei ca
 - [x] Registrazione, consenso privacy e recupero dei sostenitori storici → cap. 5, 13.4, 19
 - [x] Bot esistente: tecnologia attuale e cosa riusare → cap. 3.2, 9, 10
 - [x] Area riservata: sito WordPress, web o app → cap. 9, 10
-- [x] Comunicazione: chat e gruppo WhatsApp → cap. 1.3, 5.7
+- [x] Comunicazione: chat e gruppo WhatsApp → cap. 1.4, 5.7
 - [x] Privacy di minori e dati sanitari → cap. 13.4
 
 

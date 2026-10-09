@@ -384,3 +384,20 @@ Il dettaglio di ogni decisione è nel PRD (`docs/PRD.md`), capitolo 5.7.
 **Prossimi passi**
 - Prova a cronometro giovedì 8; consegna venerdì 9 ottobre 2026.
 - Preparare la seconda parte della presentazione (capitoli 11–18).
+
+## 09/10/2026 – Consegna e correzioni del docente (PRD v2.1)
+
+**Fatto**
+- Consegna del PRD v2.0 e presentazione della prima parte (capitoli 1–10 e checklist).
+- Correzioni chieste dal docente, in **PRD v2.1** (tag `prd-v2.1`):
+  - indice di tutti i capitoli e sottocapitoli all'inizio del PRD, con la numerazione esistente (nel PDF con i numeri di pagina);
+  - nuovo capitolo 1.1 "Chi è Effatà" (chi è l'associazione, come opera, i progetti), per inquadrare il gestionale nel suo contesto; i paragrafi successivi diventano 1.2–1.4.
+- Presentazione: nuova slide 2 "Chi è Effatà" (18 slide con la riserva, circa 12 minuti).
+
+**Decisioni**
+- Per i bambini con l'adozione scolastica si usa il dato del capitolo 3.1 (circa 1.200), non gli 880 del testo di presentazione dell'associazione.
+
+**Prossimi passi**
+- Attendere le altre osservazioni del docente; validazione entro il 23 ottobre (v3.0).
+- Preparare la seconda parte della presentazione (capitoli 11–18).
+

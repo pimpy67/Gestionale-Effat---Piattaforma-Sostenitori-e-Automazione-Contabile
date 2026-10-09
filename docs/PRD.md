@@ -4,7 +4,7 @@
 
 Piattaforma Sostenitori e Automazione Contabile
 
-*Versione 2.0 – struttura del PRD Template del docente*
+*Versione 2.1 – struttura del PRD Template del docente*
 
 # Indice
 
@@ -15,9 +15,10 @@ Piattaforma Sostenitori e Automazione Contabile
 **[PRIMA PARTE · IL COSA](#prima-parte--il-cosa)**
 
 - [1. Scopo e perimetro](#1-scopo-e-perimetro)
-    - [1.1 Perché esiste il Gestionale Effatà](#11-perché-esiste-il-gestionale-effatà)
-    - [1.2 Cosa è incluso](#12-cosa-è-incluso)
-    - [1.3 Cosa non è incluso](#13-cosa-non-è-incluso)
+    - [1.1 Chi è Effatà](#11-chi-è-effatà)
+    - [1.2 Perché esiste il Gestionale Effatà](#12-perché-esiste-il-gestionale-effatà)
+    - [1.3 Cosa è incluso](#13-cosa-è-incluso)
+    - [1.4 Cosa non è incluso](#14-cosa-non-è-incluso)
 - [2. Stakeholder](#2-stakeholder)
 - [3. Destinatari e contesto d'uso](#3-destinatari-e-contesto-duso)
     - [3.1 L'associazione](#31-lassociazione)
@@ -100,9 +101,9 @@ Piattaforma Sostenitori e Automazione Contabile
 | Autori | Andrea Pavan |
 | Cliente reale | Effatà Italia ODV |
 | Contesto | Progetto ITS – 2° anno. Progetto personale che segue la metodologia della traccia “ScuolaChill”. |
-| Versione | 2.0 |
+| Versione | 2.1 |
 | Data | 09/10/2026 |
-| Stato | Consegnato per la validazione |
+| Stato | Consegnato per la validazione; correzioni richieste dal docente |
 
 ## Storico delle versioni
 
@@ -126,6 +127,7 @@ Piattaforma Sostenitori e Automazione Contabile
 | 1.14 | 04/10/2026 | Andrea Pavan | Rilettura dei capitoli 6–19: permessi del simpatizzante, numeri del picco, backup, modello dei dati e route allineati fra i capitoli; dipendenze collegate alle milestone; intestazione compilata |
 | 1.15 | 04/10/2026 | Andrea Pavan | Consenso della famiglia con una casella per ogni scopo (foto al padrino, pubblicazione, compleanno, salute) e modulo bilingue italiano-inglese (Allegato I); raccolta graduale per le famiglie già seguite; senza consenso alla pubblicazione la richiesta resta in vetrina senza foto; notizie e newsletter nella vetrina in fase 1, visibili dall’ospite in poi (FR-INF-01) |
 | 2.0 | 09/10/2026 | Andrea Pavan | Versione consegnata al docente per la validazione: contenuto della v1.15, senza nuove decisioni |
+| 2.1 | 09/10/2026 | Andrea Pavan | Correzioni richieste dal docente alla consegna: indice di capitoli e sottocapitoli all’inizio del documento; nuovo capitolo 1.1 “Chi è Effatà” sul contesto dell’associazione (i successivi diventano 1.2–1.4) |
 
 Lo storico completo, con il dettaglio di ogni versione, è nell’Allegato E; la regola di gestione delle modifiche nell’Allegato A.
 
@@ -156,13 +158,34 @@ Cosa fa il Gestionale Effatà, per chi e con quali regole, senza scelte tecniche
 
 # 1. Scopo e perimetro
 
-## 1.1 Perché esiste il Gestionale Effatà
+## 1.1 Chi è Effatà
+
+Il gestionale nasce per un’associazione reale. Prima di descriverlo, ecco chi è e come lavora, con le parole con cui si presenta.
+
+**Chi siamo.** Effatà Charity Organisation Italia è un’associazione nata nel 2023 per sostenere l’azione di Silvia, volontaria trevigiana che dal 2020 vive in Uganda, nel distretto di Mukono. È riconosciuta e iscritta al RUNTS (Registro Unico Nazionale del Terzo Settore) e ha una controparte in Uganda, Effatà Charity Organisation Uganda, che gestisce le attività sul posto. L’obiettivo è creare una relazione fra chi dona e chi riceve: sostenere bambini e famiglie in condizioni di povertà estrema, malnutrizione, violenza e abbandono, grazie a una rete di sostenitori in Italia e a progetti ben identificati.
+
+**Come opera.**
+
+- **Relazione diretta:** chi dona riceve aggiornamenti quotidiani da Silvia in un gruppo WhatsApp dedicato.
+- **Raccolta fondi:** le attività sono finanziate con donazioni, 5×1000 e altre iniziative.
+- **Intervento sul campo:** Silvia visita regolarmente famiglie e bambini, ne segue i progressi e porta il supporto necessario.
+
+**I progetti.**
+
+- **Adozioni scolastiche:** circa 1.200 bambini con la retta scolastica pagata, che comprende un pasto caldo al giorno, la divisa, il materiale didattico e l’assistenza alla famiglia.
+- **Aiuto alle famiglie in difficoltà:** piccole case in mattoni per chi vive in ripari provvisori; affitto di terreni da coltivare e animali da allevare; beni di prima necessità come pappe per bambini denutriti, materassi e scarpe.
+- **Assistenza medica:** spese ospedaliere e interventi chirurgici per bambini con malformazioni e problemi congeniti; sedie a rotelle e supporti per bambini con disabilità.
+- **Casa famiglia:** una casa in costruzione per accogliere bambini abbandonati o con disabilità e le loro mamme, con una fattoria per l’autosostentamento.
+
+Questo è il contesto del gestionale: ogni progetto diventa una richiesta di sostegno nella vetrina, e il rapporto diretto fra chi dona e chi riceve è ciò che il gestionale deve rendere tracciabile (cap. 1.2).
+
+## 1.2 Perché esiste il Gestionale Effatà
 
 **Dal lato business.** Oggi Effatà Italia gestisce con strumenti separati e molto lavoro manuale il rapporto con i propri sostenitori: gli estratti conto vengono inseriti riga per riga in VERIF!CO, i dati dei sostenitori sono spesso incompleti, molti bonifici arrivano senza una registrazione a monte e le foto dall’Uganda passano a mano da WhatsApp al bot. Per questo è difficile collegare ogni donazione al suo beneficiario e dimostrare a chi dona che l’aiuto è arrivato. Il Gestionale Effatà serve agli amministratori e ai volontari, ai circa 700 padrini e oltre 1.000 donatori, ai soci, e indirettamente ai circa 1.200 bambini e alle loro famiglie in Uganda: meno lavoro manuale, dati completi e trasparenza verso chi dona. L’obiettivo di fondo è rovesciare il flusso di oggi: prima la persona si registra, con i suoi dati, i consensi e le informazioni per la detrazione, poi parte l’adozione o la donazione, già corretta e tracciabile fin dal primo bonifico.
 
 **Dal lato tecnico.** Il sistema accompagna la persona dalla registrazione in poi: raccolta dei dati e del consenso privacy, spazio riservato con lo storico delle proprie donazioni e dei beneficiari, carrello solidale con richieste di sostegno precise e pagamento con carta o bonifico. Riunisce in un unico punto di accesso, per i sostenitori e per l’associazione, informazioni oggi sparse fra il bot e il gestionale contabile, e le smista verso chi deve riceverle. I dati verso VERIF!CO passano con caricamenti massivi invece dell’inserimento a mano, e i dati storici vengono completati. La comunicazione diretta con i beneficiari è prevista in futuro.
 
-## 1.2 Cosa è incluso
+## 1.3 Cosa è incluso
 
 **Fase 1 – online entro aprile 2027**
 
@@ -184,7 +207,7 @@ Cosa fa il Gestionale Effatà, per chi e con quali regole, senza scelte tecniche
 - Inviti ai padrini storici e ritorno delle anagrafiche complete verso VERIF!CO; inviti ai donatori delle campagne esterne.
 - Avanzamento degli obiettivi e contatori di impatto in vetrina (FR-DASH-03).
 
-## 1.3 Cosa non è incluso
+## 1.4 Cosa non è incluso
 
 - **Contabilità ufficiale e certificazioni fiscali:** restano in VERIF!CO, comprese uscite, fornitori e bilancio. Il gestionale prepara i dati delle entrate e delle anagrafiche, ma non produce documenti fiscali: le certificazioni per la detrazione sono inviate da VERIF!CO una volta l’anno.
 - **Newsletter:** creazione e invio restano in VERIF!CO.
@@ -252,7 +275,7 @@ Effatà Italia Charity Organisation ODV è un'organizzazione di volontariato con
 | ARC-003 | **Sostenitore, simpatizzante e ospite** | Entra come ospite dal link della referente, si registra, dona o adotta, carica la quietanza, guarda foto e aggiornamenti; arriva spesso da un link nell'email o su WhatsApp | Base; molti sostenitori non sono giovani | Smartphone | Sporadica: 1–2 volte al mese, di più dopo una newsletter o una nuova foto |
 | ARC-004 | **Socio** | Oltre a quanto fa il sostenitore, consulta quote e documenti associativi (fase 2) | Base | Smartphone o PC | Occasionale |
 
-Una persona può avere più ruoli insieme (per esempio sostenitore e socio, oppure volontario e socio). La referente in Uganda non è per ora un utente del sistema: il suo accesso diretto è previsto in futuro (cap. 1.3).
+Una persona può avere più ruoli insieme (per esempio sostenitore e socio, oppure volontario e socio). La referente in Uganda non è per ora un utente del sistema: il suo accesso diretto è previsto in futuro (cap. 1.4).
 
 ## 3.3 Come si lavora oggi e come si lavorerà
 
@@ -445,7 +468,7 @@ Il materiale che la referente manda dall’Uganda entra nel gestionale soprattut
 - **AC-08** · **Dato che** un’entrata proviene da un IBAN sconosciuto ma la causale contiene il nome di un sostenitore, **Quando** l’importazione termina, **Allora** il gestionale mi propone l’abbinamento e io lo confermo con un clic; senza conferma l’entrata resta da abbinare.
 - **AC-09** · **Dato che** è il giorno 10 del mese e l’estratto del mese precedente non è stato importato, **Quando** apro la sezione Scadenze, **Allora** trovo il promemoria dell’importazione. (FR-REP-01, FR-IMP-01)
 
-**Regole collegate.** Un’entrata da IBAN sconosciuto si collega a un sostenitore esistente, a una nuova anagrafica da completare oppure alla Cassa sostegno Effatà. Il nome nella causale produce solo una proposta, mai un abbinamento automatico. Le uscite presenti nell’estratto vengono ignorate: la contabilità resta in VERIF!CO (cap. 1.3). Il formato del file UniCredit va verificato su una copia anonimizzata (DIP-01).
+**Regole collegate.** Un’entrata da IBAN sconosciuto si collega a un sostenitore esistente, a una nuova anagrafica da completare oppure alla Cassa sostegno Effatà. Il nome nella causale produce solo una proposta, mai un abbinamento automatico. Le uscite presenti nell’estratto vengono ignorate: la contabilità resta in VERIF!CO (cap. 1.4). Il formato del file UniCredit va verificato su una copia anonimizzata (DIP-01).
 
 ### AMM-05 · Imputare le entrate
 
@@ -984,7 +1007,7 @@ Interviste: quattro membri dell’associazione il 01/10/2026 (ruoli da indicare,
 | Intervista 1 – associazione | “Un buon gestionale deve essere sempre in grado di fornirti il dato che ti serve, rispetto al previsionale: un quadro aggiornato, e anche il trend.” | FR-DASH-02 (obiettivi per capitolo, andamento mese per mese e confronto con l’anno precedente); AMM-07 |
 | Intervista 2 – associazione | “L’errore che proprio non vorrei mai vedere è che non sia attendibile: che si crei un bug logico o statistico.” | NFR-17; AMM-06 AC-05 (esportazione bloccata se i totali non tornano); AMM-07 AC-04 (anomalia al posto di un totale sbagliato) |
 | Intervista 3 – associazione | “Raccogliere i dati necessari dai vari canali, usufruibili nel più breve tempo possibile. Esempio: una signora offre per il calendario solidale, ma noi non vediamo niente.” | NFR-18; FR-CAN-03 (importazione giornaliera del calendario solidale); FR-CAN-01; donazioni visibili come “dichiarate” prima dell’estratto conto (FR-DON-01) |
-| Intervista 4 – associazione | “Filtrare le informazioni: anagrafiche donatori, anagrafica fornitori, entrate e uscite, storicità, report, scadenze.” | FR-REP-01 (filtri, esportazione in Excel, sezione Scadenze); FR-REP-02 (ricerca); storico mai cancellato (AMM-02, FR-DON-02); fornitori e uscite restano in VERIF!CO (cap. 1.3) |
+| Intervista 4 – associazione | “Filtrare le informazioni: anagrafiche donatori, anagrafica fornitori, entrate e uscite, storicità, report, scadenze.” | FR-REP-01 (filtri, esportazione in Excel, sezione Scadenze); FR-REP-02 (ricerca); storico mai cancellato (AMM-02, FR-DON-02); fornitori e uscite restano in VERIF!CO (cap. 1.4) |
 | Intervista 5 – sostenitrice, 35 anni | “Hai comprato il buono galline, ed ecco le foto delle galline comprate con quei soldi.” “Quest’anno hai donato tot, e si aggiorna se uno fa altre donazioni.” “Contatori, tipo un grafico a cerchio: abbiamo raccolto tot sull’obiettivo di tot.” “Quante famiglie abbiamo aiutato quest’anno.” Apprezza gli esempi concreti di quanto costano un animale o un materasso | Conferma la rendicontazione delle voci fisse con le foto della consegna (FR-INT-08, SOS-07 AC-08) e le voci fisse con il prezzo (FR-CAT-01); totale dell’anno in corso nell’area riservata (SOS-08 AC-07); avanzamento degli obiettivi e contatori di impatto in vetrina, in fase 2 (FR-DASH-03) |
 
 # 7. Assunzioni, vincoli e dipendenze
@@ -1794,7 +1817,7 @@ Prima di M1 vanno risolte le dipendenze che bloccano l’avvio (cap. 7.3): sicur
 
 ## 17.2 Priorità e tagli
 
-Il perimetro della fase 1 e della fase 2 è nel capitolo 1.2: la fase 1 copre tutte le storie del capitolo 5 salvo l’area soci (SOC-01…03), che è in fase 2.
+Il perimetro della fase 1 e della fase 2 è nel capitolo 1.3: la fase 1 copre tutte le storie del capitolo 5 salvo l’area soci (SOC-01…03), che è in fase 2.
 
 **Tagli se il ritardo supera il margine.** Nell’ordine, queste funzioni passano dalla fase 1 alla fase 2, senza toccare i requisiti obbligatori della traccia:
 1. riepilogo mensile su Instagram con i numeri del gestionale (FR-BOT-08);
@@ -1834,4 +1857,4 @@ Checklist finale del template, verificata sulla versione consegnata.
 - [x] Ogni scelta tecnica ha almeno un’alternativa scartata e una motivazione (cap. 9).
 - [x] La prima parte non contiene scelte tecniche: le tecnologie sono solo nella seconda parte; nella prima restano i fornitori che sono vincoli o dipendenze dell’associazione (VERIF!CO, UniCredit, Stripe, Brevo, Hostinger, Telegram, Anthropic, Meta) e i requisiti trasversali chiesti dalla traccia (NFR-06, 12, 13b, 14, 15).
 - [x] Lo storico delle versioni è aggiornato.
-- [ ] Aggiuntivo: i riquadri di guida e le note di revisione sono stati cancellati (fatto); il documento sta fra 15 e 25 pagine (non rispettato: il PRD è di circa 65 pagine (A4, corpo 10,5), più 32 pagine di allegati, perché copre tutte le sezioni del template per un cliente reale con pagamenti, contabilità, un sistema esterno e dati di minori; il dettaglio non richiesto dal template è già spostato negli allegati).
+- [ ] Aggiuntivo: i riquadri di guida e le note di revisione sono stati cancellati (fatto); il documento sta fra 15 e 25 pagine (non rispettato: il PRD è di circa 67 pagine (A4, corpo 10,5), indice compreso, più 33 pagine di allegati, perché copre tutte le sezioni del template per un cliente reale con pagamenti, contabilità, un sistema esterno e dati di minori; il dettaglio non richiesto dal template è già spostato negli allegati).
