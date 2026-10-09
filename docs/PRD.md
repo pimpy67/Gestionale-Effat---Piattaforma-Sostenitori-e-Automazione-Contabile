@@ -173,9 +173,9 @@ Il gestionale nasce per un’associazione reale. Prima di descriverlo, ecco chi 
 **I progetti.**
 
 - **Adozioni scolastiche:** circa 1.200 bambini con la retta scolastica pagata, che comprende un pasto caldo al giorno, la divisa, il materiale didattico e l’assistenza alla famiglia.
-- **Aiuto alle famiglie in difficoltà:** piccole case in mattoni per chi vive in ripari provvisori; affitto di terreni da coltivare e animali da allevare; beni di prima necessità come pappe per bambini denutriti, materassi e scarpe.
-- **Assistenza medica:** spese ospedaliere e interventi chirurgici per bambini con malformazioni e problemi congeniti; sedie a rotelle e supporti per bambini con disabilità.
-- **Casa famiglia:** una casa in costruzione per accogliere bambini abbandonati o con disabilità e le loro mamme, con una fattoria per l’autosostentamento.
+- **Aiuto alle famiglie in difficoltà:** costruzione di piccole case in mattoni per chi vive in ripari provvisori; affitto di terreni agricoli; donazione di animali da allevare; beni di prima necessità come pappe per bambini denutriti, materassi e scarpe.
+- **Assistenza medica:** interventi chirurgici e spese ospedaliere per bambini con malformazioni e problemi congeniti; sedie a rotelle e supporti per bambini con disabilità.
+- **Casa famiglia:** già in funzione, oggi accoglie 38 bambini orfani; ha una fattoria per l’autosostentamento.
 
 Questo è il contesto del gestionale: ogni progetto diventa una richiesta di sostegno nella vetrina, e il rapporto diretto fra chi dona e chi riceve è ciò che il gestionale deve rendere tracciabile (cap. 1.2).
 
