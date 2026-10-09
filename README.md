@@ -4,6 +4,8 @@
 
 Progetto personale di Andrea Pavan per l'ITS (2° anno), sviluppato con la metodologia della traccia "ScuolaChill": prima il PRD, poi il codice.
 
+> 📄 **[Leggi il PRD v2.0](docs/PRD.md)** · **[Allegati](docs/PRD_allegati.md)**
+
 ## Stato del progetto
 
 **Fase attuale: PRD v2.0 consegnato per la validazione** (9 ottobre 2026; validazione entro il 23 ottobre).
