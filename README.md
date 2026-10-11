@@ -4,7 +4,7 @@
 
 Progetto personale di Andrea Pavan per l'ITS (2° anno), sviluppato con la metodologia della traccia "ScuolaChill": prima il PRD, poi il codice.
 
-> 📄 **[Leggi il PRD v2.1](docs/PRD.md)** · **[Allegati](docs/PRD_allegati.md)** · **[Presentazione](docs/Presentazione_PRD_v2.1.pdf)**
+> 📄 **[Leggi il PRD v2.1](docs/PRD.md)** · **[Allegati](docs/PRD_allegati.md)** · **Presentazione: [PowerPoint](docs/Presentazione_PRD_v2.1.pptx) · [PDF](docs/Presentazione_PRD_v2.1.pdf)**
 
 ## Stato del progetto
 
@@ -17,7 +17,8 @@ Lo sviluppo del codice inizierà solo dopo la validazione del PRD.
 | --- | --- |
 | [`docs/PRD.md`](docs/PRD.md) | Product Requirements Document, con i capitoli nell'ordine del template del docente; lo storico breve è all'inizio del documento |
 | [`docs/PRD_allegati.md`](docs/PRD_allegati.md) | Allegati al PRD: gestione delle modifiche, schede informative, rischi, domande di verifica, storico completo, domande all'associazione, fonti, brain dump, modulo di consenso |
-| [`docs/Presentazione_PRD_v2.1.pdf`](docs/Presentazione_PRD_v2.1.pdf) | Slide della presentazione del PRD v2.1 (prima parte: chi è Effatà, capitoli 1–10 e checklist del capitolo 19) |
+| [`docs/Presentazione_PRD_v2.1.pptx`](docs/Presentazione_PRD_v2.1.pptx) | Slide della presentazione del PRD v2.1 in PowerPoint, con il testo da dire nelle note (prima parte: chi è Effatà, capitoli 1–10 e checklist del capitolo 19). GitHub non mostra l’anteprima: si scarica con “Download raw file” |
+| [`docs/Presentazione_PRD_v2.1.pdf`](docs/Presentazione_PRD_v2.1.pdf) | Le stesse slide in PDF, visibili direttamente su GitHub |
 | [`docs/DIARIO.md`](docs/DIARIO.md) | Diario delle sessioni di lavoro: decisioni prese, punti aperti, prossimi passi |
 | [`docs/bot/TECHNICAL-INTEGRATION.md`](docs/bot/TECHNICAL-INTEGRATION.md) | Documentazione tecnica del bot social esistente (sistema separato), verificata sul codice |
 
