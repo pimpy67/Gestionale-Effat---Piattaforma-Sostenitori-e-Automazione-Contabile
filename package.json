@@ -11,12 +11,17 @@
     "db:ferma": "docker compose stop db",
     "db:migra": "npm run db:migra --workspace apps/api",
     "db:seed": "npm run db:seed --workspace apps/api",
-    "db:reset": "npm run db:reset --workspace apps/api"
+    "db:reset": "npm run db:reset --workspace apps/api",
+    "api:dev": "npm run start:dev --workspace apps/api",
+    "api:test": "npm test --workspace apps/api",
+    "api:test:e2e": "npm run test:e2e --workspace apps/api",
+    "api:build": "npm run build --workspace apps/api"
   },
   "allowScripts": {
     "@prisma/client@6.19.3": true,
     "@prisma/engines@6.19.3": true,
     "esbuild@0.28.2": true,
-    "prisma@6.19.3": true
+    "prisma@6.19.3": true,
+    "@scarf/scarf": false
   }
 }

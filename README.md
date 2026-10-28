@@ -26,6 +26,21 @@ npm run db:seed           # inserisce i dati di fantasia (mai dati reali)
 - Migrazione iniziale, con i vincoli che Prisma non sa esprimere (uno e uno solo, adozione attiva unica, importi positivi, codici BAM/FAM/RIC, viste materializzate): [`apps/api/prisma/migrations`](apps/api/prisma/migrations).
 - Per ripartire da zero: `npm run db:reset` (cancella i dati, riapplica la migrazione e il seed).
 
+## Avviare l'API in locale
+
+Con il database avviato:
+
+```bash
+npm run api:dev           # API NestJS con ricarica automatica su http://localhost:3000/api/v1
+npm run api:test          # test unitari (Jest)
+npm run api:test:e2e      # test end-to-end sull'API vera (serve il database)
+```
+
+- Controllo di salute: `GET http://localhost:3000/api/v1/salute`.
+- Documentazione OpenAPI generata dal codice: `http://localhost:3000/api/v1/docs` (solo in sviluppo).
+- Tutti gli errori in formato RFC 9457, con messaggi in italiano (PRD cap. 11.3).
+- Il worker (lavori lenti e pianificati) si avvia con `npm run start:worker:dev --workspace apps/api`.
+
 ## Documentazione
 
 | File | Contenuto |

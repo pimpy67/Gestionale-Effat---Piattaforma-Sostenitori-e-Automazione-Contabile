@@ -444,3 +444,15 @@ Il dettaglio di ogni decisione è nel PRD (`docs/PRD.md`), capitolo 5.7.
 **Prossimi passi**
 - Docker Desktop su questo computer risponde con errore 500: da sistemare, poi `npm run db:avvia`, `db:migra`, `db:seed`.
 - Progetto NestJS in `apps/api` (M1: registrazione, accesso, ruoli).
+
+**Fatto (API)**
+- Progetto NestJS 11 in `apps/api`, con la struttura del cap. 14.1: `main.ts` (API) e `worker.ts` (worker) come due punti di avvio, `comune/` per ciò che vale per tutte le route, `moduli/` per i moduli di business.
+- Prefisso `/api/v1`, validazione con class-validator (campi sconosciuti rifiutati), errori RFC 9457 in italiano con l'elenco dei campi non validi, OpenAPI generata dal codice su `/api/v1/docs` solo in sviluppo.
+- `PrismaService` globale; controllo di salute `GET /api/v1/salute` con la verifica del database.
+- Test: 4 unitari sul formato degli errori, 2 end-to-end sull'API vera con PostgreSQL 16, tutti verdi.
+
+**Decisioni tecniche**
+- NestJS 11 invece della 12: la 12 è solo ESM e complica Jest e Prisma 6. Si valuta l'aggiornamento insieme a Prisma 7.
+
+**Prossimi passi**
+- Modulo `accessi` (M1): registrazione, accesso, token, ruoli, permessi dei volontari, verifica in due passaggi.
