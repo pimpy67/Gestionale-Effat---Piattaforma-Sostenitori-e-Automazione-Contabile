@@ -4,7 +4,7 @@
 
 Piattaforma Sostenitori e Automazione Contabile
 
-*Versione 2.2 – struttura del PRD Template del docente*
+*Versione 2.3 – struttura del PRD Template del docente*
 
 # Indice
 
@@ -101,7 +101,7 @@ Piattaforma Sostenitori e Automazione Contabile
 | Autori | Andrea Pavan |
 | Cliente reale | Effatà Italia ODV |
 | Contesto | Progetto ITS – 2° anno. Progetto personale che segue la metodologia della traccia “ScuolaChill”. |
-| Versione | 2.2 |
+| Versione | 2.3 |
 | Data | 28/10/2026 |
 | Stato | Consegnato per la validazione; correzioni richieste dal docente |
 
@@ -129,6 +129,7 @@ Piattaforma Sostenitori e Automazione Contabile
 | 2.0 | 09/10/2026 | Andrea Pavan | Versione consegnata al docente per la validazione: contenuto della v1.15, senza nuove decisioni |
 | 2.1 | 09/10/2026 | Andrea Pavan | Correzioni richieste dal docente alla consegna: indice di capitoli e sottocapitoli all’inizio del documento; nuovo capitolo 1.1 “Chi è Effatà” sul contesto dell’associazione (i successivi diventano 1.2–1.4) |
 | 2.2 | 28/10/2026 | Andrea Pavan | Adozione come impegno annuale ricorrente, senza interventi né checklist: annualità, promemoria e riaffido per mancato rinnovo; aggiornamenti della scheda al posto delle prove annuali; gestione della casa famiglia separata da Casa struttura; beneficiario solo bambino o famiglia; modello dei dati aggiornato |
+| 2.3 | 28/10/2026 | Andrea Pavan | Modello dei dati completato: contenuti di un bambino oppure di una famiglia; prova con una o più foto; foto delle richieste in vetrina; famiglia obbligatoria nelle consegne delle voci fisse; credito solidale esportato a VERIF!CO solo quando viene usato o scade; specie degli animali come categorie del gruppo “Animali”; tutte le relazioni nel capitolo 12.2 e un quarto diagramma ER |
 
 Lo storico completo, con il dettaglio di ogni versione, è nell’Allegato E; la regola di gestione delle modifiche nell’Allegato A.
 
@@ -339,7 +340,7 @@ Per ogni storia principale (★ nel capitolo 5) sono descritti il percorso passo
 | **Storia** | VOL-01 · Caricare le prove di realizzazione |
 | **User flow** | 1. Silvia manda nel gruppo WhatsApp le foto di un aiuto consegnato, per esempio la casa finita della famiglia di Mary. 2. Il volontario le trascina tutte nel bot, con i testi di Silvia agganciati come didascalia o con “Rispondi”. 3. Il bot chiede il tipo, ✅ Aiuto consegnato, poi la categoria: costruzione casa. 4. Il bot legge “Mary” dal messaggio e chiede al gestionale i candidati solo fra i beneficiari con un intervento pagato e prove mancanti: ne resta uno, la famiglia FAM-0045, e il volontario conferma. 5. Il gestionale manda le voci mancanti della checklist della casa (foto della casa finita, contratto, fattura); l’AI del bot propone “Foto della casa finita”, il volontario conferma con un tocco. 6. Il bot controlla il consenso della famiglia. 7. Il volontario sceglie nel foglio provini le foto per i social, nell’ordine della storia; il bot pubblica il post, con il nome della sostenitrice solo se ha acconsentito. 8. Il gestionale riceve tutte le foto: la voce “Foto della casa finita” risulta completata e la sostenitrice vede subito le foto nella sua area. 9. Con tutte le prove della checklist l’intervento diventa “rendicontato”. |
 | **Scenario principale** | Giovedì sera Silvia manda sei foto della nuova casa di Mary e dei suoi figli. Luca, volontario, le trascina nel bot e sceglie ✅ Aiuto consegnato → Costruzione casa. Il bot propone una sola famiglia, FAM-0045 (casa pagata, mancano le foto della casa finita), e Luca conferma; poi conferma la voce “Foto della casa finita” proposta dall’AI e sceglie tre foto per i social. Il post esce con “Grazie a Maria R. di Treviso”; pochi minuti dopo la sostenitrice trova nella sua area le sei foto con le parole di Silvia. |
-| **Scenari alternativi** | **Voce fissa:** per una consegna di materassi il volontario sceglie ✅ Aiuto consegnato → Materassi e, se vuole, la famiglia; tutte le donazioni per i materassi ancora da rendicontare ricevono le foto di quella consegna, senza contare i pezzi (FR-INT-08). **Nessun intervento pagato per quel bambino:** con “Cerca fra tutti” il volontario lo trova, le foto vanno nella scheda come aggiornamento e l’amministratore riceve una segnalazione. **Famiglia senza modulo di consenso:** foto archiviate, nessun post; il sostenitore vede solo “consegna avvenuta” con la data. **Foto di bambini diversi nello stesso messaggio:** invii separati. **Gestionale non raggiungibile:** coda e nuovo tentativo ogni 10 minuti. **Prova caricata per errore:** l’amministratore la nasconde. **Volontario senza permesso:** il bot non mostra ✅. |
+| **Scenari alternativi** | **Voce fissa:** per una consegna di materassi il volontario sceglie ✅ Aiuto consegnato → Materassi e la famiglia che li ha ricevuti; tutte le donazioni per i materassi ancora da rendicontare ricevono le foto di quella consegna, senza contare i pezzi (FR-INT-08). **Nessun intervento pagato per quel bambino:** con “Cerca fra tutti” il volontario lo trova, le foto vanno nella scheda come aggiornamento e l’amministratore riceve una segnalazione. **Famiglia senza modulo di consenso:** foto archiviate, nessun post; il sostenitore vede solo “consegna avvenuta” con la data. **Foto di bambini diversi nello stesso messaggio:** invii separati. **Gestionale non raggiungibile:** coda e nuovo tentativo ogni 10 minuti. **Prova caricata per errore:** l’amministratore la nasconde. **Volontario senza permesso:** il bot non mostra ✅. |
 
 | Voce | Contenuto |
 | --- | --- |
@@ -548,7 +549,7 @@ Il materiale che la referente manda dall’Uganda entra nel gestionale soprattut
 - **AC-01** · **Dato che** ho il permesso di caricare prove e carico dal bot le foto di un aiuto consegnato, **Quando** confermo il beneficiario, scelto fra quelli con un intervento pagato e prove mancanti (FR-BOT-05), e la voce della checklist proposta, **Allora** la voce risulta completata e le foto sono visibili ai sostenitori di quell’intervento. (FR-INT-03)
 - **AC-02** · **Dato che** tutte le voci della checklist hanno la loro prova, **Quando** carico l’ultima, **Allora** l’intervento passa allo stato “rendicontato”. (FR-INT-03)
 - **AC-03** · **Dato che** la famiglia non ha dato il consenso alle foto per il padrino né alla pubblicazione, **Quando** carico una foto, **Allora** la foto viene archiviata ma il sostenitore vede solo “consegna avvenuta” con la data, e il bot non la pubblica sui social. (FR-CON-01)
-- **AC-04** · **Dato che** carico le foto della consegna di una voce fissa (es. materassi alla famiglia FAM-0045), **Quando** confermo la categoria, **Allora** tutte le donazioni per quella voce ancora da rendicontare ricevono le foto e passano a “rendicontate”, senza contare le unità; la famiglia è facoltativa. (FR-INT-08)
+- **AC-04** · **Dato che** carico le foto della consegna di una voce fissa (es. materassi alla famiglia FAM-0045), **Quando** confermo la categoria e la famiglia, che è obbligatoria, **Allora** tutte le donazioni per quella voce ancora da rendicontare ricevono le foto e passano a “rendicontate”, senza contare le unità. (FR-INT-08)
 - **AC-05** · **Dato che** carico un file che non è un’immagine o un PDF, o supera la dimensione massima, **Quando** confermo, **Allora** ricevo un errore chiaro e nulla viene salvato.
 - **AC-06** · **Dato che** non ho il permesso di caricare prove, **Quando** provo a farlo, **Allora** il bot non mi mostra l’opzione e il gestionale nega l’operazione. (FR-RUO-01)
 - **AC-07** · **Dato che** una prova è stata caricata per errore, **Quando** l’amministratore la nasconde o la elimina, **Allora** il sostenitore non la vede più e resta registrato chi l’ha caricata e chi l’ha rimossa.
@@ -824,7 +825,7 @@ Ogni scelta che le storie lasciano aperta è decisa qui, in modo verificabile, c
 
 **FR-CAT-01 · Richieste personali e voci fisse** (AMM-01, SOS-03). La vetrina offre due tipi di sostegno.
 - **Richieste personali**, per un beneficiario preciso (bambino o famiglia): adozione scolastica, adozione in casa famiglia, operazione chirurgica, carrozzina, costruzione casa, affitto terreno agricolo, acquisto terreno edificabile. Ognuna ha foto pubbliche, storia, costo, codice (RIC-0042) e stato (bozza, aperta, sostenuta, chiusa). Nasce dal bot (🆘 Richiesta di aiuto) o dal gestionale, preparata da un volontario abilitato; l’amministratore la approva. Una richiesta aperta da più di 30 giorni senza sostenitori viene segnalata. Per le operazioni la storia descrive il bisogno in modo generico, mai la diagnosi, anche nei testi social.
-- **Voci fisse**, bisogni sempre presenti e non legati a un beneficiario al momento della donazione: materassi, scarpe, animali (il sostenitore sceglie la specie, ognuna con il suo prezzo), opere della casa famiglia (importo libero) e sostegno della casa famiglia, che rimanda al calendario solidale (FR-CAN-03). Il sostenitore può indicare “quanti” (es. 3 materassi × 10 € = 30 €) solo per calcolare l’importo: il gestionale registra importo e categoria, non le unità. Il beneficiario si decide alla consegna (FR-INT-08). Un post di richiesta di aiuto per una voce fissa non crea una richiesta nuova, ma rimanda alla voce.
+- **Voci fisse**, bisogni sempre presenti e non legati a un beneficiario al momento della donazione: materassi, scarpe, animali (il sostenitore sceglie la specie, ognuna con il suo prezzo: ogni specie è una categoria del gruppo “Animali”, mostrate insieme in vetrina), opere della casa famiglia (importo libero) e sostegno della casa famiglia, che rimanda al calendario solidale (FR-CAN-03). Il sostenitore può indicare “quanti” (es. 3 materassi × 10 € = 30 €) solo per calcolare l’importo: il gestionale registra importo e categoria, non le unità. Il beneficiario si decide alla consegna (FR-INT-08). Un post di richiesta di aiuto per una voce fissa non crea una richiesta nuova, ma rimanda alla voce.
 
 L’amministratore aggiunge o toglie dalla vetrina, dalla dashboard, sia le richieste sia le voci fisse. Le categorie sono un’unica lista gestita nel gestionale e usata anche dal bot (FR-BOT-03).
 
@@ -836,7 +837,7 @@ L’amministratore aggiunge o toglie dalla vetrina, dalla dashboard, sia le rich
 
 **FR-CAR-01 · Chi paga per primo** (SOS-03, SOS-04, SOS-05). Vale solo per le richieste personali: le voci fisse non si esauriscono. Una richiesta personale resta disponibile finché non arriva un pagamento: con carta vale la conferma immediata, con bonifico il caricamento della quietanza. Il primo pagamento vince: la richiesta passa a “Sostenuto ✓” e non è più acquistabile.
 
-**FR-CAR-02 · Credito solidale** (SOS-04, SOS-05, SOS-06). Se arriva un secondo pagamento per una richiesta già sostenuta, la donazione diventa un **credito solidale** nell’area riservata del sostenitore, utilizzabile per un’altra richiesta **della stessa tipologia e dello stesso importo**. Il credito non è rimborsabile né cedibile; la regola è spiegata e accettata prima del pagamento (SOS-04 AC-03, SOS-05 AC-07).
+**FR-CAR-02 · Credito solidale** (SOS-04, SOS-05, SOS-06). Se arriva un secondo pagamento per una richiesta già sostenuta, la donazione diventa un **credito solidale** nell’area riservata del sostenitore, utilizzabile per un’altra richiesta **della stessa tipologia e dello stesso importo**. Il credito non è rimborsabile né cedibile; la regola è spiegata e accettata prima del pagamento (SOS-04 AC-03, SOS-05 AC-07). Finché il credito non viene usato o non scade, la donazione non va a VERIF!CO: entra nel file del mese in cui il credito viene usato o scade, con la destinazione definitiva (FR-VER-02).
 
 **FR-CAR-03 · Scadenza del credito solidale** (SOS-06). Chi ha un credito attivo riceve **un’email ogni settimana** con le richieste compatibili disponibili e un pulsante che porta nell’area riservata per accettarne una dopo l’accesso, più un avviso prima della scadenza. Dopo **1 mese** il credito scade e diventa **erogazione liberale per il sostentamento della casa famiglia Effatà** (FR-INT-07); il sostenitore riceve un’email di ringraziamento che lo informa.
 
@@ -877,7 +878,7 @@ Il tracciato di importazione di VERIF!CO non ha un campo per il conto di bilanci
 
 **FR-INT-07 · Casa famiglia Effatà** (SOS-06, AMM-07). La casa famiglia Effatà è un progetto specifico dell’associazione: una comunità protetta per minori, di cui la referente è tutore. Ha un proprio capitolo, distinto dalla Cassa sostegno Effatà (la cassa per le donazioni generiche), e un proprio ID_PROGETTO in VERIF!CO. In vetrina ha due voci fisse: **opere della casa famiglia** (lavori e acquisti, importo libero) e **sostegno della casa famiglia** (cibo, cuoca, infermiera, personale assistenziale, manutenzione), che corrisponde ai 50 € al giorno del calendario solidale. Le opere vanno al progetto Casa struttura; il sostegno, le adozioni in casa famiglia e i crediti scaduti alla gestione della casa famiglia (FR-INT-02). Riceve i crediti solidali scaduti (FR-CAR-03), compare fra i capitoli con obiettivo annuale (FR-DASH-02) ed è collegata alle adozioni in casa famiglia.
 
-**FR-INT-08 · Consegne delle voci fisse** (VOL-01, SOS-07). Per le voci fisse si rendiconta la donazione, non si contano le unità. Le donazioni per una voce fissa restano “in attesa di consegna”. Quando la referente manda le foto di una consegna (es. materassi alla famiglia FAM-0045), il volontario le carica con ✅ Aiuto consegnato e la categoria, indicando se vuole la famiglia (utile allo storico, non obbligatoria); il gestionale crea l’intervento e gli collega tutte le donazioni di quella voce ancora da rendicontare, che diventano “rendicontate”: ogni donatore vede le foto con “Consegnato”. Le donazioni successive aspettano la consegna seguente. **Motivazione:** la referente compra e consegna secondo i bisogni, non a pezzi per donatore; contare le unità creerebbe consegne “in più” o “in meno” senza utilità per chi dona.
+**FR-INT-08 · Consegne delle voci fisse** (VOL-01, SOS-07). Per le voci fisse si rendiconta la donazione, non si contano le unità. Le donazioni per una voce fissa restano “in attesa di consegna”. Quando la referente manda le foto di una consegna (es. materassi alla famiglia FAM-0045), il volontario le carica con ✅ Aiuto consegnato, la categoria e la famiglia che ha ricevuto la consegna (obbligatoria: le foto entrano nella sua scheda); il gestionale crea l’intervento e gli collega tutte le donazioni di quella voce ancora da rendicontare, che diventano “rendicontate”: ogni donatore vede le foto con “Consegnato”. Le donazioni successive aspettano la consegna seguente. **Motivazione:** la referente compra e consegna secondo i bisogni, non a pezzi per donatore; contare le unità creerebbe consegne “in più” o “in meno” senza utilità per chi dona.
 
 ### Canali, VERIF!CO e certificazioni
 
@@ -889,7 +890,7 @@ Il tracciato di importazione di VERIF!CO non ha un campo per il conto di bilanci
 
 **FR-VER-01 · Dati fra gestionale e VERIF!CO** (AMM-06). VERIF!CO resta il riferimento per contabilità, uscite, fornitori, bilancio, certificazioni e newsletter. Le anagrafiche raccolte e completate nel gestionale passano anche a VERIF!CO (direzione gestionale → VERIF!CO); le correzioni fatte direttamente in VERIF!CO vanno riportate anche nel gestionale. Il collegamento avviene tramite l’ID dell’anagrafica VERIF!CO. L’associazione usa **VERIF!CO Maxi** (contabilità per competenza): il file di caricamento contiene solo le **entrate confermate, con importi positivi**, e usa i campi ID_PROGETTO, ID_RACCOLTAFONDI e ID_5PER1000. I movimenti si collegano alle anagrafiche in due modi: nel tracciato master tramite l’anagrafica, nel tracciato Stripe tramite l’**email**, perché quel tracciato non ha il codice fiscale; per questo l’anagrafica in VERIF!CO deve avere la stessa email usata nel pagamento, e la stessa email non deve appartenere a più anagrafiche. Il tracciato non ha un campo per il conto di bilancio: la destinazione contabile viaggia con il campo Progetti (FR-INT-02).
 
-**FR-VER-02 · Caricamento massivo in VERIF!CO** (AMM-06). Ogni mese, dopo l’importazione dell’estratto conto, l’amministratore apre “Contabilità → Prepara VERIF!CO” e il gestionale genera tre file: 1) le **anagrafiche** nuove o modificate, con codice fiscale ed email uguale a quella dei pagamenti (file di importazione, se VERIF!CO lo consente, oppure elenco da inserire a mano); 2) i **bonifici** confermati nel tracciato master; 3) i **pagamenti con carta e Satispay** nel tracciato Stripe, una riga per pagamento (calendario compreso), con l’email del donatore. L’amministratore li carica da “Contabilità → Importazione movimenti” in quest’ordine, prima le anagrafiche e poi i movimenti, e segna il mese come “caricato”. In VERIF!CO i pagamenti con carta entrano sul conto finanziario STRIPE alla data del pagamento; i versamenti di Stripe sul conto UniCredit si registrano come giroconto da STRIPE a UNICREDIT, con le commissioni di Stripe come costo (un movimento per versamento; schema da confermare con il commercialista, Allegato F). Un invio completamente automatico richiederebbe un’API di VERIF!CO (DIP-12).
+**FR-VER-02 · Caricamento massivo in VERIF!CO** (AMM-06). Ogni mese, dopo l’importazione dell’estratto conto, l’amministratore apre “Contabilità → Prepara VERIF!CO” e il gestionale genera tre file: 1) le **anagrafiche** nuove o modificate, con codice fiscale ed email uguale a quella dei pagamenti (file di importazione, se VERIF!CO lo consente, oppure elenco da inserire a mano); 2) i **bonifici** confermati nel tracciato master; 3) i **pagamenti con carta e Satispay** nel tracciato Stripe, una riga per pagamento (calendario compreso), con l’email del donatore. Le donazioni diventate credito solidale entrano nel file del mese in cui il credito viene usato o scade, con la data del pagamento e la destinazione definitiva (FR-CAR-02; da confermare con il commercialista, Allegato F). L’amministratore li carica da “Contabilità → Importazione movimenti” in quest’ordine, prima le anagrafiche e poi i movimenti, e segna il mese come “caricato”. In VERIF!CO i pagamenti con carta entrano sul conto finanziario STRIPE alla data del pagamento; i versamenti di Stripe sul conto UniCredit si registrano come giroconto da STRIPE a UNICREDIT, con le commissioni di Stripe come costo (un movimento per versamento; schema da confermare con il commercialista, Allegato F). Un invio completamente automatico richiederebbe un’API di VERIF!CO (DIP-12).
 
 **FR-VER-03 · Chiusura annuale per le certificazioni** (AMM-06, SOS-08). Dal 1° gennaio la sezione Scadenze mostra la checklist di chiusura dell’anno precedente, con scadenza predefinita al 15 febbraio: estratto conto di dicembre importato; nessuna donazione dell’anno ancora dichiarata o con anomalie; l’elenco dei donatori dell’anno senza codice fiscale, con la possibilità di inviare inviti a completarlo prima della chiusura; file e anagrafiche caricati in VERIF!CO. **Motivazione:** VERIF!CO invia le certificazioni una volta l’anno, fra fine febbraio e inizio marzo; i dati devono essere completi prima.
 
@@ -1366,27 +1367,28 @@ Il modello è relazionale, su PostgreSQL 16, e nasce dalle schede dell’Allegat
 | | `modulo_consenso` | Il modulo della famiglia, con data, chi l’ha raccolto, file, le quattro caselle (padrino, pubblicazione, compleanno, salute) ed eventuali revoche per scopo (FR-CON-01) |
 | | `bambino` | Codice BAM, famiglia, nome, cognome, data di nascita, villaggio, scuola e classe, stato (attivo o uscito dal programma) |
 | | `dato_sanitario` | Informazioni sanitarie, in una tabella separata leggibile solo dall’amministratore (FR-RUO-02) |
-| | `contenuto` | Foto, pagelle e notizie di un bambino o di un intervento, con testo della referente, visibilità (pubblica o riservata al padrino), autore e file |
+| | `contenuto` | Foto, pagelle e notizie di un bambino oppure di una famiglia (sempre uno solo dei due), con testo della referente, visibilità (pubblica o riservata al padrino), autore, invio del bot di provenienza e file |
 | Vetrina e soldi | `capitolo` | I capitoli di imputazione con il loro progetto VERIF!CO (ID_PROGETTO) e l’obiettivo annuale (FR-INT-02, FR-DASH-02) |
 | | `raccolta_fondi` | Campagne e iniziative esterne con il loro ID_RACCOLTAFONDI (FR-CAN-01) |
-| | `categoria` | Tipo (richiesta personale, voce fissa, solo social), costo di listino, progetto VERIF!CO (FR-INT-02) |
+| | `categoria` | Tipo (richiesta personale, voce fissa, solo social), gruppo (es. “Animali” per le specie), costo di listino, capitolo (FR-INT-02, FR-CAT-01) |
 | | `voce_checklist` | Le prove richieste per ogni categoria (FR-INT-03) |
 | | `richiesta` | Codice RIC, categoria, beneficiario (bambino o famiglia), storia, costo, stato (bozza, aperta, sostenuta, chiusa) |
+| | `foto_richiesta` | Le foto del beneficiario mostrate nella vetrina per una richiesta, con il loro ordine (FR-CAT-01) |
 | | `adozione` | Sostenitore, bambino, richiesta di origine, importo annuale, data di inizio, data e motivo di chiusura, stato (FR-ADO-04) |
 | | `annualita_adozione` | Anno coperto, importo, stato (in attesa, pagata, non rinnovata), promemoria inviati (FR-ADO-04) |
-| | `intervento` | Categoria, beneficiario (bambino o famiglia; facoltativo per le consegne delle voci fisse), costo congelato, stato, presa in carico |
-| | `prova` | Il contenuto che completa una voce della checklist di un intervento |
+| | `intervento` | Categoria, beneficiario (bambino o famiglia, obbligatorio anche per le consegne delle voci fisse), costo congelato, stato, presa in carico |
+| | `prova` | Una voce della checklist completata per un intervento, con uno o più contenuti (FR-INT-03) |
 | | `notizia` | Avvisi dell’associazione e collegamenti alle newsletter, con data di pubblicazione e di fine (FR-INF-01) |
-| | `carrello`, `preferito` | Le voci scelte da sostenitori e ospiti, salvate sul server per ritrovarle dopo la registrazione e su ogni dispositivo |
-| | `donazione` | Sostenitore, importo, metodo, stato (dichiarata, confermata, annullata con motivo), date, identificativo di Stripe, causale, copia dei dati dell’avente diritto, mese di esportazione |
-| | `quota_donazione` | Come una donazione si divide: capitolo sempre, richiesta, intervento, annualità di un’adozione o raccolta fondi quando ci sono (FR-INT-01, FR-INT-06, FR-ADO-04) |
+| | `carrello`, `preferito` | Le voci scelte da utenti e ospiti (una richiesta personale, oppure una voce fissa con l’importo), salvate sul server per ritrovarle dopo la registrazione e su ogni dispositivo |
+| | `donazione` | Sostenitore, importo, metodo, stato (dichiarata, confermata, annullata con motivo), date, identificativo di Stripe, causale, copia dei dati dell’avente diritto, esportazione VERIF!CO in cui è entrata |
+| | `quota_donazione` | Come una donazione si divide: capitolo sempre, richiesta, intervento, annualità di un’adozione, voce fissa (categoria) o raccolta fondi quando ci sono (FR-INT-01, FR-INT-06, FR-INT-08, FR-ADO-04) |
 | | `quietanza` | Il file caricato dal sostenitore per un bonifico |
-| | `credito_solidale` | Donazione di origine, tipologia, importo, scadenza, stato e utilizzo (FR-CAR-02/03) |
+| | `credito_solidale` | Donazione di origine, tipologia (categoria), importo, scadenza, stato, richiesta su cui è stato usato (FR-CAR-02/03) |
 | Contabilità e sistema | `estratto_conto`, `riga_estratto` | Il file caricato e le sue righe grezze, con impronta per non duplicarle e stato dell’abbinamento: i dati grezzi restano separati dalle donazioni |
 | | `esportazione_verifico` | Mese, file generati, totali, stato “caricato” |
 | | `invio_bot` | Chiave dell’invio, volontario, tipo, esito: impedisce i doppioni (FR-BOT-06) |
 | | `registro_modifiche` | Chi, quando, quale dato, valore precedente e nuovo, per i dati economici, le impostazioni e gli accessi ai dati sensibili (NFR-17, NFR-08) |
-| | `impostazione`, `email_inviata`, `segnalazione` | Impostazioni configurabili (FR-IMP-01), registro delle email, anomalie e segnalazioni |
+| | `impostazione`, `email_inviata`, `segnalazione` | Impostazioni configurabili (FR-IMP-01), registro delle email con il destinatario, anomalie e segnalazioni con il dato coinvolto |
 
 ## 12.2 Diagramma ER
 
@@ -1397,10 +1399,26 @@ Il modello è relazionale, su PostgreSQL 16, e nasce dalle schede dell’Allegat
 | adozione – annualita_adozione | 1 – 1..N | Un’annualità per ogni anno coperto; la prima nasce all’apertura dell’adozione (FR-ADO-04). L’adozione non ha interventi (FR-ADO-06) |
 | annualita_adozione – quota_donazione | 1 – 0..N | Il pagamento di un anno, anche diviso fra più donazioni; in attesa finché non arriva |
 | richiesta – adozione | 0..1 – 0..1 | Il pagamento di una richiesta di adozione apre l’adozione; i padrini storici importati non hanno una richiesta (AMM-09) |
-| bambino o famiglia – richiesta, intervento | 0..1 – 0..N | Il beneficiario è un bambino o una famiglia: due chiavi esterne facoltative e un vincolo che ne ammette al massimo una; vuote per le voci fisse fino alla consegna (FR-CAT-01, FR-INT-08) |
+| bambino o famiglia – richiesta, intervento | 0..1 – 0..N | Il beneficiario è un bambino o una famiglia: due chiavi esterne facoltative e un vincolo che ne ammette una e una sola; per le voci fisse l’intervento nasce alla consegna, con la famiglia obbligatoria (FR-CAT-01, FR-INT-08) |
 | famiglia – bambino | 1 – 1..N | Ogni bambino appartiene a una famiglia; la casa famiglia è una famiglia con la referente come tutore |
 | famiglia – modulo_consenso | 1 – 0..N | Lo storico dei moduli; vale l’ultimo non revocato |
-| bambino – contenuto | 1 – 0..N | Lo storico resta con il bambino anche dopo un riaffido (FR-ADO-02) |
+| bambino o famiglia – contenuto | 0..1 – 0..N | Ogni contenuto appartiene a un bambino oppure a una famiglia, mai a entrambi (vincolo “una e una sola”); lo storico resta con il bambino anche dopo un riaffido (FR-ADO-02) |
+| richiesta – foto_richiesta – contenuto | 1 – 0..N – 1 | Quali foto del beneficiario mostrare in vetrina e in che ordine |
+| prova – contenuto | 1 – 1..N | Una voce della checklist si completa con una o più foto; così un intervento vede le sue foto senza un collegamento diretto (FR-INT-03) |
+| voce_checklist – prova | 1 – 0..N | Una sola prova per coppia intervento–voce (indice unico) |
+| categoria – capitolo | 0..N – 1 | La categoria porta il capitolo e il progetto VERIF!CO (FR-INT-02) |
+| raccolta_fondi – capitolo | 0..N – 1 | Anche le campagne esterne hanno il loro capitolo (FR-CAN-01) |
+| categoria – quota_donazione | 0..1 – 0..N | Le donazioni per una voce fissa restano legate alla categoria finché la consegna non le collega a un intervento (FR-INT-08) |
+| utente o ospite – carrello, preferito | 0..1 – 0..N | Il proprietario è un utente oppure un ospite, uno e uno solo |
+| richiesta o categoria – carrello, preferito | 0..1 – 0..N | Una richiesta personale oppure una voce fissa con l’importo |
+| ospite – utente | 0..1 – 0..1 | Alla registrazione carrello, preferiti e consensi dell’ospite passano all’utente (FR-REG-05) |
+| categoria – credito_solidale | 1 – 0..N | La tipologia con cui il credito si può usare (FR-CAR-02) |
+| credito_solidale – richiesta | 0..1 – 0..1 | La richiesta su cui il credito viene usato |
+| esportazione_verifico – donazione | 0..1 – 0..N | In quale file è entrata ogni donazione; un credito solidale entra solo quando viene usato o scade (FR-CAR-02, FR-VER-02) |
+| utente – contenuto, notizia, invio_bot, registro_modifiche | 1 – 0..N | Chi ha caricato, pubblicato, inviato o modificato (NFR-17) |
+| invio_bot – contenuto | 0..1 – 0..N | Da quale invio arriva ogni foto: tracciabilità e nessun doppione (FR-BOT-06) |
+| sostenitore o ospite – email_inviata | 0..1 – 0..N | A chi è stata mandata l’email |
+| registro_modifiche, segnalazione – dato coinvolto | — | Tabella e id del dato, senza chiave esterna: un registro riguarda qualunque tabella e resta anche se il dato viene archiviato |
 | donazione – quota_donazione | 1 – 1..N | Un carrello con più voci è una sola donazione divisa in quote |
 | intervento – quota_donazione | 1 – 0..N | Un intervento può avere più finanziatori (FR-INT-01); una voce fissa riceve molte donazioni (FR-INT-08) |
 | intervento – prova | 1 – 0..N | Una prova per ogni voce della checklist |
@@ -1421,6 +1439,7 @@ erDiagram
   sostenitore ||--o{ iban_sostenitore : usa
   sostenitore ||--o{ consenso : esprime
   ospite ||--o{ consenso : esprime
+  ospite |o--o| utente : "si registra come"
   utente {
     uuid id PK
     string email
@@ -1442,7 +1461,8 @@ erDiagram
 erDiagram
   famiglia ||--|{ bambino : comprende
   famiglia ||--o{ modulo_consenso : firma
-  bambino ||--o{ contenuto : riceve
+  bambino |o--o{ contenuto : riceve
+  famiglia |o--o{ contenuto : riceve
   bambino ||--o{ dato_sanitario : ha
   bambino ||--o{ adozione : "è adottato con"
   sostenitore ||--o{ adozione : sottoscrive
@@ -1489,7 +1509,16 @@ erDiagram
   famiglia |o--o{ richiesta : beneficiario
   bambino |o--o{ intervento : beneficiario
   famiglia |o--o{ intervento : beneficiario
+  capitolo ||--o{ categoria : raggruppa
+  capitolo ||--o{ raccolta_fondi : raggruppa
+  richiesta ||--o{ foto_richiesta : mostra
+  contenuto ||--o{ foto_richiesta : "è mostrato in"
   intervento ||--o{ prova : documenta
+  voce_checklist ||--o{ prova : "è completata da"
+  prova ||--|{ contenuto : "si compone di"
+  categoria |o--o{ quota_donazione : "attende la consegna"
+  categoria ||--o{ credito_solidale : tipologia
+  credito_solidale |o--o| richiesta : "usato per"
   sostenitore ||--o{ donazione : fa
   donazione ||--|{ quota_donazione : "si divide in"
   intervento |o--o{ quota_donazione : riceve
@@ -1499,6 +1528,12 @@ erDiagram
   donazione |o--o| credito_solidale : genera
   estratto_conto ||--|{ riga_estratto : contiene
   riga_estratto |o--o| donazione : conferma
+  utente |o--o{ carrello : riempie
+  ospite |o--o{ carrello : riempie
+  richiesta |o--o{ carrello : contiene
+  categoria |o--o{ carrello : contiene
+  utente |o--o{ preferito : salva
+  ospite |o--o{ preferito : salva
   donazione {
     uuid id PK
     uuid sostenitore_id FK
@@ -1513,7 +1548,38 @@ erDiagram
     uuid capitolo_id FK
     uuid intervento_id FK
     uuid annualita_adozione_id FK
+    uuid categoria_id FK
     int importo_centesimi
+  }
+```
+
+**Contabilità e sistema**
+
+```mermaid
+erDiagram
+  esportazione_verifico |o--o{ donazione : "include"
+  utente ||--o{ invio_bot : invia
+  invio_bot |o--o{ contenuto : porta
+  utente ||--o{ contenuto : carica
+  utente ||--o{ notizia : pubblica
+  utente ||--o{ registro_modifiche : modifica
+  sostenitore |o--o{ email_inviata : riceve
+  ospite |o--o{ email_inviata : riceve
+  contenuto {
+    uuid id PK
+    uuid bambino_id FK
+    uuid famiglia_id FK
+    uuid prova_id FK
+    uuid invio_bot_id FK
+    string visibilita
+  }
+  registro_modifiche {
+    uuid id PK
+    uuid utente_id FK
+    string tabella
+    uuid record_id
+    string valore_precedente
+    string valore_nuovo
   }
 ```
 

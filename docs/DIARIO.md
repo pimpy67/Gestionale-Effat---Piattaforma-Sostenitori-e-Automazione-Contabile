@@ -409,12 +409,20 @@ Il dettaglio di ogni decisione è nel PRD (`docs/PRD.md`), capitolo 5.7.
 - **PRD v2.2** (tag `prd-v2.2`): adozione rivista e modello dei dati aggiornato.
 
 **Decisioni**
-- Il beneficiario di richieste e interventi è solo un bambino o una famiglia ("comunità" tolta): due chiavi esterne facoltative, al massimo una valorizzata.
+- Il beneficiario di richieste e interventi è solo un bambino o una famiglia ("comunità" tolta): due chiavi esterne facoltative, una e una sola valorizzata.
 - L'adozione non è un intervento: è un impegno annuale ricorrente di 180 €. Il primo pagamento copre l'anno in corso, poi si rinnova a fine anno per l'anno successivo. Nuova tabella `annualita_adozione`.
 - Se il padrino non rinnova dopo il promemoria, l'adozione si chiude e il bambino viene riaffidato.
 - Iscrizione, divisa e pagelle sono semplici aggiornamenti della scheda del bambino, senza checklist.
 - L'adozione in casa famiglia funziona allo stesso modo. Opere della casa famiglia su Casa struttura; adozioni in casa famiglia, sostegno e crediti scaduti sulla gestione della casa famiglia (progetto e conto da definire).
 
+**PRD v2.3** (tag `prd-v2.3`): modello dei dati completato, tutte le relazioni nel capitolo 12.2 e quarto diagramma ER.
+
+**Decisioni (v2.3)**
+- Ogni contenuto appartiene a un bambino oppure a una famiglia, mai a entrambi; le foto di un intervento passano dalla prova (una voce della checklist con una o più foto); nuova tabella `foto_richiesta` per le foto in vetrina.
+- Nelle consegne delle voci fisse la famiglia è obbligatoria.
+- Il credito solidale va a VERIF!CO solo quando viene usato o scade (da confermare con il commercialista).
+- Registro delle modifiche e segnalazioni con un riferimento generico al dato, senza chiave esterna.
+- Ogni specie di animale è una categoria del gruppo "Animali".
+
 **Prossimi passi**
-- Chiedere all'associazione: progetto e conto VERIF!CO della gestione della casa famiglia; date del promemoria e del termine per il rinnovo (Allegato F).
-- Completare il capitolo 12.2 con le altre relazioni implicite (prova–voce_checklist, categoria–capitolo, carrello e preferiti, credito solidale–utilizzo).
+- Chiedere all'associazione: progetto e conto VERIF!CO della gestione della casa famiglia; date del promemoria e del termine per il rinnovo; al commercialista, l'esportazione dei crediti solidali (Allegato F).
