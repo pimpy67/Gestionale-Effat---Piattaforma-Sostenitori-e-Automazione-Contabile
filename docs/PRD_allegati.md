@@ -2,7 +2,7 @@
 
 Piattaforma Sostenitori e Automazione Contabile
 
-*Versione 2.1 – file di accompagnamento a `docs/PRD.md`*
+*Versione 2.2 – file di accompagnamento a `docs/PRD.md`*
 
 Questo file raccoglie le sezioni aggiunte da noi al template del docente e il materiale di lavoro. I riferimenti “cap.” rimandano ai capitoli del PRD.
 
@@ -83,7 +83,7 @@ Le schede completano il capitolo 5 del PRD: descrivono **quali informazioni** se
 | Storia | Richiesta di sostegno e rendicontazione | Amministratore / volontario | No | A, V, S (completa o riassunto, FR-RUO-04) |
 | **Storico** |   |   |   |   |
 | Foto, pagelle, notizie, con i testi della referente | Contenuti per il sostenitore (VOL-02) | Volontario (dal bot o dal gestionale) | — | Pubbliche o riservate al padrino (FR-FOTO-01); S vede solo i bambini che sostiene; foto solo con consenso (FR-CON-01) |
-| Adozioni (attiva e chiuse) | Riaffido e storico (FR-ADO-01/02/03) | Amministratore | — | A; S vede solo la propria |
+| Adozioni (attiva e chiuse) con le annualità (anni pagati, in attesa, non rinnovati) | Riaffido, rinnovo e storico (FR-ADO-01/02/03/04) | Amministratore | — | A; S vede solo la propria |
 | Stato (attivo, uscito dal programma, con data e motivo) | Fine del percorso (AMM-02) | Amministratore | Sì | A, V |
 | Informazioni sanitarie (solo se indispensabili) | Operazioni chirurgiche | Amministratore | No | **Dato sanitario (art. 9 GDPR): solo A**, campo separato dalle notizie |
 
@@ -103,13 +103,12 @@ Una famiglia ha uno o più bambini, ciascuno adottato dal proprio sostenitore. G
 
 ## Scheda intervento
 
-L’intervento collega donazioni e beneficiari: “adozione scolastica di BAM-0102 per l’anno 2026”, “casa per la famiglia FAM-0045”, “consegna di materassi alla famiglia FAM-0112”. Nasce da una richiesta personale quando arriva il pagamento, oppure dalla consegna di una voce fissa (FR-INT-08).
+L’intervento collega donazioni e beneficiari: “casa per la famiglia FAM-0045”, “carrozzina per BAM-0187”, “consegna di materassi alla famiglia FAM-0112”. Nasce da una richiesta personale quando arriva il pagamento, oppure dalla consegna di una voce fissa (FR-INT-08). Le adozioni non sono interventi: sono impegni annuali ricorrenti, con le loro annualità (FR-ADO-04, FR-ADO-06).
 
 | Campo | Perché serve | Chi lo inserisce | Obbl. | Visibile a / note privacy |
 | --- | --- | --- | --- | --- |
-| Tipo di intervento | Adozione scolastica, adozione in casa famiglia, casetta, affitto terreno, animali, materassi, scarpe, carrozzina, operazione… | Amministratore | Sì | A, V, S |
-| Anno scolastico (solo adozioni) | Un intervento per ogni anno pagato (FR-ADO-06) | Sistema | Per le adozioni | A, V, S |
-| Beneficiario | Bambino, famiglia o comunità | Amministratore | Sì | A, V, S (con le regole della scheda bambino) |
+| Tipo di intervento | Casetta, affitto terreno, acquisto terreno, animali, materassi, scarpe, carrozzina, operazione, opere della casa famiglia… | Amministratore | Sì | A, V, S |
+| Beneficiario | Bambino o famiglia; facoltativo per le consegne delle voci fisse (FR-INT-08) | Amministratore | Sì | A, V, S (con le regole della scheda bambino) |
 | Finanziatori e quote | Chi lo finanzia (FR-INT-01) | Sistema | Sì | A; S vede solo la propria quota |
 | Costo dichiarato e raccolto | Sapere se è coperto; costo congelato al primo pagamento (FR-INT-04) | Amministratore | Sì | A, S; V senza importi |
 | Capitolo e ID_PROGETTO di VERIF!CO | Imputazione contabile (FR-INT-02) | Amministratore | Sì | A |
@@ -187,6 +186,7 @@ Le domande che un cliente o un valutatore potrebbe porre sul PRD, con la rispost
 | 1.15 | 04/10/2026 | Andrea Pavan | Consenso della famiglia rivisto con Andrea: un solo modulo bilingue (italiano e inglese) con una casella per ogni scopo, come chiede il GDPR: foto e notizie al padrino, pubblicazione su vetrina, sito e social, compleanno, informazioni sulla salute. L’amministratore riporta le caselle segnate dalla famiglia; senza modulo valgono tutte “no”; revoca possibile anche per un solo scopo. Raccolta graduale per le famiglie già seguite, obbligatoria prima dell’approvazione per le richieste nuove. Senza consenso alla pubblicazione la richiesta compare nella vetrina senza foto, con solo nome ed età, perché il consenso deve essere libero. Aggiornati FR-CON-01, gli AC collegati (AMM-01, AMM-02, VOL-01, VOL-02, SOS-03, SOS-07), FR-ADO-05, FR-BOT-04, DIP-14, il contratto con il bot e il modello dei dati. Nuovo Allegato I con la bozza del modulo; nuove domande nell’Allegato F. Notizie e newsletter passano in fase 1: una sezione “Notizie” nella vetrina, visibile dall’ospite in poi, con avvisi pubblicati dall’amministratore e collegamenti alle newsletter, che restano create e inviate da VERIF!CO (FR-INF-01, M2, nuova tabella `notizia`, route `/notizie`, riga nella matrice dei permessi). |
 | 2.0 | 09/10/2026 | Andrea Pavan | Versione consegnata al docente per la validazione. Il contenuto è quello della v1.15; dopo la v1.15 è cambiato solo il materiale della presentazione, che non fa parte del PRD. Le correzioni chieste dal docente porteranno alla v3.0. |
 | 2.1 | 09/10/2026 | Andrea Pavan | Correzioni chieste dal docente alla consegna del 9 ottobre. Indice di tutti i capitoli e sottocapitoli, con la numerazione esistente, all’inizio del PRD (con i numeri di pagina nel PDF). Nuovo capitolo 1.1 “Chi è Effatà”: chi è l’associazione, come opera e quali progetti segue, per inquadrare il gestionale nel suo contesto prima di descriverlo; i paragrafi successivi del capitolo 1 diventano 1.2, 1.3 e 1.4 e i rimandi sono aggiornati. Per i bambini con l’adozione scolastica si usa il dato del capitolo 3.1 (circa 1.200). La stessa introduzione diventa la seconda slide della presentazione. |
+| 2.2 | 28/10/2026 | Andrea Pavan | Rilettura del modello dei dati con Andrea. **Beneficiario:** solo bambino o famiglia; “comunità” tolta da FR-CAT-01 e dalla scheda intervento; nel database due chiavi esterne facoltative con un vincolo che ne ammette al massimo una. **Adozione:** non è più un intervento, ma un impegno annuale ricorrente di 180 €: il primo pagamento copre l’anno in corso, poi si rinnova a fine anno per l’anno successivo; ogni anno è un’annualità (in attesa, pagata, non rinnovata); promemoria del rinnovo in fase 1 e, se il padrino non paga, chiusura e riaffido a un altro sostenitore (FR-ADO-04, nuovo AMM-03 AC-06). Iscrizione, divisa e pagelle diventano aggiornamenti della scheda, senza checklist né “anno scolastico rendicontato” (FR-ADO-06 riscritto; tolto VOL-01 AC-08; aggiornati VOL-03 AC-01, SOS-07 AC-01 e AC-09, FR-INT-03, scenari di VOL-01, VOL-02, VOL-03 e SOS-07, Scadenze, impostazioni, M3, M4 e una metrica del capitolo 18). L’adozione in casa famiglia funziona allo stesso modo, con un importo proprio. **Casa famiglia:** le opere restano su Casa struttura (215.020.02); adozioni in casa famiglia, sostegno e crediti solidali scaduti vanno alla gestione della casa famiglia, con progetto e conto da definire (FR-INT-02, FR-INT-07, DIP-15, Allegato F). **Modello dei dati:** nuova tabella `annualita_adozione`; `quota_donazione` collegata anche all’annualità; relazioni richiesta–adozione e beneficiario–richiesta/intervento nel capitolo 12.2 e nei diagrammi; route `/adozioni/{id}/annualita`. |
 
 
 # Allegato F – Domande da fare all’associazione
@@ -220,7 +220,8 @@ Le domande al cliente reale e ai suoi consulenti, con risposta e data.
 | Calendario solidale e altre iniziative: come arrivano oggi le offerte (bonifico, contanti, piattaforma)? |   |   |
 | Esiste già un previsionale o piano economico per capitolo in VERIF!CO? (FR-DASH-02) |   |   |
 | VERIF!CO (assistenza): si possono importare le anagrafiche da file? Con quale tracciato? (FR-VER-02) |   |   |
-| La casa famiglia Effatà ha un proprio ID_PROGETTO in VERIF!CO? (FR-INT-07) |   |   |
+| La casa famiglia Effatà ha un proprio ID_PROGETTO in VERIF!CO? Su quale progetto e conto va la gestione della casa famiglia (adozioni in casa famiglia, sostegno, crediti scaduti), separata da Casa struttura? (FR-INT-02, FR-INT-07) |   |   |
+| Rinnovo dell’adozione: quando parte il promemoria di fine anno, e dopo quanto tempo senza pagamento l’adozione si considera non rinnovata? (FR-ADO-04, FR-IMP-01) |   |   |
 | Quota associativa: come va registrata in VERIF!CO e nella causale? (commercialista, FR-SOC-01) |   |   |
 | Satispay è attivo e usato per il calendario solidale? Dove arrivano i suoi versamenti? (FR-CAN-03) | Sì: passa da Stripe, come la carta, e arriva con i versamenti di Stripe | 01/10/2026 |
 | Esportazione da VERIF!CO di anagrafiche dei padrini, donazioni e note: in quale formato? (AMM-09) | Excel. Movimenti in partita doppia con anagrafica e progetto (formato attuale dal 2025); anagrafiche con codice fiscale, email e note, senza IBAN | 01/10/2026 |

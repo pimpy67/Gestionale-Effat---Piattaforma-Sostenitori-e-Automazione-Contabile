@@ -4,7 +4,7 @@
 
 Piattaforma Sostenitori e Automazione Contabile
 
-*Versione 2.1 – struttura del PRD Template del docente*
+*Versione 2.2 – struttura del PRD Template del docente*
 
 # Indice
 
@@ -101,8 +101,8 @@ Piattaforma Sostenitori e Automazione Contabile
 | Autori | Andrea Pavan |
 | Cliente reale | Effatà Italia ODV |
 | Contesto | Progetto ITS – 2° anno. Progetto personale che segue la metodologia della traccia “ScuolaChill”. |
-| Versione | 2.1 |
-| Data | 09/10/2026 |
+| Versione | 2.2 |
+| Data | 28/10/2026 |
 | Stato | Consegnato per la validazione; correzioni richieste dal docente |
 
 ## Storico delle versioni
@@ -128,6 +128,7 @@ Piattaforma Sostenitori e Automazione Contabile
 | 1.15 | 04/10/2026 | Andrea Pavan | Consenso della famiglia con una casella per ogni scopo (foto al padrino, pubblicazione, compleanno, salute) e modulo bilingue italiano-inglese (Allegato I); raccolta graduale per le famiglie già seguite; senza consenso alla pubblicazione la richiesta resta in vetrina senza foto; notizie e newsletter nella vetrina in fase 1, visibili dall’ospite in poi (FR-INF-01) |
 | 2.0 | 09/10/2026 | Andrea Pavan | Versione consegnata al docente per la validazione: contenuto della v1.15, senza nuove decisioni |
 | 2.1 | 09/10/2026 | Andrea Pavan | Correzioni richieste dal docente alla consegna: indice di capitoli e sottocapitoli all’inizio del documento; nuovo capitolo 1.1 “Chi è Effatà” sul contesto dell’associazione (i successivi diventano 1.2–1.4) |
+| 2.2 | 28/10/2026 | Andrea Pavan | Adozione come impegno annuale ricorrente, senza interventi né checklist: annualità, promemoria e riaffido per mancato rinnovo; aggiornamenti della scheda al posto delle prove annuali; gestione della casa famiglia separata da Casa struttura; beneficiario solo bambino o famiglia; modello dei dati aggiornato |
 
 Lo storico completo, con il dettaglio di ogni versione, è nell’Allegato E; la regola di gestione delle modifiche nell’Allegato A.
 
@@ -190,7 +191,7 @@ Questo è il contesto del gestionale: ogni progetto diventa una richiesta di sos
 **Fase 1 – online entro aprile 2027**
 
 - **Gestione dell’associazione:** ruoli e permessi dei volontari; visibilità dei dati non sensibili decisa dall’amministratore; vista d’insieme con numeri, anomalie, andamento e obiettivi annuali; ricerca; elenchi filtrabili ed esportabili; Scadenze; “Cose da fare” per i volontari.
-- **Beneficiari:** famiglie e bambini con codice, adozioni con riaffido e storico, modulo di consenso della famiglia applicato in automatico.
+- **Beneficiari:** famiglie e bambini con codice, adozioni con rinnovo annuale, promemoria, riaffido e storico, modulo di consenso della famiglia applicato in automatico.
 - **Vetrina e carrello solidale:** richieste personali (adozioni, operazioni, carrozzine, case, terreni) e voci fisse (materassi, scarpe, animali, casa famiglia), aperte agli utenti registrati e agli ospiti; preferiti e condivisione su WhatsApp; credito solidale quando una richiesta è già sostenuta; notizie dell’associazione e ultime newsletter visibili a tutti, ospiti compresi.
 - **Pagamenti e comunicazioni:** carta e Satispay, oppure bonifico con quietanza; conferma con ringraziamento, promemoria, email del credito solidale.
 - **Area riservata:** accesso ospite di 7 giorni con la sola email; registrazione; dati per la detrazione; preferenze e consensi; storico delle donazioni con la rendicontazione; riepilogo annuale.
@@ -200,7 +201,7 @@ Questo è il contesto del gestionale: ogni progetto diventa una richiesta di sos
 
 **Fase 2 – dopo l’apertura**
 
-- PayPal e pagamento ricorrente con carta; rinnovo delle adozioni con promemoria.
+- PayPal e pagamento ricorrente con carta per il rinnovo delle adozioni.
 - Area soci: adesione, quota associativa, convocazioni, verbali e bilanci.
 - Scadenza degli accessi inattivi; avvisi di novità e di compleanno al sostenitore; pulsante “Scrivi un messaggio”.
 - Proposta di imputazione delle causali libere con l’AI, sempre confermata dall’amministratore.
@@ -336,22 +337,22 @@ Per ogni storia principale (★ nel capitolo 5) sono descritti il percorso passo
 | Voce | Contenuto |
 | --- | --- |
 | **Storia** | VOL-01 · Caricare le prove di realizzazione |
-| **User flow** | 1. Silvia manda nel gruppo WhatsApp le foto di un aiuto consegnato, per esempio l’iscrizione a scuola di Grace. 2. Il volontario le trascina tutte nel bot, con i testi di Silvia agganciati come didascalia o con “Rispondi”. 3. Il bot chiede il tipo, ✅ Aiuto consegnato, poi la categoria: adozione scolastica. 4. Il bot legge “Grace” dal messaggio e chiede al gestionale i candidati solo fra i bambini con un intervento pagato e prove mancanti: ne resta uno, BAM-0215, e il volontario conferma. 5. Il gestionale manda le voci mancanti della checklist dell’anno scolastico (iscrizione, foto con la divisa, prova di fine anno); l’AI del bot propone “Iscrizione”, il volontario conferma con un tocco. 6. Il bot controlla il consenso della famiglia. 7. Il volontario sceglie nel foglio provini le foto per i social, nell’ordine della storia; il bot pubblica il post, con il nome della madrina solo se ha acconsentito. 8. Il gestionale riceve tutte le foto: la voce “Iscrizione” risulta completata e la madrina vede subito le foto nella sua area. 9. Con la prova di fine anno (pagella, lavori di fine anno o quaderni) l’anno scolastico diventa “rendicontato”; l’adozione resta attiva. |
-| **Scenario principale** | Giovedì sera Silvia manda sei foto di Grace a scuola con il quaderno nuovo. Luca, volontario, le trascina nel bot e sceglie ✅ Aiuto consegnato → Adozione scolastica. Il bot propone una sola bambina, Grace (BAM-0215, adozione pagata, manca l’iscrizione), e Luca conferma; poi conferma la voce “Iscrizione” proposta dall’AI e sceglie tre foto per i social. Il post esce con “Grazie a Maria R. di Treviso”; pochi minuti dopo la madrina trova nella sua area le sei foto con le parole di Silvia. |
+| **User flow** | 1. Silvia manda nel gruppo WhatsApp le foto di un aiuto consegnato, per esempio la casa finita della famiglia di Mary. 2. Il volontario le trascina tutte nel bot, con i testi di Silvia agganciati come didascalia o con “Rispondi”. 3. Il bot chiede il tipo, ✅ Aiuto consegnato, poi la categoria: costruzione casa. 4. Il bot legge “Mary” dal messaggio e chiede al gestionale i candidati solo fra i beneficiari con un intervento pagato e prove mancanti: ne resta uno, la famiglia FAM-0045, e il volontario conferma. 5. Il gestionale manda le voci mancanti della checklist della casa (foto della casa finita, contratto, fattura); l’AI del bot propone “Foto della casa finita”, il volontario conferma con un tocco. 6. Il bot controlla il consenso della famiglia. 7. Il volontario sceglie nel foglio provini le foto per i social, nell’ordine della storia; il bot pubblica il post, con il nome della sostenitrice solo se ha acconsentito. 8. Il gestionale riceve tutte le foto: la voce “Foto della casa finita” risulta completata e la sostenitrice vede subito le foto nella sua area. 9. Con tutte le prove della checklist l’intervento diventa “rendicontato”. |
+| **Scenario principale** | Giovedì sera Silvia manda sei foto della nuova casa di Mary e dei suoi figli. Luca, volontario, le trascina nel bot e sceglie ✅ Aiuto consegnato → Costruzione casa. Il bot propone una sola famiglia, FAM-0045 (casa pagata, mancano le foto della casa finita), e Luca conferma; poi conferma la voce “Foto della casa finita” proposta dall’AI e sceglie tre foto per i social. Il post esce con “Grazie a Maria R. di Treviso”; pochi minuti dopo la sostenitrice trova nella sua area le sei foto con le parole di Silvia. |
 | **Scenari alternativi** | **Voce fissa:** per una consegna di materassi il volontario sceglie ✅ Aiuto consegnato → Materassi e, se vuole, la famiglia; tutte le donazioni per i materassi ancora da rendicontare ricevono le foto di quella consegna, senza contare i pezzi (FR-INT-08). **Nessun intervento pagato per quel bambino:** con “Cerca fra tutti” il volontario lo trova, le foto vanno nella scheda come aggiornamento e l’amministratore riceve una segnalazione. **Famiglia senza modulo di consenso:** foto archiviate, nessun post; il sostenitore vede solo “consegna avvenuta” con la data. **Foto di bambini diversi nello stesso messaggio:** invii separati. **Gestionale non raggiungibile:** coda e nuovo tentativo ogni 10 minuti. **Prova caricata per errore:** l’amministratore la nasconde. **Volontario senza permesso:** il bot non mostra ✅. |
 
 | Voce | Contenuto |
 | --- | --- |
 | **Storia** | VOL-02 · Aggiornare la scheda di un bambino |
-| **User flow** | 1. Silvia manda nel gruppo foto o notizie di un bambino adottato: Grace che gioca, la pagella del primo trimestre, “Grace sta bene, ha imparato a leggere”. 2. Il volontario trascina tutto nel bot e sceglie ✅ Aiuto consegnato, categoria adozione scolastica. 3. Il bot cerca solo fra i bambini con un’adozione attiva e propone Grace (BAM-0215); il volontario conferma. 4. Fra le voci della checklist il volontario tocca “Nessuna: solo aggiornamento”. 5. Se c’è un testo, il bot chiede “Contiene informazioni sulla salute?”. 6. Nel foglio provini il volontario sceglie le foto per i social, se vuole pubblicarne; se non ne sceglie nessuna, il bot non pubblica nulla. 7. Il gestionale aggiunge foto, pagella e notizie alla scheda di Grace, con i testi di Silvia agganciati; le foto non scelte per i social sono riservate alla madrina, che vede tutto subito. |
+| **User flow** | 1. Silvia manda nel gruppo foto o notizie di un bambino adottato: Grace che gioca, la pagella del primo trimestre, “Grace sta bene, ha imparato a leggere”. 2. Il volontario trascina tutto nel bot e sceglie ✅ Aiuto consegnato, categoria adozione scolastica. 3. Il bot cerca solo fra i bambini con un’adozione attiva e propone Grace (BAM-0215); il volontario conferma. 4. L’adozione non ha una checklist: l’invio è un aggiornamento della scheda (FR-ADO-06); per un intervento il volontario sceglie invece “Nessuna: solo aggiornamento” fra le voci della checklist. 5. Se c’è un testo, il bot chiede “Contiene informazioni sulla salute?”. 6. Nel foglio provini il volontario sceglie le foto per i social, se vuole pubblicarne; se non ne sceglie nessuna, il bot non pubblica nulla. 7. Il gestionale aggiunge foto, pagella e notizie alla scheda di Grace, con i testi di Silvia agganciati; le foto non scelte per i social sono riservate alla madrina, che vede tutto subito. |
 | **Scenario principale** | Domenica sera Silvia manda tre foto di Grace che gioca con le compagne e scrive “Ha imparato a leggere”. Marta le carica dal bot come aggiornamento, risponde “No” alla domanda sulla salute e sceglie una foto per i social. La madrina trova nella sua area le tre foto con la frase di Silvia. |
 | **Scenari alternativi** | **Notizia sulla salute** (es. “Grace è stata in ospedale”): con “Sì” il testo va nel campo sanitario, visibile solo all’amministratore, e non esce sui social; senza il consenso della famiglia alle informazioni sulla salute il testo non viene registrato (FR-CON-01). **Bambino senza padrino:** il contenuto resta nella scheda e lo vedrà il prossimo padrino (FR-ADO-02). **Famiglia senza modulo di consenso:** foto archiviate ma non visibili, nessun post. **Volontario senza permesso di aggiornare le schede:** il bot non gli mostra l’opzione. **Gestionale non raggiungibile:** coda e nuovo tentativo. |
 
 | Voce | Contenuto |
 | --- | --- |
 | **Storia** | VOL-03 · Consultare le cose da fare (gestionale web) |
-| **User flow** | 1. Il volontario apre il gestionale dal PC o dal telefono e va su “Cose da fare”. 2. Vede solo le voci consentite dai suoi permessi, dalla più vecchia: anni scolastici senza prova di fine anno; interventi pagati con prove mancanti (es. casa senza le foto della costruzione); richieste in bozza da completare; bambini senza aggiornamenti da 6 mesi. 3. Tocca “Prendo in carico” su una voce: gli altri volontari vedono il suo nome accanto. 4. Chiede a Silvia il materiale mancante e lo carica dal bot; quando arriva, la voce sparisce da sola dall’elenco. |
-| **Scenario principale** | Lunedì sera Marta apre “Cose da fare”: 7 voci. La più vecchia è l’anno scolastico di Joseph, senza prova di fine anno da due mesi. La prende in carico e scrive a Silvia su WhatsApp; giovedì arrivano le foto dei quaderni di Joseph, Marta le carica dal bot e la voce scompare. |
+| **User flow** | 1. Il volontario apre il gestionale dal PC o dal telefono e va su “Cose da fare”. 2. Vede solo le voci consentite dai suoi permessi, dalla più vecchia: interventi pagati con prove mancanti (es. casa senza le foto della costruzione); richieste in bozza da completare; bambini senza aggiornamenti da 6 mesi. 3. Tocca “Prendo in carico” su una voce: gli altri volontari vedono il suo nome accanto. 4. Chiede a Silvia il materiale mancante e lo carica dal bot; quando arriva, la voce sparisce da sola dall’elenco. |
+| **Scenario principale** | Lunedì sera Marta apre “Cose da fare”: 7 voci. La più vecchia è la carrozzina di Joseph, pagata da due mesi e senza le foto della consegna. La prende in carico e scrive a Silvia su WhatsApp; giovedì arrivano le foto di Joseph con la carrozzina, Marta le carica dal bot e la voce scompare. |
 | **Scenari alternativi** | **Voce già presa** da un altro volontario: la vede, ma non la può prendere; l’amministratore può riassegnarla. **Elenco lungo:** filtri per tipo e per villaggio, e pagine. **Presa in carico senza novità da 30 giorni:** la voce torna libera e l’amministratore riceve una segnalazione. **Voce fuori dai propri permessi:** il volontario non la vede. |
 
 ### Simpatizzante e sostenitore (ARC-003)
@@ -373,9 +374,9 @@ Per ogni storia principale (★ nel capitolo 5) sono descritti il percorso passo
 | Voce | Contenuto |
 | --- | --- |
 | **Storia** | SOS-07 · Seguire ciò che ho sostenuto |
-| **User flow** | 1. La madrina entra nella sua area quando vuole, dal link nell’email di conferma, oppure dall’avviso “Ci sono novità per Grace” (fase 2). 2. Vede Grace con l’anno scolastico 2026 e la sua checklist: ✓ iscrizione · ✓ foto con la divisa · ☐ prova di fine anno. 3. Apre la sequenza di foto, pubbliche e riservate, ognuna con il testo di Silvia, più le notizie e le pagelle intermedie, dalla più recente. 4. Può scaricare una foto per sé, con l’avviso che ritrae una minore e non va pubblicata né condivisa. 5. Quando arriva la prova di fine anno vede “Anno scolastico 2026 completato”; con il rinnovo comincia l’anno successivo. 6. Per una voce fissa (es. 3 materassi) vede “In attesa di consegna” e poi, alla consegna, le foto con “Consegnato”. |
+| **User flow** | 1. La madrina entra nella sua area quando vuole, dal link nell’email di conferma, oppure dall’avviso “Ci sono novità per Grace” (fase 2). 2. Vede Grace con l’adozione attiva, l’anno 2026 pagato e il prossimo rinnovo (FR-ADO-04). 3. Apre la sequenza degli aggiornamenti, dalla più recente: foto pubbliche e riservate, ognuna con il testo di Silvia, notizie e pagelle (iscrizione, divisa, fine anno…). 4. Può scaricare una foto per sé, con l’avviso che ritrae una minore e non va pubblicata né condivisa. 5. A fine anno riceve il promemoria del rinnovo per l’anno successivo. 6. Per una voce fissa (es. 3 materassi) vede “In attesa di consegna” e poi, alla consegna, le foto con “Consegnato”. |
 | **Scenario principale** | A novembre Laura riceve l’email “Grace ha ricevuto la divisa”. Apre il link, vede le tre foto con le parole di Silvia (“È felicissima, l’ha indossata subito”) e ne scarica una da tenere sul telefono. |
-| **Scenari alternativi** | **Famiglia senza modulo di consenso:** Laura vede stati e date (“divisa consegnata il 12/11”), ma non le foto. **Adozione chiusa:** vede i contenuti fino alla data di chiusura, nulla dopo. **Bambino non suo**, aperto da un altro collegamento: accesso negato. **Padrino storico non ancora abbinato:** vede le proprie donazioni e il messaggio “Stiamo ritrovando il tuo bambino: presto vedrai le sue foto”. |
+| **Scenari alternativi** | **Famiglia senza modulo di consenso:** Laura vede le notizie e le date degli aggiornamenti (“divisa consegnata il 12/11”), ma non le foto. **Adozione chiusa:** vede i contenuti fino alla data di chiusura, nulla dopo. **Bambino non suo**, aperto da un altro collegamento: accesso negato. **Padrino storico non ancora abbinato:** vede le proprie donazioni e il messaggio “Stiamo ritrovando il tuo bambino: presto vedrai le sue foto”. |
 
 # 5. Requisiti funzionali
 
@@ -453,6 +454,7 @@ Il materiale che la referente manda dall’Uganda entra nel gestionale soprattut
 - **AC-03** · **Dato che** il bambino è stato riaffidato, **Quando** il nuovo sostenitore apre la sua scheda, **Allora** vede tutto lo storico del bambino e nessun dato del sostenitore precedente. (FR-ADO-02)
 - **AC-04** · **Dato che** la mia adozione è stata chiusa, **Quando** accedo all’area riservata, **Allora** vedo le informazioni del bambino fino alla data di chiusura e nulla di successivo. (FR-ADO-03)
 - **AC-05** · **Dato che** chiudo un’adozione, **Quando** confermo, **Allora** il sostenitore riceve un’email di ringraziamento per il sostegno dato, con l’invito a scoprire un’altra richiesta. (FR-RING-01)
+- **AC-06** · **Dato che** un padrino non ha pagato il rinnovo dopo il promemoria, **Quando** apro le Scadenze, **Allora** vedo l’adozione fra quelle non rinnovate e posso chiuderla con il motivo “mancato rinnovo” e riaffidare il bambino a un altro sostenitore. (FR-ADO-04)
 
 ### AMM-04 · Importare l’estratto conto e confermare le donazioni ★
 
@@ -550,7 +552,6 @@ Il materiale che la referente manda dall’Uganda entra nel gestionale soprattut
 - **AC-05** · **Dato che** carico un file che non è un’immagine o un PDF, o supera la dimensione massima, **Quando** confermo, **Allora** ricevo un errore chiaro e nulla viene salvato.
 - **AC-06** · **Dato che** non ho il permesso di caricare prove, **Quando** provo a farlo, **Allora** il bot non mi mostra l’opzione e il gestionale nega l’operazione. (FR-RUO-01)
 - **AC-07** · **Dato che** una prova è stata caricata per errore, **Quando** l’amministratore la nasconde o la elimina, **Allora** il sostenitore non la vede più e resta registrato chi l’ha caricata e chi l’ha rimossa.
-- **AC-08** · **Dato che** carico la prova di fine anno di un’adozione scolastica (pagella, lavori di fine anno o quaderni), **Quando** la confermo, **Allora** l’anno scolastico passa a “rendicontato” e l’adozione resta attiva. (FR-ADO-06)
 
 **Regole collegate.** Le prove sono visibili subito, senza approvazione preventiva. Le risposte date al bot valgono per tutte le foto dello stesso invio; foto di interventi diversi si caricano con invii diversi. Se le foto non corrispondono a nessuna voce, il volontario sceglie “solo aggiornamento” e finiscono nella scheda (VOL-02). Si possono caricare più foto insieme anche dal gestionale (NFR-19).
 
@@ -573,7 +574,7 @@ Il materiale che la referente manda dall’Uganda entra nel gestionale soprattut
 
 **Come** Volontario **voglio** vedere l’elenco delle cose su cui posso lavorare **così da** sapere da dove cominciare.
 
-- **AC-01** · **Dato che** ho il permesso di caricare prove, **Quando** apro “Cose da fare”, **Allora** vedo gli interventi pagati ma non ancora rendicontati, con le prove mancanti, compresi gli anni scolastici senza prova di fine anno, ordinati dal più vecchio. (FR-ADO-06)
+- **AC-01** · **Dato che** ho il permesso di caricare prove, **Quando** apro “Cose da fare”, **Allora** vedo gli interventi pagati ma non ancora rendicontati, con le prove mancanti, ordinati dal più vecchio. (FR-INT-03)
 - **AC-02** · **Dato che** ho il permesso di aggiornare le schede, **Quando** apro “Cose da fare”, **Allora** vedo anche i bambini senza aggiornamenti da più di 6 mesi. (FR-IMP-01)
 - **AC-03** · **Dato che** prendo in carico una voce, **Quando** un altro volontario apre la sua lista, **Allora** vede il mio nome accanto alla voce e non può prenderla; l’amministratore può riassegnarla.
 - **AC-04** · **Dato che** una voce non rientra nei miei permessi, **Quando** apro “Cose da fare”, **Allora** non la vedo.
@@ -683,7 +684,7 @@ Il materiale che la referente manda dall’Uganda entra nel gestionale soprattut
 
 **Come** Sostenitore **voglio** vedere foto, documenti e rendicontazione di ciò che ho sostenuto **così da** sapere che l’aiuto è arrivato.
 
-- **AC-01** · **Dato che** ho sostenuto un’adozione o un intervento, **Quando** apro la mia area riservata, **Allora** vedo per ognuno lo stato (pagato, in corso, realizzato, rendicontato) e la sequenza di foto, pagelle, notizie e documenti, comprese le foto riservate al padrino. (FR-FOTO-01)
+- **AC-01** · **Dato che** ho sostenuto un’adozione o un intervento, **Quando** apro la mia area riservata, **Allora** vedo per ogni intervento lo stato (pagato, in corso, realizzato, rendicontato), per ogni adozione gli anni pagati e il prossimo rinnovo, e la sequenza di foto, pagelle, notizie e documenti, comprese le foto riservate al padrino. (FR-FOTO-01, FR-ADO-04)
 - **AC-02** · **Dato che** un mio intervento ha tutte le prove caricate, **Quando** lo apro, **Allora** risulta “rendicontato” con le prove visibili. (FR-INT-03)
 - **AC-03** · **Dato che** la famiglia non ha dato il consenso alle foto per il padrino, **Quando** apro la scheda, **Allora** vedo lo stato e le date ma non le foto. (FR-CON-01)
 - **AC-04** · **Dato che** la mia adozione è stata chiusa, **Quando** la apro, **Allora** vedo i contenuti fino alla data di chiusura e nulla di successivo. (FR-ADO-03)
@@ -691,7 +692,7 @@ Il materiale che la referente manda dall’Uganda entra nel gestionale soprattut
 - **AC-06** · **Dato che** provo ad aprire la scheda di un bambino o di un intervento che non ho sostenuto, **Quando** invio la richiesta, **Allora** l’operazione viene negata. (FR-VIS-01)
 - **AC-07** · **Dato che** sono un padrino storico e il mio bambino non è ancora stato abbinato, **Quando** apro la mia area, **Allora** vedo le mie donazioni e il messaggio “Stiamo ritrovando il tuo bambino: presto vedrai le sue foto”. (AMM-09)
 - **AC-08** · **Dato che** ho donato per una voce fissa, **Quando** apro la mia area, **Allora** vedo “In attesa di consegna” e, dopo la consegna, le foto con “Consegnato”. (FR-INT-08)
-- **AC-09** · **Dato che** è arrivata la prova di fine anno del bambino che sostengo, **Quando** apro la sua scheda, **Allora** vedo “Anno scolastico completato” con tutte le prove, e l’adozione continua. (FR-ADO-06)
+- **AC-09** · **Dato che** la mia adozione è attiva e l’anno sta finendo, **Quando** si avvicina il rinnovo, **Allora** ricevo il promemoria per pagare l’anno successivo e, dopo il pagamento, vedo il nuovo anno fra quelli pagati. (FR-ADO-04)
 
 **Regole collegate.** Le foto sono scaricabili per uso personale. In fase 2 il pulsante “Scrivi un messaggio” permette di scrivere all’associazione, che inoltra alla referente (anche per gli auguri di compleanno, FR-ADO-05); la chat resta fra gli sviluppi futuri.
 
@@ -800,11 +801,11 @@ Ogni scelta che le storie lasciano aperta è decisa qui, in modo verificabile, c
 
 **FR-ADO-03 · Cosa vede il sostenitore dopo la chiusura** (AMM-03, SOS-07). Il sostenitore precedente vede le informazioni del bambino e le proprie fino alla data di chiusura, nulla di successivo.
 
-**FR-ADO-04 · Durata e rinnovo dell’adozione.** L’adozione scolastica dura un anno scolastico e si rinnova, oppure prosegue con un bonifico ricorrente (codice 12 nel tracciato VERIF!CO). In fase 2: promemoria prima della scadenza e pagamento ricorrente con carta.
+**FR-ADO-04 · Durata e rinnovo dell’adozione** (AMM-03, SOS-07). L’adozione è un impegno annuale ricorrente di 180 €. Il primo pagamento copre l’anno in corso (chi adotta a marzo 2026 paga il 2026); poi il padrino rinnova a fine anno per l’anno successivo, con bonifico, anche ricorrente (codice 12 nel tracciato VERIF!CO), o con carta. Ogni anno è registrato come annualità dell’adozione (anno, importo, stato: in attesa, pagata, non rinnovata). Prima della scadenza il padrino riceve un promemoria; se non rinnova, l’adozione compare fra le Scadenze e l’amministratore la chiude e riaffida il bambino a un altro sostenitore (AMM-03). L’adozione in casa famiglia funziona allo stesso modo, con un importo proprio fissato all’apertura (per esempio per un bambino con disabilità, FR-INT-04) e imputata alla gestione della casa famiglia (FR-INT-02). In fase 2: pagamento ricorrente con carta.
 
 **FR-ADO-05 · Compleanno** (AMM-02). Con il consenso al compleanno (FR-CON-01), il sostenitore vede giorno e mese del compleanno del bambino, mai l’anno di nascita. In fase 2 riceve un’email qualche giorno prima, con l’invito a mandare gli auguri tramite l’associazione.
 
-**FR-ADO-06 · Adozione e anno scolastico** (VOL-01, VOL-03, SOS-07). L’adozione è il rapporto fra padrino e bambino: resta attiva finché il padrino non smette o il bambino non esce dal programma (AMM-03). Ogni anno pagato (180 €) crea un intervento “adozione scolastica BAM-0215 – anno 2026”, con la checklist iscrizione, foto con la divisa e prova di fine anno (pagella, lavori di fine anno o quaderni). Con la prova di fine anno l’intervento diventa “rendicontato” e il padrino vede “Anno scolastico 2026 completato”; l’adozione continua e con il rinnovo nasce l’anno successivo. Le pagelle intermedie sono aggiornamenti della scheda. Gli anni senza prova di fine anno compaiono in “Cose da fare”. **Motivazione:** il padrino ha ogni anno un traguardo chiaro, senza che il rapporto con il bambino si interrompa.
+**FR-ADO-06 · Adozione e aggiornamenti** (VOL-02, SOS-07). L’adozione è il rapporto fra padrino e bambino: resta attiva finché il padrino rinnova e il bambino è nel programma (AMM-03). Non è un intervento: non ha una checklist né uno stato “rendicontato”. Si apre quando viene pagata la richiesta di adozione (RIC), insieme all’annualità dell’anno in corso. Iscrizione, foto con la divisa, pagelle e lavori di fine anno sono aggiornamenti della scheda del bambino (VOL-02), visibili al padrino con le regole del consenso (FR-CON-01). **Motivazione:** l’adozione è un sostegno continuativo al bambino, rinnovato ogni anno, non una consegna da rendicontare.
 
 **FR-CON-01 · Consenso della famiglia** (AMM-01, AMM-02, VOL-01, SOS-03, SOS-07). Ogni famiglia firma **un solo modulo bilingue, italiano e inglese, con una casella per ogni scopo** (modello nell’Allegato I). Gli scopi sono quattro:
 1. **foto e notizie al padrino**: foto riservate, pagelle e notizie visibili solo al sostenitore del bambino;
@@ -822,7 +823,7 @@ Ogni scelta che le storie lasciano aperta è decisa qui, in modo verificabile, c
 ### Richieste di sostegno, carrello e pagamenti
 
 **FR-CAT-01 · Richieste personali e voci fisse** (AMM-01, SOS-03). La vetrina offre due tipi di sostegno.
-- **Richieste personali**, per un beneficiario preciso (bambino, famiglia o comunità): adozione scolastica, adozione in casa famiglia, operazione chirurgica, carrozzina, costruzione casa, affitto terreno agricolo, acquisto terreno edificabile. Ognuna ha foto pubbliche, storia, costo, codice (RIC-0042) e stato (bozza, aperta, sostenuta, chiusa). Nasce dal bot (🆘 Richiesta di aiuto) o dal gestionale, preparata da un volontario abilitato; l’amministratore la approva. Una richiesta aperta da più di 30 giorni senza sostenitori viene segnalata. Per le operazioni la storia descrive il bisogno in modo generico, mai la diagnosi, anche nei testi social.
+- **Richieste personali**, per un beneficiario preciso (bambino o famiglia): adozione scolastica, adozione in casa famiglia, operazione chirurgica, carrozzina, costruzione casa, affitto terreno agricolo, acquisto terreno edificabile. Ognuna ha foto pubbliche, storia, costo, codice (RIC-0042) e stato (bozza, aperta, sostenuta, chiusa). Nasce dal bot (🆘 Richiesta di aiuto) o dal gestionale, preparata da un volontario abilitato; l’amministratore la approva. Una richiesta aperta da più di 30 giorni senza sostenitori viene segnalata. Per le operazioni la storia descrive il bisogno in modo generico, mai la diagnosi, anche nei testi social.
 - **Voci fisse**, bisogni sempre presenti e non legati a un beneficiario al momento della donazione: materassi, scarpe, animali (il sostenitore sceglie la specie, ognuna con il suo prezzo), opere della casa famiglia (importo libero) e sostegno della casa famiglia, che rimanda al calendario solidale (FR-CAN-03). Il sostenitore può indicare “quanti” (es. 3 materassi × 10 € = 30 €) solo per calcolare l’importo: il gestionale registra importo e categoria, non le unità. Il beneficiario si decide alla consegna (FR-INT-08). Un post di richiesta di aiuto per una voce fissa non crea una richiesta nuova, ma rimanda alla voce.
 
 L’amministratore aggiunge o toglie dalla vetrina, dalla dashboard, sia le richieste sia le voci fisse. Le categorie sono un’unica lista gestita nel gestionale e usata anche dal bot (FR-BOT-03).
@@ -853,19 +854,20 @@ L’amministratore aggiunge o toglie dalla vetrina, dalla dashboard, sia le rich
 
 **FR-INT-01 · Finanziatori di un intervento.** Un intervento ha uno o più finanziatori, ciascuno con la propria quota; la somma delle quote non supera il costo. Nel caso normale c’è un solo finanziatore. **Motivazione:** prevedere subito il caso multiplo evita migrazioni del modello dei dati.
 
-**FR-INT-02 · Imputazione delle entrate** (AMM-05). Ogni entrata confermata va imputata a un capitolo (adozioni, adozioni in casa famiglia, casetta, affitto, animali, operazione, sedia a rotelle…, casa famiglia Effatà, Cassa sostegno Effatà) e, dove previsto, a un intervento, che diventa una “cosa da fare”. Ogni capitolo corrisponde a un Progetto di VERIF!CO (ID_PROGETTO), che porta il movimento sul conto di ricavo:
+**FR-INT-02 · Imputazione delle entrate** (AMM-05). Ogni entrata confermata va imputata a un capitolo (adozioni, adozioni in casa famiglia, casetta, affitto, animali, operazione, sedia a rotelle…, casa famiglia Effatà, Cassa sostegno Effatà) e, dove previsto, a un intervento, che diventa una “cosa da fare”, oppure all’annualità di un’adozione (FR-ADO-04). Ogni capitolo corrisponde a un Progetto di VERIF!CO (ID_PROGETTO), che porta il movimento sul conto di ricavo:
 
 | Categorie del gestionale | Progetto e conto di VERIF!CO |
 | --- | --- |
 | Adozione scolastica | Adozioni scolastiche (215.020.01) |
-| Adozione in casa famiglia; opere e sostegno della casa famiglia | Casa struttura (215.020.02) |
+| Opere della casa famiglia (lavori e acquisti) | Casa struttura (215.020.02) |
+| Adozione in casa famiglia; sostegno della casa famiglia; crediti solidali scaduti | Gestione della casa famiglia Effatà: progetto e conto da definire con l’amministratore (Allegato F) |
 | Materassi, scarpe, animali, costruzione casa, affitto terreno agricolo, acquisto terreno edificabile | Aiuto famiglie in difficoltà (215.020.03) |
 | Operazione chirurgica, carrozzina | Cure ospedaliere (215.020.04) |
 | Cassa sostegno Effatà | Da definire con l’amministratore (Allegato F) |
 
 Il tracciato di importazione di VERIF!CO non ha un campo per il conto di bilancio, quindi la destinazione viaggia con il campo Progetti. Che il progetto porti davvero il movimento sul conto giusto va verificato con l’assistenza VERIF!CO (DIP-15). **Motivazione:** oggi l’imputazione in VERIF!CO si fa con il conto di bilancio e i Progetti quasi non sono usati.
 
-**FR-INT-03 · Checklist di rendicontazione per tipo** (VOL-01, SOS-07). Ogni tipo di intervento ha un elenco di prove di realizzazione richieste, configurabile dall’amministratore: foto della consegna per materassi, scarpe e animali; iscrizione, foto con la divisa e prova di fine anno per l’anno scolastico (FR-ADO-06); foto, contratto e fattura dove esistono, come per la casetta. Un intervento è “rendicontato” solo con tutte le prove caricate, che diventano visibili al donante nella sua area riservata (con le regole di FR-CON-01). Quando le prove arrivano dal bot, il bot mostra le voci mancanti, l’AI propone quella giusta guardando le foto e il volontario conferma con un tocco, una volta per invio; le foto che non corrispondono a una voce vanno nella scheda come aggiornamento.
+**FR-INT-03 · Checklist di rendicontazione per tipo** (VOL-01, SOS-07). Ogni tipo di intervento ha un elenco di prove di realizzazione richieste, configurabile dall’amministratore: foto della consegna per materassi, scarpe, animali e carrozzine; foto, contratto e fattura dove esistono, come per la casetta. Le adozioni non hanno checklist (FR-ADO-06). Un intervento è “rendicontato” solo con tutte le prove caricate, che diventano visibili al donante nella sua area riservata (con le regole di FR-CON-01). Quando le prove arrivano dal bot, il bot mostra le voci mancanti, l’AI propone quella giusta guardando le foto e il volontario conferma con un tocco, una volta per invio; le foto che non corrispondono a una voce vanno nella scheda come aggiornamento.
 
 **FR-INT-04 · Costo dichiarato dell’intervento** (AMM-01, AMM-08). Ogni tipo di intervento ha un costo standard in un listino configurabile, proposto come valore iniziale; ogni richiesta può avere un costo proprio (per esempio l’adozione in casa famiglia di un bambino con disabilità). La spesa coincide con il costo dichiarato e finanziato dal donante; non si registrano fatture di spesa. Il volontario che prepara una richiesta può proporre un costo diverso dal listino (es. il preventivo di un’operazione indicato dalla referente); decide l’amministratore all’approvazione. Il costo si può modificare solo prima del primo pagamento, poi resta congelato.
 
@@ -873,7 +875,7 @@ Il tracciato di importazione di VERIF!CO non ha un campo per il conto di bilanci
 
 **FR-INT-06 · Imputazione guidata dalla causale** (AMM-05, SOS-05). La parte dell’entrata che corrisponde a interventi riconoscibili dalla causale (le richieste personali per il loro costo, le voci fisse per l’importo indicato) viene imputata a quegli interventi o a quelle voci; tutto ciò che non corrisponde va nella Cassa sostegno Effatà. Esempio: 200 € con causale “adozione BAM-0102” → 180 € all’adozione + 20 € in cassa. In fase 1 l’amministratore imputa a mano le causali libere; in fase 2 l’AI potrà proporre l’imputazione, sempre confermata dall’amministratore.
 
-**FR-INT-07 · Casa famiglia Effatà** (SOS-06, AMM-07). La casa famiglia Effatà è un progetto specifico dell’associazione: una comunità protetta per minori, di cui la referente è tutore. Ha un proprio capitolo, distinto dalla Cassa sostegno Effatà (la cassa per le donazioni generiche), e un proprio ID_PROGETTO in VERIF!CO. In vetrina ha due voci fisse: **opere della casa famiglia** (lavori e acquisti, importo libero) e **sostegno della casa famiglia** (cibo, cuoca, infermiera, personale assistenziale, manutenzione), che corrisponde ai 50 € al giorno del calendario solidale. Riceve i crediti solidali scaduti (FR-CAR-03), compare fra i capitoli con obiettivo annuale (FR-DASH-02) ed è collegata alle adozioni in casa famiglia.
+**FR-INT-07 · Casa famiglia Effatà** (SOS-06, AMM-07). La casa famiglia Effatà è un progetto specifico dell’associazione: una comunità protetta per minori, di cui la referente è tutore. Ha un proprio capitolo, distinto dalla Cassa sostegno Effatà (la cassa per le donazioni generiche), e un proprio ID_PROGETTO in VERIF!CO. In vetrina ha due voci fisse: **opere della casa famiglia** (lavori e acquisti, importo libero) e **sostegno della casa famiglia** (cibo, cuoca, infermiera, personale assistenziale, manutenzione), che corrisponde ai 50 € al giorno del calendario solidale. Le opere vanno al progetto Casa struttura; il sostegno, le adozioni in casa famiglia e i crediti scaduti alla gestione della casa famiglia (FR-INT-02). Riceve i crediti solidali scaduti (FR-CAR-03), compare fra i capitoli con obiettivo annuale (FR-DASH-02) ed è collegata alle adozioni in casa famiglia.
 
 **FR-INT-08 · Consegne delle voci fisse** (VOL-01, SOS-07). Per le voci fisse si rendiconta la donazione, non si contano le unità. Le donazioni per una voce fissa restano “in attesa di consegna”. Quando la referente manda le foto di una consegna (es. materassi alla famiglia FAM-0045), il volontario le carica con ✅ Aiuto consegnato e la categoria, indicando se vuole la famiglia (utile allo storico, non obbligatoria); il gestionale crea l’intervento e gli collega tutte le donazioni di quella voce ancora da rendicontare, che diventano “rendicontate”: ogni donatore vede le foto con “Consegnato”. Le donazioni successive aspettano la consegna seguente. **Motivazione:** la referente compra e consegna secondo i bisogni, non a pezzi per donatore; contare le unità creerebbe consegne “in più” o “in meno” senza utilità per chi dona.
 
@@ -899,7 +901,7 @@ Il tracciato di importazione di VERIF!CO non ha un campo per il conto di bilanci
 
 **FR-DASH-02 · Obiettivi e andamento** (AMM-07). L’amministratore fissa un obiettivo annuale per ogni capitolo; la vista d’insieme mostra raccolto contro obiettivo, con la percentuale, e l’andamento mese per mese di donazioni e interventi, confrontato con lo stesso periodo dell’anno precedente. Gli obiettivi potranno essere ripresi dal piano economico di VERIF!CO, se esiste (Allegato F). **Motivazione:** interviste 1 e 3 (cap. 6.2): avere sempre il dato aggiornato rispetto al previsionale.
 
-**FR-REP-01 · Filtri, report e scadenze** (AMM-07). Ogni elenco è paginato, filtrabile per categoria e periodo ed esportabile in Excel. La sezione Scadenze raccoglie in un solo punto le date da rispettare: importazione dell’estratto conto del mese precedente (entro il giorno 10), chiusura annuale (FR-VER-03), crediti solidali in scadenza, impegni con bonifico in attesa di quietanza, richieste senza sostenitori, rinnovi delle adozioni (fase 2). **Motivazione:** intervista 4 (cap. 6.2).
+**FR-REP-01 · Filtri, report e scadenze** (AMM-07). Ogni elenco è paginato, filtrabile per categoria e periodo ed esportabile in Excel. La sezione Scadenze raccoglie in un solo punto le date da rispettare: importazione dell’estratto conto del mese precedente (entro il giorno 10), chiusura annuale (FR-VER-03), crediti solidali in scadenza, impegni con bonifico in attesa di quietanza, richieste senza sostenitori, adozioni da rinnovare e non rinnovate (FR-ADO-04). **Motivazione:** intervista 4 (cap. 6.2).
 
 **FR-REP-02 · Ricerca e situazione di una persona** (AMM-07). L’amministratore cerca una persona per nome, email, codice fiscale o IBAN, oppure un beneficiario per nome o codice, e ne apre la situazione completa: dati, donazioni con il loro stato, adozioni e interventi sostenuti, crediti, comunicazioni inviate. **Motivazione:** intervista 4 (cap. 6.2): trovare subito le informazioni senza scorrere elenchi.
 
@@ -916,6 +918,7 @@ Il tracciato di importazione di VERIF!CO non ha un campo per il conto di bilanci
 | Segnalazione delle richieste senza sostenitori | 30 giorni |
 | Richieste sostenute mostrate nella vetrina | 30 giorni |
 | Promemoria e decadenza dell’impegno con bonifico | 7 e 30 giorni |
+| Promemoria del rinnovo dell’adozione e termine oltre il quale è non rinnovata (FR-ADO-04) | Da definire con l’associazione (Allegato F) |
 | Scadenza del credito solidale | 1 mese |
 | Bambini senza aggiornamenti in “Cose da fare” | 6 mesi |
 | Scadenza della chiusura annuale | 15 febbraio |
@@ -1058,7 +1061,7 @@ Le **assunzioni** sono ciò che diamo per vero senza poterlo garantire; i **vinc
 | DIP-12 | Risposta dell’assistenza VERIF!CO: tracciato per importare le anagrafiche da file; esportazione in blocco dei PDF delle ricevute; API disponibili | Tracciato anagrafiche: inizio di M5; PDF e API: prima della fase 2 | Andrea Pavan |
 | DIP-13 | Account del fornitore di pagamenti (Stripe) intestato all’associazione, con modalità di prova per il collaudo | Inizio di M3 (pagamenti) | Presidente / Andrea Pavan |
 | DIP-14 | Modulo di consenso della famiglia in italiano e inglese, con una casella per ogni scopo (bozza nell’Allegato I), confrontato con la referente e verificato dal referente privacy dell’associazione | Prima del collaudo della fase 1 | Presidente / referente in Uganda |
-| DIP-15 | Progetti di VERIF!CO corrispondenti ai quattro conti (Adozioni scolastiche, Casa struttura, Aiuto famiglie in difficoltà, Cure ospedaliere) e conferma dell’assistenza che il progetto porti il movimento sul conto giusto (FR-INT-02) | Prima del collaudo della fase 1 | Amministratore |
+| DIP-15 | Progetti di VERIF!CO corrispondenti ai quattro conti (Adozioni scolastiche, Casa struttura, Aiuto famiglie in difficoltà, Cure ospedaliere), progetto e conto della gestione della casa famiglia e della Cassa sostegno, e conferma dell’assistenza che il progetto porti il movimento sul conto giusto (FR-INT-02) | Prima del collaudo della fase 1 | Amministratore |
 | DIP-16 | Esportazione da VERIF!CO delle anagrafiche dei padrini e delle donazioni, per l’importazione iniziale (AMM-09) | Inizio di M5 | Amministratore |
 | DIP-17 | Elenchi dei bambini del primo villaggio compilati dalla referente, con i moduli di consenso delle famiglie | Prima del collaudo della fase 1 | Referente in Uganda |
 | DIP-18 | Accesso del gestionale alle donazioni del calendario solidale tramite token (modifica al sito del calendario) | Prima del collaudo della fase 1 | Andrea Pavan |
@@ -1242,7 +1245,7 @@ Le API seguono lo stile REST, rispondono in JSON su HTTPS e hanno un prefisso co
 | `/famiglie/{codice}/consenso` | GET, POST | Amministratore | Caricamento del modulo di consenso (FR-CON-01) |
 | `/notizie` | GET, POST, PATCH, DELETE | Tutti in lettura, ospiti compresi; Amministratore in scrittura | Avvisi e collegamenti alle newsletter (FR-INF-01) |
 | `/richieste`, `/voci-fisse` | GET, POST, PATCH, DELETE | Ospite, Simpatizzante e Sostenitore in lettura; Amministratore e Volontario abilitato in scrittura | DELETE solo sulle bozze; `POST /richieste/{id}/approvazione` |
-| `/adozioni` | GET, POST | Amministratore | `POST /adozioni/{id}/chiusura` |
+| `/adozioni` | GET, POST | Amministratore | `POST /adozioni/{id}/chiusura`; `GET /adozioni/{id}/annualita` (anni pagati, in attesa, non rinnovati) |
 | `/checkout` | POST | Simpatizzante e Sostenitore | Crea il pagamento su Stripe (carta o Satispay) o l’impegno con bonifico |
 | `/donazioni` | GET | Amministratore | `POST /donazioni/{id}/quietanza` (Sostenitore titolare); `POST /donazioni/{id}/annullamento` (Amministratore) |
 | `/crediti` | GET | Amministratore | Il sostenitore usa il proprio credito da `/me/crediti/{id}/utilizzo` |
@@ -1368,14 +1371,15 @@ Il modello è relazionale, su PostgreSQL 16, e nasce dalle schede dell’Allegat
 | | `raccolta_fondi` | Campagne e iniziative esterne con il loro ID_RACCOLTAFONDI (FR-CAN-01) |
 | | `categoria` | Tipo (richiesta personale, voce fissa, solo social), costo di listino, progetto VERIF!CO (FR-INT-02) |
 | | `voce_checklist` | Le prove richieste per ogni categoria (FR-INT-03) |
-| | `richiesta` | Codice RIC, categoria, beneficiario, storia, costo, stato (bozza, aperta, sostenuta, chiusa) |
-| | `adozione` | Sostenitore, bambino, data di inizio, data e motivo di chiusura, stato |
-| | `intervento` | Categoria, beneficiario, anno scolastico per le adozioni, costo congelato, stato, presa in carico |
+| | `richiesta` | Codice RIC, categoria, beneficiario (bambino o famiglia), storia, costo, stato (bozza, aperta, sostenuta, chiusa) |
+| | `adozione` | Sostenitore, bambino, richiesta di origine, importo annuale, data di inizio, data e motivo di chiusura, stato (FR-ADO-04) |
+| | `annualita_adozione` | Anno coperto, importo, stato (in attesa, pagata, non rinnovata), promemoria inviati (FR-ADO-04) |
+| | `intervento` | Categoria, beneficiario (bambino o famiglia; facoltativo per le consegne delle voci fisse), costo congelato, stato, presa in carico |
 | | `prova` | Il contenuto che completa una voce della checklist di un intervento |
 | | `notizia` | Avvisi dell’associazione e collegamenti alle newsletter, con data di pubblicazione e di fine (FR-INF-01) |
 | | `carrello`, `preferito` | Le voci scelte da sostenitori e ospiti, salvate sul server per ritrovarle dopo la registrazione e su ogni dispositivo |
 | | `donazione` | Sostenitore, importo, metodo, stato (dichiarata, confermata, annullata con motivo), date, identificativo di Stripe, causale, copia dei dati dell’avente diritto, mese di esportazione |
-| | `quota_donazione` | Come una donazione si divide: capitolo sempre, richiesta, intervento o raccolta fondi quando ci sono (FR-INT-01, FR-INT-06) |
+| | `quota_donazione` | Come una donazione si divide: capitolo sempre, richiesta, intervento, annualità di un’adozione o raccolta fondi quando ci sono (FR-INT-01, FR-INT-06, FR-ADO-04) |
 | | `quietanza` | Il file caricato dal sostenitore per un bonifico |
 | | `credito_solidale` | Donazione di origine, tipologia, importo, scadenza, stato e utilizzo (FR-CAR-02/03) |
 | Contabilità e sistema | `estratto_conto`, `riga_estratto` | Il file caricato e le sue righe grezze, con impronta per non duplicarle e stato dell’abbinamento: i dati grezzi restano separati dalle donazioni |
@@ -1390,6 +1394,10 @@ Il modello è relazionale, su PostgreSQL 16, e nasce dalle schede dell’Allegat
 | --- | --- | --- |
 | utente – sostenitore | 0..1 – 0..1 | Un padrino storico può non avere un account; un amministratore può non essere sostenitore |
 | sostenitore – adozione – bambino | 1 – 0..N – 1 | Un sostenitore adotta più bambini; un bambino ha nel tempo più adozioni ma **al massimo una attiva**, garantita da un indice unico parziale (FR-ADO-01) |
+| adozione – annualita_adozione | 1 – 1..N | Un’annualità per ogni anno coperto; la prima nasce all’apertura dell’adozione (FR-ADO-04). L’adozione non ha interventi (FR-ADO-06) |
+| annualita_adozione – quota_donazione | 1 – 0..N | Il pagamento di un anno, anche diviso fra più donazioni; in attesa finché non arriva |
+| richiesta – adozione | 0..1 – 0..1 | Il pagamento di una richiesta di adozione apre l’adozione; i padrini storici importati non hanno una richiesta (AMM-09) |
+| bambino o famiglia – richiesta, intervento | 0..1 – 0..N | Il beneficiario è un bambino o una famiglia: due chiavi esterne facoltative e un vincolo che ne ammette al massimo una; vuote per le voci fisse fino alla consegna (FR-CAT-01, FR-INT-08) |
 | famiglia – bambino | 1 – 1..N | Ogni bambino appartiene a una famiglia; la casa famiglia è una famiglia con la referente come tutore |
 | famiglia – modulo_consenso | 1 – 0..N | Lo storico dei moduli; vale l’ultimo non revocato |
 | bambino – contenuto | 1 – 0..N | Lo storico resta con il bambino anche dopo un riaffido (FR-ADO-02) |
@@ -1438,6 +1446,7 @@ erDiagram
   bambino ||--o{ dato_sanitario : ha
   bambino ||--o{ adozione : "è adottato con"
   sostenitore ||--o{ adozione : sottoscrive
+  adozione ||--|{ annualita_adozione : "si rinnova con"
   famiglia {
     uuid id PK
     string codice "FAM-0045"
@@ -1458,6 +1467,13 @@ erDiagram
     date fine
     string stato
   }
+  annualita_adozione {
+    uuid id PK
+    uuid adozione_id FK
+    int anno
+    int importo_centesimi
+    string stato
+  }
 ```
 
 **Vetrina e soldi**
@@ -1468,10 +1484,16 @@ erDiagram
   categoria ||--o{ richiesta : classifica
   categoria ||--o{ intervento : classifica
   richiesta |o--o| intervento : "diventa"
+  richiesta |o--o| adozione : "apre"
+  bambino |o--o{ richiesta : beneficiario
+  famiglia |o--o{ richiesta : beneficiario
+  bambino |o--o{ intervento : beneficiario
+  famiglia |o--o{ intervento : beneficiario
   intervento ||--o{ prova : documenta
   sostenitore ||--o{ donazione : fa
   donazione ||--|{ quota_donazione : "si divide in"
   intervento |o--o{ quota_donazione : riceve
+  annualita_adozione |o--o{ quota_donazione : riceve
   capitolo ||--o{ quota_donazione : imputa
   donazione |o--o| quietanza : "ha"
   donazione |o--o| credito_solidale : genera
@@ -1488,7 +1510,9 @@ erDiagram
   quota_donazione {
     uuid id PK
     uuid donazione_id FK
+    uuid capitolo_id FK
     uuid intervento_id FK
+    uuid annualita_adozione_id FK
     int importo_centesimi
   }
 ```
@@ -1805,8 +1829,8 @@ Il PRD si consegna il 9 ottobre 2026; le eventuali correzioni richieste dal doce
 | M0 · PRD consegnato e validato | Questo documento (v2.0), poi le correzioni del docente (v3.0) | Consegna 09/10/2026; validazione entro il 23/10/2026 | Andrea Pavan |
 | M1 · Fondamenta | Repository e CI; Docker in sviluppo e sul server; registrazione, accesso, ruoli, permessi dei volontari, verifica in due passaggi; errori e paginazione uniformi; primo rilascio online con accesso limitato | 15/11/2026 | Andrea Pavan |
 | M2 · Beneficiari e vetrina | Famiglie, bambini e moduli di consenso; foto e contenuti con link firmati; categorie, richieste e voci fisse; vetrina con notizie e newsletter, accesso ospite, carrello e preferiti | 13/12/2026 | Andrea Pavan |
-| M3 · Donazioni | Pagamento con Stripe (carta e Satispay) e conferme; bonifico con quietanza; chi paga per primo e credito solidale; conferme e ringraziamenti con Brevo; area del sostenitore con storico | 24/01/2027 | Andrea Pavan |
-| M4 · Rendicontazione e bot | Interventi, anno scolastico e checklist; prove; “Cose da fare”; API per il bot e modifiche al bot (FR-BOT-01…08) | 21/02/2027 | Andrea Pavan |
+| M3 · Donazioni | Pagamento con Stripe (carta e Satispay) e conferme; bonifico con quietanza; chi paga per primo e credito solidale; adozioni con annualità, promemoria del rinnovo e mancati rinnovi; conferme e ringraziamenti con Brevo; area del sostenitore con storico | 24/01/2027 | Andrea Pavan |
+| M4 · Rendicontazione e bot | Interventi e checklist; prove; “Cose da fare”; API per il bot e modifiche al bot (FR-BOT-01…08) | 21/02/2027 | Andrea Pavan |
 | M5 · Contabilità e recupero dei dati | Importazione dell’estratto conto e abbinamenti; file per VERIF!CO; import del calendario solidale; importazione dei padrini da VERIF!CO e degli elenchi per villaggio | 14/03/2027 | Andrea Pavan |
 | M6 · Vista d’insieme | Numeri, andamento, obiettivi, report ed esportazioni, scadenze, impostazioni, chiusura annuale | 28/03/2027 | Andrea Pavan |
 | M7 · Collaudo con utenti reali | Test di carico (NFR-01) e prova di ripristino (NFR-04); collaudo con amministratore e volontari; prova con tre sostenitori sopra i 60 anni (NFR-10); correzioni | 18/04/2027 | Andrea Pavan, con l’associazione |
@@ -1837,7 +1861,7 @@ Il gestionale funziona se rispetta i requisiti del capitolo 6 e se riduce davver
 | Donazioni perse o duplicate | 0 | Quadratura fra estratto conto, donazioni confermate e movimenti in VERIF!CO (NFR-17) | Ogni mese |
 | Entrate da abbinare a mano | Meno del 10% delle entrate del mese | Riepilogo dell’importazione dell’estratto conto (AMM-04) | Dal terzo mese |
 | Nuovi donatori con codice fiscale valido | Almeno il 95% | Vista d’insieme (donatori senza codice fiscale) | Alla chiusura annuale |
-| Interventi non di adozione rendicontati entro 60 giorni dal pagamento; anni scolastici con l’iscrizione caricata entro 60 giorni | 80% | Vista d’insieme (interventi per stato) | Dopo tre mesi |
+| Interventi rendicontati entro 60 giorni dal pagamento; bambini adottati con un aggiornamento negli ultimi 6 mesi | 80% | Vista d’insieme (interventi per stato, aggiornamenti delle schede) | Dopo tre mesi |
 | Sostenitori che completano il primo accesso e una donazione senza aiuto | 90% durante il collaudo; i tre sostenitori sopra i 60 anni tutti | Osservazione durante il collaudo (NFR-10) | M7 |
 | Ospiti che diventano sostenitori | Nessun obiettivo fisso: il primo anno fa da riferimento | Vista d’insieme (FR-DASH-01) | Ogni mese |
 | Requisiti non funzionali | Tutti rispettati | Prove del capitolo 14.3: carico, ripristino, accessibilità, autorizzazioni | Prima di M8 |
