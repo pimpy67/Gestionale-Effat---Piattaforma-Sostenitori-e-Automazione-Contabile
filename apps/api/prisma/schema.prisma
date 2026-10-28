@@ -1,0 +1,909 @@
+// Schema del database del Gestionale Effatà.
+// Segue il capitolo 12 del PRD v3.0 (docs/PRD.md): 37 tabelle in cinque gruppi.
+// Convenzioni (cap. 12): nomi italiani al singolare, chiave UUID v7, creato_il e
+// aggiornato_il su ogni tabella, importi interi in centesimi.
+// I vincoli che Prisma non sa esprimere (una e una sola FK, indice unico parziale,
+// sequenze dei codici, viste materializzate) sono in SQL nella migrazione iniziale.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────────────────────────────────────
+// Stati e tipi
+// ─────────────────────────────────────────────────────────────
+
+enum Ruolo {
+  ospite
+  simpatizzante
+  sostenitore
+  volontario
+  amministratore
+  socio
+}
+
+enum StatoUtente {
+  attivo
+  disattivato
+  archiviato
+}
+
+enum TipoSostenitore {
+  persona
+  ente
+}
+
+enum OrigineDato {
+  autoregistrato
+  importato_verifico
+  inserito_amministratore
+  bot
+}
+
+enum TipoConsenso {
+  informativa_privacy
+  comunicazioni_novita
+  promemoria
+  newsletter
+  post_social
+}
+
+enum StatoBambino {
+  attivo
+  uscito
+}
+
+enum VisibilitaContenuto {
+  pubblica
+  riservata
+}
+
+enum TipoContenuto {
+  foto
+  pagella
+  notizia
+  documento
+}
+
+enum TipoCategoria {
+  richiesta_personale
+  voce_fissa
+  solo_social
+}
+
+enum StatoRichiesta {
+  bozza
+  aperta
+  sostenuta
+  chiusa
+}
+
+enum StatoAdozione {
+  attiva
+  chiusa
+}
+
+enum StatoAnnualita {
+  in_attesa
+  pagata
+  non_rinnovata
+}
+
+enum StatoIntervento {
+  pagato
+  in_corso
+  realizzato
+  rendicontato
+}
+
+enum MetodoPagamento {
+  carta
+  satispay
+  bonifico
+  bonifico_ricorrente
+  contanti
+  altro
+}
+
+enum CanaleDonazione {
+  gestionale
+  calendario_solidale
+  raccolta_esterna
+  storico
+}
+
+enum StatoDonazione {
+  impegno
+  dichiarata
+  confermata
+  annullata
+}
+
+enum StatoCredito {
+  attivo
+  usato
+  scaduto
+}
+
+enum StatoRigaEstratto {
+  da_abbinare
+  abbinata
+  ignorata
+}
+
+enum StatoEsportazione {
+  generata
+  caricata
+}
+
+enum TipoInvioBot {
+  richiesta_aiuto
+  aiuto_consegnato
+  aggiornamento
+}
+
+enum EsitoInvioBot {
+  ricevuto
+  elaborato
+  rifiutato
+}
+
+enum StatoEmail {
+  in_coda
+  inviata
+  errore
+}
+
+enum StatoSegnalazione {
+  aperta
+  chiusa
+}
+
+// ─────────────────────────────────────────────────────────────
+// Persone e accessi
+// ─────────────────────────────────────────────────────────────
+
+model Utente {
+  id                String      @id @default(uuid(7)) @db.Uuid
+  email             String      @unique
+  hash_password     String
+  stato             StatoUtente @default(attivo)
+  totp_segreto      String?
+  telegram_id       String?     @unique
+  ultimo_accesso_il DateTime?   @db.Timestamptz(6)
+  creato_il         DateTime    @default(now()) @db.Timestamptz(6)
+  aggiornato_il     DateTime    @updatedAt @db.Timestamptz(6)
+
+  ruoli               RuoloUtente[]
+  permessi            PermessoVolontario[]
+  sostenitore         Sostenitore?
+  ospite_di_origine   Ospite?
+  consensi            Consenso[]
+  carrello            Carrello[]
+  preferiti           Preferito[]
+  contenuti_caricati  Contenuto[]
+  notizie_pubblicate  Notizia[]
+  invii_bot           InvioBot[]
+  modifiche           RegistroModifiche[]
+  interventi_in_carico Intervento[]
+
+  @@map("utente")
+}
+
+model RuoloUtente {
+  id            String   @id @default(uuid(7)) @db.Uuid
+  utente_id     String   @db.Uuid
+  ruolo         Ruolo
+  creato_il     DateTime @default(now()) @db.Timestamptz(6)
+  aggiornato_il DateTime @updatedAt @db.Timestamptz(6)
+
+  utente Utente @relation(fields: [utente_id], references: [id])
+
+  @@unique([utente_id, ruolo])
+  @@map("ruolo_utente")
+}
+
+model PermessoVolontario {
+  id            String   @id @default(uuid(7)) @db.Uuid
+  utente_id     String   @db.Uuid
+  azione        String // es. carica_prove, aggiorna_schede, prepara_richieste (FR-RUO-01)
+  creato_il     DateTime @default(now()) @db.Timestamptz(6)
+  aggiornato_il DateTime @updatedAt @db.Timestamptz(6)
+
+  utente Utente @relation(fields: [utente_id], references: [id])
+
+  @@unique([utente_id, azione])
+  @@map("permesso_volontario")
+}
+
+model Ospite {
+  id                   String   @id @default(uuid(7)) @db.Uuid
+  email                String
+  informativa_versione String
+  informativa_letta_il DateTime @db.Timestamptz(6)
+  scade_il             DateTime @db.Timestamptz(6)
+  utente_id            String?  @unique @db.Uuid // alla registrazione (FR-REG-05)
+  creato_il            DateTime @default(now()) @db.Timestamptz(6)
+  aggiornato_il        DateTime @updatedAt @db.Timestamptz(6)
+
+  utente   Utente?        @relation(fields: [utente_id], references: [id])
+  consensi Consenso[]
+  carrello Carrello[]
+  preferiti Preferito[]
+  email_ricevute EmailInviata[]
+
+  @@index([email])
+  @@map("ospite")
+}
+
+model Sostenitore {
+  id                         String          @id @default(uuid(7)) @db.Uuid
+  utente_id                  String?         @unique @db.Uuid
+  tipo                       TipoSostenitore @default(persona)
+  nome                       String?
+  cognome                    String?
+  ragione_sociale            String?
+  codice_fiscale             String?
+  email                      String          @unique
+  telefono                   String?
+  provincia                  String?
+  avente_diritto_nome        String?
+  avente_diritto_cognome     String?
+  avente_diritto_cf          String?
+  opposizione_agenzia_entrate Boolean        @default(false)
+  id_verifico                String?         @unique
+  origine                    OrigineDato     @default(autoregistrato)
+  padrino_storico            Boolean         @default(false)
+  indizi_recupero            String?
+  archiviato_il              DateTime?       @db.Timestamptz(6)
+  creato_il                  DateTime        @default(now()) @db.Timestamptz(6)
+  aggiornato_il              DateTime        @updatedAt @db.Timestamptz(6)
+
+  utente         Utente?           @relation(fields: [utente_id], references: [id])
+  iban           IbanSostenitore[]
+  consensi       Consenso[]
+  adozioni       Adozione[]
+  donazioni      Donazione[]
+  email_ricevute EmailInviata[]
+
+  @@index([codice_fiscale])
+  @@map("sostenitore")
+}
+
+model IbanSostenitore {
+  id             String   @id @default(uuid(7)) @db.Uuid
+  sostenitore_id String   @db.Uuid
+  iban           String
+  creato_il      DateTime @default(now()) @db.Timestamptz(6)
+  aggiornato_il  DateTime @updatedAt @db.Timestamptz(6)
+
+  sostenitore Sostenitore @relation(fields: [sostenitore_id], references: [id])
+
+  @@unique([sostenitore_id, iban])
+  @@index([iban])
+  @@map("iban_sostenitore")
+}
+
+// Titolare: utente, sostenitore oppure ospite, uno e uno solo (CHECK in SQL).
+model Consenso {
+  id                   String       @id @default(uuid(7)) @db.Uuid
+  utente_id            String?      @db.Uuid
+  sostenitore_id       String?      @db.Uuid
+  ospite_id            String?      @db.Uuid
+  tipo                 TipoConsenso
+  informativa_versione String?
+  dato_il              DateTime     @db.Timestamptz(6)
+  revocato_il          DateTime?    @db.Timestamptz(6)
+  creato_il            DateTime     @default(now()) @db.Timestamptz(6)
+  aggiornato_il        DateTime     @updatedAt @db.Timestamptz(6)
+
+  utente      Utente?      @relation(fields: [utente_id], references: [id])
+  sostenitore Sostenitore? @relation(fields: [sostenitore_id], references: [id])
+  ospite      Ospite?      @relation(fields: [ospite_id], references: [id])
+
+  @@map("consenso")
+}
+
+// ─────────────────────────────────────────────────────────────
+// Beneficiari e adozioni
+// ─────────────────────────────────────────────────────────────
+
+model Famiglia {
+  id               String   @id @default(uuid(7)) @db.Uuid
+  codice           String?  @unique // FAM-0045, assegnato alla conferma (FR-COD-01)
+  genitore_tutore  String
+  villaggio        String
+  distretto        String
+  creato_il        DateTime @default(now()) @db.Timestamptz(6)
+  aggiornato_il    DateTime @updatedAt @db.Timestamptz(6)
+
+  bambini         Bambino[]
+  moduli_consenso ModuloConsenso[]
+  contenuti       Contenuto[]
+  richieste       Richiesta[]
+  interventi      Intervento[]
+
+  @@map("famiglia")
+}
+
+model ModuloConsenso {
+  id                   String    @id @default(uuid(7)) @db.Uuid
+  famiglia_id          String    @db.Uuid
+  firmato_il           DateTime  @db.Date
+  raccolto_da          String
+  percorso_file        String
+  consenso_padrino     Boolean   @default(false)
+  consenso_pubblicazione Boolean @default(false)
+  consenso_compleanno  Boolean   @default(false)
+  consenso_salute      Boolean   @default(false)
+  revoca_padrino_il    DateTime? @db.Timestamptz(6)
+  revoca_pubblicazione_il DateTime? @db.Timestamptz(6)
+  revoca_compleanno_il DateTime? @db.Timestamptz(6)
+  revoca_salute_il     DateTime? @db.Timestamptz(6)
+  creato_il            DateTime  @default(now()) @db.Timestamptz(6)
+  aggiornato_il        DateTime  @updatedAt @db.Timestamptz(6)
+
+  famiglia Famiglia @relation(fields: [famiglia_id], references: [id])
+
+  @@map("modulo_consenso")
+}
+
+model Bambino {
+  id            String       @id @default(uuid(7)) @db.Uuid
+  codice        String?      @unique // BAM-0215
+  famiglia_id   String       @db.Uuid
+  nome          String
+  cognome       String?
+  data_nascita  DateTime     @db.Date
+  villaggio     String
+  scuola        String?
+  classe        String?
+  storia        String?
+  stato         StatoBambino @default(attivo)
+  uscito_il     DateTime?    @db.Date
+  motivo_uscita String?
+  creato_il     DateTime     @default(now()) @db.Timestamptz(6)
+  aggiornato_il DateTime     @updatedAt @db.Timestamptz(6)
+
+  famiglia        Famiglia       @relation(fields: [famiglia_id], references: [id])
+  dati_sanitari   DatoSanitario[]
+  contenuti       Contenuto[]
+  adozioni        Adozione[]
+  richieste       Richiesta[]
+  interventi      Intervento[]
+
+  @@index([famiglia_id])
+  @@map("bambino")
+}
+
+// Leggibile solo dall'amministratore (FR-RUO-02, art. 9 GDPR).
+model DatoSanitario {
+  id            String   @id @default(uuid(7)) @db.Uuid
+  bambino_id    String   @db.Uuid
+  testo         String
+  creato_il     DateTime @default(now()) @db.Timestamptz(6)
+  aggiornato_il DateTime @updatedAt @db.Timestamptz(6)
+
+  bambino Bambino @relation(fields: [bambino_id], references: [id])
+
+  @@map("dato_sanitario")
+}
+
+// Appartiene a un bambino oppure a una famiglia, uno e uno solo (CHECK in SQL).
+model Contenuto {
+  id              String              @id @default(uuid(7)) @db.Uuid
+  bambino_id      String?             @db.Uuid
+  famiglia_id     String?             @db.Uuid
+  prova_id        String?             @db.Uuid
+  invio_bot_id    String?             @db.Uuid
+  autore_id       String              @db.Uuid
+  tipo            TipoContenuto
+  visibilita      VisibilitaContenuto @default(riservata)
+  testo_referente String?
+  percorso_file   String?
+  ordine          Int                 @default(0)
+  nascosto        Boolean             @default(false)
+  creato_il       DateTime            @default(now()) @db.Timestamptz(6)
+  aggiornato_il   DateTime            @updatedAt @db.Timestamptz(6)
+
+  bambino    Bambino?       @relation(fields: [bambino_id], references: [id])
+  famiglia   Famiglia?      @relation(fields: [famiglia_id], references: [id])
+  prova      Prova?         @relation(fields: [prova_id], references: [id])
+  invio_bot  InvioBot?      @relation(fields: [invio_bot_id], references: [id])
+  autore     Utente         @relation(fields: [autore_id], references: [id])
+  in_vetrina FotoRichiesta[]
+
+  @@index([bambino_id])
+  @@index([famiglia_id])
+  @@map("contenuto")
+}
+
+// Al massimo un'adozione attiva per bambino: indice unico parziale in SQL (FR-ADO-01).
+model Adozione {
+  id               String        @id @default(uuid(7)) @db.Uuid
+  sostenitore_id   String        @db.Uuid
+  bambino_id       String        @db.Uuid
+  richiesta_id     String?       @unique @db.Uuid // vuota per i padrini storici (AMM-09)
+  importo_annuale_centesimi Int
+  inizio           DateTime      @db.Date
+  fine             DateTime?     @db.Date
+  motivo_chiusura  String?
+  stato            StatoAdozione @default(attiva)
+  creato_il        DateTime      @default(now()) @db.Timestamptz(6)
+  aggiornato_il    DateTime      @updatedAt @db.Timestamptz(6)
+
+  sostenitore Sostenitore         @relation(fields: [sostenitore_id], references: [id])
+  bambino     Bambino             @relation(fields: [bambino_id], references: [id])
+  richiesta   Richiesta?          @relation(fields: [richiesta_id], references: [id])
+  annualita   AnnualitaAdozione[]
+
+  @@index([sostenitore_id])
+  @@map("adozione")
+}
+
+model AnnualitaAdozione {
+  id                 String         @id @default(uuid(7)) @db.Uuid
+  adozione_id        String         @db.Uuid
+  anno               Int
+  importo_centesimi  Int
+  stato              StatoAnnualita @default(in_attesa)
+  promemoria_inviati Int            @default(0)
+  creato_il          DateTime       @default(now()) @db.Timestamptz(6)
+  aggiornato_il      DateTime       @updatedAt @db.Timestamptz(6)
+
+  adozione Adozione       @relation(fields: [adozione_id], references: [id])
+  quote    QuotaDonazione[]
+
+  @@unique([adozione_id, anno])
+  @@map("annualita_adozione")
+}
+
+// ─────────────────────────────────────────────────────────────
+// Vetrina e rendicontazione
+// ─────────────────────────────────────────────────────────────
+
+model Capitolo {
+  id                         String   @id @default(uuid(7)) @db.Uuid
+  nome                       String   @unique
+  id_progetto_verifico       String?
+  obiettivo_annuale_centesimi Int?
+  creato_il                  DateTime @default(now()) @db.Timestamptz(6)
+  aggiornato_il              DateTime @updatedAt @db.Timestamptz(6)
+
+  categorie      Categoria[]
+  raccolte_fondi RaccoltaFondi[]
+  quote          QuotaDonazione[]
+
+  @@map("capitolo")
+}
+
+model RaccoltaFondi {
+  id                     String    @id @default(uuid(7)) @db.Uuid
+  capitolo_id            String    @db.Uuid
+  nome                   String
+  id_raccoltafondi_verifico String?
+  inizio                 DateTime? @db.Date
+  fine                   DateTime? @db.Date
+  creato_il              DateTime  @default(now()) @db.Timestamptz(6)
+  aggiornato_il          DateTime  @updatedAt @db.Timestamptz(6)
+
+  capitolo Capitolo         @relation(fields: [capitolo_id], references: [id])
+  quote    QuotaDonazione[]
+
+  @@map("raccolta_fondi")
+}
+
+model Categoria {
+  id                      String        @id @default(uuid(7)) @db.Uuid
+  capitolo_id             String        @db.Uuid
+  nome                    String        @unique
+  tipo                    TipoCategoria
+  gruppo                  String? // es. "Animali" per le specie (FR-CAT-01)
+  costo_listino_centesimi Int?          // vuoto = importo libero
+  in_vetrina              Boolean       @default(true)
+  creato_il               DateTime      @default(now()) @db.Timestamptz(6)
+  aggiornato_il           DateTime      @updatedAt @db.Timestamptz(6)
+
+  capitolo      Capitolo         @relation(fields: [capitolo_id], references: [id])
+  voci_checklist VoceChecklist[]
+  richieste     Richiesta[]
+  interventi    Intervento[]
+  quote_in_attesa QuotaDonazione[]
+  crediti       CreditoSolidale[]
+  carrello      Carrello[]
+  preferiti     Preferito[]
+
+  @@map("categoria")
+}
+
+model VoceChecklist {
+  id            String   @id @default(uuid(7)) @db.Uuid
+  categoria_id  String   @db.Uuid
+  nome          String
+  ordine        Int      @default(0)
+  creato_il     DateTime @default(now()) @db.Timestamptz(6)
+  aggiornato_il DateTime @updatedAt @db.Timestamptz(6)
+
+  categoria Categoria @relation(fields: [categoria_id], references: [id])
+  prove     Prova[]
+
+  @@unique([categoria_id, nome])
+  @@map("voce_checklist")
+}
+
+// Beneficiario: bambino oppure famiglia, uno e uno solo (CHECK in SQL).
+model Richiesta {
+  id                String         @id @default(uuid(7)) @db.Uuid
+  codice            String?        @unique // RIC-0042, assegnato all'approvazione
+  categoria_id      String         @db.Uuid
+  bambino_id        String?        @db.Uuid
+  famiglia_id       String?        @db.Uuid
+  titolo            String
+  storia            String
+  costo_centesimi   Int
+  stato             StatoRichiesta @default(bozza)
+  approvata_il      DateTime?      @db.Timestamptz(6)
+  sostenuta_il      DateTime?      @db.Timestamptz(6)
+  creato_il         DateTime       @default(now()) @db.Timestamptz(6)
+  aggiornato_il     DateTime       @updatedAt @db.Timestamptz(6)
+
+  categoria   Categoria        @relation(fields: [categoria_id], references: [id])
+  bambino     Bambino?         @relation(fields: [bambino_id], references: [id])
+  famiglia    Famiglia?        @relation(fields: [famiglia_id], references: [id])
+  foto        FotoRichiesta[]
+  intervento  Intervento?
+  adozione    Adozione?
+  credito_usato CreditoSolidale?
+  quote       QuotaDonazione[]
+  carrello    Carrello[]
+  preferiti   Preferito[]
+
+  @@index([stato])
+  @@map("richiesta")
+}
+
+model FotoRichiesta {
+  id            String   @id @default(uuid(7)) @db.Uuid
+  richiesta_id  String   @db.Uuid
+  contenuto_id  String   @db.Uuid
+  ordine        Int      @default(0)
+  creato_il     DateTime @default(now()) @db.Timestamptz(6)
+  aggiornato_il DateTime @updatedAt @db.Timestamptz(6)
+
+  richiesta Richiesta @relation(fields: [richiesta_id], references: [id])
+  contenuto Contenuto @relation(fields: [contenuto_id], references: [id])
+
+  @@unique([richiesta_id, contenuto_id])
+  @@map("foto_richiesta")
+}
+
+// Beneficiario: bambino oppure famiglia, uno e uno solo (CHECK in SQL).
+model Intervento {
+  id                  String          @id @default(uuid(7)) @db.Uuid
+  categoria_id        String          @db.Uuid
+  richiesta_id        String?         @unique @db.Uuid // vuota per le consegne delle voci fisse
+  bambino_id          String?         @db.Uuid
+  famiglia_id         String?         @db.Uuid
+  costo_centesimi     Int             // congelato al primo pagamento (FR-INT-04)
+  stato               StatoIntervento @default(pagato)
+  presa_in_carico_da  String?         @db.Uuid
+  presa_in_carico_il  DateTime?       @db.Timestamptz(6)
+  rendicontato_il     DateTime?       @db.Timestamptz(6)
+  creato_il           DateTime        @default(now()) @db.Timestamptz(6)
+  aggiornato_il       DateTime        @updatedAt @db.Timestamptz(6)
+
+  categoria  Categoria        @relation(fields: [categoria_id], references: [id])
+  richiesta  Richiesta?       @relation(fields: [richiesta_id], references: [id])
+  bambino    Bambino?         @relation(fields: [bambino_id], references: [id])
+  famiglia   Famiglia?        @relation(fields: [famiglia_id], references: [id])
+  incaricato Utente?          @relation(fields: [presa_in_carico_da], references: [id])
+  prove      Prova[]
+  quote      QuotaDonazione[]
+
+  @@index([stato])
+  @@map("intervento")
+}
+
+model Prova {
+  id                String   @id @default(uuid(7)) @db.Uuid
+  intervento_id     String   @db.Uuid
+  voce_checklist_id String   @db.Uuid
+  creato_il         DateTime @default(now()) @db.Timestamptz(6)
+  aggiornato_il     DateTime @updatedAt @db.Timestamptz(6)
+
+  intervento     Intervento    @relation(fields: [intervento_id], references: [id])
+  voce_checklist VoceChecklist @relation(fields: [voce_checklist_id], references: [id])
+  contenuti      Contenuto[]
+
+  @@unique([intervento_id, voce_checklist_id])
+  @@map("prova")
+}
+
+model Notizia {
+  id              String    @id @default(uuid(7)) @db.Uuid
+  autore_id       String    @db.Uuid
+  titolo          String
+  testo           String
+  link_newsletter String?
+  pubblicata_il   DateTime  @db.Timestamptz(6)
+  fine_il         DateTime? @db.Timestamptz(6)
+  creato_il       DateTime  @default(now()) @db.Timestamptz(6)
+  aggiornato_il   DateTime  @updatedAt @db.Timestamptz(6)
+
+  autore Utente @relation(fields: [autore_id], references: [id])
+
+  @@map("notizia")
+}
+
+// Proprietario: utente oppure ospite. Voce: richiesta oppure categoria (CHECK in SQL).
+model Carrello {
+  id                String     @id @default(uuid(7)) @db.Uuid
+  utente_id         String?    @db.Uuid
+  ospite_id         String?    @db.Uuid
+  richiesta_id      String?    @db.Uuid
+  categoria_id      String?    @db.Uuid
+  importo_centesimi Int
+  creato_il         DateTime   @default(now()) @db.Timestamptz(6)
+  aggiornato_il     DateTime   @updatedAt @db.Timestamptz(6)
+
+  utente    Utente?    @relation(fields: [utente_id], references: [id])
+  ospite    Ospite?    @relation(fields: [ospite_id], references: [id])
+  richiesta Richiesta? @relation(fields: [richiesta_id], references: [id])
+  categoria Categoria? @relation(fields: [categoria_id], references: [id])
+
+  @@map("carrello")
+}
+
+model Preferito {
+  id            String     @id @default(uuid(7)) @db.Uuid
+  utente_id     String?    @db.Uuid
+  ospite_id     String?    @db.Uuid
+  richiesta_id  String?    @db.Uuid
+  categoria_id  String?    @db.Uuid
+  creato_il     DateTime   @default(now()) @db.Timestamptz(6)
+  aggiornato_il DateTime   @updatedAt @db.Timestamptz(6)
+
+  utente    Utente?    @relation(fields: [utente_id], references: [id])
+  ospite    Ospite?    @relation(fields: [ospite_id], references: [id])
+  richiesta Richiesta? @relation(fields: [richiesta_id], references: [id])
+  categoria Categoria? @relation(fields: [categoria_id], references: [id])
+
+  @@map("preferito")
+}
+
+// ─────────────────────────────────────────────────────────────
+// Soldi
+// ─────────────────────────────────────────────────────────────
+
+model Donazione {
+  id                       String          @id @default(uuid(7)) @db.Uuid
+  sostenitore_id           String          @db.Uuid
+  importo_centesimi        Int
+  metodo                   MetodoPagamento
+  canale                   CanaleDonazione @default(gestionale)
+  stato                    StatoDonazione
+  motivo_annullamento      String?
+  pagata_il                DateTime        @db.Timestamptz(6)
+  confermata_il            DateTime?       @db.Timestamptz(6)
+  stripe_id                String?         @unique
+  causale                  String?         @db.VarChar(140)
+  // copia dei dati dell'avente diritto al momento del pagamento (cap. 12.5)
+  avente_diritto_nome      String?
+  avente_diritto_cognome   String?
+  avente_diritto_cf        String?
+  riga_estratto_id         String?         @unique @db.Uuid // bonifico confermato dalla riga
+  versamento_stripe_id     String?         @db.Uuid         // riga del versamento cumulativo Stripe
+  esportazione_verifico_id String?         @db.Uuid
+  creato_il                DateTime        @default(now()) @db.Timestamptz(6)
+  aggiornato_il            DateTime        @updatedAt @db.Timestamptz(6)
+
+  sostenitore         Sostenitore           @relation(fields: [sostenitore_id], references: [id])
+  riga_estratto       RigaEstratto?         @relation("ConfermaBonifico", fields: [riga_estratto_id], references: [id])
+  versamento_stripe   RigaEstratto?         @relation("VersamentoStripe", fields: [versamento_stripe_id], references: [id])
+  esportazione        EsportazioneVerifico? @relation(fields: [esportazione_verifico_id], references: [id])
+  quote               QuotaDonazione[]
+  quietanza           Quietanza?
+  credito_solidale    CreditoSolidale?
+
+  @@index([stato, pagata_il])
+  @@index([sostenitore_id])
+  @@map("donazione")
+}
+
+// Capitolo sempre; il resto quando c'è (FR-INT-01, FR-INT-06, FR-INT-08, FR-ADO-04).
+model QuotaDonazione {
+  id                    String   @id @default(uuid(7)) @db.Uuid
+  donazione_id          String   @db.Uuid
+  capitolo_id           String   @db.Uuid
+  richiesta_id          String?  @db.Uuid
+  intervento_id         String?  @db.Uuid
+  annualita_adozione_id String?  @db.Uuid
+  categoria_id          String?  @db.Uuid // voce fissa in attesa di consegna
+  raccolta_fondi_id     String?  @db.Uuid
+  importo_centesimi     Int
+  creato_il             DateTime @default(now()) @db.Timestamptz(6)
+  aggiornato_il         DateTime @updatedAt @db.Timestamptz(6)
+
+  donazione          Donazione          @relation(fields: [donazione_id], references: [id])
+  capitolo           Capitolo           @relation(fields: [capitolo_id], references: [id])
+  richiesta          Richiesta?         @relation(fields: [richiesta_id], references: [id])
+  intervento         Intervento?        @relation(fields: [intervento_id], references: [id])
+  annualita_adozione AnnualitaAdozione? @relation(fields: [annualita_adozione_id], references: [id])
+  categoria          Categoria?         @relation(fields: [categoria_id], references: [id])
+  raccolta_fondi     RaccoltaFondi?     @relation(fields: [raccolta_fondi_id], references: [id])
+
+  @@index([donazione_id])
+  @@index([intervento_id])
+  @@map("quota_donazione")
+}
+
+model Quietanza {
+  id                String   @id @default(uuid(7)) @db.Uuid
+  donazione_id      String   @unique @db.Uuid
+  percorso_file     String
+  importo_centesimi Int
+  data_bonifico     DateTime @db.Date
+  creato_il         DateTime @default(now()) @db.Timestamptz(6)
+  aggiornato_il     DateTime @updatedAt @db.Timestamptz(6)
+
+  donazione Donazione @relation(fields: [donazione_id], references: [id])
+
+  @@map("quietanza")
+}
+
+model CreditoSolidale {
+  id                  String       @id @default(uuid(7)) @db.Uuid
+  donazione_id        String       @unique @db.Uuid
+  categoria_id        String       @db.Uuid
+  importo_centesimi   Int
+  scade_il            DateTime     @db.Timestamptz(6)
+  stato               StatoCredito @default(attivo)
+  richiesta_utilizzo_id String?    @unique @db.Uuid
+  usato_il            DateTime?    @db.Timestamptz(6)
+  creato_il           DateTime     @default(now()) @db.Timestamptz(6)
+  aggiornato_il       DateTime     @updatedAt @db.Timestamptz(6)
+
+  donazione          Donazione  @relation(fields: [donazione_id], references: [id])
+  categoria          Categoria  @relation(fields: [categoria_id], references: [id])
+  richiesta_utilizzo Richiesta? @relation(fields: [richiesta_utilizzo_id], references: [id])
+
+  @@index([stato, scade_il])
+  @@map("credito_solidale")
+}
+
+// ─────────────────────────────────────────────────────────────
+// Contabilità e sistema
+// ─────────────────────────────────────────────────────────────
+
+model EstrattoConto {
+  id            String   @id @default(uuid(7)) @db.Uuid
+  nome_file     String
+  impronta_file String   @unique
+  periodo_dal   DateTime @db.Date
+  periodo_al    DateTime @db.Date
+  creato_il     DateTime @default(now()) @db.Timestamptz(6)
+  aggiornato_il DateTime @updatedAt @db.Timestamptz(6)
+
+  righe RigaEstratto[]
+
+  @@map("estratto_conto")
+}
+
+model RigaEstratto {
+  id                String            @id @default(uuid(7)) @db.Uuid
+  estratto_conto_id String            @db.Uuid
+  impronta          String            @unique
+  data_operazione   DateTime          @db.Date
+  importo_centesimi Int
+  ordinante         String?
+  iban_ordinante    String?
+  causale           String?
+  stato             StatoRigaEstratto @default(da_abbinare)
+  creato_il         DateTime          @default(now()) @db.Timestamptz(6)
+  aggiornato_il     DateTime          @updatedAt @db.Timestamptz(6)
+
+  estratto_conto        EstrattoConto @relation(fields: [estratto_conto_id], references: [id])
+  donazione_confermata  Donazione?    @relation("ConfermaBonifico")
+  pagamenti_stripe      Donazione[]   @relation("VersamentoStripe")
+
+  @@map("riga_estratto")
+}
+
+model EsportazioneVerifico {
+  id                String            @id @default(uuid(7)) @db.Uuid
+  mese              DateTime          @unique @db.Date // primo giorno del mese
+  totale_centesimi  Int
+  file_generati     Json
+  stato             StatoEsportazione @default(generata)
+  caricata_il       DateTime?         @db.Timestamptz(6)
+  creato_il         DateTime          @default(now()) @db.Timestamptz(6)
+  aggiornato_il     DateTime          @updatedAt @db.Timestamptz(6)
+
+  donazioni Donazione[]
+
+  @@map("esportazione_verifico")
+}
+
+model InvioBot {
+  id            String        @id @default(uuid(7)) @db.Uuid
+  chiave_invio  String        @unique // impedisce i doppioni (FR-BOT-06)
+  volontario_id String        @db.Uuid
+  tipo          TipoInvioBot
+  esito         EsitoInvioBot @default(ricevuto)
+  motivo_rifiuto String?
+  creato_il     DateTime      @default(now()) @db.Timestamptz(6)
+  aggiornato_il DateTime      @updatedAt @db.Timestamptz(6)
+
+  volontario Utente      @relation(fields: [volontario_id], references: [id])
+  contenuti  Contenuto[]
+
+  @@map("invio_bot")
+}
+
+// Riferimento generico al dato (tabella + record_id), senza chiave esterna (cap. 12.2).
+model RegistroModifiche {
+  id                String   @id @default(uuid(7)) @db.Uuid
+  utente_id         String   @db.Uuid
+  tabella           String
+  record_id         String   @db.Uuid
+  campo             String?
+  valore_precedente String?
+  valore_nuovo      String?
+  creato_il         DateTime @default(now()) @db.Timestamptz(6)
+  aggiornato_il     DateTime @updatedAt @db.Timestamptz(6)
+
+  utente Utente @relation(fields: [utente_id], references: [id])
+
+  @@index([tabella, record_id])
+  @@map("registro_modifiche")
+}
+
+model Impostazione {
+  id            String   @id @default(uuid(7)) @db.Uuid
+  chiave        String   @unique
+  valore        Json
+  creato_il     DateTime @default(now()) @db.Timestamptz(6)
+  aggiornato_il DateTime @updatedAt @db.Timestamptz(6)
+
+  @@map("impostazione")
+}
+
+// Destinatario: sostenitore oppure ospite (CHECK in SQL).
+model EmailInviata {
+  id             String     @id @default(uuid(7)) @db.Uuid
+  sostenitore_id String?    @db.Uuid
+  ospite_id      String?    @db.Uuid
+  indirizzo      String
+  modello        String
+  stato          StatoEmail @default(in_coda)
+  tentativi      Int        @default(0)
+  inviata_il     DateTime?  @db.Timestamptz(6)
+  creato_il      DateTime   @default(now()) @db.Timestamptz(6)
+  aggiornato_il  DateTime   @updatedAt @db.Timestamptz(6)
+
+  sostenitore Sostenitore? @relation(fields: [sostenitore_id], references: [id])
+  ospite      Ospite?      @relation(fields: [ospite_id], references: [id])
+
+  @@map("email_inviata")
+}
+
+// Riferimento generico al dato (tabella + record_id), senza chiave esterna (cap. 12.2).
+model Segnalazione {
+  id            String            @id @default(uuid(7)) @db.Uuid
+  tipo          String
+  descrizione   String
+  tabella       String?
+  record_id     String?           @db.Uuid
+  stato         StatoSegnalazione @default(aperta)
+  chiusa_il     DateTime?         @db.Timestamptz(6)
+  creato_il     DateTime          @default(now()) @db.Timestamptz(6)
+  aggiornato_il DateTime          @updatedAt @db.Timestamptz(6)
+
+  @@index([stato])
+  @@map("segnalazione")
+}

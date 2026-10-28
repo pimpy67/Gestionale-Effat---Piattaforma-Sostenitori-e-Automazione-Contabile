@@ -1,0 +1,3 @@
+# Le migrazioni di Prisma hanno un controllo di integrità: stessi fine riga su Windows e Mac.
+**/prisma/migrations/**/*.sql text eol=lf
+**/prisma/migrations/*.toml text eol=lf

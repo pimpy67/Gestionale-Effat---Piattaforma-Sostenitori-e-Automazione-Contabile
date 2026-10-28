@@ -8,8 +8,23 @@ Progetto personale di Andrea Pavan per l'ITS (2° anno), sviluppato con la metod
 
 ## Stato del progetto
 
-**Fase attuale: PRD v2.1 in validazione** (consegnato il 9 ottobre 2026 come v2.0, con le correzioni chieste dal docente; validazione entro il 23 ottobre).
-Lo sviluppo del codice inizierà solo dopo la validazione del PRD.
+**Fase attuale: PRD v3.0 validato, sviluppo avviato (M1).** Il primo passo è il database: PostgreSQL 16 con le 37 tabelle del capitolo 12 del PRD.
+
+## Avviare il database in locale
+
+Servono Docker Desktop e Node.js.
+
+```bash
+cp .env.example .env      # poi scegli una password tua: il file .env non va mai nella repository
+npm install               # installa Prisma e gli strumenti del monorepo
+npm run db:avvia          # avvia PostgreSQL 16 in Docker (docker-compose.yml)
+npm run db:migra          # crea le 37 tabelle con vincoli, sequenze dei codici e viste
+npm run db:seed           # inserisce i dati di fantasia (mai dati reali)
+```
+
+- Schema: [`apps/api/prisma/schema.prisma`](apps/api/prisma/schema.prisma).
+- Migrazione iniziale, con i vincoli che Prisma non sa esprimere (uno e uno solo, adozione attiva unica, importi positivi, codici BAM/FAM/RIC, viste materializzate): [`apps/api/prisma/migrations`](apps/api/prisma/migrations).
+- Per ripartire da zero: `npm run db:reset` (cancella i dati, riapplica la migrazione e il seed).
 
 ## Documentazione
 

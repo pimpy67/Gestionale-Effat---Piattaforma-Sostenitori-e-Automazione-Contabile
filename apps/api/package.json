@@ -1,0 +1,20 @@
+{
+  "name": "@effata/api",
+  "private": true,
+  "description": "Backend del Gestionale Effatà (NestJS + Prisma, cap. 9 e 14.1). Per ora contiene lo schema del database.",
+  "scripts": {
+    "db:migra": "prisma migrate dev",
+    "db:seed": "prisma db seed",
+    "db:reset": "prisma migrate reset --force",
+    "db:valida": "prisma validate"
+  },
+  "devDependencies": {
+    "dotenv": "^18.0.9",
+    "prisma": "^6.19.3",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3"
+  }
+}

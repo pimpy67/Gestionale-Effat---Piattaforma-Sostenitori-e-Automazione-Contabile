@@ -433,3 +433,14 @@ Il dettaglio di ogni decisione è nel PRD (`docs/PRD.md`), capitolo 5.7.
 - **PRD v3.0** (tag `prd-v3.0`): validato dal docente, contenuto della v2.3.
 - Presentazione: slide di riserva con il diagramma ER completo.
 - Primo passo di M1: il database (Docker Compose con PostgreSQL 16, schema Prisma delle 37 tabelle, migrazione iniziale con i vincoli, dati di fantasia).
+
+**Fatto (database)**
+- Monorepo con npm workspaces (cap. 14.1): `apps/api` con Prisma 6.19; `docker-compose.yml` con PostgreSQL 16; `.env.example` senza valori reali.
+- `apps/api/prisma/schema.prisma`: 37 tabelle, 23 tipi enumerati, UUID v7, importi in centesimi.
+- Migrazione iniziale con i vincoli scritti in SQL: "uno e uno solo" (consenso, contenuto, richiesta, intervento, carrello, preferito, email), adozione attiva unica per bambino, importi positivi, coerenza di date e stati, sequenze e formato dei codici BAM/FAM/RIC, due viste materializzate.
+- Seed con dati di fantasia (capitoli, categorie con checklist, specie degli animali, un'adozione con la sua annualità, una casa con la prova, una voce fissa in attesa di consegna).
+- Collaudo su un PostgreSQL 16 temporaneo: 37 tabelle create, seed riuscito, sette violazioni dei vincoli tutte bloccate, nessuna differenza fra database e schema Prisma.
+
+**Prossimi passi**
+- Docker Desktop su questo computer risponde con errore 500: da sistemare, poi `npm run db:avvia`, `db:migra`, `db:seed`.
+- Progetto NestJS in `apps/api` (M1: registrazione, accesso, ruoli).
