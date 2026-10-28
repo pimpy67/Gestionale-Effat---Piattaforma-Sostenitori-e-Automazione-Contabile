@@ -426,3 +426,10 @@ Il dettaglio di ogni decisione è nel PRD (`docs/PRD.md`), capitolo 5.7.
 
 **Prossimi passi**
 - Chiedere all'associazione: progetto e conto VERIF!CO della gestione della casa famiglia; date del promemoria e del termine per il rinnovo; al commercialista, l'esportazione dei crediti solidali (Allegato F).
+
+## 28/10/2026 – PRD validato (v3.0) e inizio dello sviluppo
+
+**Fatto**
+- **PRD v3.0** (tag `prd-v3.0`): validato dal docente, contenuto della v2.3.
+- Presentazione: slide di riserva con il diagramma ER completo.
+- Primo passo di M1: il database (Docker Compose con PostgreSQL 16, schema Prisma delle 37 tabelle, migrazione iniziale con i vincoli, dati di fantasia).

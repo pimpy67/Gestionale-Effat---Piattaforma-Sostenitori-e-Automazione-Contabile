@@ -4,7 +4,7 @@
 
 Progetto personale di Andrea Pavan per l'ITS (2° anno), sviluppato con la metodologia della traccia "ScuolaChill": prima il PRD, poi il codice.
 
-> 📄 **[Leggi il PRD v2.3](docs/PRD.md)** · **[Allegati](docs/PRD_allegati.md)** · **Presentazione: [PowerPoint](docs/Presentazione_PRD_v2.1.pptx) · [PDF](docs/Presentazione_PRD_v2.1.pdf)** · **[Diagramma ER](docs/Diagramma_ER_PRD_v2.3.svg)**
+> 📄 **[Leggi il PRD v3.0](docs/PRD.md)** · **[Allegati](docs/PRD_allegati.md)** · **Presentazione: [PowerPoint](docs/Presentazione_PRD_v2.1.pptx) · [PDF](docs/Presentazione_PRD_v2.1.pdf)** · **[Diagramma ER](docs/Diagramma_ER_PRD_v2.3.svg)**
 
 ## Stato del progetto
 

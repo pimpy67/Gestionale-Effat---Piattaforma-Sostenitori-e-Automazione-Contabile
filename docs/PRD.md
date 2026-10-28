@@ -4,7 +4,7 @@
 
 Piattaforma Sostenitori e Automazione Contabile
 
-*Versione 2.3 – struttura del PRD Template del docente*
+*Versione 3.0 – struttura del PRD Template del docente*
 
 # Indice
 
@@ -101,9 +101,9 @@ Piattaforma Sostenitori e Automazione Contabile
 | Autori | Andrea Pavan |
 | Cliente reale | Effatà Italia ODV |
 | Contesto | Progetto ITS – 2° anno. Progetto personale che segue la metodologia della traccia “ScuolaChill”. |
-| Versione | 2.3 |
+| Versione | 3.0 |
 | Data | 28/10/2026 |
-| Stato | Consegnato per la validazione; correzioni richieste dal docente |
+| Stato | Validato dal docente: si passa allo sviluppo (M1) |
 
 ## Storico delle versioni
 
@@ -130,6 +130,7 @@ Piattaforma Sostenitori e Automazione Contabile
 | 2.1 | 09/10/2026 | Andrea Pavan | Correzioni richieste dal docente alla consegna: indice di capitoli e sottocapitoli all’inizio del documento; nuovo capitolo 1.1 “Chi è Effatà” sul contesto dell’associazione (i successivi diventano 1.2–1.4) |
 | 2.2 | 28/10/2026 | Andrea Pavan | Adozione come impegno annuale ricorrente, senza interventi né checklist: annualità, promemoria e riaffido per mancato rinnovo; aggiornamenti della scheda al posto delle prove annuali; gestione della casa famiglia separata da Casa struttura; beneficiario solo bambino o famiglia; modello dei dati aggiornato |
 | 2.3 | 28/10/2026 | Andrea Pavan | Modello dei dati completato: contenuti di un bambino oppure di una famiglia; prova con una o più foto; foto delle richieste in vetrina; famiglia obbligatoria nelle consegne delle voci fisse; credito solidale esportato a VERIF!CO solo quando viene usato o scade; specie degli animali come categorie del gruppo “Animali”; tutte le relazioni nel capitolo 12.2 e un quarto diagramma ER |
+| 3.0 | 28/10/2026 | Andrea Pavan | PRD validato dal docente: contenuto della v2.3, senza nuove decisioni. Da qui il codice segue il PRD (si parte da M1) |
 
 Lo storico completo, con il dettaglio di ogni versione, è nell’Allegato E; la regola di gestione delle modifiche nell’Allegato A.
 

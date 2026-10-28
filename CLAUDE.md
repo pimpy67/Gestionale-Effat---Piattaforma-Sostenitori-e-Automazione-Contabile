@@ -11,7 +11,7 @@ Progetto ITS (2° anno) di Andrea Pavan, con la metodologia della traccia "Scuol
 - `docs/bot/TECHNICAL-INTEGRATION.md` – il bot social esistente (sistema separato).
 
 ## Regole
-1. **Nessun codice del gestionale prima della validazione del PRD** da parte del docente (consegna del PRD: 9 ottobre 2026).
+1. **Il PRD è validato dal docente (v3.0, 28/10/2026):** si può scrivere il codice del gestionale, che segue il PRD.
 2. **Il codice segue il PRD.** Se un requisito deve cambiare, prima si aggiorna il PRD, poi il codice.
 3. **Non modificare `docs/PRD.md` e `docs/PRD_allegati.md` senza chiedere ad Andrea.** Le decisioni sono sue; proponi le modifiche e attendi conferma.
 4. Versioni del PRD: 1.x per sessione di lavoro che cambia decisioni, 2.0 alla consegna, 3.0 alla validazione. Correzioni minori senza cambio di versione (commit `docs: …`).
