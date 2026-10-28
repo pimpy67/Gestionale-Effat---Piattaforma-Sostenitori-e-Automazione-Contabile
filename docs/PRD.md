@@ -1392,41 +1392,142 @@ Il modello è relazionale, su PostgreSQL 16, e nasce dalle schede dell’Allegat
 
 ## 12.2 Diagramma ER
 
+Le relazioni, divise per gruppo. Dove c’è “o” (per esempio “bambino o famiglia”) la tabella ha due chiavi esterne facoltative e un vincolo che ne ammette una e una sola.
+
 | Relazione | Cardinalità | Motivazione |
 | --- | --- | --- |
+| **Persone e accessi** | | |
+| utente – ruolo_utente | 1 – 0..N | Una persona può avere più ruoli (FR-REG-04) |
+| utente – permesso_volontario | 1 – 0..N | Le azioni abilitate per ogni volontario (FR-RUO-01) |
 | utente – sostenitore | 0..1 – 0..1 | Un padrino storico può non avere un account; un amministratore può non essere sostenitore |
-| sostenitore – adozione – bambino | 1 – 0..N – 1 | Un sostenitore adotta più bambini; un bambino ha nel tempo più adozioni ma **al massimo una attiva**, garantita da un indice unico parziale (FR-ADO-01) |
-| adozione – annualita_adozione | 1 – 1..N | Un’annualità per ogni anno coperto; la prima nasce all’apertura dell’adozione (FR-ADO-04). L’adozione non ha interventi (FR-ADO-06) |
-| annualita_adozione – quota_donazione | 1 – 0..N | Il pagamento di un anno, anche diviso fra più donazioni; in attesa finché non arriva |
-| richiesta – adozione | 0..1 – 0..1 | Il pagamento di una richiesta di adozione apre l’adozione; i padrini storici importati non hanno una richiesta (AMM-09) |
-| bambino o famiglia – richiesta, intervento | 0..1 – 0..N | Il beneficiario è un bambino o una famiglia: due chiavi esterne facoltative e un vincolo che ne ammette una e una sola; per le voci fisse l’intervento nasce alla consegna, con la famiglia obbligatoria (FR-CAT-01, FR-INT-08) |
+| utente o sostenitore o ospite – consenso | 0..1 – 0..N | Ogni consenso ha uno e un solo titolare |
+| sostenitore – iban_sostenitore | 1 – 0..N | Gli IBAN imparati dagli abbinamenti (AMM-04) |
+| ospite – utente | 0..1 – 0..1 | Alla registrazione carrello, preferiti e consensi dell’ospite passano all’utente (FR-REG-05) |
+| **Beneficiari e adozioni** | | |
 | famiglia – bambino | 1 – 1..N | Ogni bambino appartiene a una famiglia; la casa famiglia è una famiglia con la referente come tutore |
 | famiglia – modulo_consenso | 1 – 0..N | Lo storico dei moduli; vale l’ultimo non revocato |
-| bambino o famiglia – contenuto | 0..1 – 0..N | Ogni contenuto appartiene a un bambino oppure a una famiglia, mai a entrambi (vincolo “una e una sola”); lo storico resta con il bambino anche dopo un riaffido (FR-ADO-02) |
+| bambino – dato_sanitario | 1 – 0..N | In una tabella separata, leggibile solo dall’amministratore (FR-RUO-02) |
+| bambino o famiglia – contenuto | 0..1 – 0..N | Ogni contenuto appartiene a un bambino oppure a una famiglia, mai a entrambi; lo storico resta con il bambino anche dopo un riaffido (FR-ADO-02) |
+| sostenitore – adozione – bambino | 1 – 0..N – 1 | Un sostenitore adotta più bambini; un bambino ha nel tempo più adozioni ma **al massimo una attiva**, garantita da un indice unico parziale (FR-ADO-01) |
+| adozione – annualita_adozione | 1 – 1..N | Un’annualità per ogni anno coperto; la prima nasce all’apertura dell’adozione (FR-ADO-04). L’adozione non ha interventi (FR-ADO-06) |
+| richiesta – adozione | 0..1 – 0..1 | Il pagamento di una richiesta di adozione apre l’adozione; i padrini storici importati non hanno una richiesta (AMM-09) |
+| **Vetrina e rendicontazione** | | |
+| capitolo – categoria | 1 – 0..N | La categoria porta il capitolo e il progetto VERIF!CO (FR-INT-02) |
+| capitolo – raccolta_fondi | 1 – 0..N | Anche le campagne esterne hanno il loro capitolo (FR-CAN-01) |
+| categoria – voce_checklist | 1 – 0..N | Le prove richieste per ogni tipo (FR-INT-03) |
+| categoria – richiesta, intervento | 1 – 0..N | Il tipo di ogni richiesta e di ogni intervento |
+| bambino o famiglia – richiesta, intervento | 0..1 – 0..N | Il beneficiario; per le voci fisse l’intervento nasce alla consegna, con la famiglia obbligatoria (FR-CAT-01, FR-INT-08) |
+| richiesta – intervento | 0..1 – 0..1 | Una richiesta personale pagata diventa un intervento |
 | richiesta – foto_richiesta – contenuto | 1 – 0..N – 1 | Quali foto del beneficiario mostrare in vetrina e in che ordine |
-| prova – contenuto | 1 – 1..N | Una voce della checklist si completa con una o più foto; così un intervento vede le sue foto senza un collegamento diretto (FR-INT-03) |
+| intervento – prova | 1 – 0..N | Una prova per ogni voce della checklist |
 | voce_checklist – prova | 1 – 0..N | Una sola prova per coppia intervento–voce (indice unico) |
-| categoria – capitolo | 0..N – 1 | La categoria porta il capitolo e il progetto VERIF!CO (FR-INT-02) |
-| raccolta_fondi – capitolo | 0..N – 1 | Anche le campagne esterne hanno il loro capitolo (FR-CAN-01) |
-| categoria – quota_donazione | 0..1 – 0..N | Le donazioni per una voce fissa restano legate alla categoria finché la consegna non le collega a un intervento (FR-INT-08) |
-| utente o ospite – carrello, preferito | 0..1 – 0..N | Il proprietario è un utente oppure un ospite, uno e uno solo |
+| prova – contenuto | 1 – 1..N | Una voce si completa con una o più foto; così un intervento vede le sue foto senza un collegamento diretto (FR-INT-03) |
+| utente o ospite – carrello, preferito | 0..1 – 0..N | Il proprietario è un utente oppure un ospite |
 | richiesta o categoria – carrello, preferito | 0..1 – 0..N | Una richiesta personale oppure una voce fissa con l’importo |
-| ospite – utente | 0..1 – 0..1 | Alla registrazione carrello, preferiti e consensi dell’ospite passano all’utente (FR-REG-05) |
+| **Soldi** | | |
+| sostenitore – donazione | 1 – 0..N | Ogni donazione ha il suo sostenitore, anche senza account |
+| donazione – quota_donazione | 1 – 1..N | Un carrello con più voci è una sola donazione divisa in quote |
+| capitolo – quota_donazione | 1 – 0..N | Ogni quota è imputata a un capitolo, anche quando non c’è ancora un intervento (voci fisse in attesa, Cassa sostegno, raccolte fondi) |
+| intervento – quota_donazione | 0..1 – 0..N | Un intervento può avere più finanziatori (FR-INT-01); una consegna raccoglie molte donazioni (FR-INT-08) |
+| annualita_adozione – quota_donazione | 0..1 – 0..N | Il pagamento di un anno di adozione, anche diviso fra più donazioni (FR-ADO-04) |
+| categoria – quota_donazione | 0..1 – 0..N | Le donazioni per una voce fissa restano legate alla categoria finché la consegna non le collega a un intervento (FR-INT-08) |
+| raccolta_fondi – quota_donazione | 0..1 – 0..N | Le entrate delle campagne esterne (FR-CAN-01) |
+| donazione – quietanza | 1 – 0..1 | Il file del bonifico caricato dal sostenitore (FR-DON-01) |
+| donazione – credito_solidale | 1 – 0..1 | Il secondo pagamento per la stessa richiesta diventa credito (FR-CAR-02) |
 | categoria – credito_solidale | 1 – 0..N | La tipologia con cui il credito si può usare (FR-CAR-02) |
 | credito_solidale – richiesta | 0..1 – 0..1 | La richiesta su cui il credito viene usato |
+| **Contabilità e sistema** | | |
+| estratto_conto – riga_estratto | 1 – 1..N | Le righe restano anche dopo l’abbinamento, come prova di cosa è stato importato |
+| riga_estratto – donazione | 0..1 – 0..1 | Una riga conferma una donazione dichiarata, oppure ne crea una nuova all’abbinamento |
+| riga_estratto – donazione (versamento Stripe) | 0..1 – 0..N | Un versamento cumulativo di Stripe quadra con molti pagamenti con carta e Satispay (AMM-04 AC-04) |
 | esportazione_verifico – donazione | 0..1 – 0..N | In quale file è entrata ogni donazione; un credito solidale entra solo quando viene usato o scade (FR-CAR-02, FR-VER-02) |
 | utente – contenuto, notizia, invio_bot, registro_modifiche | 1 – 0..N | Chi ha caricato, pubblicato, inviato o modificato (NFR-17) |
 | invio_bot – contenuto | 0..1 – 0..N | Da quale invio arriva ogni foto: tracciabilità e nessun doppione (FR-BOT-06) |
 | sostenitore o ospite – email_inviata | 0..1 – 0..N | A chi è stata mandata l’email |
 | registro_modifiche, segnalazione – dato coinvolto | — | Tabella e id del dato, senza chiave esterna: un registro riguarda qualunque tabella e resta anche se il dato viene archiviato |
-| donazione – quota_donazione | 1 – 1..N | Un carrello con più voci è una sola donazione divisa in quote |
-| intervento – quota_donazione | 1 – 0..N | Un intervento può avere più finanziatori (FR-INT-01); una voce fissa riceve molte donazioni (FR-INT-08) |
-| intervento – prova | 1 – 0..N | Una prova per ogni voce della checklist |
-| estratto_conto – riga_estratto | 1 – 1..N | Le righe restano anche dopo l’abbinamento, come prova di cosa è stato importato |
-| riga_estratto – donazione | 0..1 – 0..1 | Una riga conferma una donazione dichiarata, oppure ne crea una nuova all’abbinamento |
-| riga_estratto – donazione (versamento Stripe) | 0..1 – 0..N | Un versamento cumulativo di Stripe quadra con molti pagamenti con carta e Satispay (AMM-04 AC-04) |
-| capitolo – quota_donazione | 1 – 0..N | Ogni quota è imputata a un capitolo, anche quando non c’è ancora un intervento (voci fisse in attesa, Cassa sostegno, raccolte fondi) |
-| donazione – credito_solidale | 1 – 0..1 | Il secondo pagamento per la stessa richiesta diventa credito (FR-CAR-02) |
+
+**Diagramma completo**
+
+Tutte le 37 tabelle e le loro relazioni, senza attributi; i diagrammi per gruppo che seguono mostrano i campi principali. `impostazione` e `segnalazione` non hanno chiavi esterne.
+
+```mermaid
+erDiagram
+  utente ||--o{ ruolo_utente : ha
+  utente ||--o{ permesso_volontario : riceve
+  utente |o--o| sostenitore : "corrisponde a"
+  ospite |o--o| utente : "si registra come"
+  utente |o--o{ consenso : esprime
+  sostenitore |o--o{ consenso : esprime
+  ospite |o--o{ consenso : esprime
+  sostenitore ||--o{ iban_sostenitore : usa
+
+  famiglia ||--|{ bambino : comprende
+  famiglia ||--o{ modulo_consenso : firma
+  bambino ||--o{ dato_sanitario : ha
+  bambino |o--o{ contenuto : riceve
+  famiglia |o--o{ contenuto : riceve
+  sostenitore ||--o{ adozione : sottoscrive
+  bambino ||--o{ adozione : "è adottato con"
+  adozione ||--|{ annualita_adozione : "si rinnova con"
+  richiesta |o--o| adozione : apre
+
+  capitolo ||--o{ categoria : raggruppa
+  capitolo ||--o{ raccolta_fondi : raggruppa
+  categoria ||--o{ voce_checklist : richiede
+  categoria ||--o{ richiesta : classifica
+  categoria ||--o{ intervento : classifica
+  bambino |o--o{ richiesta : beneficiario
+  famiglia |o--o{ richiesta : beneficiario
+  bambino |o--o{ intervento : beneficiario
+  famiglia |o--o{ intervento : beneficiario
+  richiesta |o--o| intervento : diventa
+  richiesta ||--o{ foto_richiesta : mostra
+  contenuto ||--o{ foto_richiesta : "è mostrato in"
+  intervento ||--o{ prova : documenta
+  voce_checklist ||--o{ prova : "è completata da"
+  prova |o--|{ contenuto : "si compone di"
+  utente |o--o{ carrello : riempie
+  ospite |o--o{ carrello : riempie
+  richiesta |o--o{ carrello : contiene
+  categoria |o--o{ carrello : contiene
+  utente |o--o{ preferito : salva
+  ospite |o--o{ preferito : salva
+  richiesta |o--o{ preferito : contiene
+  categoria |o--o{ preferito : contiene
+  utente ||--o{ notizia : pubblica
+
+  sostenitore ||--o{ donazione : fa
+  donazione ||--|{ quota_donazione : "si divide in"
+  capitolo ||--o{ quota_donazione : imputa
+  intervento |o--o{ quota_donazione : riceve
+  annualita_adozione |o--o{ quota_donazione : riceve
+  categoria |o--o{ quota_donazione : "attende la consegna"
+  raccolta_fondi |o--o{ quota_donazione : riceve
+  donazione ||--o| quietanza : ha
+  donazione ||--o| credito_solidale : genera
+  categoria ||--o{ credito_solidale : tipologia
+  credito_solidale |o--o| richiesta : "usato per"
+
+  estratto_conto ||--|{ riga_estratto : contiene
+  riga_estratto |o--o| donazione : conferma
+  riga_estratto |o--o{ donazione : "quadra (Stripe)"
+  esportazione_verifico |o--o{ donazione : include
+  utente ||--o{ invio_bot : invia
+  invio_bot |o--o{ contenuto : porta
+  utente ||--o{ contenuto : carica
+  utente ||--o{ registro_modifiche : modifica
+  sostenitore |o--o{ email_inviata : riceve
+  ospite |o--o{ email_inviata : riceve
+  impostazione {
+    uuid id PK
+    string chiave
+  }
+  segnalazione {
+    uuid id PK
+    string tabella
+    uuid record_id
+  }
+```
 
 **Persone e accessi**
 
